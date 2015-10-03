@@ -187,8 +187,10 @@ namespace Lightning_Talk
         debugging:;
             Func<Task> awaitingFinally2 = async () =>
             {
+                await Task.Yield();
                 try
                 {
+                    System.Diagnostics.Debug.WriteLine("Here we go...");
                     Thread.CurrentThread.Abort();
                 }
                 finally
@@ -198,19 +200,17 @@ namespace Lightning_Talk
                 }
             };
 
-            try
-            {
-                await awaitingFinally2();
-            }
-            catch (Exception)
-            {
-                Thread.ResetAbort();
-            }
+
+            var task = awaitingFinally2();
+
+            Thread.Sleep(TimeSpan.FromSeconds(5));
 
             Func<Task> awaitingFinally3 = async () =>
             {
+                await Task.Yield();
                 try
                 {
+                    System.Diagnostics.Debug.WriteLine("Here we go...");
                     Thread.CurrentThread.Abort();
                 }
                 finally
@@ -221,15 +221,10 @@ namespace Lightning_Talk
                 }
             };
 
-            try
-            {
-                await awaitingFinally3();
-            }
-            catch (Exception)
-            {
-                Thread.ResetAbort();
-            }
 
+            var withAwaitInFinally = awaitingFinally3();
+
+            Thread.Sleep(TimeSpan.FromSeconds(7));
         }
 
 
