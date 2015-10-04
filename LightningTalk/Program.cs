@@ -19,10 +19,8 @@ namespace Lightning_Talk
 
         static async void TheTalk()
         {
-            goto debugging;
 
             // https://en.wikipedia.org/wiki/Give_Me_Convenience_or_Give_Me_Death#/media/File:Dead_Kennedys_-_Give_Me_Convenience_or_Give_Me_Death_cover.jpg
-            Console.WriteLine();
 
             // New language features could be implemented using a library
 
@@ -31,20 +29,45 @@ namespace Lightning_Talk
             // So we end up instead with a library, new syntax in the language, and a hardwired code generating front end that sits on top of the library
             //     [though this is extensible via patterns]
 
-            // Example:
+            // How did we get here?
 
-            var task1 = new Task(() =>
+            // We started with a notion of task, most freqeuntly seen as
+
+            var task0 = Task.Run<int>(() =>
             {
-                System.Diagnostics.Debug.WriteLine("Starting");
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-                System.Diagnostics.Debug.WriteLine("Finished");
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                return 10;
             });
 
-            task1.Start();
+            task0.Wait();
 
-            task1.Wait();
+            // But task is a bit overloaded with convenience methods
 
-            Console.WriteLine();
+            // The common case is to generate via the Run, but we can just make tasks as we like
+
+            var task1 = Task.FromResult<int>(10);
+            var task2 = Task.FromException<int>(new NotImplementedException("nooooooo"));
+
+            // Task itself is really a batch of work perhaps like a future in other languages
+
+            var tcs1 = new TaskCompletionSource<int>();
+            var task3 = tcs1.Task;
+
+            ThreadPool.QueueUserWorkItem(delegate { tcs1.SetResult(10); });
+
+            task3.Wait();
+
+            // Or set it up and control its start
+
+            var task4 = new Task<int>(() =>
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(2));
+                return 10;
+            });
+
+            task4.Start();
+
+            task4.Wait();
 
             // And of course there's a way to handle exceptions too
 
@@ -55,8 +78,6 @@ namespace Lightning_Talk
             System.Diagnostics.Debug.WriteLine(faultingTask.Status);
             System.Diagnostics.Debug.WriteLine(faultingTask.Exception);
 
-            Console.WriteLine();
-
             // And you might regard async as a DSL for dealing with tasks
 
             var faultingTask2 = PercyThrower();
@@ -64,8 +85,6 @@ namespace Lightning_Talk
 
             System.Diagnostics.Debug.WriteLine(faultingTask2.Status);
             System.Diagnostics.Debug.WriteLine(faultingTask2.Exception);
-
-            Console.WriteLine();
 
             // Or more consisely
 
@@ -75,12 +94,26 @@ namespace Lightning_Talk
                     throw new NotImplementedException("If only I'd bothered");
                 };
 
+            // Though using the async syntax is not quite like the normal Task.Run
+
+            Func<Task> l = async () =>
+            {
+                // Running on start thread
+                await Task.Yield();
+                //Running on threadpool thread
+                await Task.Yield();
+            };
+
+            await l();
+
+            // But back to the example
+
             var faultingTask3 = taskMaker();
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
             System.Diagnostics.Debug.WriteLine(faultingTask3.Status);
             System.Diagnostics.Debug.WriteLine(faultingTask3.Exception);
-
+          
             // But there's mystery happening
 
             try
@@ -102,7 +135,13 @@ namespace Lightning_Talk
             System.Diagnostics.Debug.WriteLine(waitingForYouAll.Status);
             System.Diagnostics.Debug.WriteLine(waitingForYouAll.Exception);
 
-
+            try
+            {
+                await waitingForYouAll;
+            }
+            catch (Exception ex)
+            {
+            }
 
             // So we took the Task library, and added support for the front end code generation
 
@@ -113,7 +152,8 @@ namespace Lightning_Talk
                 Console.WriteLine("I'm still here");
             };
 
-            var theAwaiter = getAwaiter().GetAwaiter();
+            var theTask = getAwaiter();
+            var theAwaiter = theTask.GetAwaiter();
             theAwaiter.OnCompleted(() => System.Diagnostics.Debug.WriteLine("And I finally finished"));
 
             Thread.Sleep(TimeSpan.FromSeconds(10));
@@ -145,46 +185,21 @@ namespace Lightning_Talk
         //But it's rather hard to implement that finally as a finally 
         //  finally is a thread local construct
 
-        //Func<Task> awaitingFinally2 = async () =>
-        //{
-        //    try
-        //    {
-        //        ThrowMysteryException();
-        //    }
-        //    finally
-        //    {
-        //        System.Diagnostics.Debug.WriteLine("Inside Finally");
-        //        await Task.Delay(TimeSpan.FromSeconds(5));
-        //        System.Diagnostics.Debug.WriteLine("Finishing Finally");
-        //    }
-        //};
+            var finallyTask = Task.Run(() =>
+            {
+                try
+                {
+                    Thread.CurrentThread.Abort();
+                }
+                finally
+                {
+                    System.Diagnostics.Debug.WriteLine("Here");
+                }
+            });
 
-        //try
-        //{
-        //    await awaitingFinally2();
-        //}
-        //catch (Exception)
-        //{ }
+            await finallyTask;
 
-        //try
-        //{
-        //    await Task.Run(() => FinallyExample());
-        //}
-        //catch (Exception)
-        //{
-        //}
 
-        //try
-        //{
-        //    await Task.Run(() => FinallyExample2());
-        //}
-        //catch (Exception)
-        //{
-        //}
-
-        // But not as lambda expressions
-
-        debugging:;
             Func<Task> awaitingFinally2 = async () =>
             {
                 await Task.Yield();
