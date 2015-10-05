@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,18 +18,39 @@ namespace Lightning_Talk
         static async void TheTalk()
         {
 
-            // https://en.wikipedia.org/wiki/Give_Me_Convenience_or_Give_Me_Death#/media/File:Dead_Kennedys_-_Give_Me_Convenience_or_Give_Me_Death_cover.jpg
+            // https://en.wikipedia.org/wiki/Give_Me_Convenience_or_Give_Me_Death
 
-            // New language features could be implemented using a library
+            Debugger.Break();
 
-            // But unlike other languages C# doesn't have a flexible syntax or a macro language to exploit it (think Internal DSL)
+            // I think that sometimes we try to make things too simple. 
+            // It works well for the common case, but makes the edge cases way too confusing.
 
-            // So we end up instead with a library, new syntax in the language, and a hardwired code generating front end that sits on top of the library
-            //     [though this is extensible via patterns]
+            Debugger.Break();
+
+            // I think async is exactly matches this. It's good for the common cases
+            // but the edge cases just make everything really confusing.
+
+            Debugger.Break();
+
+            // It some languages we could implement async as a language extension, say by using macros.
+
+            // In C# we have ended up with 
+            //    ... extending an existing library - the TPL
+            //    ... adding a pattern for the await mechanism
+            //    ... having methods marked with async code generate to a mass of code implementing
+            //        a state machine
+
+            Debugger.Break();
 
             // How did we get here?
 
-            // We started with a notion of task, most freqeuntly seen as
+            // We started with a notion of task, which you'd probably call a future in other languages
+            //  ... and we'd probably make it an interface 
+
+            Debugger.Break();
+
+            // But to be honest, Task in .NET is way overpopulated with convenience methods
+            // so it is easy to think this is the nature of a Task.
 
             var task0 = Task.Run<int>(() =>
             {
@@ -41,38 +59,49 @@ namespace Lightning_Talk
             });
 
             task0.Wait();
+
+            // And inspect to see the promise items
+
+            var x = task0.Result;
+            var status = task0.Status;
+
             Debugger.Break();
 
-            // But task is a bit overloaded with convenience methods
-
-            // The common case is to generate via the Run, but we can just make tasks as we like
+            // But this is really its essence
 
             var task1 = Task.FromResult<int>(10);
+
             var task2 = Task.FromException<int>(new NotImplementedException("nooooooo"));
 
-            // Task itself is really a batch of work perhaps like a future in other languages
+            Debugger.Break();
+
+            // And its nature as a box comes via TaskCompletionSource
 
             var tcs1 = new TaskCompletionSource<int>();
             var task3 = tcs1.Task;
 
+            Debugger.Break();
+
             ThreadPool.QueueUserWorkItem(delegate { tcs1.SetResult(10); });
 
             task3.Wait();
+
             Debugger.Break();
 
-            // Or set it up and control its start
+            // But Task feels like it has too much inside one class
 
             var task4 = new Task<int>(() =>
             {
-                Debugger.Break();
+                Debugger.Break(); // Where is this going to run?
                 return 10;
             });
 
             Debugger.Break();
 
-            task4.Start();
+            task4.Start(); 
 
             task4.Wait();
+
             Debugger.Break();
 
             // And of course there's a way to handle exceptions too
@@ -83,11 +112,13 @@ namespace Lightning_Talk
 
             Debug.WriteLine(faultingTask.Status);
             Debug.WriteLine(faultingTask.Exception);
+
             Debugger.Break();
 
             // And you might regard async as a DSL for dealing with tasks
 
             var faultingTask2 = PercyThrower();
+
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
             Debug.WriteLine(faultingTask2.Status);
@@ -103,6 +134,11 @@ namespace Lightning_Talk
                 };
 
             // Though using the async syntax is not quite like the normal Task.Run
+            // Task.Run generally makes things run on the threadpool, whereas
+            // async knows about the local context and tries to make sure that code
+            // only runs in the context
+
+            Debugger.Break();
 
             Func<Task> l = async () =>
             {
@@ -121,7 +157,10 @@ namespace Lightning_Talk
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
             Debugger.Break();
-            // See the Status and the Exception
+
+            var exceptionType = faultingTask3.Exception.GetType().Name;
+
+            Debugger.Break();
 
             // But there's mystery happening
 
@@ -131,13 +170,13 @@ namespace Lightning_Talk
             }
             catch (Exception ex)
             {
+                // And we see something different in the catch
+                //  ... by design the await takes the first exception of the aggregate so that the above works ok
+
                 Debugger.Break();
             }
 
-            // And we see something different in the catch
-            //  ... so by design the await takes the first exception of the aggregate so that the above works ok
-
-            // With the classic gotcha
+            // leading to the classic gotcha
 
             var waitingForYouAll = Task.WhenAll(taskMaker(), taskMaker());
 
@@ -153,32 +192,33 @@ namespace Lightning_Talk
                 Debugger.Break();
             }
 
-            // So we took the Task library, and added support for the front end code generation
+            // They took the Task library, and added support for the front end code generation
 
-            Func<Task> getAwaiter = async () =>
+            Func<Task> awaitMaker = async () =>
             {
-                Console.WriteLine("Hello");
                 await Task.Delay(TimeSpan.FromSeconds(2));
-                Console.WriteLine("I'm still here");
             };
 
-            var theTask = getAwaiter();
+            Debugger.Break();
+
+            var theTask = awaitMaker();
             var theAwaiter = theTask.GetAwaiter();
-            theAwaiter.OnCompleted(() => Debug.WriteLine("And I finally finished"));
+            theAwaiter.OnCompleted(() => Debugger.Break());
 
             Thread.Sleep(TimeSpan.FromSeconds(10));
 
             Debugger.Break();
 
-            // And the synchronisation context is important too
+            // We have chosen to generate C# code to implement the async methods and the awaiter calls,
+            // and that leads to the edge case.
 
-            // BUT the real change is C# 6
-            //    where we can now put an await in a finally block
+            // In C# 6, we can now put an await in a finally block
 
             Func<Task> awaitingFinally = async () =>
             {
                 try
                 {
+                    Debugger.Break();
                     throw new NotImplementedException();
                 }
                 finally
@@ -191,17 +231,20 @@ namespace Lightning_Talk
 
             try
             {
+                Debugger.Break();
                 await awaitingFinally();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Debugger.Break();
             }
 
-            Debugger.Break();
+            // But it's rather hard to implement that finally as a real finally 
 
-            //But it's rather hard to implement that finally as a finally 
-            //  finally is a thread local construct
+            // Finally in C# maps to finally blocks in IL which are a thread related concept.
+            // An await related finally requires thread stack unwinding and re-establishment
+
+            Debugger.Break();
 
             var finallyTask = Task.Run(() =>
             {
@@ -216,10 +259,11 @@ namespace Lightning_Talk
                 }
             });
 
-            await finallyTask;
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+            
             Debugger.Break();
 
-            // But....
+            // And this is fine if we don't do any awaiting.
 
             Func<Task> awaitingFinally2 = async () =>
             {
@@ -238,7 +282,10 @@ namespace Lightning_Talk
             var task = awaitingFinally2();
 
             Thread.Sleep(TimeSpan.FromSeconds(5));
+
             Debugger.Break();
+
+            // But....
 
             Func<Task> awaitingFinally3 = async () =>
             {
@@ -258,6 +305,13 @@ namespace Lightning_Talk
             var withAwaitInFinally = awaitingFinally3();
 
             Thread.Sleep(TimeSpan.FromSeconds(7));
+
+            // And that's it. It's the first time that try...finally doesn't map to try...finally.
+            // It maps to
+            //   try { ... } catch(Exception ex) { theException = ex; }
+            //   ... do stuff with the exception...
+            //   ... and then re-raise it 
+
             Debugger.Break();
         }
 
