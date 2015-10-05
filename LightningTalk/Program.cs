@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -35,11 +36,12 @@ namespace Lightning_Talk
 
             var task0 = Task.Run<int>(() =>
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Debugger.Break();
                 return 10;
             });
 
             task0.Wait();
+            Debugger.Break();
 
             // But task is a bit overloaded with convenience methods
 
@@ -56,18 +58,22 @@ namespace Lightning_Talk
             ThreadPool.QueueUserWorkItem(delegate { tcs1.SetResult(10); });
 
             task3.Wait();
+            Debugger.Break();
 
             // Or set it up and control its start
 
             var task4 = new Task<int>(() =>
             {
-                Thread.Sleep(TimeSpan.FromSeconds(2));
+                Debugger.Break();
                 return 10;
             });
+
+            Debugger.Break();
 
             task4.Start();
 
             task4.Wait();
+            Debugger.Break();
 
             // And of course there's a way to handle exceptions too
 
@@ -75,16 +81,18 @@ namespace Lightning_Talk
 
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
-            System.Diagnostics.Debug.WriteLine(faultingTask.Status);
-            System.Diagnostics.Debug.WriteLine(faultingTask.Exception);
+            Debug.WriteLine(faultingTask.Status);
+            Debug.WriteLine(faultingTask.Exception);
+            Debugger.Break();
 
             // And you might regard async as a DSL for dealing with tasks
 
             var faultingTask2 = PercyThrower();
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
-            System.Diagnostics.Debug.WriteLine(faultingTask2.Status);
-            System.Diagnostics.Debug.WriteLine(faultingTask2.Exception);
+            Debug.WriteLine(faultingTask2.Status);
+            Debug.WriteLine(faultingTask2.Exception);
+            Debugger.Break();
 
             // Or more consisely
 
@@ -98,22 +106,23 @@ namespace Lightning_Talk
 
             Func<Task> l = async () =>
             {
-                // Running on start thread
+                Debugger.Break();
                 await Task.Yield();
-                //Running on threadpool thread
+                Debugger.Break();
                 await Task.Yield();
             };
 
             await l();
+            Debugger.Break();
 
             // But back to the example
 
             var faultingTask3 = taskMaker();
             Thread.Sleep(TimeSpan.FromSeconds(1));
 
-            System.Diagnostics.Debug.WriteLine(faultingTask3.Status);
-            System.Diagnostics.Debug.WriteLine(faultingTask3.Exception);
-          
+            Debugger.Break();
+            // See the Status and the Exception
+
             // But there's mystery happening
 
             try
@@ -122,7 +131,7 @@ namespace Lightning_Talk
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
+                Debugger.Break();
             }
 
             // And we see something different in the catch
@@ -132,8 +141,8 @@ namespace Lightning_Talk
 
             var waitingForYouAll = Task.WhenAll(taskMaker(), taskMaker());
 
-            System.Diagnostics.Debug.WriteLine(waitingForYouAll.Status);
-            System.Diagnostics.Debug.WriteLine(waitingForYouAll.Exception);
+            Debug.WriteLine(waitingForYouAll.Status);
+            Debug.WriteLine(waitingForYouAll.Exception);
 
             try
             {
@@ -141,6 +150,7 @@ namespace Lightning_Talk
             }
             catch (Exception ex)
             {
+                Debugger.Break();
             }
 
             // So we took the Task library, and added support for the front end code generation
@@ -154,9 +164,13 @@ namespace Lightning_Talk
 
             var theTask = getAwaiter();
             var theAwaiter = theTask.GetAwaiter();
-            theAwaiter.OnCompleted(() => System.Diagnostics.Debug.WriteLine("And I finally finished"));
+            theAwaiter.OnCompleted(() => Debug.WriteLine("And I finally finished"));
 
             Thread.Sleep(TimeSpan.FromSeconds(10));
+
+            Debugger.Break();
+
+            // And the synchronisation context is important too
 
             // BUT the real change is C# 6
             //    where we can now put an await in a finally block
@@ -169,9 +183,9 @@ namespace Lightning_Talk
                 }
                 finally
                 {
-                    System.Diagnostics.Debug.WriteLine("Inside Finally");
+                    Debugger.Break();
                     await Task.Delay(TimeSpan.FromSeconds(5));
-                    System.Diagnostics.Debug.WriteLine("Finishing Finally");
+                    Debugger.Break();
                 }
             };
 
@@ -180,108 +194,80 @@ namespace Lightning_Talk
                 await awaitingFinally();
             }
             catch (Exception)
-            { }
+            {
+                Debugger.Break();
+            }
 
-        //But it's rather hard to implement that finally as a finally 
-        //  finally is a thread local construct
+            Debugger.Break();
+
+            //But it's rather hard to implement that finally as a finally 
+            //  finally is a thread local construct
 
             var finallyTask = Task.Run(() =>
             {
                 try
                 {
+                    Debugger.Break();
                     Thread.CurrentThread.Abort();
                 }
                 finally
                 {
-                    System.Diagnostics.Debug.WriteLine("Here");
+                    Debugger.Break();
                 }
             });
 
             await finallyTask;
+            Debugger.Break();
 
+            // But....
 
             Func<Task> awaitingFinally2 = async () =>
             {
                 await Task.Yield();
                 try
                 {
-                    System.Diagnostics.Debug.WriteLine("Here we go...");
+                    Debugger.Break();
                     Thread.CurrentThread.Abort();
                 }
                 finally
                 {
-                    System.Diagnostics.Debug.WriteLine("Inside Finally");
-                    System.Diagnostics.Debug.WriteLine("Finishing Finally");
+                    Debugger.Break();
                 }
             };
-
 
             var task = awaitingFinally2();
 
             Thread.Sleep(TimeSpan.FromSeconds(5));
+            Debugger.Break();
 
             Func<Task> awaitingFinally3 = async () =>
             {
                 await Task.Yield();
                 try
                 {
-                    System.Diagnostics.Debug.WriteLine("Here we go...");
+                    Debugger.Break();
                     Thread.CurrentThread.Abort();
                 }
                 finally
                 {
-                    System.Diagnostics.Debug.WriteLine("Inside Finally");
+                    Debugger.Break();
                     await Task.Delay(TimeSpan.FromSeconds(10));
-                    System.Diagnostics.Debug.WriteLine("Finishing Finally");
                 }
             };
-
 
             var withAwaitInFinally = awaitingFinally3();
 
             Thread.Sleep(TimeSpan.FromSeconds(7));
+            Debugger.Break();
         }
 
 
         // Marking a method as async makes it into a task 
         static async Task PercyThrower()
         {
+            Debugger.Break();
             throw new NotImplementedException("If only I'd bothered");
         }
 
-
-        static void ThrowMysteryException()
-        {
-            Thread.CurrentThread.Abort();
-        }
-
-        static async void FinallyExample()
-        {
-            try
-            {
-                ThrowMysteryException();
-            }
-            finally
-            {
-                System.Diagnostics.Debug.WriteLine("Inside Finally");
-                System.Diagnostics.Debug.WriteLine("Finishing Finally");
-            }
-
-        }
-
-        static async void FinallyExample2()
-        {
-            try
-            {
-                ThrowMysteryException();
-            }
-            finally
-            {
-                System.Diagnostics.Debug.WriteLine("Inside Finally");
-                await Task.Delay(TimeSpan.FromSeconds(5));
-                System.Diagnostics.Debug.WriteLine("Finishing Finally");
-            }
-
-        }
     }
 }
