@@ -28,7 +28,7 @@ namespace Lightning_Talk
             Debugger.Break();
 
             // I think async is exactly matches this. It's good for the common cases
-            // but the edge cases just make everything really confusing.
+            // but the edge cases just make you doubt everything.
 
             Debugger.Break();
 
@@ -40,16 +40,16 @@ namespace Lightning_Talk
             //    ... having methods marked with async code generate to a mass of code implementing
             //        a state machine
 
+            // And all the generated code is straightforward C#
+
             Debugger.Break();
 
             // How did we get here?
 
-            // We started with a notion of task, which you'd probably call a future in other languages
-            //  ... and we'd probably make it an interface 
+            // We started with a notion of task, which you'd probably call a promise in other languages
+            //  ... and we'd probably make it an interface or abstract class
 
-            Debugger.Break();
-
-            // But to be honest, Task in .NET is way overpopulated with convenience methods
+            // To be honest, Task in .NET is way overpopulated with convenience methods
             // so it is easy to think this is the nature of a Task.
 
             var task0 = Task.Run<int>(() =>
@@ -60,9 +60,12 @@ namespace Lightning_Talk
 
             task0.Wait();
 
+            var x = task0.Result;
+
+            Debugger.Break();
+
             // And inspect to see the promise items
 
-            var x = task0.Result;
             var status = task0.Status;
 
             Debugger.Break();
@@ -99,7 +102,6 @@ namespace Lightning_Talk
             Debugger.Break();
 
             task4.Start(); 
-
             task4.Wait();
 
             Debugger.Break();
@@ -115,6 +117,17 @@ namespace Lightning_Talk
 
             Debugger.Break();
 
+            // And waiting for a faulting task does the throwing
+
+            try
+            {
+                faultingTask.Wait();
+            }
+            catch (Exception ex)
+            {
+                Debugger.Break();
+            }
+
             // And you might regard async as a DSL for dealing with tasks
 
             var faultingTask2 = PercyThrower();
@@ -123,6 +136,7 @@ namespace Lightning_Talk
 
             Debug.WriteLine(faultingTask2.Status);
             Debug.WriteLine(faultingTask2.Exception);
+
             Debugger.Break();
 
             // Or more consisely
@@ -198,8 +212,6 @@ namespace Lightning_Talk
             {
                 await Task.Delay(TimeSpan.FromSeconds(2));
             };
-
-            Debugger.Break();
 
             var theTask = awaitMaker();
             var theAwaiter = theTask.GetAwaiter();
