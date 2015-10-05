@@ -17,7 +17,6 @@ namespace Lightning_Talk
 
         static async void TheTalk()
         {
-
             // https://en.wikipedia.org/wiki/Give_Me_Convenience_or_Give_Me_Death
 
             Debugger.Break();
@@ -35,10 +34,10 @@ namespace Lightning_Talk
             // It some languages we could implement async as a language extension, say by using macros.
 
             // In C# we have ended up with 
-            //    ... extending an existing library - the TPL
-            //    ... adding a pattern for the await mechanism
-            //    ... having methods marked with async code generate to a mass of code implementing
-            //        a state machine
+            //    Extending an existing library - the TPL
+            //    Adding a pattern for the await mechanism to the front end
+            //    Having methods marked with async code generate to a mass of code implementing a state machine
+            //    Add hook points into the TPL
 
             // And all the generated code is straightforward C#
 
@@ -132,10 +131,8 @@ namespace Lightning_Talk
 
             var faultingTask2 = PercyThrower();
 
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-
-            Debug.WriteLine(faultingTask2.Status);
-            Debug.WriteLine(faultingTask2.Exception);
+            var x2 = faultingTask2.Result;
+            var x3 = await faultingTask2;
 
             Debugger.Break();
 
@@ -213,6 +210,9 @@ namespace Lightning_Talk
                 await Task.Delay(TimeSpan.FromSeconds(2));
             };
 
+            // await awaitMaker()
+            //        =>
+
             var theTask = awaitMaker();
             var theAwaiter = theTask.GetAwaiter();
             theAwaiter.OnCompleted(() => Debugger.Break());
@@ -258,21 +258,19 @@ namespace Lightning_Talk
 
             Debugger.Break();
 
-            var finallyTask = Task.Run(() =>
-            {
-                try
-                {
-                    Debugger.Break();
-                    Thread.CurrentThread.Abort();
-                }
-                finally
-                {
-                    Debugger.Break();
-                }
-            });
+            // Now there's a very special exception in .NET
 
-            Thread.Sleep(TimeSpan.FromSeconds(5));
-            
+            try
+            {
+                Debugger.Break();
+                Thread.CurrentThread.Abort();
+            }
+            catch (Exception ex)
+            {
+                Debugger.Break();
+                Thread.ResetAbort();
+            }
+
             Debugger.Break();
 
             // And this is fine if we don't do any awaiting.
@@ -329,10 +327,10 @@ namespace Lightning_Talk
 
 
         // Marking a method as async makes it into a task 
-        static async Task PercyThrower()
+        static async Task<int> PercyThrower()
         {
             Debugger.Break();
-            throw new NotImplementedException("If only I'd bothered");
+            return 10;
         }
 
     }
