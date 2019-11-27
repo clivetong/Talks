@@ -4,6 +4,7 @@ open Elmish
 open Elmish.React
 open Fable.React
 open Fable.React.Props
+open Fable.Core.JsInterop
 
 // 0 Define the state
 
@@ -44,7 +45,9 @@ let update (msg:Event) (state:State) =
   match msg with
   |  StartEdit pos ->
       {state with Active = Some pos }
-
+  | UpdateValue (pos, value) ->
+      let newCells = Map.add pos value state.Cells
+      {state with Cells = newCells}
 
 let renderEditor dispatch pos value =
   td [  ] [
@@ -52,6 +55,7 @@ let renderEditor dispatch pos value =
             AutoFocus true
             Type "text"
             ClassName "selected"
+            OnInput (fun ev -> (UpdateValue (pos, !!ev.target?value) |> dispatch ))
         ] 
   ]
 
