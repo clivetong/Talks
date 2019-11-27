@@ -44,11 +44,21 @@ let update (msg:Msg) (state:State) =
 
 // VIEW (rendered with React)
 
+let renderCell dispatch pos state = 
+  td [] [str "..."]
+
 let view (state:State) dispatch =
 
-  div []
-      [ str "hello" ]
-
+  table [] [
+     yield tr [] [
+       yield th [] [] 
+       for col in state.Cols -> th [] [str (string col)]
+     ]
+     for row in state.Rows -> tr [] [
+       yield th [] [str (string row)]
+       for col in state.Cols -> renderCell dispatch (col,row) state
+     ]
+  ]
 
 
 
