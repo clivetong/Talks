@@ -36,16 +36,34 @@ type Msg =
 
 
 
-// UPDATE
+type Event =
+  | StartEdit of Position
+  | UpdateValue of Position * string
 
-let update (msg:Msg) (state:State) =
-  state
+let update (msg:Event) (state:State) =
+  match msg with
+  |  StartEdit pos ->
+      {state with Active = Some pos }
 
 
-// VIEW (rendered with React)
+let renderEditor dispatch pos value =
+  td [  ClassName "selected" ] [
+    input [ DefaultValue value
+            AutoFocus true
+            Type "text"
+            ClassName "input"
+        ] 
+  ]
+
+let renderView dispatch pos value = 
+  td [OnClick (fun _ -> dispatch (StartEdit pos)) ] [ str value]
 
 let renderCell dispatch pos state = 
-  td [] [str "..."]
+  let value = Map.tryFind pos state.Cells
+  if state.Active = Some pos then
+      renderEditor dispatch pos (defaultArg value "")
+    else
+      renderView dispatch pos (defaultArg value "")
 
 let view (state:State) dispatch =
 
