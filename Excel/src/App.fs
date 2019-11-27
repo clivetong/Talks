@@ -47,11 +47,11 @@ let update (msg:Event) (state:State) =
 
 
 let renderEditor dispatch pos value =
-  td [  ClassName "selected" ] [
+  td [  ] [
     input [ DefaultValue value
             AutoFocus true
             Type "text"
-            ClassName "input"
+            ClassName "selected"
         ] 
   ]
 
