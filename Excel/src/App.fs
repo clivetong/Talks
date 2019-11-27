@@ -47,7 +47,7 @@ let update (msg:Msg) (state:State) =
 let view (state:State) dispatch =
 
   div []
-      [ str "kakaa" ]
+      [ str "hello" ]
 
 
 
