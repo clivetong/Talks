@@ -5,7 +5,7 @@ open Elmish.React
 open Fable.React
 open Fable.React.Props
 open Fable.Core.JsInterop
-open FParsec
+open Parsec
 
 // 0 Define the state
 
@@ -30,16 +30,25 @@ type Expr =
     | Number of int
     | Binary of Expr * char * Expr
 
+
 type UserState = unit // doesn't have to be unit, of course
 
+//https://fsharpforfunandprofit.com/posts/understanding-parser-combinators/
 type Parser<'t> = Parser<'t, UserState>
 
-let operator: Parser<char> = pchar '*' <|> pchar '+' <|> pchar '/' <|> pchar '-'
+let operator = char '*' <|> char '+' <|> char '/' <|> char '-'
 
-let number = pint32 |>> Number
+let number = integer |> map Number
 
-let binary = number >>. operator >>. number |>> (fun x y z -> Binary(x, y, z))
+let binary = number <*> operator <*> number |> map (fun ((l, op), r) -> Binary(l, op, r))
 
+let parser = binary <|> number
+
+let evaluate expr =
+    let parsedResult = run parser expr
+    match parsedResult with
+    | Some(expr) -> sprintf "%A" expr
+    | None -> "Failed to parse"
 
 type Msg = Foo
 
@@ -53,7 +62,7 @@ let update (msg: Event) (state: State) =
     match msg with
     | StartEdit pos -> { state with Active = Some pos }
     | UpdateValue(pos, value) ->
-        let newCells = Map.add pos value state.Cells
+        let newCells = Map.add pos (evaluate value) state.Cells
         { state with Cells = newCells }
 
 let renderEditor dispatch pos value =
