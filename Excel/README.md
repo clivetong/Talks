@@ -1,38 +1,57 @@
 
-Start with https://github.com/fable-compiler/fable2-samples/tree/master/minimal
+# Download Fable
 
-VSCode iodine
+- Start with https://github.com/fable-compiler/fable2-samples/tree/master/minimal
 
-npm initial
-npm start
-Show how it hangs together
+# Configure VSCode
 
+- VSCode iodine
 
-Define Position and State 
-Create an initial state
-Render grid in `view` and use `rendercell` to make grid
-Change the css to make it look more grid like
+# Running the example Fable app
 
-Add a rendereditor and rendercell
-Define the StartEdit and UpdateValue events and handle them
-Use onclick to start edit
-Use oninput to trigger the update value
+- npm initial
+- npm start
+- Show how it hangs together
 
-Explain we'll be using a prewritten parser combinator library
-And add it to the source code
+# Get a grid working
 
-Define a simple tree for expressions Number and Binary
-Define the parser rules for integer
-Define the rule for Binary
-Build the tree
-Print the tree nodes into the grid
+- Define Position and State 
+- Create an initial state
+- Render grid in `view` and use `rendercell` to make grid
+- Change the css to make it look more grid like
 
-Evaluate tree
-And brackets
-And cell reference (try find on the map)
+# Make it editable
 
-Railway oriented programming using Option type
-If value is None turn the cell red (in the CSS)
-Handle looping in the references
+- Add a rendereditor and rendercell
+- Define the StartEdit and UpdateValue events and handle them
+- Use onclick to start edit
+- Use oninput to trigger the update value
 
-Talk about the better way to generate a flow graph
+# Parsing
+
+- Explain we'll be using a prewritten parser combinator library
+- And add it to the source code
+
+# Unevaluated expressions in cells
+
+- Define a simple tree for expressions Number and Binary
+- Define the parser rules for integer
+- Define the rule for Binary
+- Build the tree
+- Print the tree nodes into the grid
+
+# Evaluated 
+
+- Evaluate tree
+- And brackets
+- And cell reference (try find on the map)
+
+# But errors?
+
+- Railway oriented programming using Option type
+- If value is None turn the cell red (in the CSS)
+- Handle looping in the references
+
+# And where next?
+
+- Talk about the better way to generate a flow graph
