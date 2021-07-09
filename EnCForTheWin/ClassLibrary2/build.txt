@@ -1,0 +1,182 @@
+  C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Current\Bin\Roslyn\csc.exe  /fullpaths /nostdlib+
+   /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\mscorlib.dll" 
+   /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\netstandard.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.
+  App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.AppContext.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft
+  .NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Buffers.dll" /reference:"C:\Program Files\dotnet\packs\Mic
+  rosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Collections.Concurrent.dll" /reference:"C:\Program F
+  iles\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Collections.dll" /reference:"C:
+  \Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Collections.Immutable
+  .dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.C
+  ollections.NonGeneric.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.
+  5\ref\net6.0\System.Collections.Specialized.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\
+  6.0.0-preview.5.21301.5\ref\net6.0\System.ComponentModel.Annotations.dll" /reference:"C:\Program Files\dotnet\packs\M
+  icrosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.ComponentModel.DataAnnotations.dll" /reference:"C:
+  \Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.ComponentModel.dll" /
+  reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Componen
+  tModel.EventBasedAsync.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301
+  .5\ref\net6.0\System.ComponentModel.Primitives.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.R
+  ef\6.0.0-preview.5.21301.5\ref\net6.0\System.ComponentModel.TypeConverter.dll" /reference:"C:\Program Files\dotnet\pa
+  cks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Configuration.dll" /reference:"C:\Program Fil
+  es\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Console.dll" /reference:"C:\Progr
+  am Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Core.dll" /reference:"C:\Pr
+  ogram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Data.Common.dll" /refere
+  nce:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Data.DataSetEx
+  tensions.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\
+  System.Data.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6
+  .0\System.Diagnostics.Contracts.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-previe
+  w.5.21301.5\ref\net6.0\System.Diagnostics.Debug.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.
+  Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.DiagnosticSource.dll" /reference:"C:\Program Files\dotnet\p
+  acks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.FileVersionInfo.dll" /reference:
+  "C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.Proces
+  s.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.
+  Diagnostics.StackTrace.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301
+  .5\ref\net6.0\System.Diagnostics.TextWriterTraceListener.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NET
+  Core.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.Tools.dll" /reference:"C:\Program Files\dotnet\pac
+  ks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.TraceSource.dll" /reference:"C:\Pr
+  ogram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Diagnostics.Tracing.dll"
+   /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.dll" /
+  reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Drawing.
+  dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Dr
+  awing.Primitives.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref
+  \net6.0\System.Dynamic.Runtime.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview
+  .5.21301.5\ref\net6.0\System.Formats.Asn1.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.
+  0.0-preview.5.21301.5\ref\net6.0\System.Globalization.Calendars.dll" /reference:"C:\Program Files\dotnet\packs\Micros
+  oft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Globalization.dll" /reference:"C:\Program Files\dotnet\
+  packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Globalization.Extensions.dll" /reference:"C
+  :\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.Compression.Brotl
+  i.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.
+  IO.Compression.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\n
+  et6.0\System.IO.Compression.FileSystem.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0
+  -preview.5.21301.5\ref\net6.0\System.IO.Compression.ZipFile.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.
+  NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft
+  .NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.FileSystem.dll" /reference:"C:\Program Files\dotnet\pac
+  ks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.FileSystem.DriveInfo.dll" /reference:"C:\Pr
+  ogram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.FileSystem.Primitives
+  .dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.I
+  O.FileSystem.Watcher.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5
+  \ref\net6.0\System.IO.IsolatedStorage.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-
+  preview.5.21301.5\ref\net6.0\System.IO.MemoryMappedFiles.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NET
+  Core.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.Pipes.dll" /reference:"C:\Program Files\dotnet\packs\Micros
+  oft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.IO.UnmanagedMemoryStream.dll" /reference:"C:\Program Fi
+  les\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Linq.dll" /reference:"C:\Program
+   Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Linq.Expressions.dll" /refere
+  nce:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Linq.Parallel.
+  dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Li
+  nq.Queryable.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net
+  6.0\System.Memory.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\re
+  f\net6.0\System.Net.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\
+  ref\net6.0\System.Net.Http.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.2
+  1301.5\ref\net6.0\System.Net.Http.Json.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0
+  -preview.5.21301.5\ref\net6.0\System.Net.HttpListener.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCor
+  e.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.Mail.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft
+  .NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.NameResolution.dll" /reference:"C:\Program Files\dotne
+  t\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.NetworkInformation.dll" /reference:"C
+  :\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.Ping.dll" /refer
+  ence:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.Primitive
+  s.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.
+  Net.Quic.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\
+  System.Net.Requests.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\
+  ref\net6.0\System.Net.Security.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview
+  .5.21301.5\ref\net6.0\System.Net.ServicePoint.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Re
+  f\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.Sockets.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETC
+  ore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.WebClient.dll" /reference:"C:\Program Files\dotnet\packs\Mi
+  crosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.WebHeaderCollection.dll" /reference:"C:\Program
+   Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.WebProxy.dll" /reference:
+  "C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Net.WebSockets.Cli
+  ent.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\Syste
+  m.Net.WebSockets.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref
+  \net6.0\System.Numerics.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.2130
+  1.5\ref\net6.0\System.Numerics.Vectors.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0
+  -preview.5.21301.5\ref\net6.0\System.ObjectModel.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App
+  .Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.DispatchProxy.dll" /reference:"C:\Program Files\dotnet\pack
+  s\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.dll" /reference:"C:\Program Files\do
+  tnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.Emit.dll" /reference:"C:\Pr
+  ogram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.Emit.ILGenera
+  tion.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\Syst
+  em.Reflection.Emit.Lightweight.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview
+  .5.21301.5\ref\net6.0\System.Reflection.Extensions.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.A
+  pp.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.Metadata.dll" /reference:"C:\Program Files\dotnet\packs\M
+  icrosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.Primitives.dll" /reference:"C:\Program
+  Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Reflection.TypeExtensions.dll"
+   /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Resour
+  ces.Reader.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.
+  0\System.Resources.ResourceManager.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-pre
+  view.5.21301.5\ref\net6.0\System.Resources.Writer.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.Ap
+  p.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.CompilerServices.Unsafe.dll" /reference:"C:\Program Files\dot
+  net\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.CompilerServices.VisualC.dll" /
+  reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.
+  dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Ru
+  ntime.Extensions.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref
+  \net6.0\System.Runtime.Handles.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview
+  .5.21301.5\ref\net6.0\System.Runtime.InteropServices.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore
+  .App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.InteropServices.RuntimeInformation.dll" /reference:"C:\Pro
+  gram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.Intrinsics.dll" /
+  reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.
+  Loader.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\Sy
+  stem.Runtime.Numerics.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.
+  5\ref\net6.0\System.Runtime.Serialization.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.
+  0.0-preview.5.21301.5\ref\net6.0\System.Runtime.Serialization.Formatters.dll" /reference:"C:\Program Files\dotnet\pac
+  ks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.Serialization.Json.dll" /reference:"C:
+  \Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.Serialization
+  .Primitives.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6
+  .0\System.Runtime.Serialization.Xml.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-pr
+  eview.5.21301.5\ref\net6.0\System.Security.Claims.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.Ap
+  p.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Security.Cryptography.Algorithms.dll" /reference:"C:\Program Files\do
+  tnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Security.Cryptography.Cng.dll" /refere
+  nce:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Security.Crypt
+  ography.Csp.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6
+  .0\System.Security.Cryptography.Encoding.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0
+  .0-preview.5.21301.5\ref\net6.0\System.Security.Cryptography.OpenSsl.dll" /reference:"C:\Program Files\dotnet\packs\M
+  icrosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Security.Cryptography.Primitives.dll" /reference:"
+  C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Security.Cryptograp
+  hy.X509Certificates.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\
+  ref\net6.0\System.Security.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.2
+  1301.5\ref\net6.0\System.Security.Principal.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\
+  6.0.0-preview.5.21301.5\ref\net6.0\System.Security.SecureString.dll" /reference:"C:\Program Files\dotnet\packs\Micros
+  oft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.ServiceModel.Web.dll" /reference:"C:\Program Files\dotn
+  et\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.ServiceProcess.dll" /reference:"C:\Progr
+  am Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Text.Encoding.CodePages.dll
+  " /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Text.
+  Encoding.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\
+  System.Text.Encoding.Extensions.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-previe
+  w.5.21301.5\ref\net6.0\System.Text.Encodings.Web.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App
+  .Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Text.Json.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NET
+  Core.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Text.RegularExpressions.dll" /reference:"C:\Program Files\dotn
+  et\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.Channels.dll" /reference:"C:\P
+  rogram Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.dll" /referen
+  ce:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.Overl
+  apped.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\Sys
+  tem.Threading.Tasks.Dataflow.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5
+  .21301.5\ref\net6.0\System.Threading.Tasks.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6
+  .0.0-preview.5.21301.5\ref\net6.0\System.Threading.Tasks.Extensions.dll" /reference:"C:\Program Files\dotnet\packs\Mi
+  crosoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.Tasks.Parallel.dll" /reference:"C:\Progra
+  m Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.Thread.dll" /refer
+  ence:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Threading.Thr
+  eadPool.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\S
+  ystem.Threading.Timer.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.
+  5\ref\net6.0\System.Transactions.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-previ
+  ew.5.21301.5\ref\net6.0\System.Transactions.Local.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.Ap
+  p.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.ValueTuple.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.N
+  ETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Web.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft
+  .NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Web.HttpUtility.dll" /reference:"C:\Program Files\dotnet\p
+  acks\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Windows.dll" /reference:"C:\Program Files\do
+  tnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.dll" /reference:"C:\Program Files\
+  dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.Linq.dll" /reference:"C:\Program
+   Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.ReaderWriter.dll" /refere
+  nce:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.Serializat
+  ion.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\Syste
+  m.Xml.XDocument.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\
+  net6.0\System.Xml.XmlDocument.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.
+  5.21301.5\ref\net6.0\System.Xml.XmlSerializer.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Re
+  f\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.XPath.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCor
+  e.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Xml.XPath.XDocument.dll" /reference:"C:\Program Files\dotnet\pack
+  s\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\WindowsBase.dll" /debug+ /debug:portable /filealign:51
+  2 /optimize- /out:obj\Debug\net6.0\ClassLibrary2.dll /refout:obj\Debug\net6.0\ref\ClassLibrary2.dll /target:library /
+  warnaserror- /utf8output /deterministic+ /analyzerconfig:obj\Debug\net6.0\ClassLibrary2.GeneratedMSBuildEditorConfig.
+  editorconfig /analyzerconfig:"C:\Program Files\dotnet\sdk\6.0.100-preview.5.21302.13\Sdks\Microsoft.NET.Sdk\analyzers
+  \build\config\AnalysisLevel_5_Default.editorconfig" /analyzer:"C:\Program Files\dotnet\sdk\6.0.100-preview.5.21302.13
+  \Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" /analyzer:"C:\Program Fi
+  les\dotnet\sdk\6.0.100-preview.5.21302.13\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnaly
+  zers.dll" Class1.cs "obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" obj\Debug\net6.0\ClassLibrary2.
+  AssemblyInfo.cs /warnaserror+:NU1605
+
