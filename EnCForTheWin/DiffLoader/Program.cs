@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 
-namespace ConsoleApp8
+namespace DiffLoader
 {
     // https://github.com/dotnet/runtime/pull/48366
     // $env:DOTNET_MODIFIABLE_ASSEMBLIES="debug"

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadAssemblyDiff", "ConsoleApp8\LoadAssemblyDiff.csproj", "{57AC835C-103A-4655-A594-D09A3C5811F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadAssemblyDiff", "DiffLoader\LoadAssemblyDiff.csproj", "{57AC835C-103A-4655-A594-D09A3C5811F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "Builder\Builder.csproj", "{F00B1BEE-D65B-4572-AF99-C10779E993D1}"
 EndProject
