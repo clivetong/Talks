@@ -26,7 +26,7 @@ namespace Builder
 [assembly: System.Reflection.AssemblyConfiguration(""Debug"")]
 public class C
 {
-    public static string F() { return ""b""; }
+    public static string F() { return ""original""; }
 }";
             var source1 =
 @"
@@ -35,7 +35,7 @@ public class C
 [assembly: System.Reflection.AssemblyConfiguration(""Debug"")]
 public class C
 {
-    public static string F() { return ""a""; }
+    public static string F() { return ""modified""; }
 }";
 
              
@@ -57,7 +57,7 @@ public class C
             var method0 = compilation0.GlobalNamespace.GetMembers("C").Single().GetMembers("F").Single();
             var method1 = compilation1.GlobalNamespace.GetMembers("C").Single().GetMembers("F").Single();
 
-            var outputFile = "c:/users/clive.tong/desktop/test.dll";
+            var outputFile = @"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll";
 
             var eo = new EmitOptions(runtimeMetadataVersion: "v6.0.0", fileAlignment: 512);
             var pe = new MemoryStream();

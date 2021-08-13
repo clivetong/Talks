@@ -15,11 +15,10 @@ namespace ConsoleApp8
             while (true)
             { 
                 Console.WriteLine(C.F());
-                Console.WriteLine(D.F());
 
-                var meta = File.ReadAllBytes(@"C:\Users\clive.tong\Desktop\test.dll.dmeta");
-                var il = File.ReadAllBytes(@"C:\Users\clive.tong\Desktop\test.dll.dil");
-                var pdb = File.ReadAllBytes(@"C:\Users\clive.tong\Desktop\test.dll.dpdb");
+                var meta = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dmeta");
+                var il = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dil");
+                var pdb = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dpdb");
 
                 var assembly = typeof(C).Assembly;
 
@@ -27,7 +26,6 @@ namespace ConsoleApp8
 
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
-            Console.WriteLine("sksksddk");
         } 
 
          

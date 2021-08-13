@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="test.dll">
-      <HintPath>..\..\..\..\Desktop\test.dll</HintPath>
+    <Reference Include="test">
+      <HintPath>..\temp\test.dll</HintPath>
     </Reference>
   </ItemGroup>
 
