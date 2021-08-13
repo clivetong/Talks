@@ -6,8 +6,8 @@ using System.Threading;
 
 namespace ConsoleApp8
 {
-    // !bpmd System.Private.CoreLib.dll System.Reflection.Metadata.AssemblyExtensions.ApplyUpdate
-    // DOTNET_MODIFIABLE_ASSEMBLIES
+    // https://github.com/dotnet/runtime/pull/48366
+    // $env:DOTNET_MODIFIABLE_ASSEMBLIES="debug"
     class Program
     {
         static void Main(string[] args)
@@ -18,7 +18,6 @@ namespace ConsoleApp8
 
                 var meta = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dmeta");
                 var il = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dil");
-                var pdb = File.ReadAllBytes(@"C:\Users\clive.tong\Documents\git\Play\EnCForTheWin\temp\test.dll.dpdb");
 
                 var assembly = typeof(C).Assembly;
 
@@ -26,9 +25,7 @@ namespace ConsoleApp8
 
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
-        } 
+        }
 
-         
-        static string Message() => "Hello";
     }
 }
