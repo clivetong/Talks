@@ -1,1 +1,10 @@
-"C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Current\Bin\Roslyn\csc.exe"  /fullpaths /nostdlib+ /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\mscorlib.dll" /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.dll"  /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\netstandard.dll" Class1.cs "obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" /debug+ /debug:portable /filealign:512 /optimize- /out:obj\Debug\net6.0\ClassLibrary2.dll /target:library
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\MSBuild\Current\Bin\Roslyn\csc.exe"  
+  /fullpaths
+  /nostdlib+ 
+  /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\mscorlib.dll" 
+  /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\System.Runtime.dll"  
+  /reference:"C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\6.0.0-preview.5.21301.5\ref\net6.0\netstandard.dll" 
+   Class1.cs 
+   "obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" 
+   /debug+ /debug:portable /filealign:512 /optimize- 
+   /out:obj\Debug\net6.0\ClassLibrary2.dll /target:library

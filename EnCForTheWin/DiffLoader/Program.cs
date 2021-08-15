@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Threading;
 
 namespace DiffLoader
 {
-    // https://github.com/dotnet/runtime/pull/48366
-    // $env:DOTNET_MODIFIABLE_ASSEMBLIES="debug"
     class Program
     {
         static void Main(string[] args)
