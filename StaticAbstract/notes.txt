@@ -1,0 +1,11 @@
+The changes to the ECMA spec
+
+https://github.com/dotnet/runtime/pull/49558/files
+
+And a new factory pattern
+
+https://twitter.com/tannergooding/status/1425319214710104067
+
+Generic math chnages to libraries
+
+https://github.com/dotnet/designs/pull/205

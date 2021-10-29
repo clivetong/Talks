@@ -1,6 +1,6 @@
-﻿#define EX6
+﻿#define EX7
 
-using System.Globalization;
+using static System.Diagnostics.Debugger;
 
 #if EX1
 
@@ -45,7 +45,9 @@ static T SumThem<T>(IEnumerable<T> xs) where T: INumber<T>
 var x0 = SumThem(new[] { 1, 2, 3, 4, 5, 6, 7 });
 var x1 = SumThem(new[] { 1.0, 2, 3, 4, 5, 6, 7 });
 
-System.Diagnostics.Debugger.Break();
+Break();
+
+
 #endif
 
 #if EX4
@@ -63,7 +65,7 @@ static T SumThem<T>(IEnumerable<T> xs) where T: INumber<T>
 var x0 = SumThem(new[] { 1, 2, 3, 4, 5, 6, 7 });
 var x1 = SumThem(new[] { 1.0, 2, 3, 4, 5, 6, 7 });
 
-System.Diagnostics.Debugger.Break();
+Break();
 
 #endif
 
@@ -87,26 +89,26 @@ class Foo<T> where T:struct
 
 #if EX6
 
-System.Diagnostics.Debugger.Break();
+Break();
 
-Base b = new Base();
+Base b = new ();
 var y = b + b;
 
-Derived d = new Derived();
+Derived d = new ();
 var x = d + d;
 
 Worker<Base>.Do();
 
-Worker<Derived>.Do();
+Worker<Derived>.Do();   // We only know about the constrained T
 
 class Base
 {
-    public static Base operator +(Base x, Base y) => x;
+    public static Base operator +(Base x, Base y) { Break(); return x; }
 }
 
 class Derived : Base
 {
-    public static Base operator +(Derived x, Derived y) => x;
+    public static Base operator +(Derived x, Derived y) { Break(); return x; }
 }
 
 class Worker<T> where T : Base, new()
@@ -114,6 +116,43 @@ class Worker<T> where T : Base, new()
     public static void Do()
     {
         var x = new T();
+        var y = x + x;
+    }
+}
+
+
+
+#endif
+
+#if EX7
+
+Break();
+
+Base b = new ();
+var y = b + b;
+
+Derived d = new ();
+var x = d + d;
+
+Worker<Base>.Do();
+
+Worker<Derived>.Do();
+
+class Base : IAdditionOperators<Base, Base, Base>
+{
+    public static Base operator +(Base x, Base y) { Break(); return x;}
+}
+
+class Derived : Base, IAdditionOperators<Derived, Derived, Derived>
+{
+    public static Derived operator +(Derived x, Derived y) { Break(); return x; }
+}
+
+class Worker<T> where T : IAdditionOperators<T,T,T>, new()
+{
+    public static void Do()
+    {
+        T x = new ();
         var y = x + x;
     }
 }
