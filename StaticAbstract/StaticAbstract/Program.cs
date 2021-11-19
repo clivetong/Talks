@@ -6,7 +6,7 @@ using static System.Diagnostics.Debugger;
 
 static int SumThem(IEnumerable<int> xs) 
 {
-    int result = default(int);
+    int result = 0;
     foreach (var x in xs)
     {
         result += x;
@@ -34,7 +34,7 @@ static T SumThem<T>(IEnumerable<T> xs)
 
 static T SumThem<T>(IEnumerable<T> xs) where T: INumber<T>
 {
-    T result = default(T);
+    T result = default;
     foreach (var x in xs)
     {
         result += x;
@@ -108,19 +108,17 @@ class Base
 
 class Derived : Base
 {
-    public static Base operator +(Derived x, Derived y) { Break(); return x; }
+    public static Derived operator +(Derived x, Derived y) { Break(); return x; }
 }
 
 class Worker<T> where T : Base, new()
 {
     public static void Do()
     {
-        var x = new T();
-        var y = x + x;
+        T x = new T();
+        T y = x + x;
     }
 }
-
-
 
 #endif
 
@@ -143,7 +141,7 @@ class Base : IAdditionOperators<Base, Base, Base>
     public static Base operator +(Base x, Base y) { Break(); return x;}
 }
 
-class Derived : Base, IAdditionOperators<Derived, Derived, Derived>
+class Derived : IAdditionOperators<Derived, Derived, Derived>
 {
     public static Derived operator +(Derived x, Derived y) { Break(); return x; }
 }
@@ -153,7 +151,7 @@ class Worker<T> where T : IAdditionOperators<T,T,T>, new()
     public static void Do()
     {
         T x = new ();
-        var y = x + x;
+        T y = x + x;
     }
 }
 
