@@ -1,8 +1,6 @@
-﻿#define EX7
+﻿using static System.Diagnostics.Debugger;
 
-using static System.Diagnostics.Debugger;
-
-#if EX1
+/*
 
 static int SumThem(IEnumerable<int> xs) 
 {
@@ -14,9 +12,7 @@ static int SumThem(IEnumerable<int> xs)
     return result;
 }
 
-#endif
-
-#if EX2
+/*
 
 static T SumThem<T>(IEnumerable<T> xs)
 {
@@ -28,9 +24,7 @@ static T SumThem<T>(IEnumerable<T> xs)
     return result;
 }
 
-#endif
-
-#if EX3
+/*
 
 static T SumThem<T>(IEnumerable<T> xs) where T: INumber<T>
 {
@@ -47,10 +41,7 @@ var x1 = SumThem(new[] { 1.0, 2, 3, 4, 5, 6, 7 });
 
 Break();
 
-
-#endif
-
-#if EX4
+/*
 
 static T SumThem<T>(IEnumerable<T> xs) where T: INumber<T>
 {
@@ -67,9 +58,7 @@ var x1 = SumThem(new[] { 1.0, 2, 3, 4, 5, 6, 7 });
 
 Break();
 
-#endif
-
-#if EX5
+/*
 
 class Foo<T> where T:struct
 {
@@ -85,9 +74,7 @@ class Foo<T> where T:struct
 
 }
 
-#endif
-
-#if EX6
+/*
 
 Break();
 
@@ -120,9 +107,7 @@ class Worker<T> where T : Base, new()
     }
 }
 
-#endif
-
-#if EX7
+/*
 
 Break();
 
@@ -155,6 +140,4 @@ class Worker<T> where T : IAdditionOperators<T,T,T>, new()
     }
 }
 
-
-
-#endif
+*/

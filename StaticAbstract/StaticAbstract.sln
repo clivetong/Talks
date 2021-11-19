@@ -5,6 +5,11 @@ VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticAbstract", "StaticAbstract\StaticAbstract.csproj", "{0CC7623D-775B-463E-86E3-FC5A776F05A9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{37BB1817-BCFE-4932-B414-D6FA77311132}"
+	ProjectSection(SolutionItems) = preProject
+		INumber.png = INumber.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
