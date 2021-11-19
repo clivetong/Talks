@@ -140,4 +140,27 @@ class Worker<T> where T : IAdditionOperators<T,T,T>, new()
     }
 }
 
+/*
+Lowering is where we express more advanced language concepts in terms of simpler concepts
+
+Why would you ever want to do that?
+
+So you don't have to change the runtime.
+
+But fortunately those days are gone.
+
+Much nicer to have real support for features and hence metadata rather than attributes and a mass of code
+
+/*
+
+var x = new[] { 1, 2, 3, 4, 5 };
+var y = () => { Break(); Console.WriteLine(x); };
+
+//var z1 = new[] { 6, 7, 8, 9, 10 };
+//var z = () => { Break(); Console.WriteLine(z1); };
+
+y();
+
+// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll
+
 */
