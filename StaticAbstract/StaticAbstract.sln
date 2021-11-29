@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{37BB1817-BCFE-4932-B414-D6FA77311132}"
 	ProjectSection(SolutionItems) = preProject
 		INumber.png = INumber.png
+		RelevantSpecificationPages.txt = RelevantSpecificationPages.txt
 	EndProjectSection
 EndProject
 Global
