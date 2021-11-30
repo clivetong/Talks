@@ -82,23 +82,23 @@ class Foo<T> where T:struct
 Break();
 
 Base b = new ();
-var y = b + b;
+b.Foo();
 
 Derived d = new ();
-var x = d + d;
+d.Foo();
 
 Worker<Base>.Do();
 
-Worker<Derived>.Do();   // We only know about the constrained T
+Worker<Derived>.Do();  
 
 class Base
 {
-    public static Base operator +(Base x, Base y) { Break(); return x; }
+    public void Foo() => Break(); 
 }
 
 class Derived : Base
 {
-    public static Derived operator +(Derived x, Derived y) { Break(); return x; }
+    public void Foo() => Break();
 }
 
 class Worker<T> where T : Base, new()
@@ -106,18 +106,25 @@ class Worker<T> where T : Base, new()
     public static void Do()
     {
         T x = new T();
-        T y = x + x;
+        x.Foo();
     }
 }
 
 /*
 
-var x = AssemblyBuilder.DefineDynamicAssembly(new System.Reflection.AssemblyName("alala"), AssemblyBuilderAccess.RunAndCollect);
-var m = x.DefineDynamicModule("MyModule");
-var t = m.DefineType("Hello", System.Reflection.TypeAttributes.Class | System.Reflection.TypeAttributes.Public);
-var ti = t.CreateType();
 
-var foo = Activator.CreateInstance(ti);
+var assembly = AssemblyBuilder.DefineDynamicAssembly(new System.Reflection.AssemblyName("Peppa Pig World"), AssemblyBuilderAccess.RunAndCollect);
+var module = assembly.DefineDynamicModule("Peppa Pig");
+var typedef = module.DefineType("ForgiveMe", System.Reflection.TypeAttributes.Class | System.Reflection.TypeAttributes.Public);
+var type = typedef.CreateType();
+
+var instance = Activator.CreateInstance(type);
+
+var listOf = typeof(List<>).MakeGenericType(type);
+var listOfPig = Activator.CreateInstance(listOf);
+
+var add = listOf.GetMethod("Add");
+add.Invoke(listOfPig, new object[] { instance });
 
 Break();
 
