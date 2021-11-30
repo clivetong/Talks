@@ -1,8 +1,6 @@
 ﻿using System.Reflection.Emit;
 using static System.Diagnostics.Debugger;
 
-/*
-
 static int SumThem(IEnumerable<int> xs) 
 {
     int result = 0;
@@ -12,6 +10,10 @@ static int SumThem(IEnumerable<int> xs)
     }
     return result;
 }
+
+var gauss = SumThem(Enumerable.Range(1, 100));
+
+Break();
 
 /*
 
