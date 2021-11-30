@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="runtime.osx-x64.Microsoft.NETCore.ILDAsm" Version="6.0.0" />
     <PackageReference Include="System.Runtime.Experimental" Version="6.0.0" />
+    <PackageReference Include="runtime.osx-x64.Microsoft.NETCore.ILDAsm" Version="6.0.0" />
+    <PackageReference Include="System.Reflection.Emit" />
   </ItemGroup>
 </Project>
