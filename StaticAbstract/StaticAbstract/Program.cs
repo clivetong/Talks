@@ -112,6 +112,17 @@ class Worker<T> where T : Base, new()
 
 /*
 
+class Worker<T> where T : Base, new()
+{
+    public static void Do()
+    {
+        dynamic x = new T();
+        x.Foo();
+    }
+}
+
+/*
+
 
 var assembly = AssemblyBuilder.DefineDynamicAssembly(new System.Reflection.AssemblyName("Peppa Pig World"), AssemblyBuilderAccess.RunAndCollect);
 var module = assembly.DefineDynamicModule("Peppa Pig");
