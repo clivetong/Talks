@@ -174,31 +174,34 @@ o	Otherwise, the set consists of all accessible (§3.5) members named N in T, in
 Break();
 
 Base b = new ();
-var y = b + b;
 
 Derived d = new ();
-var x = d + d;
 
 Worker<Base>.Do();
 
 Worker<Derived>.Do();
 
-class Base : IAdditionOperators<Base, Base, Base>
+interface IFoo<T>
 {
-    public static Base operator +(Base x, Base y) { Break(); return x;}
+    static abstract void Foo();
 }
 
-class Derived : IAdditionOperators<Derived, Derived, Derived>
+class Base : IFoo<Base>
 {
-    public static Derived operator +(Derived x, Derived y) { Break(); return x; }
+    public static void Foo() => Break(); 
 }
 
-class Worker<T> where T : IAdditionOperators<T,T,T>, new()
+class Derived : IFoo<Derived>
+{
+    public static void Foo() => Break();
+}
+
+class Worker<T> where T : IFoo<T>, new()
 {
     public static void Do()
     {
-        T x = new ();
-        T y = x + x;
+        T x = new T();
+        T.Foo();
     }
 }
 
