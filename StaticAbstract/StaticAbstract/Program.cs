@@ -196,11 +196,10 @@ class Derived : IFoo<Derived>
     public static void Foo() => Break();
 }
 
-class Worker<T> where T : IFoo<T>, new()
+class Worker<T> where T : IFoo<T>
 {
     public static void Do()
     {
-        T x = new T();
         T.Foo();
     }
 }
