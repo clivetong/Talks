@@ -112,35 +112,6 @@ class Worker<T> where T : Base, new()
 
 /*
 
-class Worker<T> where T : Base, new()
-{
-    public static void Do()
-    {
-        dynamic x = new T();
-        x.Foo();
-    }
-}
-
-/*
-
-
-var assembly = AssemblyBuilder.DefineDynamicAssembly(new System.Reflection.AssemblyName("Peppa Pig World"), AssemblyBuilderAccess.RunAndCollect);
-var module = assembly.DefineDynamicModule("Peppa Pig");
-var typedef = module.DefineType("ForgiveMe", System.Reflection.TypeAttributes.Class | System.Reflection.TypeAttributes.Public);
-var type = typedef.CreateType();
-
-var instance = Activator.CreateInstance(type);
-
-var listOf = typeof(List<>).MakeGenericType(type);
-var listOfPig = Activator.CreateInstance(listOf);
-
-var add = listOf.GetMethod("Add");
-add.Invoke(listOfPig, new object[] { instance });
-
-Break();
-
-/*
-
 The effective base class of a type parameter T is defined as follows:
 •	If T has no primary constraints or type parameter constraints, its effective base class is object.
 •	If T has the value type constraint, its effective base class is System.ValueType.
@@ -168,6 +139,35 @@ A member lookup of a name N with K type parameters in a type T is processed as f
 o	If T is a type parameter, then the set is the union of the sets of accessible members named N in each of the types specified as a primary constraint or secondary constraint (§10.1.5) for T, along with the set of accessible members named N in object.
 o	Otherwise, the set consists of all accessible (§3.5) members named N in T, including inherited members and the accessible members named N in object. If T is a constructed type, the set of members is obtained by substituting type arguments as described in §10.3.2. Members that include an override modifier are excluded from the set.
 
+
+/*
+
+class Worker<T> where T : Base, new()
+{
+    public static void Do()
+    {
+        dynamic x = new T();
+        x.Foo();
+    }
+}
+
+/*
+
+
+var assembly = AssemblyBuilder.DefineDynamicAssembly(new System.Reflection.AssemblyName("Peppa Pig World"), AssemblyBuilderAccess.RunAndCollect);
+var module = assembly.DefineDynamicModule("Peppa Pig");
+var typedef = module.DefineType("ForgiveMe", System.Reflection.TypeAttributes.Class | System.Reflection.TypeAttributes.Public);
+var type = typedef.CreateType();
+
+var instance = Activator.CreateInstance(type);
+
+var listOf = typeof(List<>).MakeGenericType(type);
+var listOfPig = Activator.CreateInstance(listOf);
+
+var add = listOf.GetMethod("Add");
+add.Invoke(listOfPig, new object[] { instance });
+
+Break();
 
 /*
 
@@ -204,6 +204,8 @@ class Worker<T> where T : IFoo<T>
 
 static - at the Type Level (or in other languages, an instance method on the metaclass
 abstract - dynamic dispatch at runtime
+
+Lots of patterns will emerge - ICreatable<T>
 
 /*
 
