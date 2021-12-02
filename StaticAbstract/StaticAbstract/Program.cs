@@ -139,6 +139,9 @@ A member lookup of a name N with K type parameters in a type T is processed as f
 o	If T is a type parameter, then the set is the union of the sets of accessible members named N in each of the types specified as a primary constraint or secondary constraint (§10.1.5) for T, along with the set of accessible members named N in object.
 o	Otherwise, the set consists of all accessible (§3.5) members named N in T, including inherited members and the accessible members named N in object. If T is a constructed type, the set of members is obtained by substituting type arguments as described in §10.3.2. Members that include an override modifier are excluded from the set.
 
+/*
+
+We don't want a full compiler there at runtime, though we can take a variant of th eoverload engine that uses Reflection.
 
 /*
 
@@ -202,7 +205,7 @@ class Worker<T> where T : IFoo<T>
 
 /*
 
-static - at the Type Level (or in other languages, an instance method on the metaclass
+static - at the Type Level (or in other languages, an instance method on the metaclass)
 abstract - dynamic dispatch at runtime
 
 Lots of patterns will emerge - ICreatable<T>
