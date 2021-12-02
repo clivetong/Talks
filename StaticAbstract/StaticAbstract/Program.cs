@@ -63,6 +63,10 @@ Break();
 
 /*
 
+Show the types in Reflector
+
+/*
+
 class Foo<T> where T:struct
 {
     static T SumThem(IEnumerable<T> xs)
@@ -254,5 +258,6 @@ interface IFoo<T>
 
 // ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll | code -
 
+/*
 
 */
