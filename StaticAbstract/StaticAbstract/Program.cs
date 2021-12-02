@@ -180,22 +180,22 @@ Worker<Base>.Do();
 
 Worker<NotDerived>.Do();
 
-interface IFoo<T>
+interface IFoo
 {
     static abstract void Foo();
 }
 
-class Base : IFoo<Base>
+class Base : IFoo
 {
     public static void Foo() => Break(); 
 }
 
-class NotDerived : IFoo<NotDerived>
+class NotDerived : IFoo
 {
     public static void Foo() => Break();
 }
 
-class Worker<T> where T : IFoo<T>
+class Worker<T> where T : IFoo
 {
     public static void Do()
     {
@@ -234,7 +234,7 @@ public class IAmHereAttribute : System.Attribute
     public IAmHereAttribute(string msg) { }
 }
 
-// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll
+// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll | code -
 
 /*
 
@@ -252,7 +252,7 @@ interface IFoo<T>
     void Foo2();
 }
 
-// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll
+// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll | code -
 
 
 */
