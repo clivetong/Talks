@@ -173,13 +173,9 @@ o	Otherwise, the set consists of all accessible (§3.5) members named N in T, in
 
 Break();
 
-Base b = new ();
-
-Derived d = new ();
-
 Worker<Base>.Do();
 
-Worker<Derived>.Do();
+Worker<NotDerived>.Do();
 
 interface IFoo<T>
 {
@@ -191,7 +187,7 @@ class Base : IFoo<Base>
     public static void Foo() => Break(); 
 }
 
-class Derived : IFoo<Derived>
+class NotDerived : IFoo<NotDerived>
 {
     public static void Foo() => Break();
 }
@@ -206,6 +202,11 @@ class Worker<T> where T : IFoo<T>
 
 /*
 
+static - at the Type Level (or in other languages, an instance method on the metaclass
+abstract - dynamic dispatch at runtime
+
+/*
+
 Lowering is where we express more advanced language concepts in terms of simpler concepts
 
 Why would you ever want to do that?
@@ -213,12 +214,20 @@ Why would you ever want to do that?
 /*
 
 var x = new[] { 1, 2, 3, 4, 5 };
-var y = () => { Break(); Console.WriteLine(x); };
+var y = [IAmHere("y")] () => { Break(); Console.WriteLine(x); };
 
 //var z1 = new[] { 6, 7, 8, 9, 10 };
-//var z = () => { Break(); Console.WriteLine(z1); };
+//var z = [IAmHere("z")] () => { Break(); Console.WriteLine(z1); };
 
 y();
+
+
+[System.AttributeUsage(System.AttributeTargets.Method)
+]
+public class IAmHereAttribute : System.Attribute
+{
+    public IAmHereAttribute(string msg) { }
+}
 
 // ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll
 
@@ -228,6 +237,17 @@ So you don't have to change the runtime.
 
 But fortunately those days are gone.
 
-Much nicer to have real support for features and hence metadata rather than attributes and a mass of code
+Much nicer to have real support for features and hence metadata rather than attributes and a mass of code.
+
+/*
+
+interface IFoo<T>
+{
+    static abstract void Foo();
+    void Foo2();
+}
+
+// ~/.nuget/packages/runtime.osx-x64.microsoft.netcore.ildasm/6.0.0/runtimes/osx-x64/native/ildasm StaticAbstract/StaticAbstract/bin/Debug/net6.0/StaticAbstract.dll
+
 
 */
