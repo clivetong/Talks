@@ -83,8 +83,6 @@ class Foo<T> where T:struct
 
 /*
 
-Break();
-
 Base b = new ();
 b.Foo();
 
@@ -145,7 +143,7 @@ o	Otherwise, the set consists of all accessible (§3.5) members named N in T, in
 
 /*
 
-We don't want a full compiler there at runtime, though we can take a variant of th eoverload engine that uses Reflection.
+We don't want a full compiler there at runtime, though we can take a variant of the overload engine that uses Reflection.
 
 /*
 
@@ -177,8 +175,6 @@ add.Invoke(listOfPig, new object[] { instance });
 Break();
 
 /*
-
-Break();
 
 Worker<Base>.Do();
 
@@ -243,6 +239,11 @@ public class IAmHereAttribute : System.Attribute
 /*
 
 So you don't have to change the runtime.
+
+And to be fair this was good when implementing async in the profilers
+  - you see special names and methods marked by compiler generated attributes
+
+Though await inside a finally maybe took it too far
 
 But fortunately those days are gone.
 
