@@ -5,7 +5,7 @@
 
     1 The ability to reJit code.
 
-    2 The ability to dynamically watch what the code is doing
+    2 The ability to dynamically watch what the code is doing (a reflective runtime)
         - ie no run code, not need to JIT it.
         - tiered compilation - fast compilation/slow code, slow compilation/fast code
 
@@ -30,5 +30,5 @@
         - most programs call the same type of instance at the same points 
         - old tech - PICs
 
-    4 Friendier to the caches by hot path analysis
+    4 Friendlier to the caches by hot path analysis
 
