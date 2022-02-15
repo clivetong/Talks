@@ -139,6 +139,14 @@ In .NET for a while now (PGO)
 ---
 
 
+### And the test
+
+- https://github.com/clivetong/Play/blob/master/dynamicpgo/dynamicpgo/Program.cs
+
+
+---
+
+
 ### Obligatory mention
 
 1. SELF 
