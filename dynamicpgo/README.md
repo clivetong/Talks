@@ -14,11 +14,19 @@ title: "Dynamic Profile Guided Optimization"
 ### Why do I care about the order of code?
 
 ```
-  def fib(x):
-    if x == 0:
-      return 1
-    else: 
-     return x * fib(x-1)
+    public int FibA(int a)
+    {
+        if (a == 0)
+            return 1;
+        return a * FibA(a - 1);
+    }
+
+    public int FibB(int a)
+    {
+        if (a != 0)
+            return a * FibB(a - 1);
+        return 1;
+    }
 ```
 
 ---
