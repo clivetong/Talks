@@ -1,6 +1,5 @@
 ---
 transition: "slide"
-logoImg: "logo.png"
 slideNumber: false
 title: "Dynamic Profile Guided Optimization"
 ---
