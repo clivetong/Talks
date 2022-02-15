@@ -32,8 +32,19 @@ title: "Dynamic Profile Guided Optimization"
 ---
 
 
+### Let's try them
+
+- https://github.com/clivetong/Play/blob/master/dynamicpgo/testfib/Program.cs
+
+
+
+---
+
+
 
 ### Because the data matters
+
+
 
 | Method |  a |       Mean |     Error |    StdDev |
 |------- |--- |-----------:|----------:|----------:|

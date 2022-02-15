@@ -4,7 +4,6 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 
-// Run the benchmarks
 BenchmarkRunner.Run<CheckFib>();
 
 public class CheckFib
