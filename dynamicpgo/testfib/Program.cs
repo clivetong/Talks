@@ -11,7 +11,7 @@ public class CheckFib
 {
 
     [Benchmark]
-    [Arguments(4)]
+    [ArgumentsSource(nameof(Values))]
     public int FibA(int a)
     {
         if (a == 0)
@@ -20,11 +20,17 @@ public class CheckFib
     }
 
     [Benchmark]
-    [Arguments(4)]
+    [ArgumentsSource(nameof(Values))]
     public int FibB(int a)
     {
         if (a != 0)
             return a * FibB(a - 1);
         return 1;
+    }
+
+    public IEnumerable<int> Values()
+    {
+        yield return 10;
+        yield return 0;
     }
 }

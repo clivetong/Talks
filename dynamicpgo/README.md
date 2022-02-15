@@ -31,6 +31,20 @@ title: "Dynamic Profile Guided Optimization"
 
 ---
 
+
+
+### Because the data matters
+
+| Method |  a |       Mean |     Error |    StdDev |
+|------- |--- |-----------:|----------:|----------:|
+|   FibA |  0 |  0.0285 ns | 0.0175 ns | 0.0146 ns |
+|   FibB |  0 |  0.2069 ns | 0.0316 ns | 0.0608 ns |
+|   FibA | 10 | 14.4784 ns | 0.3166 ns | 0.2807 ns |
+|   FibB | 10 | 11.0480 ns | 0.2441 ns | 0.3500 ns |
+
+
+---
+
 ### Use profile Guided Optimization
 
 
@@ -92,7 +106,7 @@ In .NET for a while now (PGO)
 
 
 
-## Speculative optimization using DPGO
+### Speculative optimization using DPGO
 
 1. Add counters into the code
 
@@ -106,7 +120,7 @@ In .NET for a while now (PGO)
 
 ---
 
-## Use for
+### Use for
 
 1. Devirtualization
 2. Hot/cold block reordering
@@ -115,7 +129,7 @@ In .NET for a while now (PGO)
 ---
 
 
-## Obligatory mention
+### Obligatory mention
 
 1. SELF 
     - prototype based language (old JS)
@@ -124,7 +138,7 @@ In .NET for a while now (PGO)
 
 ---
 
-## Which is better?
+### Which is better?
 
 - PGO 
 - DPGO
@@ -133,9 +147,15 @@ In .NET for a while now (PGO)
 ---
 
 
-## Read these
+### Read these
 
 - https://gist.github.com/EgorBo/dc181796683da3d905a5295bfd3dd95b
 - https://github.com/dotnet/runtime/issues/43618
 - https://github.com/dotnet/runtime/pull/52708
 - https://github.com/dotnet/runtime/pull/55478
+
+---
+
+### Reproduce the results 
+
+- https://github.com/clivetong/Play/tree/master/dynamicpgo
