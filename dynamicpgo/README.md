@@ -34,7 +34,7 @@ title: "Dynamic Profile Guided Optimization"
 
 ### Let's try them
 
-- https://github.com/clivetong/Play/blob/master/dynamicpgo/testfib/Program.cs
+- https://github.com/clivetong/Play/blob/master/dynamicpgo/testfac/Program.cs
 
 
 
