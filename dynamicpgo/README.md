@@ -76,7 +76,8 @@ In .NET for a while now (PGO)
 2. The ability to dynamically watch what the code is doing
     - a reflective runtime
 
-3. on stack replacement (Not yet fully fully available)
+3. on stack replacement (OSR - everywhere)
+    - switch to new implementation
 
 
 ---
@@ -109,14 +110,17 @@ In .NET for a while now (PGO)
 ## Obligatory mention
 
 1. SELF 
-    - go extreme and dynamically de-optimise
+    - prototype based language (old JS)
+    - go extreme
+    - dynamically de-optimise when debugging or too aggressive
 
 ---
 
 ## Which is better?
 
-      PGO versus DPGO
-
+- PGO 
+- DPGO
+- attributed methods
 
 ---
 
@@ -124,5 +128,6 @@ In .NET for a while now (PGO)
 ## Read these
 
 - https://gist.github.com/EgorBo/dc181796683da3d905a5295bfd3dd95b
+- https://github.com/dotnet/runtime/issues/43618
 - https://github.com/dotnet/runtime/pull/52708
 - https://github.com/dotnet/runtime/pull/55478
