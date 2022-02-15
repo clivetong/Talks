@@ -14,17 +14,17 @@ title: "Dynamic Profile Guided Optimization"
 ### Why do I care about the order of code?
 
 ```
-    public int FibA(int a)
+    public int FacA(int a)
     {
         if (a == 0)
             return 1;
-        return a * FibA(a - 1);
+        return a * FacA(a - 1);
     }
 
-    public int FibB(int a)
+    public int FacB(int a)
     {
         if (a != 0)
-            return a * FibB(a - 1);
+            return a * FacB(a - 1);
         return 1;
     }
 ```
@@ -48,10 +48,10 @@ title: "Dynamic Profile Guided Optimization"
 
 | Method |  a |       Mean |     Error |    StdDev |
 |------- |--- |-----------:|----------:|----------:|
-|   FibA |  0 |  0.0285 ns | 0.0175 ns | 0.0146 ns |
-|   FibB |  0 |  0.2069 ns | 0.0316 ns | 0.0608 ns |
-|   FibA | 10 | 14.4784 ns | 0.3166 ns | 0.2807 ns |
-|   FibB | 10 | 11.0480 ns | 0.2441 ns | 0.3500 ns |
+|   FacA |  0 |  0.0285 ns | 0.0175 ns | 0.0146 ns |
+|   FacB |  0 |  0.2069 ns | 0.0316 ns | 0.0608 ns |
+|   FacA | 10 | 14.4784 ns | 0.3166 ns | 0.2807 ns |
+|   FacB | 10 | 11.0480 ns | 0.2441 ns | 0.3500 ns |
 
 
 ---

@@ -11,19 +11,19 @@ public class CheckFib
 
     [Benchmark]
     [ArgumentsSource(nameof(Values))]
-    public int FibA(int a)
+    public int FacA(int a)
     {
         if (a == 0)
             return 1;
-        return a * FibA(a - 1);
+        return a * FacA(a - 1);
     }
 
     [Benchmark]
     [ArgumentsSource(nameof(Values))]
-    public int FibB(int a)
+    public int FacB(int a)
     {
         if (a != 0)
-            return a * FibB(a - 1);
+            return a * FacB(a - 1);
         return 1;
     }
 
