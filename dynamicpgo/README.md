@@ -16,7 +16,7 @@ title: "Dynamic Profile Guided Optimization"
     public int FacA(int a)
     {
         if (a == 0)
-            return 1;
+          return 1;
         return a * FacA(a - 1);
     }
 
@@ -58,7 +58,7 @@ title: "Dynamic Profile Guided Optimization"
 ### Use profile Guided Optimization
 
 
-- checkout Python and build that
+- checkout CPython and build that
 - use the testsuite to generate a profile
 - recompile using this to guide decisions
 
@@ -79,7 +79,7 @@ In .NET for a while now (PGO)
 
 1. Make the decisions for my run of the program (DPGO)
 
-2. inline lots and learn what you should not have done
+2. Inline lots and learn what you should not have done
     - and have a way to backout
 
 
@@ -108,7 +108,7 @@ In .NET for a while now (PGO)
 2. The ability to dynamically watch what the code is doing
     - a reflective runtime
 
-3. on stack replacement (OSR - everywhere)
+3. On stack replacement (OSR - everywhere)
     - switch to new implementation
 
 
