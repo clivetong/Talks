@@ -161,6 +161,14 @@ In .NET for a while now (PGO)
 ---
 
 
+
+DOTNET_TieredPGO
+DOTNET_TC_QuickJitForLoops
+DOTNET_ReadyToRun
+
+
+---
+
 ### Obligatory mention
 
 1. SELF 
