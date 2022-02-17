@@ -147,6 +147,20 @@ In .NET for a while now (PGO)
 ---
 
 
+
+|                  Method |          Job |          Mean |      Error |      StdDev |
+|------------------------ |------------- |--------------:|-----------:|------------:|
+|  ProfileDrivingInlining | Default | 3,816.0934 | 74.1844 | 209.2385 |
+|  ProfileDrivingInlining | DPGO | 1,289.9320 | 25.7019 |  39.2495 |
+|  HotColdBlockReordering | Default|     1.6144 |  0.0981 |   0.1310 |
+|  HotColdBlockReordering | DPGO |     0.1374 |  0.0857 |   0.0760 |
+| GuardedDevirtualization | Default|     6.2500 |  0.1522 |   0.2277 |
+| GuardedDevirtualization | DPGO |     5.1451 |  0.1268 |   0.1303 |
+
+
+---
+
+
 ### Obligatory mention
 
 1. SELF 
