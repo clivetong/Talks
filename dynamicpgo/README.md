@@ -120,7 +120,7 @@ In .NET for a while now (PGO)
 
 1. Add counters into the code
 
-2. Trap when we've seen it enough
+2. Re-JIT when we've seen it enough
 
 3. Guarded compilation
    -  Trap when we didn't think we'd see it, but have  
@@ -160,11 +160,11 @@ In .NET for a while now (PGO)
 
 ---
 
+### Env Vars
 
-
-DOTNET_TieredPGO
-DOTNET_TC_QuickJitForLoops
-DOTNET_ReadyToRun
+- DOTNET_TieredPGO
+- DOTNET_TC_QuickJitForLoops
+- DOTNET_ReadyToRun
 
 
 ---
