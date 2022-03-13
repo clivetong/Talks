@@ -16,6 +16,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 
 ---
+
 ### Have a standard fixed design
 
 ![Qubit counts](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qbits.jpg)
@@ -62,10 +63,36 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
+
+### Example program (Real Randomness)
+
+```
+namespace Qrng {
+    open Microsoft.Quantum.Convert;
+    open Microsoft.Quantum.Math;
+    open Microsoft.Quantum.Measurement;
+    open Microsoft.Quantum.Canon;
+    open Microsoft.Quantum.Intrinsic;
+    
+    operation SampleQuantumRandomNumberGenerator() : Result {
+        // Allocate a qubit        
+        use q = Qubit();  
+        // Put the qubit to superposition
+        // It now has a 50% chance of being measured 0 or 1  
+        H(q);      
+        // Measure the qubit value            
+        return M(q); 
+    }
+}```
+
+
+---
+
+
 ### Allow you to definitely get the right answer 
 
 - many algorithms are probabilistic
-  - amplitude amplification (Grover's algorithm)
+  - amplitude amplification ([Grover's algorithm](https://docs.microsoft.com/en-us/azure/quantum/tutorial-qdk-grovers-search?tabs=tabid-visualstudio))
 - programs mix quantum and conventional, so that the quantum part can be run multiple times
 
 ---
@@ -75,3 +102,9 @@ title: "What! Quantum Computers Can't Do That?"
 - it takes 2^n bits to simulate a Quantum computer with n Qbits 
    (because of superposition)
 - [Holevo's theorem](https://en.wikipedia.org/wiki/Holevo%27s_theorem#:~:text=Holevo's%20theorem%20is%20an%20important,quantum%20state%20(accessible%20information))
+
+---
+
+
+
+### Out-perform a classical computer on small problems
