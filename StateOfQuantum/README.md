@@ -54,6 +54,7 @@ title: "What! Quantum Computers Can't Do That?"
 - reversible computations until measurement time
   - so it helps if you've studied linear algebra
   - matrices over complex numbers
+  - logical model of a Qbit as a bloch sphere
 - the no copy theorem means you can't just
   - ```x = y ```
 - use superposition
@@ -108,3 +109,5 @@ namespace Qrng {
 
 
 ### Out-perform a classical computer on small problems
+
+- likely that quantum computers scale better int he size of the data
