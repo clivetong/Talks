@@ -19,7 +19,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 ### Have a standard fixed design
 
-![Qubit counts](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qbits.jpg)
+![Qubit counts](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubits.jpg)
 
 [From this YouTube video](https://www.youtube.com/watch?v=gcbMKt079l8)
 
@@ -35,7 +35,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
-### Don't just use the Qbit count
+### Don't just use the Qubit count
 
 - IBM have a notion of Quantum Volume that measures many features
 
@@ -54,7 +54,7 @@ title: "What! Quantum Computers Can't Do That?"
 - reversible computations until measurement time
   - so it helps if you've studied linear algebra
   - matrices over complex numbers
-  - logical model of a Qbit as a bloch sphere
+  - logical model of a Qubit as a bloch sphere
 - the no copy theorem means you can't just
   - ```x = y ```
 - use superposition
@@ -100,7 +100,7 @@ namespace Qrng {
 
 ### Represent more data than a classical computer with that number of bits
 
-- it takes 2^n bits to simulate a Quantum computer with n Qbits 
+- it takes 2^n bits to simulate a Quantum computer with n Qubits 
    (because of superposition)
 - [Holevo's theorem](https://en.wikipedia.org/wiki/Holevo%27s_theorem#:~:text=Holevo's%20theorem%20is%20an%20important,quantum%20state%20(accessible%20information))
 
