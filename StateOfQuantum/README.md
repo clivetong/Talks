@@ -35,9 +35,13 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
+
 ### Don't just use the Qubit count
 
+- Estimate a million Qubits to do useful factorization
+   - physical v logical qubits
 - IBM have a notion of Quantum Volume that measures many features
+  - including qubits, error correction
 
 ---
 
@@ -111,4 +115,14 @@ namespace Qrng {
 
 ### Out-perform a classical computer on small problems
 
-- likely that quantum computers scale better int he size of the data
+- likely that quantum computers scale better in the size of the data
+  - Shor's algorithm O(log n)
+  - [classical](https://en.wikipedia.org/wiki/Integer_factorization#Current_state_of_the_art)
+
+
+---
+
+### Places to learn more
+
+- [Qiskit](https://www.qiskit.org/)
+- [Microsoft Quantum](https://github.com/microsoft/Quantum/)
