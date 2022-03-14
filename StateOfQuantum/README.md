@@ -58,8 +58,8 @@ title: "What! Quantum Computers Can't Do That?"
 - reversible computations until measurement time
   - so it helps if you've studied linear algebra
   - matrices over complex numbers
-  - logical model of a Qubit as a bloch sphere
-- the no copy theorem means you can't just
+  - logical model of a Qubit as a Bloch sphere
+- the no copy theorem means you can't just assign
   - ```x = y ```
 - use superposition
 - use entanglement
@@ -103,22 +103,22 @@ namespace Qrng {
 
 ---
 
-### Represent more data than a classical computer with that number of bits
-
-- it takes 2^n bits to simulate a Quantum computer with n Qubits 
-   (because of superposition)
-- [Holevo's theorem](https://en.wikipedia.org/wiki/Holevo%27s_theorem#:~:text=Holevo's%20theorem%20is%20an%20important,quantum%20state%20(accessible%20information))
-
----
-
 
 
 ### Out-perform a classical computer on small problems
 
 - likely that quantum computers scale better in the size of the data
-  - Shor's algorithm O(log n)
+  - [Shor's algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm) O(log n)
   - [classical](https://en.wikipedia.org/wiki/Integer_factorization#Current_state_of_the_art)
 
+
+---
+
+### Represent more data than a classical computer with that number of bits
+
+- it takes 2^n bits to simulate a Quantum computer with n Qubits 
+   (because of superposition)
+- [Holevo's theorem](https://en.wikipedia.org/wiki/Holevo%27s_theorem#:~:text=Holevo's%20theorem%20is%20an%20important,quantum%20state%20(accessible%20information))
 
 ---
 
