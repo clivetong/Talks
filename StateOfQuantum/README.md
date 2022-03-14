@@ -84,7 +84,8 @@ namespace Qrng {
         // Measure the qubit value            
         return M(q); 
     }
-}```
+}
+```
 
 
 ---
