@@ -23,7 +23,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 [The basic unit of quantum information](https://en.wikipedia.org/wiki/Qubit#:~:text=In%20quantum%20computing%2C%20a%20qubit,with%20a%20two%2Dstate%20device.)
 
-![A qubit](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubit.jpg)
+![A qubit](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubit.png)
 
 
 ---
