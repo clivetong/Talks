@@ -56,6 +56,14 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
+
+### And some people believe you'll never be able to error correct enough
+
+- [Error correction schemes](https://en.wikipedia.org/wiki/Quantum_error_correction)
+  - [And proofs they can't work](https://www.quantamagazine.org/gil-kalais-argument-against-quantum-computers-20180207/)
+
+---
+
 ### Sit on my desktop
 
 - will be somewhere else in a special environment
