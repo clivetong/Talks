@@ -145,3 +145,6 @@ namespace Qrng {
 
 - [Qiskit](https://www.qiskit.org/)
 - [Microsoft Quantum](https://github.com/microsoft/Quantum/)
+
+
+And #eng-quantum
