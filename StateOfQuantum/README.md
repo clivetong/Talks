@@ -26,6 +26,9 @@ title: "What! Quantum Computers Can't Do That?"
 ![A qubit](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubit.png)
 
 
+[I prefer the state representation, but this is how they are related](https://qiskit.org/textbook/ch-states/representing-qubit-states.html#bloch-sphere)
+
+
 ---
 
 ### Have a standard fixed design
@@ -143,7 +146,8 @@ namespace Qrng {
 
 ### Places to learn more
 
-- [Qiskit](https://www.qiskit.org/)
+ - [Qiskit](https://www.qiskit.org/)
+   - [The textbook](https://qiskit.org/textbook/ch-states/atoms-computation.html)
 - [Microsoft Quantum](https://github.com/microsoft/Quantum/)
 
 
