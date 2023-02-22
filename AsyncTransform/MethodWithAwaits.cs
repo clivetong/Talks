@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using NUnit.Framework;
 
@@ -256,5 +257,28 @@ public class MethodWithAwaits
     //   UnsafeContinuation
     //   The fast path and allocations
     //   Catching exceptions
+
+    // What's doing the timer then? And into the murky world of SynchronizationContexts
+
+    class MySynchronizationContext : SynchronizationContext
+    {
+        public override void Post(SendOrPostCallback d, object? state)
+        {
+            Debugger.Break();
+            base.Post(d, state);
+
+            // public virtual void Post(SendOrPostCallback d, object? state) => ThreadPool.QueueUserWorkItem(static s => s.d(s.state), (d, state), preferLocal: false);
+        }
+
+    }
+
+    [Test]
+    public async Task CheckSynchronizationContext()
+    {
+        SynchronizationContext.SetSynchronizationContext(new MySynchronizationContext());
+
+        var result = await TransformThis(10);
+        Assert.That(result, Is.EqualTo(12));
+    }
 
 }
