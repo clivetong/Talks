@@ -243,12 +243,15 @@ public class MethodWithAwaits
     {
         var method = new AsyncMethodEnumerator(10);
         method.MoveNext();
-        var result = await method.Result;
+        var resultingTask = method.Result;
+
+        var result = await resultingTask;
 
         Assert.That(result, Is.EqualTo(12));
     }
 
     // Discuss
+    //   When we gave the thread back, and how we worked on a thread on a thread that was given to us
     //   Synchronous completion
     //   UnsafeContinuation
     //   The fast path and allocations
