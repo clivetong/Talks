@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.JavaScript;
 using NUnit.Framework;
@@ -8,7 +9,6 @@ namespace AsyncTransform;
 [TestFixture]
 public class MethodWithAwaits
 {
-    [TestCase(10, ExpectedResult = 12)]
     public async Task<int> TransformThis(int argument)
     {
         var i = argument;
@@ -26,6 +26,13 @@ public class MethodWithAwaits
         Console.WriteLine(i);
 
         return i;
+    }
+
+    [Test]
+    public async Task CheckAsync()
+    {
+        var result = await TransformThis(10);
+        Assert.That(result, Is.EqualTo(12));
     }
 
     // Remind you of enumeration?
@@ -151,6 +158,83 @@ public class MethodWithAwaits
         enumerator.MoveNext();
 
         Assert.IsFalse(enumerator.MoveNext());
+    }
+
+    // And let's go to async
+
+    class AsyncMethodEnumerator
+    {
+        private readonly int _argument;
+
+        public AsyncMethodEnumerator(int argument)
+        {
+            _argument = argument;
+        }
+
+        // The real stuff
+        private int _state = 0;
+
+        private int _i;
+
+        // The real one doesn't have a final result
+        private TaskCompletionSource<int> _result = new TaskCompletionSource<int>();
+        public Task<int> Result => _result.Task;
+
+        public void MoveNext()
+        {
+            Task task;
+            TaskAwaiter awaiter;
+
+            switch (_state)
+            {
+                case 0:
+                    _i = _argument;
+                    _state = 1;
+
+                    task = Task.Delay(TimeSpan.FromSeconds(1));
+                    awaiter = task.GetAwaiter();
+                    if (!awaiter.IsCompleted)
+                    {
+                        awaiter.OnCompleted(() => MoveNext());
+                        return;
+                    }
+
+                    goto case 1;
+
+                case 1:
+                    _i++;
+                    Console.WriteLine(_i);
+                    _state = 2;
+
+                    task = Task.Delay(TimeSpan.FromSeconds(1));
+                    awaiter = task.GetAwaiter();
+                    if (!awaiter.IsCompleted)
+                    {
+                        awaiter.OnCompleted(() => MoveNext());
+                        return;
+                    }
+
+                    goto case 2;
+
+                case 2:
+                    _i++;
+                    Console.WriteLine(_i);
+                    _state = 3;
+                    _result.SetResult(_i);
+                    return;
+            }
+        }
+
+    }
+
+    [Test]
+    public async Task CheckAsync2()
+    {
+        var method = new AsyncMethodEnumerator(10);
+        method.MoveNext();
+        var result = await method.Result;
+
+        Assert.That(result, Is.EqualTo(12));
     }
 
 }
