@@ -257,6 +257,8 @@ public class MethodWithAwaits
     //   UnsafeContinuation
     //   The fast path and allocations
     //   Catching exceptions
+    //   await is an expression
+    //   await in a catch/finally have to be translated specially
 
     // What's doing the timer then? And into the murky world of SynchronizationContexts
 
