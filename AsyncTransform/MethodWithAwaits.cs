@@ -210,7 +210,7 @@ public class MethodWithAwaits
                     awaiter = task.GetAwaiter();
                     if (!awaiter.IsCompleted)
                     {
-                        awaiter.OnCompleted(() => MoveNext());
+                        awaiter.UnsafeOnCompleted(() => MoveNext());
                         return;
                     }
 
@@ -236,5 +236,10 @@ public class MethodWithAwaits
 
         Assert.That(result, Is.EqualTo(12));
     }
+
+    // Discuss
+    //   Synchronous completion
+    //   UnsafeContinuation
+    //   The fast path and allocations
 
 }
