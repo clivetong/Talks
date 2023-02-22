@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.JavaScript;
 using NUnit.Framework;
 
 namespace AsyncTransform;
@@ -35,8 +33,8 @@ public class MethodWithAwaits
         Assert.That(result, Is.EqualTo(12));
     }
 
-    // Remind you of enumeration?
-
+    // Remind you of enumeration? (Why do I talk about that?)
+    
     class Unit
     {
         public static Unit Instance { get; } = new Unit();
@@ -62,15 +60,26 @@ public class MethodWithAwaits
     }
 
     [Test]
+    public void CheckTheContinuations0()
+    {
+        var res = DoSteps(10);
+        var result = res.ToList();
+
+        Assert.That(result.Count, Is.EqualTo(2));
+    }
+
+    // Under the covers - let's drive it by hand
+
+    [Test]
     public void CheckTheContinuations()
     {
         var res = DoSteps(10);
 
         var enumerator = res.GetEnumerator();
-        
-        enumerator.MoveNext();
-        enumerator.MoveNext();
-        enumerator.MoveNext();
+
+        Assert.IsTrue(enumerator.MoveNext());
+        Assert.IsTrue(enumerator.MoveNext());
+        Assert.IsTrue(enumerator.MoveNext());
 
         Assert.IsFalse(enumerator.MoveNext());
     }
@@ -79,7 +88,7 @@ public class MethodWithAwaits
 
     class MethodReplacement
     {
-        private int _argument;
+        private readonly int _argument;
         public MethodReplacement(int argument)
         {
             _argument = argument;
@@ -99,13 +108,14 @@ public class MethodWithAwaits
             _argument = argument;
         }
 
-        // The real stuff
+        // The continuation points
         private int _state = 0;
 
+        // The local variables are re-homed
         private int _i;
 
         // The real one doesn't have a final result
-        private int _result;
+        //private int _result;
 
         public bool MoveNext()
         {
@@ -126,7 +136,7 @@ public class MethodWithAwaits
                     _state = 3;
                     return true;
                 default:
-                    _result = _i;
+                    //_result = _i;
                     return false;
             }
         }
@@ -171,12 +181,13 @@ public class MethodWithAwaits
             _argument = argument;
         }
 
-        // The real stuff
+        // The continuation points
         private int _state = 0;
 
+        // The local variables are re-homed
         private int _i;
 
-        // The real one doesn't have a final result
+        // And we need some plumbing for the result
         private TaskCompletionSource<int> _result = new TaskCompletionSource<int>();
         public Task<int> Result => _result.Task;
 
@@ -195,7 +206,7 @@ public class MethodWithAwaits
                     awaiter = task.GetAwaiter();
                     if (!awaiter.IsCompleted)
                     {
-                        awaiter.OnCompleted(() => MoveNext());
+                        awaiter.OnCompleted(MoveNext);
                         return;
                     }
 
@@ -210,7 +221,7 @@ public class MethodWithAwaits
                     awaiter = task.GetAwaiter();
                     if (!awaiter.IsCompleted)
                     {
-                        awaiter.UnsafeOnCompleted(() => MoveNext());
+                        awaiter.OnCompleted(MoveNext);
                         return;
                     }
 
@@ -241,5 +252,6 @@ public class MethodWithAwaits
     //   Synchronous completion
     //   UnsafeContinuation
     //   The fast path and allocations
+    //   Catching exceptions
 
 }
