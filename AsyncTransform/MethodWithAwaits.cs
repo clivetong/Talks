@@ -297,6 +297,15 @@ public class MethodWithAwaits
 
     // Set a breakpoint on the i++ in the original to see the thread jump
 
+    [Test]
+    public async Task CheckSynchronizationContextNoConfigure()
+    {
+        SynchronizationContext.SetSynchronizationContext(new MySynchronizationContext());
+
+        var result = await TransformThis(10).ConfigureAwait(false);
+        Assert.That(result, Is.EqualTo(12));
+    }
+
     // But we are jumping between threads so what do we take with us?
     // Does that mean we dirty the threadpool threads that we were lent?
 
