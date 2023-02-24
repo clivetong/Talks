@@ -279,8 +279,12 @@ public class MethodWithAwaits
         public override void Post(SendOrPostCallback d, object? state)
         {
             Debugger.Break();
-            base.Post(d, state);
-
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                SynchronizationContext.SetSynchronizationContext(new MySynchronizationContext());
+                d(state);
+            },
+            null);
             // public virtual void Post(SendOrPostCallback d, object? state) => ThreadPool.QueueUserWorkItem(static s => s.d(s.state), (d, state), preferLocal: false);
         }
 
@@ -297,12 +301,31 @@ public class MethodWithAwaits
 
     // Set a breakpoint on the i++ in the original to see the thread jump
 
+    public async Task<int> TransformThisConfigure(int argument)
+    {
+        var i = argument;
+
+        await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+
+        i++;
+
+        Console.WriteLine(i);
+
+        await Task.Delay(TimeSpan.FromSeconds(1)).ConfigureAwait(false);
+
+        i++;
+
+        Console.WriteLine(i);
+
+        return i;
+    }
+
     [Test]
     public async Task CheckSynchronizationContextNoConfigure()
     {
         SynchronizationContext.SetSynchronizationContext(new MySynchronizationContext());
 
-        var result = await TransformThis(10).ConfigureAwait(false);
+        var result = await TransformThisConfigure(10).ConfigureAwait(false);
         Assert.That(result, Is.EqualTo(12));
     }
 
