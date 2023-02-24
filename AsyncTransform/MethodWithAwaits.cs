@@ -146,7 +146,7 @@ public class MethodWithAwaits
                     _i++;
                     Console.WriteLine(_i);
                     _state = 3;
-                    return true;
+                    return false;
                 default:
                     //_result = _i;
                     return false;
@@ -175,7 +175,6 @@ public class MethodWithAwaits
 
         var enumerator = res.GetEnumerator();
 
-        enumerator.MoveNext();
         enumerator.MoveNext();
         enumerator.MoveNext();
 
