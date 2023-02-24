@@ -147,9 +147,9 @@ public class MethodWithAwaits
                     _i++;
                     Console.WriteLine(_i);
                     _state = 3;
+                    //_result = _i;
                     return false;
                 default:
-                    //_result = _i;
                     return false;
             }
         }
