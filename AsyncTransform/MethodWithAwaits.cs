@@ -9,7 +9,6 @@ namespace AsyncTransform;
 // Why the details about the history?
 //   To explain why things are named this way
 //   To show it isn't just magic
-//   And we can explain why the await points changed over time
 
 // Why the lowering and not add support to the CLR?
 
@@ -318,7 +317,7 @@ public class MethodWithAwaits
     }
 
     // And the Awaiter pattern
-    public class MyThingy
+    public class MyThing
     {
         public MyAwaiter GetAwaiter() => new MyAwaiter();
 
@@ -337,8 +336,8 @@ public class MethodWithAwaits
     [Test]
     public async Task TestThingy()
     {
-        var x = new MyThingy();
-        Assert.That(await x + await x, Is.EqualTo(40));
+        var x = new MyThing();
+        Assert.That(3 * await x + await x, Is.EqualTo(80));
     }
 
 }
