@@ -274,6 +274,8 @@ public class MethodWithAwaits
     // What's doing the timer then? And into the murky world of SynchronizationContexts
     //   And why do you need to ConfigureAwait
 
+    // Motivate a context using the example of Windows
+
     class MySynchronizationContext : SynchronizationContext
     {
         public override void Post(SendOrPostCallback d, object? state)
