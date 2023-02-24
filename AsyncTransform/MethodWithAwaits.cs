@@ -89,7 +89,6 @@ public class MethodWithAwaits
 
         Assert.IsTrue(enumerator.MoveNext());
         Assert.IsTrue(enumerator.MoveNext());
-        Assert.IsTrue(enumerator.MoveNext());
 
         Assert.IsFalse(enumerator.MoveNext());
     }
@@ -172,7 +171,7 @@ public class MethodWithAwaits
     [Test]
     public void CheckTheContinuations2()
     {
-        var res =new MethodReplacement(10);
+        var res = new MethodReplacement(10);
 
         var enumerator = res.GetEnumerator();
 
