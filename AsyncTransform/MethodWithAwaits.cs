@@ -300,12 +300,21 @@ public class MethodWithAwaits
     // Set a breakpoint on the i++ in the original to see the thread jump
 
     // But we are jumping between threads so what do we take with us?
+    // And there's code to clean up the threadpool threads too
 
     [Test]
     public void WhatsAnExecutionContext()
     {
         var executionContext = ExecutionContext.Capture();
+        ExecutionContext.Run(executionContext, state =>
+        {
+            Debugger.Break();
+        }, null);
         Debugger.Break();
+
+        var a = Task.CompletedTask.GetAwaiter();
+        a.UnsafeOnCompleted(delegate { });
+        a.OnCompleted(delegate { });
     }
 
 }
