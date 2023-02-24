@@ -300,7 +300,7 @@ public class MethodWithAwaits
     // Set a breakpoint on the i++ in the original to see the thread jump
 
     // But we are jumping between threads so what do we take with us?
-    // And there's code to clean up the threadpool threads too
+    // Does that mean we dirty the threadpool threads that we were lent?
 
     [Test]
     public void WhatsAnExecutionContext()
@@ -315,6 +315,30 @@ public class MethodWithAwaits
         var a = Task.CompletedTask.GetAwaiter();
         a.UnsafeOnCompleted(delegate { });
         a.OnCompleted(delegate { });
+    }
+
+    // And the Awaiter pattern
+    public class MyThingy
+    {
+        public MyAwaiter GetAwaiter() => new MyAwaiter();
+
+        public class MyAwaiter : INotifyCompletion
+        {
+            public bool IsCompleted => false;
+            public void OnCompleted(Action continuation)
+            {
+                continuation();
+            }
+
+            public int GetResult() => 20;
+        }
+    }
+
+    [Test]
+    public async Task TestThingy()
+    {
+        var x = new MyThingy();
+        Assert.That(await x + await x, Is.EqualTo(40));
     }
 
 }
