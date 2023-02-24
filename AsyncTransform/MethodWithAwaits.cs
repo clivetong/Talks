@@ -5,6 +5,14 @@ using NUnit.Framework;
 
 namespace AsyncTransform;
 
+
+// Why the details about the history?
+//   To explain why things are named this way
+//   To show it isn't just magic
+//   And we can explain why the await points changed over time
+
+// Why the lowering and not add support to the CLR?
+
 [TestFixture]
 public class MethodWithAwaits
 {
@@ -35,6 +43,8 @@ public class MethodWithAwaits
     }
 
     // Remind you of enumeration? (Why do I talk about that?)
+    //    C# 2.0
+    //    CCR 
     
     class Unit
     {
@@ -86,6 +96,9 @@ public class MethodWithAwaits
     }
 
     // So how does the compiler transform that?
+    //    There's a protocol - GetEnumerator
+    //    There's a display class (and explain the naming)
+    //    And there's a state machine
 
     class MethodReplacement
     {
@@ -261,6 +274,7 @@ public class MethodWithAwaits
     //   await in a catch/finally have to be translated specially
 
     // What's doing the timer then? And into the murky world of SynchronizationContexts
+    //   And why do you need to ConfigureAwait
 
     class MySynchronizationContext : SynchronizationContext
     {
@@ -281,6 +295,17 @@ public class MethodWithAwaits
 
         var result = await TransformThis(10);
         Assert.That(result, Is.EqualTo(12));
+    }
+
+    // Set a breakpoint on the i++ in the original to see the thread jump
+
+    // But we are jumping between threads so what do we take with us?
+
+    [Test]
+    public void WhatsAnExecutionContext()
+    {
+        var executionContext = ExecutionContext.Capture();
+        Debugger.Break();
     }
 
 }
