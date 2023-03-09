@@ -331,6 +331,21 @@ public class MethodWithAwaits
         Assert.That(result, Is.EqualTo(12));
     }
 
+    [Test]
+    public void CheckSynchronizationContextOnTaskSetResult()
+    {
+        SynchronizationContext.SetSynchronizationContext(new MySynchronizationContext());
+
+        var task = new TaskCompletionSource<int>();
+        var a = task.Task.GetAwaiter();
+        a.OnCompleted(() => { Debugger.Break(); });
+
+        SynchronizationContext.SetSynchronizationContext(null);
+
+        task.SetResult(22);
+
+    }
+
     // But we are jumping between threads so what do we take with us?
     // Does that mean we dirty the threadpool threads that we were lent?
 
