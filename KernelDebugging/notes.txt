@@ -1,0 +1,3 @@
+x /D /f nt!ntopenFile
+g
+!thread @$thread 0x1f
