@@ -50,11 +50,9 @@ But will definitely  not see
 
 ---
 
-### This code
+### [This code](https://github.com/clivetong/Talks/blob/master/TieredJitAndUndefined/Program.cs)
 
-[This code](https://github.com/clivetong/Talks/blob/master/TieredJitAndUndefined/Program.cs)
-
-```
+```  
 class Program
 {
     private static bool _cancelLoop = false;
@@ -69,7 +67,8 @@ class Program
 #endif
         }
     }
-
+```
+```
     static void Main()
     {
         var loopThread = Task.Run(LoopThreadStart);
