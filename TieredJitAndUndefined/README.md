@@ -145,3 +145,19 @@ windbg
   sxe ld clrjit
   !bpmd ConsoleApp4 Program.LoopThreadStart
 ```
+
+---
+
+### And what is the fix
+
+```
+private volatile static bool _cancelLoop = false;
+```
+
+---
+
+### Summary
+
+- undefined behaviour means your code isn't portable
+- it's hard to tell when you have strayed
+- it's there to optimize the common case
