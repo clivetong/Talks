@@ -5,7 +5,7 @@ title: "Undefined behaviour becomes even more undefined"
 ---
 
 ::: block
-*Tell me about Undefined Behaviour* {style=background:red;width:500px}
+*Lessons from a few lines of code* {style=background:red;width:500px}
 :::
 
 ---
@@ -41,9 +41,10 @@ The way caches work means you end up with a happens-before relationship.
 ### I write 1,2,3,4,5 to a memory location
 
 Another thread reading might see
-- 1,2,3,4,5
-- 2,4,5
-- 2,5
+- 1..,2....,3..,4.,5..
+- 2...,4.,5..
+- 2,5...
+- 2...
 
 But will definitely  not see
 - 5,4
@@ -68,6 +69,11 @@ class Program
         }
     }
 ```
+
+---
+
+### And
+
 ```
     static void Main()
     {
@@ -114,7 +120,7 @@ C:\...\TieredJitAndUndefined >
 
 ### So where did the undefined behaviour get used?
 
-- hoped that it was in the hardware)
+- hoped that it was in the hardware
 - it's not even in the compiler
 - but it is in the JIT
 - ... and the behaviour changes over time
