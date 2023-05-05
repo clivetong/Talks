@@ -72,7 +72,6 @@ class Program
 
 ---
 
-### And
 
 ```
     static void Main()
