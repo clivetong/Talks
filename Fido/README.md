@@ -53,10 +53,51 @@ title: "Passwordless is here!"
 
 ---
 
-![AHow supported is it?](images/support.png)
+![How supported is it?](images/support.png)
 
 ---
 
 ### Try it at [webauthn.io](https://webauthn.io/)
 
-- [when you register](https://stackoverflow.com/questions/73224907/what-information-does-fido2-url-contain-and-how-can-we-decode-it-in-swift)
+- Register
+- Authenticate
+
+- QR Codes
+- Bluetooth between computer and external authenticator
+
+---
+
+![Register](images/register1.png)
+
+---
+
+![Register](images/register2.png)
+
+---
+
+- iPhone asks about keychain
+- timeout if not quick enough
+
+![Register](images/register3.png)
+
+---
+
+### What was that QR code?
+
+- URL with FIDO protocol handler and base64 data
+
+- [See this post](https://stackoverflow.com/questions/73224907/what-information-does-fido2-url-contain-and-how-can-we-decode-it-in-swift)
+
+---
+
+### Later logins
+
+![Signin](images/signin.png)
+
+- and a biometric check
+
+---
+
+### And some advertising
+
+![Signin](images/signin2.png)
