@@ -58,8 +58,8 @@ title: "Passwordless is here!"
 ---
 
 [The API is dicussed here](https://webauthn.guide/#registration)
-
 and [SimpleWebAuthn is here](https://simplewebauthn.dev/docs/simplewebauthn/philosophy)
+This includes server [registration](https://simplewebauthn.dev/docs/packages/server#registration) and [authentication](https://simplewebauthn.dev/docs/packages/server#authentication) and the [browser side](https://simplewebauthn.dev/docs/packages/browser)
 
 ---
 
