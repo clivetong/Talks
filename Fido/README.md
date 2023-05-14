@@ -33,7 +33,7 @@ title: "Passwordless is here!"
 
 ---
 
-### WHat is WebAuthN?
+### What is WebAuthN?
 
 - Browser API for Passwordless Authentication
 
@@ -49,11 +49,17 @@ title: "Passwordless is here!"
 
 - a different private key per site
 
-- attestation to prove th ekey is from the authenticator
+- attestation to prove the key is from the authenticator
 
 ---
 
 ![How supported is it?](images/support.png)
+
+---
+
+[The API is dicussed here](https://webauthn.guide/#registration)
+
+and [SimpleWebAuthn is here](https://simplewebauthn.dev/docs/simplewebauthn/philosophy)
 
 ---
 
