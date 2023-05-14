@@ -10,6 +10,14 @@ title: "Passwordless is here!"
 
 ---
 
+### [FIDO](https://fidoalliance.org/)
+
+- Fast ID Online
+
+---
+
+### What's the problem?
+
 ![And the problem is](images/headline.png)
 
 
@@ -27,11 +35,6 @@ title: "Passwordless is here!"
 
 ---
 
-### [FIDO](https://fidoalliance.org/)
-
-- Fast ID Online
-
----
 
 ### What is WebAuthN?
 
@@ -107,3 +110,7 @@ This includes server [registration](https://simplewebauthn.dev/docs/packages/ser
 ### And some advertising
 
 ![Signin](images/signin2.png)
+
+---
+
+### Problem solved!
