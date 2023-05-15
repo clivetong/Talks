@@ -23,9 +23,9 @@ title: "Passwordless is here!"
 
 ---
 
-### And I hadn't really heard about it at the time
+### But passwords aren't the future
 
-- But passwords are dead
+- Passwords are dead
 
 - SMS based MFA is breakable
 
@@ -60,7 +60,7 @@ title: "Passwordless is here!"
 
 ---
 
-[The API is dicussed here](https://webauthn.guide/#registration)
+[The API is discussed here](https://webauthn.guide/#registration)
 and [SimpleWebAuthn is here](https://simplewebauthn.dev/docs/simplewebauthn/philosophy)
 This includes server [registration](https://simplewebauthn.dev/docs/packages/server#registration) and [authentication](https://simplewebauthn.dev/docs/packages/server#authentication) and the [browser side](https://simplewebauthn.dev/docs/packages/browser)
 
