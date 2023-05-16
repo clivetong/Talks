@@ -48,11 +48,13 @@ title: "Passwordless is here!"
 
 ### [Three properties](https://webauthn.guide/)
 
-- private key stored in hardware protected module
+- private key stored in hardware protected module 
 
 - a different private key per site
 
 - attestation to prove the key is from the authenticator
+
+STRONG/SCOPED/ATTESTED
 
 ---
 
@@ -63,6 +65,8 @@ title: "Passwordless is here!"
 [The API is discussed here](https://webauthn.guide/#registration)
 and [SimpleWebAuthn is here](https://simplewebauthn.dev/docs/simplewebauthn/philosophy)
 This includes server [registration](https://simplewebauthn.dev/docs/packages/server#registration) and [authentication](https://simplewebauthn.dev/docs/packages/server#authentication) and the [browser side](https://simplewebauthn.dev/docs/packages/browser)
+
+Since 2016, your PC or device has had a [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module)
 
 ---
 
@@ -103,7 +107,11 @@ This includes server [registration](https://simplewebauthn.dev/docs/packages/ser
 
 ![Signin](images/signin.png)
 
-- and a biometric check
+---
+
+### Want to sign the challenge?
+
+- A biometric check
 
 ---
 
