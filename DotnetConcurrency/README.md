@@ -5,7 +5,7 @@ title: "Tell me about .NET conurrency!"
 ---
 
 ::: block
-*Tell me about .NET concurency* {style=background:red;width:500px}
+*Tell me about .NET concurrency* {style=background:red;width:500px}
 :::
 
 ---
