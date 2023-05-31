@@ -10,6 +10,12 @@ title: "Tell me about .NET conurrency!"
 
 ---
 
+### UNDER CONSTRUCTION
+
+I intended to make this into a full talk, but haven't had time yet. It was an attempt use material from [the book](https://www.amazon.co.uk/Concurrent-Programming-Windows-Architecture-Development/dp/032143482X) and add some more notes on the changes since the book was written.
+
+---
+
 ### What and when
 
   data parallelism
