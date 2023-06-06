@@ -16,6 +16,13 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ---
 
+### Where are we going?
+
+- What does NoSQL mean?
+- Why not always Sql Server?
+
+---
+
 ### What does NoSQL mean?
 
 - referring to Sequel the implementation
@@ -82,4 +89,103 @@ This is the start of some slides for Redgate's Level Up conference in June
 - horizontally - entities into different machines
 - vertically - a slice through the data
 
+---
 
+### Sharding has it's own issues
+
+- Facebook TAO
+- RAMP
+
+---
+
+### The CAP theorem
+
+---
+
+### The alternatives
+
+- file system (Map-Reduce)
+- KV - Redis/Memcached/etcd (etc distributed)
+- document - MongoDB
+- column-family stores - Cassandra
+- graph databases - Neo4J
+
+---
+
+### And also
+
+- NewSQL (Spanner)
+- spatial (PostGIS)
+- time series InfluxDB/TimescaleDB
+
+---
+
+### File system
+
+- The original system for processing lots of big data. 
+- Map phase/Reduce phase with data shuffling happening in the middle
+- Large clusters
+- Design influenced by the need to restart jobs
+
+---
+
+### Key Value stores
+
+---
+
+### Redis
+
+``` 
+docker run --name my-redis -p 6379:6379 -d redis
+docker exec -it my-redis sh
+```
+
+---
+
+### Redis datatypes
+
+- strings
+- lists
+- sets, sorted sets
+- hashes
+- streams
+- bitmaps
+- hyperloglog
+
+---
+
+```
+set name Monica
+get name
+del name
+
+rpush name Clive
+rpush name Andrew 
+rpush name Tong
+lrange name 0 10
+
+```
+
+---
+
+- single-threaded
+- emphasise in-memory for speed
+
+---
+
+### MongoDB
+
+```
+docker run -d --name test-mongo mongo:latest
+docker exec -it test-mongo bash
+mongosh
+```
+
+---
+
+
+---
+
+### Azure Cosmos DB
+
+- multi-model
