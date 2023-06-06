@@ -258,6 +258,34 @@ match (n) return count(n);
 
 ---
 
+https://neo4j.com/docs/cypher-manual/current/clauses/match/
+
+```
+CREATE
+  (charlie:Person {name: 'Charlie Sheen'}),
+  (martin:Person {name: 'Martin Sheen'}),
+  (michael:Person {name: 'Michael Douglas'}),
+  (oliver:Person {name: 'Oliver Stone'}),
+  (rob:Person {name: 'Rob Reiner'}),
+  (wallStreet:Movie {title: 'Wall Street'}),
+  (charlie)-[:ACTED_IN {role: 'Bud Fox'}]->(wallStreet),
+  (martin)-[:ACTED_IN {role: 'Carl Fox'}]->(wallStreet),
+  (michael)-[:ACTED_IN {role: 'Gordon Gekko'}]->(wallStreet),
+  (oliver)-[:DIRECTED]->(wallStreet),
+  (thePresident:Movie {title: 'The American President'}),
+  (martin)-[:ACTED_IN {role: 'A.J. MacInerney'}]->(thePresident),
+  (michael)-[:ACTED_IN {role: 'President Andrew Shepherd'}]->(thePresident),
+  (rob)-[:DIRECTED]->(thePresident),
+  (martin)-[:FATHER_OF]->(charlie)
+```
+
+```
+MATCH (director {name: 'Oliver Stone'})--(movie)
+             RETURN director.name, movie.title;
+```
+
+---
+
 
 ### Azure Cosmos DB
 
