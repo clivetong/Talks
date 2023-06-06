@@ -77,6 +77,8 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ### the RUM conjecture
 
+https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf
+
 ---
 
 ### It's all about the clustering
@@ -94,12 +96,15 @@ This is the start of some slides for Redgate's Level Up conference in June
 ### Sharding has it's own issues
 
 - Facebook TAO
-- RAMP
+- RAMP - https://people.eecs.berkeley.edu/~alig/papers/ramp.pdf
+- RAMP TAO - https://www.vldb.org/pvldb/vol14/p3014-cheng.pdf
 - it's nicer if it is automatic
 
 ---
 
 ### The CAP theorem
+
+https://en.wikipedia.org/wiki/CAP_theorem
 
 ---
 
@@ -211,6 +216,45 @@ db.user.find({ age: { "$gt": 200 }})
 - handle the write and do the work later
 
 - compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
+
+- highly configurable for acks on write
+
+---
+
+### Example
+
+```
+docker pull cassandra:latest
+docker network create cassandra
+docker run --rm -d --name cassandra --hostname cassandra --network cassandra cassandra
+docker run --rm -it --network cassandra nuvo/docker-cqlsh cqlsh cassandra 9042 --cqlversion='3.4.6'
+```
+
+```
+CREATE KEYSPACE IF NOT EXISTS store WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };
+CREATE TABLE IF NOT EXISTS store.shopping_cart (userid text PRIMARY KEY, item_count int, last_update_timestamp timestamp);
+INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) VALUES ('9876', 2, toTimeStamp(now()));
+INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) VALUES ('1234', 5, toTimeStamp(now()));
+SELECT * FROM store.shopping_cart;
+```
+
+---
+
+### Graph databases
+
+- Neo4j
+
+---
+
+### Example
+
+```
+docker run --name testneo4j --env NEO4J_AUTH=neo4j/password neo4j:latest
+docker exec -it testneo4j bash
+cypher-shell -u neo4j -p password
+match (n) return count(n);
+
+```
 
 ---
 
