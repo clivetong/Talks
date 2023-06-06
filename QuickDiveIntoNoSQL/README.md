@@ -95,6 +95,7 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 - Facebook TAO
 - RAMP
+- it's nicer if it is automatic
 
 ---
 
@@ -130,6 +131,10 @@ This is the start of some slides for Redgate's Level Up conference in June
 ---
 
 ### Key Value stores
+
+- good for write heavy workloads
+- offer locking of keys
+- offer auto-deleteion after time
 
 ---
 
@@ -183,9 +188,40 @@ mongosh
 
 ---
 
+```
+show databases
+db.user.insertOne({name: "Ada Lovelace", age: 205})
+show databases
+db.user.find({ age: { "$gt": 200 }})
+
+```
+
+### Indexing and sharding
+
+- you can define indexes
+- you can get the system to shard large collections
+- you can do transactions
 
 ---
+
+### Cassandra
+
+- written by Facebook to handle write heavy
+- SSTables and LSTM
+- handle the write and do the work later
+
+- compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
+
+---
+
 
 ### Azure Cosmos DB
 
 - multi-model
+- native Document DB
+- Azure Table
+- Mongo DB
+- Gremlin graph
+
+- automatic indexing
+
