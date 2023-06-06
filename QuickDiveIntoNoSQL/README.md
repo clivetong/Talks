@@ -286,6 +286,17 @@ MATCH (director {name: 'Oliver Stone'})--(movie)
 
 ---
 
+### Timeseries Databases
+
+TimescaleDB
+
+https://docs.timescale.com/use-timescale/latest/time-buckets/
+
+---
+
+### But you don't have to use a different storage engine
+
+---
 
 ### Azure Cosmos DB
 
