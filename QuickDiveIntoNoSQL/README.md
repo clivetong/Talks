@@ -296,13 +296,11 @@ SELECT * FROM store.shopping_cart;
 docker run --name testneo4j --env NEO4J_AUTH=neo4j/password neo4j:latest
 docker exec -it testneo4j bash
 cypher-shell -u neo4j -p password
-match (n) return count(n);
-
 ```
 
 ---
 
-https://neo4j.com/docs/cypher-manual/current/clauses/match/
+### (Define and query a graph)[https://neo4j.com/docs/cypher-manual/current/clauses/match/]
 
 ```
 CREATE
@@ -330,7 +328,7 @@ MATCH (director {name: 'Oliver Stone'})--(movie)
 
 ---
 
-### Timeseries Databases
+### Time series Databases
 
 TimescaleDB
 
