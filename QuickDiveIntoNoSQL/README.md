@@ -55,12 +55,30 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ---
 
+### See this book
+
+![](images/prosqlserverinternals.jpg)
+
+---
+
+### [8KB pages](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig6)
+
+![](images/page.png)
+
+---
+
+### [one special index that controls how the data is laid out](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_2_Chapter.html#Fig12)
+
+![](images/indexseek.png)
+
+---
+
 ### Extended over time
 
 - column stores
 - CTEs to allow you to simulate graphs
 - simulate because you have to formulate some of the harder questions into code
-- and PostgreSQL with its many extensions
+- Contrast with PostgreSQL and its many extensions
 
 ---
 
@@ -77,21 +95,21 @@ This is the start of some slides for Redgate's Level Up conference in June
 ### It's all about the amplification
 
 - when we do a read, do we just get the data we want
-- when we make a small change, how many data pages are touched
+- when we make a small update, how many data pages are touched
 - how much memory do we need to use to keep it running efficiently
 
 ---
 
-### the RUM conjecture
+### [The RUM conjecture](https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf)
 
-https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf
+![](images/rum.png)
 
 ---
 
 ### It's all about the clustering
 
 - data size grows, and we can only vertically scale so much
-- read repliacs, but typcially one master node
+- read repliacs, but typically one master node
 
 - then you have to shard
 - this requires work from the application
