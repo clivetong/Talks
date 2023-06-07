@@ -300,7 +300,7 @@ cypher-shell -u neo4j -p password
 
 ---
 
-### (Define and query a graph)[https://neo4j.com/docs/cypher-manual/current/clauses/match/]
+### [Define and query a graph](https://neo4j.com/docs/cypher-manual/current/clauses/match/)
 
 ```
 CREATE
@@ -330,13 +330,10 @@ MATCH (director {name: 'Oliver Stone'})--(movie)
 
 ### Time series Databases
 
-TimescaleDB
-
-https://docs.timescale.com/getting-started/latest/
-
+- [TimescaleDB](https://docs.timescale.com/getting-started/latest/)
 - Timescale extends PostgreSQL for time-series and analytics, so you can build faster, scale further, and stay under budget.
-- Querying https://docs.timescale.com/getting-started/latest/query-data/
-- Compression and automatic compression - https://docs.timescale.com/getting-started/latest/compress-data/
+- [Querying](https://docs.timescale.com/getting-started/latest/query-data/)
+- [Compression and automatic compression](https://docs.timescale.com/getting-started/latest/compress-data/)
 
 ---
 
