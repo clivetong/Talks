@@ -55,6 +55,7 @@ This is the start of some slides for Redgate's Level Up conference in June
 - column stores
 - CTEs to allow you to simulate graphs
 - simulate because you have to formulate some of the harder questions into code
+- and PostgreSQL with its many extensions
 
 ---
 
@@ -63,7 +64,8 @@ This is the start of some slides for Redgate's Level Up conference in June
 - not using foreign keys
 - prefer optimistic locks over pessimistic locking
 
-- for data warehouses, typically no implementation of foreign keys and fcus on column store
+- for data warehouses, typically no implementation of foreign keys and focus on column store
+- for data warehouses, store in parquet (or other encoding) on the disk and bring to life later
 
 ---
 
@@ -98,13 +100,19 @@ https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf
 - Facebook TAO
 - RAMP - https://people.eecs.berkeley.edu/~alig/papers/ramp.pdf
 - RAMP TAO - https://www.vldb.org/pvldb/vol14/p3014-cheng.pdf
-- it's nicer if it is automatic
+- implemented as a clien tlibrary, it's nicer if it is automatic
 
 ---
 
 ### The CAP theorem
 
 https://en.wikipedia.org/wiki/CAP_theorem
+
+---
+
+### Relational clustering tends to be master-slave
+
+- writes to a master and then push out to secondaries (from HA failover)
 
 ---
 
@@ -290,11 +298,17 @@ MATCH (director {name: 'Oliver Stone'})--(movie)
 
 TimescaleDB
 
-https://docs.timescale.com/use-timescale/latest/time-buckets/
+https://docs.timescale.com/getting-started/latest/
+
+- Timescale extends PostgreSQL for time-series and analytics, so you can build faster, scale further, and stay under budget.
+- Querying https://docs.timescale.com/getting-started/latest/query-data/
+- Compression and automatic compression - https://docs.timescale.com/getting-started/latest/compress-data/
 
 ---
 
 ### But you don't have to use a different storage engine
+
+- Azure Cosmos DB supports multipe models by converting to Document DB format
 
 ---
 
@@ -304,7 +318,12 @@ https://docs.timescale.com/use-timescale/latest/time-buckets/
 - native Document DB
 - Azure Table
 - Mongo DB
-- Gremlin graph
+- Gremlin graph - https://docs.janusgraph.org/getting-started/gremlin/ https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#gremlinandsql
+---
 
+### And there's more
+
+- https://rajneeshprakash.medium.com/cosmos-db-under-the-hood-2d4ce920bb7e
 - automatic indexing
+- choice of consistency levels - see the beautiful https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels
 
