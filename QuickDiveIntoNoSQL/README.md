@@ -127,9 +127,9 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ---
 
-### The CAP theorem
+### [The CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 
-https://en.wikipedia.org/wiki/CAP_theorem
+![](images/cap.png)
 
 ---
 
