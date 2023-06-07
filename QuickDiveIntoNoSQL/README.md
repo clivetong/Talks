@@ -19,34 +19,37 @@ This is the start of some slides for Redgate's Level Up conference in June
 ### Where are we going?
 
 - What does NoSQL mean?
-- Why not always Sql Server?
+- Why not always relational?
+- The challenges - RUM/CAP
+- The famous four (+1)
+- And the others
+- And one database to rule them all 
 
 ---
 
 ### What does NoSQL mean?
 
-- referring to Sequel the implementation
+- referring to "not the language" but its model
 - relational tables
 - foreign keys
 - serialization modes (locks)
 
-- no the language, as we'll see variants of that used
-
 ---
 
 ### What does NoSQL mean?
 
-- not only Sql
-- where Sql means a relational database
+- "NOT ONLY SQL"
 
 ---
 
 ### What makes up a SQL database?
 
 - base this on Sql Server
-- a set of data pages and a transaction log
+- a transaction log (WAL)
+- a set of data pages 
 - indexing structures (likely a BTree)
 - with other secondary indexes
+- lock manager
 
 ---
 
@@ -172,6 +175,8 @@ docker exec -it my-redis sh
 
 ---
 
+### Redis example
+
 ```
 set name Monica
 get name
@@ -185,6 +190,8 @@ lrange name 0 10
 ```
 
 ---
+
+### Some quick points
 
 - single-threaded
 - emphasise in-memory for speed
@@ -201,6 +208,8 @@ mongosh
 
 ---
 
+### MongoDB example
+
 ```
 show databases
 db.user.insertOne({name: "Ada Lovelace", age: 205})
@@ -208,6 +217,8 @@ show databases
 db.user.find({ age: { "$gt": 200 }})
 
 ```
+
+---
 
 ### Indexing and sharding
 
@@ -223,9 +234,13 @@ db.user.find({ age: { "$gt": 200 }})
 - SSTables and LSTM
 - handle the write and do the work later
 
-- compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
-
 - highly configurable for acks on write
+
+---
+
+### That sounds a lot like MongoDB
+
+- compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
 
 ---
 
@@ -251,6 +266,7 @@ SELECT * FROM store.shopping_cart;
 ### Graph databases
 
 - Neo4j
+- lots of things are better represented as a graph
 
 ---
 
@@ -321,7 +337,7 @@ https://docs.timescale.com/getting-started/latest/
 - Gremlin graph - https://docs.janusgraph.org/getting-started/gremlin/ https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#gremlinandsql
 ---
 
-### And there's more
+### And there are more controls
 
 - https://rajneeshprakash.medium.com/cosmos-db-under-the-hood-2d4ce920bb7e
 - automatic indexing
