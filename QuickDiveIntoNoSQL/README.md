@@ -28,8 +28,7 @@ This is the start of some slides for Redgate's Level Up conference in June
 - And one database to rule them all 
 
 <aside class="notes">
-NOTES
-I was surprised by NoSQL and wondered why we couldn't use standard relational engines for everything.
+NOTES: I was surprised by NoSQL and wondered why we couldn't use standard relational engines for everything.
 </aside>
 
 ---
