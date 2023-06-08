@@ -27,6 +27,10 @@ This is the start of some slides for Redgate's Level Up conference in June
 - And the others
 - And one database to rule them all 
 
+<aside class="notes">
+I was surprised by NoSQL and wondered why we couldn't use standard relational engines for everything.
+</aside>
+
 ---
 
 ### What does NoSQL mean?
