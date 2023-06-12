@@ -44,7 +44,9 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ### What does NoSQL mean?
 
-- "NOT ONLY SQL"
+-	[The usage of “NoSQL” that we recognize today traces back to a meetup on June 11, 2009 in San Francisco organized by Johan Oskarsson, a software developer based in London.](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch01.html#ch01lev1sec5) 
+-	Asked on Cassandra IRC – Eric Evans (not that one)
+
 
 ---
 
@@ -79,10 +81,10 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ### Extended over time
 
-- column stores
+- column stores (emphasis on read)
 - CTEs to allow you to simulate graphs
 - simulate because you have to formulate some of the harder questions into code
-- Contrast with PostgreSQL and its many extensions
+- PostgreSQL and its many extensions
 
 ---
 
@@ -91,8 +93,10 @@ This is the start of some slides for Redgate's Level Up conference in June
 - not using foreign keys
 - prefer optimistic locks over pessimistic locking
 
-- for data warehouses, typically no implementation of foreign keys and focus on column store
-- for data warehouses, store in parquet (or other encoding) on the disk and bring to life later
+- for data warehouses, 
+  - star schemas typically no implementation of foreign keys and focus on column store
+  - store in parquet (or other encoding) on the disk and bring to life later
+- [Starbucks does not use 2PC](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html)
 
 ---
 
@@ -112,22 +116,39 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ### It's all about the clustering
 
-- data size grows, and we can only vertically scale so much
-- read repliacs, but typically one master node
+- read replicas, but typically one master node (ie master-slaves)
 
-- then you have to shard
-- this requires work from the application
-- horizontally - entities into different machines
-- vertically - a slice through the data
+- data size grows, and we can only vertically scale so much
+  - then you have to shard
+  - typically this requires work from the application
+
+- Horizontally - entities into different machines
+- Vertically - a slice through the data
 
 ---
 
-### Sharding has it's own issues
+### Sharding Issues
+
+-	Application complexity.
+-	Crippled SQL.
+-	Loss of transactional integrity. 
+-	Operational complexity. 
+
+<aside class="notes">
+It’s up to the application code to route SQL requests to the correct shard. This can be really hard.
+In a sharded database, it is not possible to issue a SQL statement that operates across shards. 
+ACID transactions against multiple shards are not possible—or at least not practical.
+Load balancing across shards becomes extremely problematic.
+</aside>
+
+---
+
+### Sharding has it's own theory
 
 - Facebook TAO
-- RAMP - https://people.eecs.berkeley.edu/~alig/papers/ramp.pdf
-- RAMP TAO - https://www.vldb.org/pvldb/vol14/p3014-cheng.pdf
-- implemented as a clien tlibrary, it's nicer if it is automatic
+- [RAMP](https://people.eecs.berkeley.edu/~alig/papers/ramp.pdf)
+- [RAMP TAO](https://www.vldb.org/pvldb/vol14/p3014-cheng.pdf)
+- implemented as a client library, it's nicer if it is automatic
 
 ---
 
@@ -135,17 +156,35 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ![](images/cap.png)
 
+[From Next Generation Databases](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch03.xhtml#_Fig4)
+
 ---
 
-### Relational clustering tends to be master-slave
+### Variable consistency levels
 
-- writes to a master and then push out to secondaries (from HA failover)
+- Strict Consistency
+- Causal Consistency
+- Monotonic Consistency
+- Read Your Own Writes
+- Eventual Consistency
+- Weak Consistency
+
+---
+
+### People have extended relational clustering
+
+- Oracle’s Real Application Clusters (RAC) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
+
+---
+
+### The alternatives - side step
+
+- file system (Map-Reduce)
 
 ---
 
 ### The alternatives
 
-- file system (Map-Reduce)
 - KV - Redis/Memcached/etcd (etc distributed)
 - document - MongoDB
 - column-family stores - Cassandra
@@ -252,6 +291,12 @@ db.user.find({ age: { "$gt": 200 }})
 
 ---
 
+### The 50 words
+
+[Apache Cassandra is an open source, distributed, decentralized, elastically scalable, highly available, fault-tolerant, tuneably consistent, row-oriented database. Cassandra bases its distribution design on Amazon’s Dynamo and its data model on Google’s Bigtable, with a query language similar to SQL. Created at Facebook, it now powers cloud-scale applications across many industries.](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch02.html#cassandra_in_50_words_or_less)
+
+---
+
 ### Cassandra
 
 - written by Facebook to handle write heavy
@@ -270,12 +315,16 @@ db.user.find({ age: { "$gt": 200 }})
 
 ### Example
 
-```
+<pre>
 docker pull cassandra:latest
 docker network create cassandra
 docker run --rm -d --name cassandra --hostname cassandra --network cassandra cassandra
 docker run --rm -it --network cassandra nuvo/docker-cqlsh cqlsh cassandra 9042 --cqlversion='3.4.6'
-```
+</pre>
+
+---
+
+### Example
 
 <pre>
 CREATE KEYSPACE IF NOT EXISTS store WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };
@@ -284,6 +333,13 @@ INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) VALUE
 INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) VALUES ('1234', 5, toTimeStamp(now()));
 SELECT * FROM store.shopping_cart;
 </pre>
+
+---
+
+### A quick note on read repair and hinted handoff
+
+- hinted handoff - store message for other nodes
+- [read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) - fix up nodes that have incorrect information
 
 ---
 
