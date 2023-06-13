@@ -84,6 +84,7 @@ This is the start of some slides for Redgate's Level Up conference in June
 - column stores (emphasis on read)
 - CTEs to allow you to simulate graphs
 - simulate because you have to formulate some of the harder questions into code
+- then added to [Sql Server 2017](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) and [Azure Sql Database](https://devblogs.microsoft.com/azure-sql/graphdb-part2/) 
 - PostgreSQL and its many extensions
 
 ---
@@ -157,6 +158,12 @@ Load balancing across shards becomes extremely problematic.
 ![](images/cap.png)
 
 [From Next Generation Databases](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch03.xhtml#_Fig4)
+
+---
+
+### [CAP classification](https://bikas-katwal.medium.com/mongodb-vs-cassandra-vs-rdbms-where-do-they-stand-in-the-cap-theorem-1bae779a7a15)
+
+![](images/capclassification.png)
 
 ---
 
@@ -307,6 +314,17 @@ db.user.find({ age: { "$gt": 200 }})
 
 ---
 
+### [Some key points](https://cassandra.apache.org/doc/latest/cassandra/data_modeling/data_modeling_rdbms.html)
+
+- No joins
+- No referential integrity
+- Denormalization
+- Query-first design
+- Design for optimal storage
+- Sorting is a design decision
+
+---
+
 ### That sounds a lot like MongoDB
 
 - compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
@@ -336,6 +354,24 @@ SELECT * FROM store.shopping_cart;
 
 ---
 
+### Quorum overlap - choice of readers and writers
+
+![](images/quorum.png)
+
+[From Designing Data Intensive Applications](https://learning.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/ch05.html#fig_replication_quorum_overlap)
+
+---
+
+### In particular
+
+- ONE
+- TWO
+- THREE
+- QUORUM    A majority (n/2 + 1) of the replicas must respond.
+- ALL       All of the replicas must respond.
+
+---
+
 ### A quick note on read repair and hinted handoff
 
 - hinted handoff - store message for other nodes
@@ -352,17 +388,17 @@ SELECT * FROM store.shopping_cart;
 
 ### Example
 
-```
+<pre>
 docker run --name testneo4j --env NEO4J_AUTH=neo4j/password neo4j:latest
 docker exec -it testneo4j bash
 cypher-shell -u neo4j -p password
-```
+</pre>
 
 ---
 
-### [Define and query a graph](https://neo4j.com/docs/cypher-manual/current/clauses/match/)
+### [Define a graph](https://neo4j.com/docs/cypher-manual/current/clauses/match/)
 
-```
+<pre>
 CREATE
   (charlie:Person {name: 'Charlie Sheen'}),
   (martin:Person {name: 'Martin Sheen'}),
@@ -379,12 +415,28 @@ CREATE
   (michael)-[:ACTED_IN {role: 'President Andrew Shepherd'}]->(thePresident),
   (rob)-[:DIRECTED]->(thePresident),
   (martin)-[:FATHER_OF]->(charlie)
-```
+</pre>
 
-```
-MATCH (director {name: 'Oliver Stone'})--(movie)
-             RETURN director.name, movie.title;
-```
+---
+
+![](images/moviegraph.png)
+
+---
+
+### And query
+
+<pre>
+neo4j@neo4j> MATCH (director {name: 'Oliver Stone'})--(movie)
+                          RETURN director.name, movie.title;
++--------------------------------+
+| director.name  | movie.title   |
++--------------------------------+
+| "Oliver Stone" | "Wall Street" |
++--------------------------------+
+
+1 row
+ready to start consuming query after 144 ms, results consumed after another 4 ms
+</pre>
 
 ---
 
