@@ -512,10 +512,10 @@ db.user.find({ age: { "$gt": 200 }})
 #### Example
 
 <pre>
-docker pull cassandra:latest
-docker network create cassandra
-docker run --rm -d --name cassandra --hostname cassandra --network cassandra cassandra
-docker run --rm -it --network cassandra nuvo/docker-cqlsh cqlsh cassandra 9042 --cqlversion='3.4.6'
+docker pull cassandra
+docker run -d --name cassandra-docker -p 9842:9842 cassandra
+docker exec -it cassandra-docker bash
+cqlsh
 </pre>
 
 ---
