@@ -151,6 +151,10 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 ---
 
+![](images/sharding.jpg)
+
+---
+
 #### Sharding Issues
 
 -	Application complexity.
