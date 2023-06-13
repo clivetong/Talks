@@ -20,6 +20,16 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 #### Where are we going?
 
+- Some theory
+
+- Some practice
+
+- Some missed slides but many links for you to follow
+
+---
+
+#### Where are we going?
+
 - What does NoSQL mean?
 
 - Why not always relational?
@@ -139,7 +149,8 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 #### It's all about the clustering
 
-- read replicas, but typically one master node (ie master-slaves)
+- read replicas, but typically one leader node 
+  - ie leaders-followers, master-slave in older literature
 
 - data size grows, and we can only vertically scale so much
   - then you have to shard
@@ -222,6 +233,13 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
+#### And ignore the ACID BASE 
+
+- [ACID](https://en.wikipedia.org/wiki/ACID)
+- [BASE](https://en.wikipedia.org/wiki/Eventual_consistency)
+  - basically available soft-state eventually consistent
+---
+
 #### People have extended relational clustering
 
 - Oracle’s Real Application Clusters (RAC) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
@@ -267,6 +285,15 @@ Load balancing across shards becomes extremely problematic.
 
 - Design influenced by the need to restart jobs
   -  BORG heritage
+
+---
+
+#### [KV and Document DBs are aggregate-oriented](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02lev1sec2)
+
+- in a KV, the aggregate are opaque
+
+- in a Document DB, the structure of the aggregate can be seen and queried 
+
 
 ---
 
@@ -323,7 +350,15 @@ lrange name 0 10
 
 ---
 
-#### MongoDB
+#### [MongoDB](https://learning.oreilly.com/library/view/mongodb-the-definitive/9781491954454/ch01.html)
+
+MongoDB is a document-oriented database, not a relational one. The primary reason for moving away from the relational model is to make scaling out easier, but there are some other advantages as well.
+
+A document-oriented database replaces the concept of a “row” with a more flexible model, the “document.” By allowing embedded documents and arrays, the document-oriented approach makes it possible to represent complex hierarchical relationships with a single record. This fits naturally into the way developers in modern object-oriented languages think about their data.
+
+---
+
+#### Example
 
 <pre>
 docker run -d --name test-mongo mongo:latest
@@ -396,7 +431,7 @@ db.user.find({ age: { "$gt": 200 }})
 
 #### That sounds a lot like MongoDB
 
-- compare with Mongo https://www.mongodb.com/compare/cassandra-vs-mongodb
+- [compare with Mongo](https://www.mongodb.com/compare/cassandra-vs-mongodb)
 
 ---
 
@@ -449,9 +484,14 @@ SELECT * FROM store.shopping_cart;
 
 #### Read repair and hinted handoff
 
-- hinted handoff - store message for other nodes
+- [hinted handoff](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#hinted_handoff) 
+  - store message for other nodes
 
-- [read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) - fix up nodes that have incorrect information
+- [read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) 
+  - [fix up nodes that have incorrect information](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#anti-entropy_comma_repair_comma_and_merk)
+- cool things 
+  - [SSTables](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#internal_data_structures_and_files)
+  -  [optimizations like Bloom filters](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#bloom_filters)
 
 ---
 
@@ -552,6 +592,13 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 #### And there are more controls
 
 - [under the hood](https://rajneeshprakash.medium.com/cosmos-db-under-the-hood-2d4ce920bb7e)
-- automatic indexing
+- [automatic indexing](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 - [choice of consistency levels](https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels)
 
+---
+
+#### Summary
+
+- there are many types of data storage that may more cleanly map your data model (avoiding ORM hell)
+
+- there are tradeoffs depending on your requiremenst for consistency and read-write patterns
