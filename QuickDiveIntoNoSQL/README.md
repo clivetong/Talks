@@ -215,6 +215,8 @@ Load balancing across shards becomes extremely problematic.
 
 - [The CAP theorem 12 years later](https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/)
 
+- [Many other blog posts discuss it](https://markburgess.org/blog_cap.html)
+
 ---
 
 #### Variable consistency levels
@@ -294,6 +296,77 @@ Load balancing across shards becomes extremely problematic.
 
 - in a Document DB, the structure of the aggregate can be seen and queried 
 
+---
+
+### Customer Orders from a relational data model
+
+![](images/customerorders.png)
+
+[From NoSQL Distilled](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02fig02)
+
+
+---
+
+<pre>
+// in customers
+{
+"id":1,
+"name":"Martin",
+"billingAddress":[{"city":"Chicago"}]
+}
+
+// in orders
+{
+"id":99,
+"customerId":1,
+"orderItems":[
+  {
+  "productId":27,
+  "price": 32.45,
+  "productName": "NoSQL Distilled"
+    }
+  ],
+"shippingAddress":[{"city":"Chicago"}]
+"orderPayment":[
+  {
+    "ccinfo":"1000-1000-1000-1000",
+    "txnId":"abelif879rft",
+    "billingAddress": {"city": "Chicago"}
+  }
+  ],
+}</pre>
+
+---
+
+<pre>
+// in customers
+{
+"customer": {
+"id": 1,
+"name": "Martin",
+"billingAddress": [{"city": "Chicago"}],
+"orders": [
+  {
+    "id":99,
+    "customerId":1,
+    "orderItems":[
+    {
+    "productId":27,
+    "price": 32.45,
+    "productName": "NoSQL Distilled"
+    }
+  ],
+  "shippingAddress":[{"city":"Chicago"}]
+  "orderPayment":[
+    {
+    "ccinfo":"1000-1000-1000-1000",
+    "txnId":"abelif879rft",
+    "billingAddress": {"city": "Chicago"}
+    }],
+  }]
+}
+}
+</pre>
 
 ---
 
@@ -312,6 +385,7 @@ Load balancing across shards becomes extremely problematic.
 <pre>
 docker run --name my-redis -p 6379:6379 -d redis
 docker exec -it my-redis sh
+redis-cli
 </pre>
 
 ---
