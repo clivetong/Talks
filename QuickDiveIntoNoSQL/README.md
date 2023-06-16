@@ -225,19 +225,9 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### Variable consistency levels
+#### [Variable consistency levels](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec5)
 
-- Strict Consistency
-
-- Causal Consistency
-
-- Monotonic Consistency
-
-- Read Your Own Writes
-
-- Eventual Consistency
-
-- Weak Consistency
+![](images/consistency.png)
 
 ---
 
@@ -250,7 +240,7 @@ Load balancing across shards becomes extremely problematic.
 
 #### People have extended relational clustering
 
-- Oracle’s Real Application Clusters (RAC) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
+- [Oracle’s Real Application Clusters (RAC)](https://www.oracle.com/uk/database/real-application-clusters/) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
 
 ---
 
@@ -296,11 +286,31 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
+#### Example of map-reduce
+
+![](images/map-reduce1.png)
+
+[From NoSql distilled](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch07.html#ch07fig03)
+
+---
+
+![](images/map-reduce2.png)
+
+[From NoSql distilled](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch07.html#ch07fig03)
+
+---
+
+#### [Map Reduce Design Patterns](https://www.amazon.co.uk/MapReduce-Design-Patterns-Effective-Algorithms/dp/1449327176)
+
+![](images/mapreducedesignpatterns.jpg)
+
+---
+
 #### [KV and Document DBs are aggregate-oriented](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02lev1sec2)
 
-- in a KV, the aggregate are opaque
+- In a KV, the aggregate are opaque
 
-- in a Document DB, the structure of the aggregate can be seen and queried 
+- In a Document DB, the structure of the aggregate can be seen and queried 
 
 ---
 
@@ -461,17 +471,24 @@ db.user.find({ age: { "$gt": 200 }})
 
 #### But note we are talking full documents here
 
-- arbitarily nested JSON (stored in binary form)
+- arbitarily nested JSON stored in binary form, BSON
+
 
 ---
 
 #### Indexing and sharding
 
-- you can define indexes
+- You can define indexes
 
-- you can get the system to shard large collections
+- You can get the system to shard large collections
 
-- you can do transactions
+- You can do transactions
+
+---
+
+### Materialized Views
+
+- [We should talke about materialized views](https://www.mongodb.com/docs/manual/core/materialized-views/)
 
 ---
 
@@ -483,13 +500,12 @@ db.user.find({ age: { "$gt": 200 }})
 
 #### Cassandra
 
-- written by Facebook to handle write heavy
+- Written by Facebook to handle write heavy
 
-- SSTables and LSTM
+- Cool tech, SSTables and LSTM
+  - handle the write and do the work later
 
-- handle the write and do the work later
-
-- highly configurable for acks on write
+- Highly configurable for acks on write
 
 ---
 
@@ -509,9 +525,15 @@ db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### That sounds a lot like MongoDB
+#### [That sounds a lot like MongoDB](https://www.mongodb.com/compare/cassandra-vs-mongodb)
 
-- [compare with Mongo](https://www.mongodb.com/compare/cassandra-vs-mongodb)
+| Cassandra      | MongoDB |
+| ----------- | ----------- |
+| Wide column      | BSON       |
+| Builtin plus some secondary indexes   | Many index types        |
+| CQL | MQL        |
+| No transactions | ACID compliant transactions |
+| Row level concurrency control | Document level locking |
 
 ---
 
@@ -527,8 +549,6 @@ cqlsh
 ---
 
 #### Example
-
-
 
 <pre>
 CREATE KEYSPACE IF NOT EXISTS store 
@@ -570,12 +590,12 @@ SELECT * FROM store.shopping_cart;
 
 #### Read repair and hinted handoff
 
-- [hinted handoff](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#hinted_handoff) 
+- [Hinted handoff](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#hinted_handoff) 
   - store message for other nodes
 
-- [read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) 
+- [Read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) 
   - [fix up nodes that have incorrect information](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#anti-entropy_comma_repair_comma_and_merk)
-- cool things 
+- Cool things 
   - [SSTables](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#internal_data_structures_and_files)
   -  [optimizations like Bloom filters](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#bloom_filters)
 
@@ -685,6 +705,8 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 #### Summary
 
-- there are many types of data storage that may more cleanly map your data model (avoiding ORM hell)
+- There are many types of data storage that may more cleanly map your data model (avoiding ORM hell)
 
-- there are tradeoffs depending on your requiremenst for consistency and read-write patterns
+- There are tradeoffs depending on your requiremenst for consistency and read-write patterns
+
+- [A handy cheatsheet](https://twitter.com/alexxubyte/status/1665748892296830982) 
