@@ -534,6 +534,7 @@ db.user.find({ age: { "$gt": 200 }})
 | CQL | MQL        |
 | No transactions | ACID compliant transactions |
 | Row level concurrency control | Document level locking |
+| multi-master | distribution using replication and sharding |
 
 ---
 
