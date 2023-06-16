@@ -20,23 +20,13 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
-#### Where are we going?
-
-- Some theory
-
-- Some practice
-
-- Some missed slides but many links for you to follow
-
----
-
-#### Where are we going?
+#### Where are we going to cover?
 
 - What does NoSQL mean?
 
 - Why not always relational?
 
-- The challenges - RUM/CAP
+- The challenges
 
 - The famous four (+1)
 
@@ -50,15 +40,21 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
+#### Where are we going?
+
+- Some theory
+
+- Some practice
+
+- Some missed slides but many links for you to follow
+
+---
+
 #### What does NoSQL mean?
 
-- referring to "not the language" but its model
+- SQL referring to the implementation model
 
-- relational tables
-
-- foreign keys
-
-- serialization modes (locks)
+  - relational tables, foreign keys, serialization modes (locks)
 
 ---
 
@@ -68,26 +64,24 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 -	Asked on Cassandra IRC – Eric Evans (not that one)
 
-
 ---
 
 #### What makes up a SQL database?
 
-- base this on Sql Server
+- Base this on Sql Server
 
-- a transaction log (WAL)
+- A transaction log (WAL)
 
-- a set of data pages 
+- A set of data pages 
 
-- indexing structures (likely a BTree)
+- Indexing structures (likely a BTree)
+  - with other secondary indexes
 
-- with other secondary indexes
-
-- lock manager
+- Lock manager
 
 ---
 
-#### See this book
+#### [See this book](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/)
 
 ![](images/prosqlserverinternals.jpg)
 
@@ -105,15 +99,27 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
+#### [Using the buffer pool](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig17) 
+
+![](images/bufferpool1.png)
+
+---
+
+#### [Using the buffer pool for a modification](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig18) 
+
+![](images/bufferpool2.png)
+
+---
+
 #### Extended over time
 
-- column stores (emphasis on read)
+- Column stores (emphasis on read)
+
+  ![](images/columnstore.png)
 
 - CTEs to allow you to simulate graphs
 
-- simulate because you have to formulate some of the harder questions into code
-
-- then added to [Sql Server 2017](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) and [Azure Sql Database](https://devblogs.microsoft.com/azure-sql/graphdb-part2/) 
+  - then added to [Sql Server 2017](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) and [Azure Sql Database](https://devblogs.microsoft.com/azure-sql/graphdb-part2/) 
 
 - PostgreSQL and its many extensions
 
@@ -121,13 +127,14 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 #### Relational leads to impedance mismatch
 
-- not using foreign keys
-
-- prefer optimistic locks over pessimistic locking
-
-- for data warehouses, 
-  - star schemas typically no implementation of foreign keys and focus on column store
+- For data warehouses like [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)
+  - star schemas so no implementation of foreign keys
+  - focus on column store
   - store in parquet (or other encoding) on the disk and bring to life later
+
+- Not using foreign keys
+
+- Prefer optimistic locks over pessimistic locking
 
 - [Starbucks does not use 2PC](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html)
 
@@ -135,11 +142,11 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 #### It's all about the amplification
 
-- when we do a read, do we just get the data we want
+- When we do a read, do we just get the data we want
 
-- when we make a small update, how many data pages are touched
+- When we make a small update, how many data pages are touched
 
-- how much memory do we need to use to keep it running efficiently
+- How much memory do we need to use to keep it running efficiently
 
 ---
 
@@ -151,16 +158,13 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 #### It's all about the clustering
 
-- read replicas, but typically one leader node 
-  - ie leaders-followers, master-slave in older literature
+- Read replicas, but typically one leader node 
+  - ie leader-followers
 
-- data size grows, and we can only vertically scale so much
-  - then you have to shard
-  - typically this requires work from the application
-
-- Horizontally - entities into different machines
-
-- Vertically - a slice through the data
+- Data size grows, and we can only vertically scale so much
+  - then you have to shard and typically this requires work from the application
+    - horizontally - entities into different machines
+    - vertically - a slice through the data
 
 ---
 
