@@ -16,8 +16,6 @@ title: "A quick dive into NoSQL"
 
 This is the start of some slides for Redgate's Level Up conference in June<!-- .slide: data-fullscreen -->
 
-- To add materialized views
-
 ---
 
 #### Where are we going to cover?
@@ -46,7 +44,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 - Some practice
 
-- Some missed slides but many links for you to follow
+- Too many slides but many links for you to follow
 
 ---
 
@@ -54,7 +52,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 - SQL referring to the implementation model
 
-  - relational tables, foreign keys, serialization modes (locks)
+  - relational tables, foreign keys, serialization modes
 
 ---
 
@@ -128,9 +126,9 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 #### Relational leads to impedance mismatch
 
 - For data warehouses like [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)
-  - star schemas so no implementation of foreign keys
+  - star schemas so no foreign keys
   - focus on column store
-  - store in parquet (or other encoding) on the disk and bring to life later
+  - can store in parquet
 
 - Not using foreign keys
 
@@ -535,7 +533,7 @@ db.user.find({ age: { "$gt": 200 }})
 | CQL | MQL        |
 | No transactions | ACID compliant transactions |
 | Row level concurrency control | Document level locking |
-| multi-master | distribution using replication and sharding |
+| multi-master | replication/sharding |
 
 ---
 
