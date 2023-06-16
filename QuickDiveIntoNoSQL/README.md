@@ -388,11 +388,11 @@ Load balancing across shards becomes extremely problematic.
 
 #### Key Value stores
 
-- good for write heavy workloads
+- Good for write heavy workloads
 
-- offer locking of keys
+- Offer locking of keys
 
-- offer auto-deleteion after time
+- Offer auto-deletion after time
 
 ---
 
@@ -435,8 +435,9 @@ lrange name 0 10
 
 #### Some quick points
 
-- single-threaded
-- emphasise in-memory for speed
+- Single-threaded
+- Emphasise in-memory for speed
+- Great for caches and shopping carts
 
 ---
 
@@ -469,7 +470,7 @@ db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### But note we are talking full documents here
+#### Note we are talking full documents here
 
 - arbitarily nested JSON stored in binary form, BSON
 
@@ -488,7 +489,7 @@ db.user.find({ age: { "$gt": 200 }})
 
 ### Materialized Views
 
-- [We should talke about materialized views](https://www.mongodb.com/docs/manual/core/materialized-views/)
+- [We should talk about materialized views](https://www.mongodb.com/docs/manual/core/materialized-views/)
 
 ---
 
