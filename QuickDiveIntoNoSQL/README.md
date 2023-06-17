@@ -223,17 +223,18 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### [Variable consistency levels](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec5)
-
-![](images/consistency.png)
-
----
-
 #### And ignore the ACID BASE 
 
 - [ACID](https://en.wikipedia.org/wiki/ACID)
 - [BASE](https://en.wikipedia.org/wiki/Eventual_consistency)
   - basically available soft-state eventually consistent
+
+---
+
+#### [Variable consistency levels](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec5)
+
+![](images/consistency.png)
+
 ---
 
 #### People have extended relational clustering
