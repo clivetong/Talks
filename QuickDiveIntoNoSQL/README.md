@@ -252,21 +252,21 @@ Load balancing across shards becomes extremely problematic.
 
 - Key-Value - Redis/Memcached/etcd (etc distributed)
 
-- document - MongoDB
+- Document - MongoDB
 
-- column-family stores - Cassandra
+- Column-family stores - Cassandra
 
-- graph databases - Neo4J
+- Graph databases - Neo4J
 
 ---
 
 #### And also
 
-- NewSQL (Spanner)
+- NewSQL - Spanner
 
-- spatial (PostGIS)
+- Spatial - PostGIS
 
-- time series InfluxDB/TimescaleDB
+- Time series - InfluxDB/TimescaleDB
 
 ---
 
@@ -487,6 +487,8 @@ db.user.find({ age: { "$gt": 200 }})
 
 ### Materialized Views
 
+- [Aggregation Operations](https://www.mongodb.com/docs/manual/aggregation/) and [stored procedures](https://www.mongodb.com/features/stored-procedures)
+
 - [We should talk about materialized views](https://www.mongodb.com/docs/manual/core/materialized-views/)
 
 ---
@@ -533,7 +535,7 @@ db.user.find({ age: { "$gt": 200 }})
 | CQL | MQL        |
 | No transactions | ACID compliant transactions |
 | Row level concurrency control | Document level locking |
-| multi-master | replication/sharding |
+| Multi-master | Replication/Sharding |
 
 ---
 
