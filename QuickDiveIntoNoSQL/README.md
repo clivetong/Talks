@@ -436,7 +436,7 @@ OK
 1) "Clive"
 2) "Andrew"
 3) "Tong"
-127.0.0.1:6379>s
+127.0.0.1:6379>
 </pre>
 
 ---
@@ -531,7 +531,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 - Written by Facebook to handle write heavy
 
-- Cool tech, SSTables and LSTM
+- Clever tech, SSTables and LSTM
   - handle the write and do the work later
 
 - Highly configurable for acks on write
@@ -639,7 +639,7 @@ cqlsh>
 
 - [Read repair](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec17) 
   - [fix up nodes that have incorrect information](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#anti-entropy_comma_repair_comma_and_merk)
-- Cool things 
+- Clever things 
   - [SSTables](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#internal_data_structures_and_files)
   -  [optimizations like Bloom filters](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#bloom_filters)
 
