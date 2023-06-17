@@ -24,7 +24,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 - Why not always relational?
 
-- The challenges
+- The challenges and fixes
 
 - The famous four (+1)
 
