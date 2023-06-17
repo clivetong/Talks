@@ -242,13 +242,13 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### The alternatives - side step
+#### Before the NoSQL 
 
-- file system (Map-Reduce)
+- File system (Map-Reduce)
 
 ---
 
-#### The alternatives
+#### The NoSQL Alternatives
 
 - Key-Value - Redis/Memcached/etcd (etc distributed)
 
@@ -419,14 +419,23 @@ redis-cli
 #### Redis example
 
 <pre>
-set name Monica
-get name
-del name
-
-rpush name Clive
-rpush name Andrew 
-rpush name Tong
-lrange name 0 10
+127.0.0.1:6379> set name Monica
+OK
+127.0.0.1:6379> get name
+"Monica"
+127.0.0.1:6379> del name
+(integer) 1
+127.0.0.1:6379> rpush name Clive
+(integer) 1
+127.0.0.1:6379> rpush name Andrew
+(integer) 2
+127.0.0.1:6379> rpush name Tong
+(integer) 3
+127.0.0.1:6379> lrange name 0 10
+1) "Clive"
+2) "Andrew"
+3) "Tong"
+127.0.0.1:6379>s
 </pre>
 
 ---
@@ -460,10 +469,28 @@ mongosh
 #### MongoDB example
 
 <pre>
-show databases
-db.user.insertOne({name: "Ada Lovelace", age: 205})
-show databases
-db.user.find({ age: { "$gt": 200 }})
+test> show databases
+admin    8.00 KiB
+config  12.00 KiB
+local    8.00 KiB
+test> db.user.insertOne({name: "Ada Lovelace", age: 205})
+{
+  acknowledged: true,
+  insertedId: ObjectId("648daa58fdb6ea99a11c5b89")
+}
+test> show databases
+admin    8.00 KiB
+config  12.00 KiB
+local    8.00 KiB
+test     8.00 KiB
+test> db.user.find({ age: { "$gt": 200 }})
+[
+  {
+    _id: ObjectId("648daa58fdb6ea99a11c5b89"),
+    name: 'Ada Lovelace',
+    age: 205
+  }
+]
 </pre>
 
 ---
@@ -553,15 +580,29 @@ cqlsh
 #### Example
 
 <pre>
-CREATE KEYSPACE IF NOT EXISTS store 
-   WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };
-CREATE TABLE IF NOT EXISTS store.shopping_cart 
-  (userid text PRIMARY KEY, item_count int, last_update_timestamp timestamp);
-INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) 
-  VALUES ('9876', 2, toTimeStamp(now()));
-INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp) 
-  VALUES ('1234', 5, toTimeStamp(now()));
-SELECT * FROM store.shopping_cart;
+root@94efcf73333f:/# cqlsh
+Connection error: ('Unable to connect to any servers', {'127.0.0.1:9042': ConnectionRefusedError(111, "Tried connecting to [('127.0.0.1', 9042)]. Last error: Connection refused")})
+root@94efcf73333f:/# cqlsh
+Connected to Test Cluster at 127.0.0.1:9042
+[cqlsh 6.1.0 | Cassandra 4.1.2 | CQL spec 3.4.6 | Native protocol v5]
+Use HELP for help.
+cqlsh> CREATE KEYSPACE IF NOT EXISTS store
+   ...    WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : '1' };
+cqlsh> CREATE TABLE IF NOT EXISTS store.shopping_cart
+   ...   (userid text PRIMARY KEY, item_count int, last_update_timestamp timestamp);
+cqlsh> INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp)
+   ...   VALUES ('9876', 2, toTimeStamp(now()));
+cqlsh> INSERT INTO store.shopping_cart(userid, item_count, last_update_timestamp)
+   ...   VALUES ('1234', 5, toTimeStamp(now()));
+cqlsh> SELECT * FROM store.shopping_cart;
+
+ userid | item_count | last_update_timestamp
+--------+------------+---------------------------------
+   1234 |          5 | 2023-06-17 12:47:42.954000+0000
+   9876 |          2 | 2023-06-17 12:47:34.072000+0000
+
+(2 rows)
+cqlsh>
 </pre>
 
 ---
