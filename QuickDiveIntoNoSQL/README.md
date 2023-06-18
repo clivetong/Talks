@@ -221,6 +221,8 @@ Load balancing across shards becomes extremely problematic.
 
 - [Many other blog posts discuss it](https://markburgess.org/blog_cap.html)
 
+- [And these clusters get very big](https://discord.com/blog/how-discord-stores-trillions-of-messages)
+
 ---
 
 #### And ignore the ACID BASE 
