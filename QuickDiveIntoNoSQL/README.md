@@ -735,11 +735,15 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 #### Azure Cosmos DB
 
-- Multi-model
+- [Multi-model](https://stackoverflow.com/questions/44304947/what-does-it-mean-that-azure-cosmos-db-is-multi-model)
   - native Document DB
   - Azure Table
   - Mongo DB
   - [Gremlin](https://docs.janusgraph.org/getting-started/gremlin/) [graph](https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#gremlinandsql) 
+
+---
+
+![](images/cosmos.png)
 
 ---
 
