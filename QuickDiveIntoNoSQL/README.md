@@ -129,8 +129,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
   - star schemas so no foreign keys
   - focus on column store
   - can store in parquet
-
-- Not using foreign keys
+  - not using foreign keys
 
 - Prefer optimistic locks over pessimistic locking
 
@@ -309,7 +308,7 @@ Load balancing across shards becomes extremely problematic.
 
 #### [KV and Document DBs are aggregate-oriented](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02lev1sec2)
 
-- In a KV, the aggregate are opaque
+- In a KV store, the aggregates are opaque
 
 - In a Document DB, the structure of the aggregate can be seen and queried 
 
@@ -523,6 +522,12 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
+### And CDC
+
+- [Change streams](https://www.mongodb.com/docs/manual/changeStreams/) 
+
+---
+
 #### The 50 words
 
 [Apache Cassandra is an open source, distributed, decentralized, elastically scalable, highly available, fault-tolerant, tuneably consistent, row-oriented database. Cassandra bases its distribution design on Amazon’s Dynamo and its data model on Google’s Bigtable, with a query language similar to SQL. Created at Facebook, it now powers cloud-scale applications across many industries.](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch02.html#cassandra_in_50_words_or_less)
@@ -651,7 +656,8 @@ cqlsh>
 
 - Lots of things are better represented as a graph
 
-- Neo4j
+  - Neo4j
+  - TAO
 
 ---
 
@@ -723,21 +729,17 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 #### But you don't have to use a different storage engine
 
-- Azure Cosmos DB supports multipe models by converting to Document DB format
+- Azure Cosmos DB supports multiple models by converting to Document DB format
 
 ---
 
 #### Azure Cosmos DB
 
-- multi-model
-
-- native Document DB
-
-- Azure Table
-
-- Mongo DB
-
-- [Gremlin](https://docs.janusgraph.org/getting-started/gremlin/) [graph](https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#gremlinandsql) 
+- Multi-model
+  - native Document DB
+  - Azure Table
+  - Mongo DB
+  - [Gremlin](https://docs.janusgraph.org/getting-started/gremlin/) [graph](https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html#gremlinandsql) 
 
 ---
 
@@ -753,6 +755,6 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 - There are many types of data storage that may more cleanly map your data model (avoiding ORM hell)
 
-- There are tradeoffs depending on your requiremenst for consistency and read-write patterns
+- There are tradeoffs depending on your requiremenst for consistency, scalability and read-write patterns
 
 - [A handy cheatsheet](https://twitter.com/alexxubyte/status/1665748892296830982) 
