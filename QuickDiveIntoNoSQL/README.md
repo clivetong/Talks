@@ -22,9 +22,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 - What does NoSQL mean?
 
-- Why not always relational?
-
-- The challenges and fixes
+- Why not always relational? The challenges and fixes
 
 - The famous four (+1)
 
@@ -91,6 +89,11 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
+#### [Row encoding](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig10)
+
+![](images/pagedata.png)
+
+---
 #### [one special index that controls how the data is laid out](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_2_Chapter.html#Fig12)
 
 ![](images/indexseek.png)
@@ -133,11 +136,11 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 - Prefer optimistic locks over pessimistic locking
 
-- [Starbucks does not use 2PC](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html)
+  - [Starbucks does not use 2PC](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html)
 
 ---
 
-#### It's all about the amplification
+#### Amplification
 
 - When we do a read, do we just get the data we want
 
@@ -153,7 +156,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
-#### It's all about the clustering
+#### Clustering for scalability
 
 - Read replicas, but typically one leader node 
   - ie leader-followers
@@ -222,6 +225,11 @@ Load balancing across shards becomes extremely problematic.
 
 - [And these clusters get very big](https://discord.com/blog/how-discord-stores-trillions-of-messages)
 
+- Everything can't come in threes
+  - [Make it work, make it right, make it quick](https://wiki.c2.com/?MakeItWorkMakeItRightMakeItFast)
+  - [Scope/Resources/Time](https://www.atlassian.com/agile/agile-at-scale/agile-iron-triangle) (pick 2)
+  - Fast/Cheap/Good (pick 2)
+
 ---
 
 #### And ignore the ACID BASE 
@@ -241,6 +249,12 @@ Load balancing across shards becomes extremely problematic.
 #### People have extended relational clustering
 
 - [Oracle’s Real Application Clusters (RAC)](https://www.oracle.com/uk/database/real-application-clusters/) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
+
+---
+
+#### And note that different NoSQL offer different things
+
+- [MongoDB -> Cassandra -> ScyllaDB](https://twitter.com/alexxubyte/status/1670475891061948416?s=20)
 
 ---
 
