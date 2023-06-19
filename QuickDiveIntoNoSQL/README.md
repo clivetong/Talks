@@ -5,7 +5,7 @@ title: "A quick dive into NoSQL"
 ---
 
 ::: block
-*A quick dive into NoSQL* {style=background:red;width:500px}
+*A Quick Dive into NoSQL* {style=background:red;width:500px}
 :::
 
 ---
@@ -14,15 +14,15 @@ title: "A quick dive into NoSQL"
 
  <!-- .slide: data-background="#ff0000" -->
 
-This is the start of some slides for Redgate's Level Up conference in June<!-- .slide: data-fullscreen -->
+This is the start of some slides for Redgate's Level Up conference in June
 
 ---
 
-#### Where are we going to cover?
+#### What are we going to cover?
 
 - What does NoSQL mean?
 
-- Why not always relational? The challenges and fixes
+- Why not always relational? The challenges.
 
 - The famous four (+1)
 
@@ -54,7 +54,7 @@ This is the start of some slides for Redgate's Level Up conference in June<!-- .
 
 ---
 
-#### What does NoSQL mean?
+#### Really, what does NoSQL mean?
 
 -	[The usage of “NoSQL” that we recognize today traces back to a meetup on June 11, 2009 in San Francisco organized by Johan Oskarsson, a software developer based in London.](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch01.html#ch01lev1sec5) 
 
@@ -404,9 +404,11 @@ Load balancing across shards becomes extremely problematic.
 
 - Good for write heavy workloads
 
-- Offer locking of keys
+- Often used to coordinate a cluster (Zookeeper)
 
-- Offer auto-deletion after time
+- Many extras
+  - locking or leasing of keys
+  - auto-deletion after time (TTL)
 
 ---
 
@@ -472,7 +474,7 @@ A document-oriented database replaces the concept of a “row” with a more fle
 
 ---
 
-#### Example
+#### MongoDB
 
 <pre>
 docker run -d --name test-mongo mongo:latest
@@ -588,7 +590,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### Example
+#### Cassandra docker
 
 <pre>
 docker pull cassandra
@@ -599,7 +601,7 @@ cqlsh
 
 ---
 
-#### Example
+#### Cassandra example
 
 <pre>
 root@94efcf73333f:/# cqlsh
@@ -637,7 +639,7 @@ cqlsh>
 
 ---
 
-#### In particular
+#### Choice of response set size
 
 - ONE
 
@@ -675,7 +677,7 @@ cqlsh>
 
 ---
 
-### Example
+### Neo4j docker
 
 <pre>
 docker run --name testneo4j --env NEO4J_AUTH=neo4j/password neo4j:latest
@@ -712,7 +714,7 @@ CREATE
 
 ---
 
-### And query
+### Neo4j query
 
 <pre>
 neo4j@neo4j> MATCH (director {name: 'Oliver Stone'})--(movie)
