@@ -422,7 +422,7 @@ redis-cli
 
 ---
 
-### Redis datatypes
+### [Redis datatypes](https://redis.io/docs/data-types/)
 
 - strings
 - lists
