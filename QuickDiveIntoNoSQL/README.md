@@ -546,7 +546,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 - Written by Facebook to handle write heavy
 
-- Clever tech, SSTables and LSTM
+- Clever tech, SSTables and LSMT
   - handle the write and do the work later
 
 - Highly configurable for acks on write
