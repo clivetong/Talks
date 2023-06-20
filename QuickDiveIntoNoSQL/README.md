@@ -10,14 +10,6 @@ title: "A quick dive into NoSQL"
 
 ---
 
-### UNDER CONSTRUCTION
-
- <!-- .slide: data-background="#ff0000" -->
-
-This is the start of some slides for Redgate's Level Up conference in June
-
----
-
 #### What are we going to cover?
 
 - What does NoSQL mean?
@@ -42,7 +34,7 @@ This is the start of some slides for Redgate's Level Up conference in June
 
 - Some practice
 
-- Too many slides but many links for you to follow
+- [Too many slides but many links for you to follow](https://github.com/clivetong/Talks/blob/main/QuickDiveIntoNoSQL/README.md)
 
 ---
 
