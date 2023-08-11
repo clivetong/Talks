@@ -33,7 +33,7 @@ title: "Dynamic Profile Guided Optimization"
 
 ### Let's try them
 
-- https://github.com/clivetong/Play/blob/master/dynamicpgo/testfac/Program.cs
+- https://github.com/clivetong/Talks/blob/main/dynamicpgo/testfac/Program.cs
 
 
 
@@ -141,7 +141,7 @@ In .NET for a while now (PGO)
 
 ### And the test
 
-- https://github.com/clivetong/Play/blob/master/dynamicpgo/dynamicpgo/Program.cs
+- https://github.com/clivetong/Talks/blob/main/dynamicpgo/dynamicpgo/Program.cs
 
 
 ---
@@ -198,4 +198,4 @@ In .NET for a while now (PGO)
 
 ### Reproduce the results 
 
-- https://github.com/clivetong/Play/tree/master/dynamicpgo
+- https://github.com/clivetong/Talks/tree/main/dynamicpgo

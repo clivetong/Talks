@@ -12,7 +12,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 ### Good books
 
-![The book](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/quantum-computing.jpg)
+![The book](images/quantum-computing.jpg)
 
 
 ---
@@ -23,7 +23,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 [The basic unit of quantum information](https://en.wikipedia.org/wiki/Qubit#:~:text=In%20quantum%20computing%2C%20a%20qubit,with%20a%20two%2Dstate%20device.)
 
-![A qubit](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubit.png)
+![A qubit](images/qubit.png)
 
 
 [I prefer the state representation, but this is how they are related](https://qiskit.org/textbook/ch-states/representing-qubit-states.html#bloch-sphere)
@@ -33,7 +33,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 ### Have a standard fixed design
 
-![Qubit counts](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/qubits.jpg)
+![Qubit counts](images/qubits.jpg)
 
 [From this YouTube video](https://www.youtube.com/watch?v=gcbMKt079l8)
 
@@ -43,7 +43,7 @@ title: "What! Quantum Computers Can't Do That?"
 ### Anything big
 
 
-![Qubit counts](https://github.com/clivetong/Play/raw/master/StateOfQuantum/images/errors.jpg)
+![Qubit counts](images/errors.jpg)
 
 [From this YouTube video](https://www.youtube.com/watch?v=-UlxHPIEVqA)
 
