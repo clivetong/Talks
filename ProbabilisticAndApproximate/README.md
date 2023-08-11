@@ -49,7 +49,7 @@ title: "That might be the right answer"
 
 ### [Skip Lists](https://en.wikipedia.org/wiki/Skip_list)
 
-- Remember those 2-3 trees or red-black or AVL trees from College
+- Remember those 2-3 trees or red-black or AVL trees from University
 - Really hard/fiddly to implement the rotate operation
 - Maybe you can get it right most of the time
 - Parallel friendly
@@ -66,12 +66,38 @@ title: "That might be the right answer"
 
 ---
 
-### [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch)
+### And now for something different
+
+- Two algorithms that can't be certain the answer is right
+
+- Based on multiple hash functions to find a group of locations
+- Then use the locations to get the answer
+- Bloom - binary values and do "OR"
+- Count-min sketch - integer values and take the min
+- It's the combining operation that makes it approximate
 
 ---
 
 ### [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter)
 
+![](images/bloom.png)
+
+- Possibly in the set
+- Definitely not in the set
 
 ---
 
+### [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch)
+
+- Use integer values
+- Count by incrementing all the locations
+- Fetch count by taking the minimum of the locations
+
+---
+
+### And thanks it
+
+- Sometimes the right answer isn't 100% correct
+- Sometimes that means something is easier to implement or is more parallel friendly
+
+- But doing the maths to check its correctness can be realy hard
