@@ -1,7 +1,7 @@
 ---
 transition: "slide"
 slideNumber: false
-title: "What! Quantum Computers Can't Do That?"
+title: "That might be the right answer"
 ---
 
 ::: block
@@ -12,9 +12,16 @@ title: "What! Quantum Computers Can't Do That?"
 
 ### What are we going to talk about?
 
+- Using randomness to make choices in algorithms
 - No longer just using deterministic algorithms for getting a right answer
-- Too much data means we might prefer an approximate answer
-- Some algorithms are too complicated to implement, and it's easier to get it almost right
+
+---
+
+### Why would you do that?
+
+- Save resources for order of magnitude estimates (Morris)
+- Some algorithms are too complicated to implement, and it's easier to get it right most of the time (Skip Lists)
+- Too much data means we might prefer an approximate answer (Count-min sketch, Bloom filters)
 - And in the future, with Quantum you'll get an answer and have to check it (and then try again) 
 
 ---
@@ -23,7 +30,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 - Deterministic hashing can lead to a DOS
 - Add a random number, chosen per run, into the hash algorithm
-- ANTS memory profiler, made a bug hard to reproduce (until you know about it)
+- ANTS memory profiler, made a bug hard to reproduce (until you knew about it)
 
 ---
 
@@ -36,9 +43,26 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
+### See C# implementation
+
+---
+
 ### [Skip Lists](https://en.wikipedia.org/wiki/Skip_list)
 
-- 
+- Remember those 2-3 trees or red-black or AVL trees from College
+- Really hard/fiddly to implement the rotate operation
+- Maybe you can get it right most of the time
+- Parallel friendly
+
+---
+
+![Skip list](images/skiplist.png)
+
+---
+
+![](images/skiplist-complexity.png)
+
+![](images/2-3-complexity.png)
 
 ---
 
