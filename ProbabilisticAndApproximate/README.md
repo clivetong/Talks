@@ -95,7 +95,7 @@ title: "That might be the right answer"
 
 ---
 
-### And thanks it
+### And that's it
 
 - Sometimes the right answer isn't 100% correct
 - Sometimes that means something is easier to implement or is more parallel friendly
