@@ -95,6 +95,12 @@ title: "That might be the right answer"
 
 ---
 
+### [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
+
+- Estimate the number of distinct elements in a multi-set
+
+---
+
 ### And that's it
 
 - Sometimes the right answer isn't 100% correct
