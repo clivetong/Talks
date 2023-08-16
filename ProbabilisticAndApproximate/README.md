@@ -105,6 +105,7 @@ title: "That might be the right answer"
 
 ### [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
 
+- Based on the original [Flajolet-Martin algorithm](https://en.wikipedia.org/wiki/Flajolet%E2%80%93Martin_algorithm)
 - Estimate the number of distinct elements in a multi-set
     - [How to Count a Billion Distinct objects using only 1.5KB of memory](http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html)
 
