@@ -23,6 +23,7 @@ title: "That might be the right answer"
 - Save resources for order of magnitude estimates (Morris)
 - Some algorithms are too complicated to implement, and it's easier to get it right most of the time (Skip Lists)
 - Too much data means we might prefer an approximate answer (Count-min sketch, Bloom filters)
+- Estimate the number of distinct elements you've seen (HyperLogLog)
 - And in the future, with Quantum you'll get an answer and have to check it (and then try again) 
 
 ---
