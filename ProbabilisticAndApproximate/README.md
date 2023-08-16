@@ -12,8 +12,9 @@ title: "That might be the right answer"
 
 ### What are we going to talk about?
 
-- Using randomness to make choices in algorithms
-- No longer just using deterministic algorithms for getting a right answer
+- Two kinds of probabilistc data structures
+   - Using randomness to make choices in algorithms
+   - No longer just using deterministic algorithms for getting a right answer
 
 ---
 
@@ -23,6 +24,13 @@ title: "That might be the right answer"
 - Some algorithms are too complicated to implement, and it's easier to get it right most of the time (Skip Lists)
 - Too much data means we might prefer an approximate answer (Count-min sketch, Bloom filters)
 - And in the future, with Quantum you'll get an answer and have to check it (and then try again) 
+
+---
+
+### Big data processing
+
+- Lambda architectures
+- See [Highly Scalable blog post](https://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
 
 ---
 
@@ -38,7 +46,7 @@ title: "That might be the right answer"
 
 - [Morris](https://en.wikipedia.org/wiki/Approximate_counting_algorithm)
 - Don't count every time, but instead count to the nearest power of two
-- Suppose the count is 4 = 2^2
+- Suppose the magntude is 4 = 2^2
 - When we increment, throw two coins and only increment if we get two Heads
 
 ---
@@ -72,7 +80,7 @@ title: "That might be the right answer"
 
 - Based on multiple hash functions to find a group of locations
 - Then use the locations to get the answer
-- Bloom - binary values and do "OR"
+- Bloom Filter - binary values and do "AND"
 - Count-min sketch - integer values and take the min
 - It's the combining operation that makes it approximate
 
@@ -98,12 +106,13 @@ title: "That might be the right answer"
 ### [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
 
 - Estimate the number of distinct elements in a multi-set
+    - [How to Count a Billion Distinct objects using only 1.5KB of memory](http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html)
 
 ---
 
 ### And that's it
 
-- Sometimes the right answer isn't 100% correct
+- Sometimes the right answer isn't 100% necessary
 - Sometimes that means something is easier to implement or is more parallel friendly
 
 - But doing the maths to check its correctness can be realy hard
