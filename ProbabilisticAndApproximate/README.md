@@ -24,7 +24,7 @@ title: "That might be the right answer"
 - Some algorithms are too complicated to implement, and it's easier to get it right most of the time (Skip Lists)
 - Too much data means we might prefer an approximate answer (Count-min sketch, Bloom filters)
 - Estimate the number of distinct elements you've seen (HyperLogLog)
-- And in the future, with Quantum you'll get an answer and have to check it (and then try again) 
+- And in the future, Quantum Computers 
 
 ---
 
@@ -77,13 +77,13 @@ title: "That might be the right answer"
 
 ### And now for something different
 
-- Two algorithms that can't be certain the answer is right
+- Two algorithms with uncertainty
 
-- Based on multiple hash functions to find a group of locations
+- Multiple hash functions to find a group of locations
 - Then use the locations to get the answer
 - Bloom Filter - binary values and do "AND"
 - Count-min sketch - integer values and take the min
-- It's the combining operation that makes it approximate
+- The combining operation makes it approximate
 
 ---
 
@@ -109,6 +109,10 @@ title: "That might be the right answer"
 - Based on the original [Flajolet-Martin algorithm](https://en.wikipedia.org/wiki/Flajolet%E2%80%93Martin_algorithm)
 - Estimate the number of distinct elements in a multi-set
     - [How to Count a Billion Distinct objects using only 1.5KB of memory](http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html)
+
+---
+
+### See C# implementation
 
 ---
 
