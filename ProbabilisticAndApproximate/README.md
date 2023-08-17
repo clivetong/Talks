@@ -12,7 +12,7 @@ title: "That might be the right answer"
 
 ### What are we going to talk about?
 
-- Two kinds of probabilistc data structures
+- Two kinds of probabilistic data structures
    - Using randomness to make choices in algorithms
    - No longer just using deterministic algorithms for getting a right answer
 
