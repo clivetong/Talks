@@ -60,6 +60,7 @@ foreach(var hashfun in new[] { Hash1, Hash2})
 }
 
 int Hash1(int x) => x.GetHashCode();
+
 int Hash2(int x)
 {
     x = ((x >> 16) ^ x) * 0x45d9f3b;
