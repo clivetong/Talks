@@ -14,7 +14,7 @@ title: "That might be the right answer"
 
 - Two kinds of probabilistic data structures
    - Using randomness to make choices in algorithms
-   - No longer just using deterministic algorithms for getting a right answer
+   - No longer just getting a right answer
 
 ---
 
@@ -38,7 +38,7 @@ title: "That might be the right answer"
 ### Randomization for the good
 
 - Deterministic hashing can lead to a DOS
-- Add a random number, chosen per run, into the hash algorithm
+  - Add a random number, chosen per run, into the hash algorithm
 - ANTS memory profiler, made a bug hard to reproduce (until you knew about it)
 
 ---
@@ -61,7 +61,7 @@ title: "That might be the right answer"
 - Remember those 2-3 trees or red-black or AVL trees from University
 - Really hard/fiddly to implement the rotate operation
 - Maybe you can get it right most of the time
-- Parallel friendly
+- Parallel friendly, cache less so
 
 ---
 
@@ -80,7 +80,7 @@ title: "That might be the right answer"
 - Two algorithms with uncertainty
 
 - Multiple hash functions to find a group of locations
-- Then use the locations to get the answer
+  - Then use the locations to get the answer
 - Bloom Filter - binary values and do "AND"
 - Count-min sketch - integer values and take the min
 - The combining operation makes it approximate
@@ -107,7 +107,7 @@ title: "That might be the right answer"
 ### [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
 
 - Based on the original [Flajolet-Martin algorithm](https://en.wikipedia.org/wiki/Flajolet%E2%80%93Martin_algorithm)
-- Estimate the number of distinct elements in a multi-set
+- Estimate distinct elements in a multi-set
     - [How to Count a Billion Distinct objects using only 1.5KB of memory](http://highscalability.com/blog/2012/4/5/big-data-counting-how-to-count-a-billion-distinct-objects-us.html)
 
 ---
