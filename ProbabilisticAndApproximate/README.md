@@ -39,16 +39,16 @@ title: "That might be the right answer"
 
 - Deterministic hashing can lead to a DOS
   - Add a random number, chosen per run, into the hash algorithm
-- ANTS memory profiler, made a bug hard to reproduce (until you knew about it)
+- ANTS memory profiler used [C5](https://github.com/sestoft/C5), made a bug hard to reproduce (until you knew about it)
 
 ---
 
 ### Order of Magnitude Estimators
 
 - [Morris](https://en.wikipedia.org/wiki/Approximate_counting_algorithm)
-- Don't count every time, but instead count to the nearest power of two
-- Suppose the magntude is 4 = 2^2
-- When we increment, throw two coins and only increment if we get two Heads
+- Don't increment count every time, but instead count to the nearest power of two
+  - Suppose the magntude is 4 = 2^2
+  - When we increment, throw two coins and only increment if we get two heads
 
 ---
 
