@@ -116,9 +116,23 @@ title: "That might be the right answer"
 
 ---
 
+### And I think it's more than
+
+The key advantage of probabilistic data structures is their ability to handle large amounts of data in real-time, by providing approximate answers to queries with limited space and computation
+
+---
+
+- Membership querying (Bloom filter, Counting Bloom filter, Quotient filter, Cuckoo filter).
+- Cardinality (Linear counting, probabilistic counting, LogLog, HyperLogLog, HyperLogLog++).
+- Frequency (Majority algorithm, Frequent, Count Sketch, Count-Min Sketch).
+- Rank (Random sampling, q-digest, t-digest).
+- Similarity (LSH, MinHash, SimHash).
+
+---
+
 ### And that's it
 
 - Sometimes the right answer isn't 100% necessary
 - Sometimes that means something is easier to implement or is more parallel friendly
 
-- But doing the maths to check its correctness can be realy hard
+ (But doing the maths to check its correctness can be really hard)
