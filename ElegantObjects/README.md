@@ -46,11 +46,16 @@ And papers are being produced and presented.
 ### So what kind of OO is this
 
 - pure kind, with an emphasis on immutability
-- no use of new except in constructors
-- a primary constructor with other secondary constructors chaining to it
-- no "active" code in the constructor
-- delay the evaluation until it is needed
+- no use of `new` except in constructors
+- a primary constructor, with other secondary constructors chaining to it
+- keep constructors code-free
+- delay evaluation until it is needed 
+  - declarative instead of imperative
 - four public methods per class
 - program to an interface
 - no mocks
+  - provide stubs instead to your consumers
+- no getters and setters
+  - if you want a record, use a record
+- methods are builders or manipulators
 
