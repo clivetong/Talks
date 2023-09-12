@@ -46,16 +46,75 @@ And papers are being produced and presented.
 ### So what kind of OO is this
 
 - pure kind, with an emphasis on immutability
-- no use of `new` except in constructors
 - a primary constructor, with other secondary constructors chaining to it
+- no use of `new` except in constructors
+  - typically in the secondary constructors
 - keep constructors code-free
 - delay evaluation until it is needed 
   - declarative instead of imperative
 - four public methods per class
 - program to an interface
+
+---
+
+### So what kind of OO is this (cont)
+
 - no mocks
   - provide stubs instead to your consumers
 - no getters and setters
   - if you want a record, use a record
 - methods are builders or manipulators
+- no statics
+- no exceptions
+  - with a fail fast mentality
+- never return NULL
+- avoid type introspection and casting
 
+---
+
+### Primary and secondary constructors
+
+<pre>
+class Cash {
+    private final int dollars;
+    private final Exchange exchange;
+
+    Cash() {
+        this(0);
+    }
+
+    Cash(int value) {
+        this(value, new NYSE());
+    }
+
+    Cash(int value, Exchange exch) {
+        this.dollars = value;
+        this.exchange = exch;
+    }
+
+    public int euro() {
+        return this.exchange.rate("USD", "EUR") * this.dollars;
+    }
+}
+</pre>
+
+---
+
+### Small objects with a clear purpose
+
+<pre>
+names = new Sorted(
+  new Unique(
+    new Capitalized(
+        new Replaced(
+            new FileNames(
+                new Directory(
+                    "/var/users/*.xml"
+                )
+            ),
+            "([^.]+\\.xml)",
+            "$1"
+            )
+        )
+    );
+</pre>
