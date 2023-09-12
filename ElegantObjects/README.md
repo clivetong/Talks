@@ -5,7 +5,7 @@ title: "Elegant Objects"
 ---
 
 ::: block
-*Elegant Objecs?* {style=background:red;width:500px}
+*Elegant Objects?* {style=background:red;width:500px}
 :::
 
 ---
@@ -41,6 +41,7 @@ It has some interesting properties like in-built decorators
 It has some implementations [here](https://github.com/objectionary/eo) and [here](https://github.com/objectionary/eoc)
 
 And papers are being produced and presented.
+
 ---
 
 ### So what kind of OO is this
@@ -116,14 +117,15 @@ names = new Sorted(
             "$1"
             )
         )
-    );
+    )
+);
 </pre>
 
 ---
 
 ### Don't mock; use Fakes
 
-If Exchange comes with a number of predefined fakes, this
+If Exchange comes with a number of predefined fakes, 
 
 <pre>
 Exchange exchange = Mockito.mock(Exchange.class);
@@ -135,7 +137,7 @@ Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
 </pre>
 
-becomes
+\\/
 
 <pre>
 Exchange exchange = new Exchange.Fake();
@@ -144,4 +146,8 @@ Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
 </pre>
 
-without me guessing which methods of Exchange, Cash is going to call.
+without me guessing what Cash is going to call.
+
+---
+
+[https://www.elegantobjects.org/](https://www.elegantobjects.org/)
