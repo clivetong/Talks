@@ -47,6 +47,7 @@ And papers are being produced and presented.
 ### So what kind of OO is this
 
 - pure kind, with an emphasis on immutability
+- no reference equality
 - a primary constructor, with other secondary constructors chaining to it
 - no use of `new` except in constructors
   - typically in the secondary constructors
@@ -70,6 +71,7 @@ And papers are being produced and presented.
   - with a fail fast mentality
 - never return NULL
 - avoid type introspection and casting
+- with an anthropomorphic mindset
 
 ---
 
