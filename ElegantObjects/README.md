@@ -30,7 +30,7 @@ Elegant Objects (EO) is an object-oriented programming paradigm that renounces t
 
 And it's fair to say that the book is fairly critical of things we do in C# and Java every day.
 
-It's a call to emphasise the object oriented part of the procedural/functional/OO languages we use today, but incorporating some more modern ideas since the SmallTalk days. 
+It's a call to emphasise the object oriented part of the procedural/functional/OO languages we use today, but incorporating some more modern ideas since the [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) days. 
 
 ---
 
@@ -42,11 +42,11 @@ It has some interesting properties like in-built decorators
 
 It has some implementations [here](https://github.com/objectionary/eo) and [here](https://github.com/objectionary/eoc)
 
-And papers are being produced and presented.
+And [papers](https://news.eolang.org/papers.html) are being produced and presented, and [meetups](https://www.meetup.com/object-thinking/events/past/).
 
 ---
 
-### So what kind of OO is this
+### What kind of OO?
 
 - pure kind, with an emphasis on immutability
 - no reference equality
@@ -61,7 +61,7 @@ And papers are being produced and presented.
 
 ---
 
-### So what kind of OO is this (cont)
+### What kind of OO? (cont)
 
 - no mocks
   - provide stubs instead to your consumers
@@ -127,7 +127,7 @@ names = new Sorted(
 
 ---
 
-### Don't mock; use Fakes
+### Don't mock; use Fakes (stubs)
 
 If Exchange comes with a number of predefined fakes, 
 
