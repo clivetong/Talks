@@ -129,8 +129,6 @@ names = new Sorted(
 
 ### Don't mock; use Fakes (stubs)
 
-If Exchange comes with a number of predefined fakes, 
-
 <pre>
 Exchange exchange = Mockito.mock(Exchange.class);
 Mockito.doReturn(1.15)
@@ -141,7 +139,7 @@ Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
 </pre>
 
-\\/
+---------------
 
 <pre>
 Exchange exchange = new Exchange.Fake();
@@ -149,8 +147,6 @@ Cash dollar = new Cash(exchange, 500);
 Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
 </pre>
-
-without me guessing what Cash is going to call.
 
 ---
 
