@@ -28,7 +28,9 @@ Elegant Objects (EO) is an object-oriented programming paradigm that renounces t
 
 ### So that all sounds quite extreme
 
-And it's fair to say that the book is fairly critical of things we do in C# and Java every day
+And it's fair to say that the book is fairly critical of things we do in C# and Java every day.
+
+It's a call to emphasise the object oriented part of the procedural/functional/OO languages we use today, but incorporating some more modern ideas since the SmallTalk days. 
 
 ---
 
@@ -149,6 +151,13 @@ assert "5.75".equals(euro.toString());
 </pre>
 
 without me guessing what Cash is going to call.
+
+---
+
+### Decorate for performance
+
+- write the implementation object
+- if the method result is cacheable, then write a decorator that does this
 
 ---
 
