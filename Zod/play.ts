@@ -10,13 +10,14 @@ const test = mySchema.parse({
 });
 
 
+test.firstname;
+
 ; /////////////////////////////////////////////////////////////
 
 
 function isString(val: unknown): asserts val is string {
   if (typeof val != "string") throw `${val} is not a string`;
 }
-
 
 const x = {
   string: () => ({
@@ -33,24 +34,50 @@ const test1 = simpleSchema1.parse("hello");
 
 ; //////////////////////////////////////////////////////////
 
-
-type Parser<T> = {
-  parse: (arg:unknown) => T
+function isNumber(val: unknown): asserts val is number {
+  if (typeof val != "number") throw `${val} is not a number`;
 }
 
-type Schema = Record<string, Parser<any>>;
+const add_numbers = {
+  number: () => ({
+    parse: (arg: unknown): number => {
+      isNumber(arg);
+      return arg;
+    }
+  })
+}
+
+  ; //////////////////////////////////////////////////////////
+
+
+type Parser<T> = {
+  parse: (arg: unknown) => T
+}
+
+type Schema<T> = Record<string, Parser<T>>;
 
 const y = {
 
   ...x,
 
-  object: function<S extends Schema>(schema:S) {
+  ...add_numbers,
+
+  object: function <T, S extends Schema<T>>(schema: S) {
 
     function validateArgs(arg: unknown): asserts arg is {
       [K in keyof S]: ReturnType<S[K]["parse"]>
-    }
-    {
-      // Add runtime checks here ie use schema
+    } {
+      if (!arg) throw "null"
+      if (typeof arg != "object") throw "no object"
+
+      for (const k in Object.keys(schema)) {
+        if (k in arg) {
+          schema[k].parse((arg as any)[k]);
+        }
+        else {
+          throw "Invalid type"
+        }
+      }
     }
 
     return {
@@ -80,6 +107,7 @@ const simpleSchema3 = y.object({
   firstname: y.string(),
   surname: y.string(),
   address: y.object({
+    number: y.number(),
     road: y.string(),
     town: y.string()
   })
