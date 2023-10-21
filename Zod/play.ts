@@ -6,7 +6,8 @@ const mySchema = z.object({
 })
 
 const test = mySchema.parse({
-  "moo": 2
+  firstname: "Clive",
+  surname: "Tong"
 });
 
 
@@ -115,7 +116,12 @@ const simpleSchema3 = y.object({
 
 const test3 = simpleSchema3.parse({
   firstname: "Clive",
-  surname: "Tong"
+  surname: "Tong",
+  address: {
+    number: 6,
+    road: "big road",
+    town: "Cambridge"
+  }
 })
 
 test3.address.road;
