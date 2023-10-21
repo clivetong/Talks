@@ -70,7 +70,7 @@ const y = {
       if (!arg) throw "null"
       if (typeof arg != "object") throw "no object"
 
-      for (const k in Object.keys(schema)) {
+      for (const k of Object.keys(schema)) {
         if (k in arg) {
           schema[k].parse((arg as any)[k]);
         }
