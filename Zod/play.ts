@@ -13,6 +13,15 @@ const test = mySchema.parse({
 
 test.firstname;
 
+
+type SchemaT = z.infer<typeof mySchema>;
+
+const validInput : SchemaT = {
+  firstname: "Clive",
+  surname: "Tong"
+};
+
+
 ; /////////////////////////////////////////////////////////////
 
 
