@@ -38,16 +38,19 @@ type Parser<T> = {
   parse: (arg:unknown) => T
 }
 
+type Schema = Record<string, Parser<any>>;
+
 const y = {
+
   ...x,
 
-  object<T,S extends Record<string, Parser<T>>>(schema:S) {
+  object: function<S extends Schema>(schema:S) {
 
     function validateArgs(arg: unknown): asserts arg is {
       [K in keyof S]: ReturnType<S[K]["parse"]>
     }
     {
-      // Add runtime checks here
+      // Add runtime checks here ie use schema
     }
 
     return {
@@ -69,5 +72,24 @@ const test2 = simpleSchema2.parse({
   surname: "Tong"
 })
 
-const v1 = test2.firstname;
+test2.firstname;
+
+
+
+const simpleSchema3 = y.object({
+  firstname: y.string(),
+  surname: y.string(),
+  address: y.object({
+    road: y.string(),
+    town: y.string()
+  })
+})
+
+const test3 = simpleSchema3.parse({
+  firstname: "Clive",
+  surname: "Tong"
+})
+
+test3.address.road;
+
 
