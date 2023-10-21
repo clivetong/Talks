@@ -62,7 +62,7 @@ const y = {
 
   ...add_numbers,
 
-  object: function <T, S extends Schema<T>>(schema: S) {
+  object: function <S extends Schema<unknown>>(schema: S) {
 
     function validateArgs(arg: unknown): asserts arg is {
       [K in keyof S]: ReturnType<S[K]["parse"]>
