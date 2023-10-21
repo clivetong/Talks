@@ -34,7 +34,8 @@ const x = {
     parse: (arg: unknown): string => {
       isString(arg);
       return arg;
-    }
+    },
+    type: "hello"
   })
 }
 
@@ -53,7 +54,8 @@ const add_numbers = {
     parse: (arg: unknown): number => {
       isNumber(arg);
       return arg;
-    }
+    },
+    type: 3
   })
 }
 
@@ -61,7 +63,8 @@ const add_numbers = {
 
 
 type Parser<T> = {
-  parse: (arg: unknown) => T
+  parse: (arg: unknown) => T,
+  type: unknown
 }
 
 type Schema<T> = Record<string, Parser<T>>;
@@ -94,10 +97,17 @@ const y = {
       parse(arg: unknown) {
         validateArgs(arg)
         return arg;
-      }
+      },
+      type: new TypeHolder<{ [K in keyof S]: S[K]["type"]}>()["_output"]
     }
   }
 }
+
+class TypeHolder<Output> {
+  readonly _output!: Output;
+}
+
+type Infer<T extends Parser<any>> = T["type"]
 
 const simpleSchema2 = y.object({
   firstname: y.string(),
@@ -135,4 +145,16 @@ const test3 = simpleSchema3.parse({
 
 test3.address.road;
 
+
+type Foo = Infer<typeof simpleSchema3>
+
+const test4 : Foo = {
+  firstname: "Clive",
+  surname: "Tong",
+  address: {
+    number: 6,
+    road: "big road",
+    town: "Cambridge"
+  }
+};
 
