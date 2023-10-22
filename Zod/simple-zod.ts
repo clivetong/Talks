@@ -29,6 +29,11 @@ const validInput : SchemaT = {
   surname: "Tong"
 };
 
+/// Define a way to test types are equal
+
+function assertTypes<T extends never>() {}
+type TypeEqualityGuard<A,B> = Exclude<A,B> | Exclude<B,A>;
+
 /// Let's do strings first
 
 class TypeHolder<Output> {
@@ -58,9 +63,6 @@ const test1 = simpleSchema1.parse("hello");
 assert.equal(test1, "hello")
 
 type Inferred1 = Infer<typeof simpleSchema1>
-
-export function assertTypes<T extends never>() {}
-type TypeEqualityGuard<A,B> = Exclude<A,B> | Exclude<B,A>;
 
 assertTypes<TypeEqualityGuard<Inferred1, string>>();
 
