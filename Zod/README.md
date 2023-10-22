@@ -46,4 +46,6 @@ title: "Zod and the TS type system"
 
 ### References
 
-- [a partial how to build Zod talk](https://youtube.com/watch?v=6zojOpZGrtg&si=1IlO3qiuvJlHW7dd)
+- [A partial "how to build Zod" talk](https://youtube.com/watch?v=6zojOpZGrtg&si=1IlO3qiuvJlHW7dd)
+- [TypeLevel TypeScript](https://github.com/gvergnaud/type-level-typescript-workshop)
+- [Reconstructing TypeScript](https://jaked.org/blog/2021-09-15-Reconstructing-TypeScript-part-1)
