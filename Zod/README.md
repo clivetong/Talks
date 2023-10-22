@@ -10,12 +10,12 @@ title: "Zod and the TS type system"
 
 ---
 
-### Why's TypeScript's Type System Different
+### Why's TypeScript's Type System Different?
 
 - [See the Hejlsberg talk at ICFP](https://www.youtube.com/live/d0zFruedB-w?si=BaKI1LX3F3KKXZBD&t=763)
 - This is a type system for the sake of tooling 
   - not runtime safety or compilers
-- Arbitary limits in certain places to keep it feelig fast
+- Arbitary limits in certain places to keep it feeling fast
 
 ---
 
