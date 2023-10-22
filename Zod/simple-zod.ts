@@ -63,7 +63,7 @@ function isNumber(val: unknown): asserts val is number {
   if (typeof val != "number") throw `${val} is not a number`;
 }
 
-const add_numbers = {
+const x1 = {
   number: () => ({
     parse: (arg: unknown): number => {
       isNumber(arg);
@@ -86,7 +86,7 @@ const y = {
 
   ...x,
 
-  ...add_numbers,
+  ...x1,
 
   object: function <S extends Schema<unknown>>(schema: S) {
 
