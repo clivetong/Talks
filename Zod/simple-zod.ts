@@ -55,7 +55,14 @@ const simpleSchema1 = x.string()
 
 const test1 = simpleSchema1.parse("hello");
 
+assert.equal(test1, "hello")
+
 type Inferred1 = Infer<typeof simpleSchema1>
+
+export function assertTypes<T extends never>() {}
+type TypeEqualityGuard<A,B> = Exclude<A,B> | Exclude<B,A>;
+
+assertTypes<TypeEqualityGuard<Inferred1, string>>();
 
 /// Do the same for numbers
 
@@ -131,8 +138,6 @@ const test2 = simpleSchema2.parse({
 
 assert.equal(test2.firstname, "Clive");
 
-
-
 const simpleSchema3 = y.object({
   firstname: y.string(),
   surname: y.string(),
@@ -155,8 +160,9 @@ const test3 = simpleSchema3.parse({
 
 assert.equal(test3.address.road, "big road");
 
-
 type Inferred2 = Infer<typeof simpleSchema3>
+
+assertTypes<TypeEqualityGuard<Inferred2, { firstname: string, surname: string, address: { number: number, road: string, town: string}}>>();
 
 const test4 : Inferred2 = {
   firstname: "Clive",
