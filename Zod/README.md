@@ -38,7 +38,9 @@ title: "Zod and the TS type system"
 
 ### But we are just going to look at Zod
 
-- some parts are as implemented in Zod, and some aren't
+- some parts are as implemented as in Zod, and some aren't
+  - `npm run start`
+  - simple-zod.ts
 
 ---
 
