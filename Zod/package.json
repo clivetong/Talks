@@ -9,6 +9,6 @@
     "zod": "^3.22.4"
   },
   "scripts": {
-    "start": "npx nodemon .\\play.ts"
+    "start": "npx nodemon .\\simple-zod.ts"
   }
 }
