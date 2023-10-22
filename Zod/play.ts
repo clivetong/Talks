@@ -1,3 +1,4 @@
+import { strict as assert } from 'assert';
 import { z } from "zod";
 
 const mySchema = z.object({
@@ -10,9 +11,14 @@ const test = mySchema.parse({
   surname: "Tong"
 });
 
+assert.equal(test.firstname, "Clive");
 
-test.firstname;
-
+assert.throws(() => {
+  const test = mySchema.parse({
+    firstname: 1,
+    surname: 2
+  });  
+})
 
 type SchemaT = z.infer<typeof mySchema>;
 
@@ -21,6 +27,13 @@ const validInput : SchemaT = {
   surname: "Tong"
 };
 
+; /////////////////////////////////////////////////////////////
+
+class TypeHolder<Output> {
+  readonly _output!: Output;
+}
+
+type Infer<T extends Parser<any>> = T["type"]
 
 ; /////////////////////////////////////////////////////////////
 
@@ -35,7 +48,7 @@ const x = {
       isString(arg);
       return arg;
     },
-    type: "hello"
+    type: new TypeHolder<string>()["_output"]
   })
 }
 
@@ -55,7 +68,7 @@ const add_numbers = {
       isNumber(arg);
       return arg;
     },
-    type: 3
+    type: new TypeHolder<number>()["_output"]
   })
 }
 
@@ -80,6 +93,7 @@ const y = {
     function validateArgs(arg: unknown): asserts arg is {
       [K in keyof S]: ReturnType<S[K]["parse"]>
     } {
+
       if (!arg) throw "null"
       if (typeof arg != "object") throw "no object"
 
@@ -103,12 +117,6 @@ const y = {
   }
 }
 
-class TypeHolder<Output> {
-  readonly _output!: Output;
-}
-
-type Infer<T extends Parser<any>> = T["type"]
-
 const simpleSchema2 = y.object({
   firstname: y.string(),
   surname: y.string()
@@ -119,7 +127,7 @@ const test2 = simpleSchema2.parse({
   surname: "Tong"
 })
 
-test2.firstname;
+assert.equal(test2.firstname, "Clive");
 
 
 
@@ -143,7 +151,7 @@ const test3 = simpleSchema3.parse({
   }
 })
 
-test3.address.road;
+assert.equal(test3.address.road, "big road");
 
 
 type Foo = Infer<typeof simpleSchema3>
