@@ -1,6 +1,8 @@
 import { strict as assert } from 'assert';
 import { z } from "zod";
 
+///   The pieces of Zod we are going to duplicate
+
 const mySchema = z.object({
   firstname: z.string(),
   surname: z.string()
@@ -27,16 +29,13 @@ const validInput : SchemaT = {
   surname: "Tong"
 };
 
-; /////////////////////////////////////////////////////////////
+/// Let's do strings first
 
 class TypeHolder<Output> {
   readonly _output!: Output;
 }
 
 type Infer<T extends Parser<any>> = T["type"]
-
-; /////////////////////////////////////////////////////////////
-
 
 function isString(val: unknown): asserts val is string {
   if (typeof val != "string") throw `${val} is not a string`;
@@ -56,7 +55,9 @@ const simpleSchema1 = x.string()
 
 const test1 = simpleSchema1.parse("hello");
 
-; //////////////////////////////////////////////////////////
+type Inferred1 = Infer<typeof simpleSchema1>
+
+/// Do the same for numbers
 
 function isNumber(val: unknown): asserts val is number {
   if (typeof val != "number") throw `${val} is not a number`;
@@ -72,8 +73,7 @@ const add_numbers = {
   })
 }
 
-  ; //////////////////////////////////////////////////////////
-
+/// And now do objects
 
 type Parser<T> = {
   parse: (arg: unknown) => T,
@@ -108,10 +108,12 @@ const y = {
     }
 
     return {
+
       parse(arg: unknown) {
         validateArgs(arg)
         return arg;
       },
+
       type: new TypeHolder<{ [K in keyof S]: S[K]["type"]}>()["_output"]
     }
   }
@@ -154,9 +156,9 @@ const test3 = simpleSchema3.parse({
 assert.equal(test3.address.road, "big road");
 
 
-type Foo = Infer<typeof simpleSchema3>
+type Inferred2 = Infer<typeof simpleSchema3>
 
-const test4 : Foo = {
+const test4 : Inferred2 = {
   firstname: "Clive",
   surname: "Tong",
   address: {
