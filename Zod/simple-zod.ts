@@ -1,6 +1,11 @@
 import { strict as assert } from 'assert';
 import { z } from "zod";
 
+/// Define a way to test types are equal
+
+function assertTypes<T extends never>() {}
+type TypeEqualityGuard<A,B> = Exclude<A,B> | Exclude<B,A>;
+
 ///   The pieces of Zod we are going to duplicate
 
 const mySchema = z.object({
@@ -24,15 +29,12 @@ assert.throws(() => {
 
 type SchemaT = z.infer<typeof mySchema>;
 
+assertTypes<TypeEqualityGuard<SchemaT, { firstname: string, surname: string}>>();
+
 const validInput : SchemaT = {
   firstname: "Clive",
   surname: "Tong"
 };
-
-/// Define a way to test types are equal
-
-function assertTypes<T extends never>() {}
-type TypeEqualityGuard<A,B> = Exclude<A,B> | Exclude<B,A>;
 
 /// Let's do strings first
 
