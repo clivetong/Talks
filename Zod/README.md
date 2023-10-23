@@ -15,7 +15,7 @@ title: "Zod and the TS type system"
 - [See the Hejlsberg talk at ICFP](https://www.youtube.com/live/d0zFruedB-w?si=BaKI1LX3F3KKXZBD&t=763)
 - This is a type system for the sake of tooling 
   - not runtime safety or compilers
-- Arbitary limits in certain places to keep it feeling fast
+- Arbitrary limits in certain places to keep it feeling fast
 
 ---
 
