@@ -102,7 +102,7 @@ const y = {
   object: function <S extends Schema<unknown>>(schema: S) {
 
     function validateArgs(arg: unknown): asserts arg is {
-      [K in keyof S]: ReturnType<S[K]["parse"]>
+      [K in keyof S]: ReturnType<S[K]["parse"]>  // which simplifies to S[K]["type"]
     } {
 
       if (!arg) throw "null"
