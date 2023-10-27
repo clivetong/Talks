@@ -64,9 +64,15 @@ const test1 = simpleSchema1.parse("hello");
 
 assert.equal(test1, "hello")
 
+assert.throws(() => {
+  const test = simpleSchema1.parse(22); 
+})
+
 type Inferred1 = Infer<typeof simpleSchema1>
 
 assertTypes<TypeEqualityGuard<Inferred1, string>>();
+
+const testInferred : Inferred1 = "hello";
 
 /// Do the same for numbers
 
@@ -141,6 +147,10 @@ const test2 = simpleSchema2.parse({
 })
 
 assert.equal(test2.firstname, "Clive");
+
+assert.throws(() => {
+  const test = simpleSchema2.parse(22); 
+})
 
 const simpleSchema3 = y.object({
   firstname: y.string(),
