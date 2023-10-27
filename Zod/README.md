@@ -15,7 +15,7 @@ title: "Zod and the TS type system"
 - [See the Hejlsberg talk at ICFP](https://www.youtube.com/live/d0zFruedB-w?si=BaKI1LX3F3KKXZBD&t=763)
 - This is a type system for the sake of tooling 
   - not runtime safety or compilers
-- Arbitrary limits in certain places to keep it feeling fast
+- Arbitrary limits to keep it feeling fast
 
 ---
 
@@ -38,7 +38,7 @@ title: "Zod and the TS type system"
 
 ### But we are just going to look at Zod
 
-- some parts are implemented as in Zod, and some aren't
+- some parts implemented as in Zod, some aren't
   - `npm run start`
   - simple-zod.ts
 
