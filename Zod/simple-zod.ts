@@ -38,24 +38,35 @@ const validInput : SchemaT = {
 
 /// Let's do strings first
 
+function isString(val: unknown): asserts val is string {
+  if (typeof val != "string") throw `${val} is not a string`;
+}
+
+const x_string = {
+  string: () => ({
+    parse: (arg: unknown): string => {
+      isString(arg);
+      return arg;
+    },
+  })
+}
+
+type Parser<T> = {
+  parse: (arg: unknown) => T,
+  type: unknown
+}
+
 class TypeHolder<Output> {
   readonly _output!: Output;
 }
 
 type Infer<T extends Parser<any>> = T["type"]
 
-function isString(val: unknown): asserts val is string {
-  if (typeof val != "string") throw `${val} is not a string`;
-}
-
 const x = {
   string: () => ({
-    parse: (arg: unknown): string => {
-      isString(arg);
-      return arg;
-    },
+    parse: x_string.string().parse,
     type: new TypeHolder<string>()["_output"]
-  })
+  }) 
 }
 
 const simpleSchema1 = x.string()
@@ -91,11 +102,6 @@ const x1 = {
 }
 
 /// And now do objects
-
-type Parser<T> = {
-  parse: (arg: unknown) => T,
-  type: unknown
-}
 
 type Schema<T> = Record<string, Parser<T>>;
 
