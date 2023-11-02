@@ -53,7 +53,7 @@ const x_string = {
 
 type Parser<T> = {
   parse: (arg: unknown) => T,
-  type: unknown
+  type: T
 }
 
 class TypeHolder<Output> {
