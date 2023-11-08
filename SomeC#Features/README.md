@@ -76,7 +76,7 @@ C# 12
 - And looking back CERs
   - System.Runtime.CompilerServices.RuntimeHelpers.ProbeForSufficientStack();
 
----
+--- 
 
 ![Sample example](images/inline-arrays.png)
 
