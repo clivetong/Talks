@@ -119,14 +119,7 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 ---
 
 - The best solution to the need to go through setters without setting the field twice
-
----
-
-### Checked User Defined Operators
-
----
-
-### Extended NameOf Scope
+- See example 
 
 ---
 
