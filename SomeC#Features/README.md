@@ -129,6 +129,8 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 
 ### Numeric IntPtr
 
+- TL;DR: nint, nuint simply alias System.IntPtr and System.UIntPtr (conditionalized by the System.Runtime.CompilerServices.RuntimeFeature.NumericIntPtr feature)
+
 ---
 
 ### Relaxing Shoft Operator Requirements
