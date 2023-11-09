@@ -10,6 +10,22 @@ title: "This is the list of features we will cover"
 
 ---
 
+### What we have planned
+
+- Today: features form the newer versions of C#
+- December 8th: .NET Conf recap
+
+---
+
+### What we are doing today
+
+- We'll go through the C# changes in reverse chronological order
+  - Talk about the feature
+  - Any questions?
+  - Any discussion on usefulness and whether we should use it in the code base
+
+---
+
 ### [C# 12](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-12.0)
 
 - [Collection Expressions](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/collection-expressions.md) 
@@ -30,7 +46,7 @@ title: "This is the list of features we will cover"
 - [File local types](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/file-local-types.md)
 - [Generic Attributes](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/generic-attributes.md)
 - [List Patterns](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/list-patterns.md)
-- [Low level struct improvements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/list-patterns.md)
+- [Low level struct improvements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/low-level-struct-improvements.md
 - [New line in interpolation](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/new-line-in-interpolation.md)
 - [Numeric Intptr](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/numeric-intptr.md)
 - [Pattern match span of char on string](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/pattern-match-span-of-char-on-string.md)
@@ -119,7 +135,33 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 
 ---
 
-### Low Level Struct Improvements
+### [Low Level Struct Improvements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/low-level-struct-improvements.md)
+
+---
+
+Earlier versions of C# added a number of low level performance features to the language: ref returns, ref struct, function pointers, etc. ... These enabled .NET developers to write highly performant code while continuing to leverage the C# language rules for type and memory safety. It also allowed the creation of fundamental performance types in the .NET libraries like Span<T>.
+
+As these features have gained traction in the .NET ecosystem developers, both internal and external, have been providing us with information on remaining friction points in the ecosystem. Places where they still need to drop to unsafe code to get their work done, or require the runtime to special case types like `Span<T>`.
+
+---
+
+<pre>
+readonly ref struct Span<T>
+{
+    readonly ref T _field;
+    readonly int _length;
+
+    // This constructor does not exist today but will be added as a part 
+    // of changing Span<T> to have ref fields. It is a convenient, and
+    // safe, way to create a length one span over a stack value that today 
+    // requires unsafe code.
+    public Span(ref T value)
+    {
+        _field = ref value;
+        _length = 1;
+    }
+}
+</pre>
 
 ---
 
