@@ -74,13 +74,6 @@ title: "This is the list of features we will cover"
 
 ---
 
-- Methods in System.Runtime.CompilerServices.RuntimeHelpers 
-- EnsureSufficientExecutionStack();
-- And looking back CERs
-  - ProbeForSufficientStack();
-
----
-
 ![Sample example](images/inline-arrays.png)
 
 ---
@@ -93,7 +86,10 @@ title: "This is the list of features we will cover"
 
 ---
 
-- Benchmark.NET ?
+- Methods in System.Runtime.CompilerServices.RuntimeHelpers 
+- EnsureSufficientExecutionStack();
+- And looking back CERs
+  - ProbeForSufficientStack();
 
 ---
 
