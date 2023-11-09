@@ -7,6 +7,7 @@ ref var foo2 = ref data[2];
 foo0 = 29;
 foo2 = 393;
 
+Console.ReadLine();
 
 [System.Runtime.CompilerServices.InlineArray(10000)]
 struct Foo
