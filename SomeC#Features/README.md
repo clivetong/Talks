@@ -12,7 +12,8 @@ title: "This is the list of features we will cover"
 
 ### What we have planned
 
-- Today: features form the newer versions of C#
+- Today: features from the newer versions of C#
+  -  (12...11...10...)
 - December 8th: .NET Conf recap
 
 ---
