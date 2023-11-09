@@ -165,6 +165,10 @@ readonly ref struct Span<T>
 
 ---
 
+See example of how `ref struct` is about stack allocation
+
+---
+
 ### [Numeric IntPtr](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/numeric-intptr.md)
 
 - TL;DR: nint, nuint simply alias System.IntPtr and System.UIntPtr (conditionalized by the System.Runtime.CompilerServices.RuntimeFeature.NumericIntPtr feature)
