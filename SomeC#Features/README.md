@@ -127,17 +127,32 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 
 ---
 
-### Numeric IntPtr
+### [Numeric IntPtr](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/numeric-intptr.md)
 
 - TL;DR: nint, nuint simply alias System.IntPtr and System.UIntPtr (conditionalized by the System.Runtime.CompilerServices.RuntimeFeature.NumericIntPtr feature)
 
 ---
 
-### Relaxing Shoft Operator Requirements
+### [Relaxing Shift Operator Requirements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/relaxing_shift_operator_requirements.md)
+
+- the amount to shift by doesn't have to be an int
+  - as some things might not convert to an int
 
 ---
 
-### Unsigned Right Shift Operator
+### Drawbacks
+
+- Users will be able to define operators that do not follow the recommended guidelines, such as implementing `cout << "string"` in C#.
+
+---
+
+### [Unsigned Right Shift Operator](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/unsigned-right-shift-operator.md)
+
+- `>>>` is an unsigned right shift operator
+
+---
+
+![right shift](images/right-shift.png)
 
 ---
 
