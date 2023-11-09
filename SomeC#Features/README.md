@@ -156,15 +156,37 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 
 ---
 
-### Utf8 String Literals
+### [Utf8 String Literals](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/utf8-string-literals.md)
 
 ---
 
-### Enhanced Line Directives
+![UTF-8](images/utf8.png)
 
 ---
 
-### Extended Property Patterns
+### [Enhanced Line Directives](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/enhanced-line-directives.md)
 
+- The PDB contains a mapping from code to source
+- This extends the mapping to help tools like Razor
+
+---
+
+- The PDB contains information like "from IL offset 12 this maps to (15,2) - (15,7) in foo.cs"
+
+---
+
+### [Extended Property Patterns](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/extended-property-patterns.md)
+
+- Allow property patterns to be nested
+
+```
+if (e is MethodCallExpression { Method.Name: "MethodName" })
+```
+
+instead of
+
+```
+if (e is MethodCallExpression { Method: { Name: "MethodName" } })
+```
 
 
