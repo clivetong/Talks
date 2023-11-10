@@ -85,8 +85,8 @@ title: "This is the list of features we will cover"
 
 ### [Inline Arrays](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/inline-arrays.md)
 
-- Stack allocation (a common theme)
-- Don't make them too big (runtime exits)
+- Typically for stack allocation (a common theme)
+  - Don't make them too big (runtime exits)
 
 ---
 
