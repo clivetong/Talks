@@ -169,6 +169,10 @@ readonly ref struct Span<T>
 
 ---
 
+![Span of ref](images/lowlevel.png)
+
+---
+
 See example of how `ref struct` is about stack allocation
 
 ---
