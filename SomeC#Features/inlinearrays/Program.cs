@@ -12,5 +12,5 @@ Console.ReadLine();
 [System.Runtime.CompilerServices.InlineArray(10000)]
 struct Foo
 {
-    public int A;
+    public object A;
 }

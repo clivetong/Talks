@@ -20,7 +20,7 @@ title: "This is the list of features we will cover"
 
 ### What we are doing today
 
-- We'll go through the C# changes in reverse chronological order
+- C# changes in reverse chronological order
   - Talk about the feature
   - Any questions?
   - Any discussion on usefulness and whether we should use it in the code base
@@ -85,13 +85,16 @@ title: "This is the list of features we will cover"
 
 ### [Inline Arrays](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/inline-arrays.md)
 
-- Tracked references on the stack
 - Stack allocation (a common theme)
 - Don't make them too big (runtime exits)
 
 ---
 
 ![Sample example](images/inline-arrays.png)
+
+---
+
+![Sample example](images/inline-arrays2.png)
 
 ---
 
