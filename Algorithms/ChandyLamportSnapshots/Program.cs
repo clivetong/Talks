@@ -6,8 +6,8 @@ ActorSystem system = ActorSystem.Create("MySystem");
 List<IActorRef> actors = new();
 for (int i = 0; i < 10; i++)
 {
-    IActorRef fooActor = system.ActorOf<Foo>($"Actor-{i}");
-    actors.Add(fooActor);
+    IActorRef nodeActor = system.ActorOf<Node>($"Actor-{i}");
+    actors.Add(nodeActor);
 }
 
 foreach (var actor in actors)
@@ -40,7 +40,7 @@ Console.ReadLine();
 
 class Distribute
 {
-    public int Gossip { get; } = 2;
+    public int Gossip { get; } = 5;
 }
 
 class SetState
@@ -51,12 +51,10 @@ class SetState
 
 class Increment
 {
-
 }
 
 class PrintState
 {
-
 }
 
 #region Message to snapshot
@@ -73,22 +71,23 @@ class Marker
 #endif
 #endregion
 
-class Foo : ReceiveActor
+class Node : ReceiveActor
 {
-    Random random = new();
-    int state = 0;
-    List<IActorRef> actors = new();
-    public Foo()
+    readonly Random _random = new();
+    int _state = 0;
+    List<IActorRef> _actors = new();
+
+    public Node()
     {
         Receive<SetState>(s =>
         {
-            state = s.Count;
-            actors = s.Actors;
+            _state = s.Count;
+            _actors = s.Actors;
         });
 
         Receive<Increment>(_ =>
         {
-            state++;
+            _state++;
             #region Record messages
 #if WITHSNAPSHOTS
             if (recordingMessages.Contains(Sender))
@@ -101,17 +100,17 @@ class Foo : ReceiveActor
 
         Receive<PrintState>(_ =>
         {
-            Console.WriteLine(state);
+            Console.WriteLine(_state);
         });
 
-        Receive<Distribute>(_ =>
+        Receive<Distribute>(d =>
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < d.Gossip; i++)
             {
-                var target = actors[random.Next(actors.Count)];
-                if (state > 0 && target != Self)
+                var target = _actors[_random.Next(_actors.Count)];
+                if (_state > 0 && target != Self)
                 {
-                    state--;
+                    _state--;
                     target.Tell(new Increment());
                 }
             }
@@ -122,8 +121,8 @@ class Foo : ReceiveActor
 #if WITHSNAPSHOTS
         Receive<Snapshot>(_ =>
         {
-            myState = state;
-            foreach(var actor in actors)
+            myState = _state;
+            foreach(var actor in _actors)
             {
                 if(actor != Self)
                 {
@@ -138,9 +137,9 @@ class Foo : ReceiveActor
         {
             if (!myState.HasValue)
             {
-                myState = state;
+                myState = _state;
 
-                foreach (var actor in actors)
+                foreach (var actor in _actors)
                 {
                     if (actor != Self)
                     {
