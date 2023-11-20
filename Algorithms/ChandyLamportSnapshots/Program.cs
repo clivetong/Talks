@@ -19,12 +19,14 @@ foreach (var actor in actors)
 for (int i = 0; i < actors.Count * 5; i++)
 {
     actors[i % actors.Count].Tell(new Distribute());
+    #region Take a snapshot
 #if WITHSNAPSHOTS
     if (i == actors.Count)
     {
         actors[i % actors.Count].Tell(new Snapshot());
     }
 #endif
+    #endregion
 }
 
 Console.ReadLine();
@@ -58,6 +60,7 @@ class PrintState
 }
 
 #region Message to snapshot
+#if WITHSNAPSHOTS
 class Snapshot
 {
 
@@ -67,6 +70,7 @@ class Marker
 {
 
 }
+#endif
 #endregion
 
 class Foo : ReceiveActor
@@ -85,12 +89,14 @@ class Foo : ReceiveActor
         Receive<Increment>(_ =>
         {
             state++;
+            #region Record messages
 #if WITHSNAPSHOTS
             if (recordingMessages.Contains(Sender))
             {
                 accumulatedIncrementMessages++;
             }
 #endif
+            #endregion
         });
 
         Receive<PrintState>(_ =>
@@ -112,6 +118,7 @@ class Foo : ReceiveActor
 
         });
 
+        #region Extra Message Types
 #if WITHSNAPSHOTS
         Receive<Snapshot>(_ =>
         {
@@ -152,12 +159,15 @@ class Foo : ReceiveActor
 
         });
 #endif
+        #endregion
     }
 
+    #region State needed to record the snapshot
 #if WITHSNAPSHOTS
     HashSet<IActorRef> recordingMessages = new();
     int accumulatedIncrementMessages = 0;
     int? myState = null;
 #endif
+    #endregion
 
 }
