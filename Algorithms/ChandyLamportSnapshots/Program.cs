@@ -12,7 +12,7 @@ for (int i = 0; i < 10; i++)
 
 foreach (var actor in actors)
 {
-    actor.Tell(new SetState(Count: 100, Actors: actors)); ;
+    actor.Tell(new Initialize(Count: 100, Actors: actors)); ;
 
 }
 
@@ -40,7 +40,7 @@ Console.ReadLine();
 
 record class Distribute(int Gossip) { }
 
-record class SetState(int Count, List<IActorRef> Actors) { }
+record class Initialize(int Count, List<IActorRef> Actors) { }
 
 class Increment {}
 
@@ -68,7 +68,7 @@ class Node : ReceiveActor
 
     public Node()
     {
-        Receive<SetState>(s =>
+        Receive<Initialize>(s =>
         {
             _state = s.Count;
             _actors = s.Actors;
