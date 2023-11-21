@@ -12,13 +12,13 @@ for (int i = 0; i < 10; i++)
 
 foreach (var actor in actors)
 {
-    actor.Tell(new SetState { Actors = actors }); ;
+    actor.Tell(new SetState(Count: 100, Actors: actors)); ;
 
 }
 
 for (int i = 0; i < actors.Count * 5; i++)
 {
-    actors[i % actors.Count].Tell(new Distribute());
+    actors[i % actors.Count].Tell(new Distribute(Gossip:5));
     #region Take a snapshot
 #if WITHSNAPSHOTS
     if (i == actors.Count)
@@ -38,24 +38,13 @@ foreach (var actor in actors)
 
 Console.ReadLine();
 
-class Distribute
-{
-    public int Gossip { get; } = 5;
-}
+record class Distribute(int Gossip) { }
 
-class SetState
-{
-    public int Count { get; init; } = 100;
-    public List<IActorRef> Actors { get; init; } = new();
-}
+record class SetState(int Count, List<IActorRef> Actors) { }
 
-class Increment
-{
-}
+class Increment {}
 
-class PrintState
-{
-}
+class PrintState { }
 
 #region Message to snapshot
 #if WITHSNAPSHOTS
