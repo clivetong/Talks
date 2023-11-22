@@ -38,6 +38,9 @@ foreach (var actor in actors)
 
 Console.ReadLine();
 
+Console.WriteLine($"Final Total: {Node.FinalTotal} Snapshot Total: {Node.SnapshotTotal}");
+
+Console.WriteLine();
 record class Distribute(int Gossip) { }
 
 record class Initialize(int Count, List<IActorRef> Actors) { }
@@ -61,6 +64,9 @@ class Node : ReceiveActor
     int _state = 0;
     List<IActorRef> _actors = new();
 
+    public static long FinalTotal = 0;
+    public static long SnapshotTotal = 0;
+
     public Node()
     {
         Receive<Initialize>(s =>
@@ -74,9 +80,9 @@ class Node : ReceiveActor
             _state++;
             #region Record messages
 #if WITHSNAPSHOTS
-            if (recordingMessages.Contains(Sender))
+            if (_recordingMessages.Contains(Sender))
             {
-                accumulatedIncrementMessages++;
+                _accumulatedIncrementMessages++;
             }
 #endif
             #endregion
@@ -84,7 +90,8 @@ class Node : ReceiveActor
 
         Receive<PrintState>(_ =>
         {
-            Console.WriteLine(_state);
+            Interlocked.Add(ref FinalTotal, _state);
+            Console.WriteLine($"State: {_state}");
         });
 
         Receive<Distribute>(d =>
@@ -105,25 +112,26 @@ class Node : ReceiveActor
 #if WITHSNAPSHOTS
         Receive<Marker>(_ =>
         {
-            if (!myState.HasValue)
+            if (!_myState.HasValue)
             {
-                myState = _state;
+                _myState = _state;
 
                 foreach (var actor in _actors)
                 {
                     if (actor != Self)
                     {
-                        recordingMessages.Add(actor);
+                        _recordingMessages.Add(actor);
                         actor.Tell(new Marker());
                     }
                 }
             }
             
-            recordingMessages.Remove(Sender);
+            _recordingMessages.Remove(Sender);
 
-            if (recordingMessages.Count == 0)
+            if (_recordingMessages.Count == 0)
             {
-                Console.WriteLine($"State: {myState} Inflight: {accumulatedIncrementMessages}");
+                Interlocked.Add(ref SnapshotTotal, (_myState ?? 0) + _accumulatedIncrementMessages);
+                Console.WriteLine($"State: {_myState} Inflight: {_accumulatedIncrementMessages}");
             }
 
         });
@@ -133,9 +141,9 @@ class Node : ReceiveActor
 
     #region State needed to record the snapshot
 #if WITHSNAPSHOTS
-    HashSet<IActorRef> recordingMessages = new();
-    int accumulatedIncrementMessages = 0;
-    int? myState = null;
+    HashSet<IActorRef> _recordingMessages = new();
+    int _accumulatedIncrementMessages = 0;
+    int? _myState = null;
 #endif
     #endregion
 
