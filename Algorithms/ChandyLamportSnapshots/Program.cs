@@ -23,7 +23,7 @@ for (int i = 0; i < actors.Count * 5; i++)
 #if WITHSNAPSHOTS
     if (i == actors.Count)
     {
-        actors[i % actors.Count].Tell(new Snapshot());
+        actors[i % actors.Count].Tell(new Marker());
     }
 #endif
     #endregion
@@ -48,11 +48,6 @@ class PrintState { }
 
 #region Message to snapshot
 #if WITHSNAPSHOTS
-class Snapshot
-{
-
-}
-
 class Marker
 {
 
@@ -108,20 +103,6 @@ class Node : ReceiveActor
 
         #region Extra Message Types
 #if WITHSNAPSHOTS
-        Receive<Snapshot>(_ =>
-        {
-            myState = _state;
-            foreach(var actor in _actors)
-            {
-                if(actor != Self)
-                {
-                    recordingMessages.Add(actor);
-                    actor.Tell(new Marker());
-                }
-            }
-
-        });
-
         Receive<Marker>(_ =>
         {
             if (!myState.HasValue)
