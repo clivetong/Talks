@@ -12,8 +12,7 @@ for (int i = 0; i < 10; i++)
 
 foreach (var actor in actors)
 {
-    actor.Tell(new Initialize(Count: 100, Actors: actors)); ;
-
+    actor.Tell(new Initialize(Count: 100, Actors: actors));
 }
 
 for (int i = 0; i < actors.Count * 5; i++)
@@ -40,28 +39,27 @@ Console.ReadLine();
 
 Console.WriteLine($"Final Total: {Node.FinalTotal} Snapshot Total: {Node.SnapshotTotal}");
 
-Console.WriteLine();
+Console.ReadLine();
+
 record class Distribute(int Gossip) { }
 
 record class Initialize(int Count, List<IActorRef> Actors) { }
 
-class Increment {}
+class Increment { }
 
 class PrintState { }
 
 #region Message to snapshot
 #if WITHSNAPSHOTS
-class Marker
-{
-
-}
+class Marker { }
 #endif
 #endregion
 
 class Node : ReceiveActor
 {
-    readonly Random _random = new();
     int _state = 0;
+
+    readonly Random _random = new();
     List<IActorRef> _actors = new();
 
     public static long FinalTotal = 0;
@@ -99,7 +97,7 @@ class Node : ReceiveActor
             for (int i = 0; i < d.Gossip; i++)
             {
                 var target = _actors[_random.Next(_actors.Count)];
-                if (_state > 0 && target != Self)
+                if (_state > 0 && target.Path != Self.Path)
                 {
                     _state--;
                     target.Tell(new Increment());
@@ -118,7 +116,7 @@ class Node : ReceiveActor
 
                 foreach (var actor in _actors)
                 {
-                    if (actor != Self)
+                    if (actor.Path != Self.Path)
                     {
                         _recordingMessages.Add(actor);
                         actor.Tell(new Marker());
@@ -141,7 +139,7 @@ class Node : ReceiveActor
 
     #region State needed to record the snapshot
 #if WITHSNAPSHOTS
-    HashSet<IActorRef> _recordingMessages = new();
+    readonly HashSet<IActorRef> _recordingMessages = new();
     int _accumulatedIncrementMessages = 0;
     int? _myState = null;
 #endif
