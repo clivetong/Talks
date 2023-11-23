@@ -17,10 +17,10 @@ foreach (var actor in actors)
 
 for (int i = 0; i < actors.Count * 5; i++)
 {
-    actors[i % actors.Count].Tell(new Distribute(Gossip:5));
+    actors[i % actors.Count].Tell(new Distribute(Gossip:10));
     #region Take a snapshot
 #if WITHSNAPSHOTS
-    if (i == actors.Count)
+    if (i == actors.Count * 3)
     {
         actors[i % actors.Count].Tell(new Marker());
     }
