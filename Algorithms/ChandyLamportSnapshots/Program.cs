@@ -45,22 +45,22 @@ record class Distribute(int Gossip) { }
 
 record class Initialize(int Count, List<IActorRef> Actors) { }
 
-class Increment { }
+record class Increment { }
 
-class PrintState { }
+record class PrintState { }
 
 #region Message to snapshot
 #if WITHSNAPSHOTS
-class Marker { }
+record class Marker { }
 #endif
 #endregion
 
 class Node : ReceiveActor
 {
-    int _state = 0;
+    private int _count = 0;
 
-    readonly Random _random = new();
-    List<IActorRef> _actors = new();
+    private readonly Random _random = new();
+    private List<IActorRef> _actors = new();
 
     public static long FinalTotal = 0;
     public static long SnapshotTotal = 0;
@@ -69,13 +69,13 @@ class Node : ReceiveActor
     {
         Receive<Initialize>(s =>
         {
-            _state = s.Count;
+            _count = s.Count;
             _actors = s.Actors;
         });
 
         Receive<Increment>(_ =>
         {
-            _state++;
+            _count++;
             #region Record messages
 #if WITHSNAPSHOTS
             if (_recordingMessages.Contains(Sender))
@@ -88,8 +88,8 @@ class Node : ReceiveActor
 
         Receive<PrintState>(_ =>
         {
-            Interlocked.Add(ref FinalTotal, _state);
-            Console.WriteLine($"State: {_state}");
+            Interlocked.Add(ref FinalTotal, _count);
+            Console.WriteLine($"State: {_count}");
         });
 
         Receive<Distribute>(d =>
@@ -97,9 +97,9 @@ class Node : ReceiveActor
             for (int i = 0; i < d.Gossip; i++)
             {
                 var target = _actors[_random.Next(_actors.Count)];
-                if (_state > 0 && target.Path != Self.Path)
+                if (_count > 0 && target.Path != Self.Path)
                 {
-                    _state--;
+                    _count--;
                     target.Tell(new Increment());
                 }
             }
@@ -112,7 +112,7 @@ class Node : ReceiveActor
         {
             if (!_myState.HasValue)
             {
-                _myState = _state;
+                _myState = _count;
 
                 foreach (var actor in _actors)
                 {
@@ -139,9 +139,10 @@ class Node : ReceiveActor
 
     #region State needed to record the snapshot
 #if WITHSNAPSHOTS
-    readonly HashSet<IActorRef> _recordingMessages = new();
-    int _accumulatedIncrementMessages = 0;
-    int? _myState = null;
+    private int? _myState = null;
+    private readonly HashSet<IActorRef> _recordingMessages = new();
+
+    private int _accumulatedIncrementMessages = 0;
 #endif
     #endregion
 
