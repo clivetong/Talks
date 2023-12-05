@@ -86,9 +86,19 @@ title: ".NET 8 and Kiota"
 
 ```
 dotnet tool install --global Microsoft.OpenApi.Kiota
+```
+```
 kiota generate -l CSharp -c PostsClient -n KiotaPosts.Client
           -d ./posts-api.yml -o ./Client
---Add some references
+```
+```
+--  Add some references
+```
+```
 dotnet run
 ```
+
+---
+
+### And show the VSCode extension
 
