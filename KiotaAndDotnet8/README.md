@@ -80,3 +80,15 @@ title: ".NET 8 and Kiota"
 - Partial generation from OpenAPI definition
 - Supports .NET/Go/Python/TypeScript/Java/PHP
 
+---
+
+### Let's see it
+
+```
+dotnet tool install --global Microsoft.OpenApi.Kiota
+kiota generate -l CSharp -c PostsClient -n KiotaPosts.Client
+          -d ./posts-api.yml -o ./Client
+--Add some references
+dotnet run
+```
+
