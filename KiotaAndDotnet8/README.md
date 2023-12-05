@@ -23,11 +23,13 @@ title: ".NET 8 and Kiota"
   - collection expressions, primary constructors
 
 - Runtime improvements
-  - DPGO (15% improvement), Stephen Toub blog post, 
+  - DPGO (15% improvement), 
+  - Stephen Toub blog post, 
   - WASM Jiterpreter, AOT (startup, container density) 
 
 - Blazor
-  - Server rendering, enhanced navigation, streaming rendering
+  - Server rendering, Enhanced navigation
+  - Streaming rendering
 
 ---
 
