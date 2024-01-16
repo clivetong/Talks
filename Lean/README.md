@@ -180,6 +180,17 @@ def h (a : α) (b : β) : α := a
 
 A proof is just a `Prop` for which you have constructed a member.
 
+```lean
+def OnePlusOneIsTwo : Prop := 1 + 1 = 2
+
+theorem onePlusOneIsTwo : OnePlusOneIsTwo := rfl
+
+def third (xs : List α) (ok : xs.length > 2) : α := xs[2]
+
+#eval third [1,2,3,4,5] (by library_search)
+
+```
+
 ---
 
 ```lean
