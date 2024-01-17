@@ -12,7 +12,7 @@ title: "A quick introduction to Lean"
 ### Augmented Mathematical Intelligence (AMI) at Microsoft
 
 - Mission
-  - Empower mathematicians owrking on cutting edge mathematics
+  - Empower mathematicians working on cutting edge mathematics
   - Demoncratize math education
   - Platform for Math-AI research
 
@@ -21,6 +21,14 @@ title: "A quick introduction to Lean"
 ### [And it is working](https://mathstodon.xyz/@tao/111287749336059662)
 
 ![Terence Tao](images/tao.png)
+
+---
+
+### And utilizing undergraduate
+
+- Professor Kevin Buzzard at Imperial
+- And his students
+- Pushing [Mathlib](https://www.imperial.ac.uk/people/k.buzzard) onwards
 
 ---
 
@@ -37,11 +45,15 @@ title: "A quick introduction to Lean"
 
 ---
 
+[See Functional Programming in Lean](https://leanprover.github.io/functional_programming_in_lean/)
+
+---
+
 ### Easy to use
 
 - Trivial to use via a VS Code extension
 - Installs everyting on first use
-- Takes you to the documentation
+- Includes documentation
 
 ---
 
@@ -100,16 +112,6 @@ inductive Weekday where
 open Weekday
 #check sunday
 
-def natOfWeekday (d : Weekday) : Nat :=
-  match d with
-  | sunday    => 1
-  | monday    => 2
-  | tuesday   => 3
-  | wednesday => 4
-  | thursday  => 5
-  | friday    => 6
-  | saturday  => 7
-
 def Weekday.next (d : Weekday) : Weekday :=
   match d with
   | sunday    => monday
@@ -129,8 +131,6 @@ def Weekday.previous : Weekday → Weekday
   | friday    => thursday
   | saturday  => friday
 
-/- Proving theorems using tactics -/
-
 theorem Weekday.next_previous (d : Weekday) : d.next.previous = d :=
   match d with
   | sunday    => rfl
@@ -141,8 +141,8 @@ theorem Weekday.next_previous (d : Weekday) : d.next.previous = d :=
   | friday    => rfl
   | saturday  => rfl
 
-theorem Weekday.next_previous' (d : Weekday) : d.next.previous = d := by -- switch to tactic mode
-  cases d -- Creates 7 goals
+theorem Weekday.next_previous' (d : Weekday) : d.next.previous = d := by 
+  cases d 
   rfl; rfl; rfl; rfl; rfl; rfl; rfl
 
 ```
@@ -166,11 +166,7 @@ def h (a : α) (b : β) : α := a
 #check @g
 #check @h
 #check g (α := Nat) (β := String)
-```
 
----
-
-```lean
 #check rfl
 ```
 
@@ -194,7 +190,24 @@ def third (xs : List α) (ok : xs.length > 2) : α := xs[2]
 ---
 
 ```lean
-#print Nat -- Nat is an inductive datatype
+
+#check 0
+#check Nat
+#check Type
+#check Type 1
+#check Eq.refl 2
+#check 2 = 2
+#check Prop
+
+#check Π T : Prop, T 
+#check Π T : Type, T
+#check Π T : Type 1, T  
+```
+
+---
+
+```lean
+#print Nat 
 
 def fib (n : Nat) : Nat :=
   match n with
@@ -208,5 +221,31 @@ example : fib (n+2) = fib (n+1) + fib n := rfl
 
 #print fib
 ```
+
+---
+
+### And a library of mathematical facts and definitions
+
+```lean
+#check Nat.
+```
+
+---
+
+### With all kinds of proofs
+
+```lean
+def at_least_two_elems (A : Set ℕ) : Prop :=
+  ∃ a b, a ∈ A ∧ b ∈ A ∧ a ≠ b
+
+theorem example2 : at_least_two_elems {p : ℕ | Nat.Prime p} := by
+  rw [at_least_two_elems]
+  use 2, 3
+  decide
+```
+
+---
+
+[See Theorem Proving in Lean 4](https://lean-lang.org/theorem_proving_in_lean4/)
 
 ---
