@@ -7,6 +7,10 @@ title: "A quick introduction to Lean"
 
 ### [What's the talk about?](https://github.com/leanprover/lean4)
 
+- Lean 4
+  - a language and its runtime
+  - Mathlib
+  
 ---
 
 ### Augmented Mathematical Intelligence (AMI) at Microsoft
@@ -32,9 +36,13 @@ title: "A quick introduction to Lean"
 
 ---
 
+[See Functional Programming in Lean](https://leanprover.github.io/functional_programming_in_lean/)
+
+---
+
 ### What's new in Lean 4
 
-- Entensibility: parser, elaborator, compiler, tactics, formatter
+- Entensibility: parser, elaborator, compiler, tactics, formatter, decision procedures
 - Hygenic macro system
 - Support for Language Server Protocol
 - Compiler generates C code
@@ -42,10 +50,6 @@ title: "A quick introduction to Lean"
 - Functional But In Place (FBIP)
 - Safe support for low-level tricks like equality
 - Type class resolution
-
----
-
-[See Functional Programming in Lean](https://leanprover.github.io/functional_programming_in_lean/)
 
 ---
 
@@ -64,7 +68,7 @@ title: "A quick introduction to Lean"
 ---
 
 ```lean
-def main : IO Unit := IO.println "Hello"
+def main : IO Unit := IO.println "Hello world!"
 
 #eval main
 #eval "hello" ++ " " ++ "world"
@@ -177,6 +181,8 @@ def h (a : α) (b : β) : α := a
 A proof is just a `Prop` for which you have constructed a member.
 
 ```lean
+example: True ∧ True = True := by library_search
+
 def OnePlusOneIsTwo : Prop := 1 + 1 = 2
 
 theorem onePlusOneIsTwo : OnePlusOneIsTwo := rfl
