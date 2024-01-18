@@ -30,9 +30,9 @@ title: "A quick introduction to Lean"
 
 ### [And the Liquid Tensor experiment](https://leanprover-community.github.io/blog/posts/lte-final/)
 
-- Not a prog rock band
+- Not a [prog rock band](https://en.wikipedia.org/wiki/Progressive_rock)
 - But some new advanced mathematics that the author wanted to check
-- And 1.5 years aftre the challenge it was completed
+- And 1.5 years after the challenge it was completed
 
 ---
 
@@ -72,6 +72,12 @@ title: "A quick introduction to Lean"
 ### Where can I see these examples?
 
 - https://github.com/leanprover/lean4/blob/master/doc/examples/Certora2022
+
+---
+
+```lean
+def main : IO Unit := IO.println "Hello world!"
+```
 
 ---
 
@@ -213,9 +219,12 @@ def third (xs : List α) (ok : xs.length > 2) : α := xs[2]
 #check 2 = 2
 #check Prop
 
-#check Π T : Prop, T 
+#check Π T : Prop, T
+#check (x : Type) -> 1=1
+#check (x : Type) -> Nat
 #check Π T : Type, T
-#check Π T : Type 1, T  
+#check Π T : Type 1, T
+
 ```
 
 ---
@@ -239,6 +248,8 @@ example : fib (n+2) = fib (n+1) + fib n := rfl
 ---
 
 ### And a library of mathematical facts and definitions
+
+[Mathlib](https://github.com/leanprover-community/mathlib4)
 
 ```lean
 #check Nat.
@@ -267,6 +278,9 @@ theorem example2 : at_least_two_elems {p : ℕ | Nat.Prime p} := by
 ### Summary
 
 - It's a great idea to encode the proof system inside the language
+  - you write tactics using the language
+  - you use macros and formatters to give a better surface syntax
 - It's impressive how [Mathlib](https://github.com/leanprover-community/mathlib4) is expanding
 
-- Yes, there is a LeanGPT (and see [AlphaGeometry](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/))
+- Yes, there is a LeanGPT 
+- And see [AlphaGeometry](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/) and [HyperTree](https://arxiv.org/pdf/2205.11491.pdf)
