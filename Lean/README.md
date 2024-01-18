@@ -28,6 +28,14 @@ title: "A quick introduction to Lean"
 
 ---
 
+### [And the Liquid Tensor experiment](https://leanprover-community.github.io/blog/posts/lte-final/)
+
+- Not a prog rock band
+- But some new advanced mathematics that the author wanted to check
+- And 1.5 years aftre the challenge it was completed
+
+---
+
 ### And utilizing undergraduate
 
 - Professor Kevin Buzzard at Imperial
@@ -238,7 +246,7 @@ example : fib (n+2) = fib (n+1) + fib n := rfl
 
 ---
 
-### With all kinds of proofs
+### With all kinds of proofs often using tactics
 
 ```lean
 def at_least_two_elems (A : Set ℕ) : Prop :=
@@ -255,3 +263,10 @@ theorem example2 : at_least_two_elems {p : ℕ | Nat.Prime p} := by
 [See Theorem Proving in Lean 4](https://lean-lang.org/theorem_proving_in_lean4/)
 
 ---
+
+### Summary
+
+- It's a great idea to encode the proof system inside the language
+- It's impressive how [Mathlib](https://github.com/leanprover-community/mathlib4) is expanding
+
+- Yes, there is a LeanGPT (and see [AlphaGeometry](https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/))
