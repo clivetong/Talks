@@ -36,7 +36,7 @@ title: "A quick introduction to Lean"
 
 ---
 
-### And utilizing undergraduate
+### And utilizing undergraduates
 
 - Professor Kevin Buzzard at Imperial
 - And his students
@@ -50,7 +50,7 @@ title: "A quick introduction to Lean"
 
 ### What's new in Lean 4
 
-- Entensibility: parser, elaborator, compiler, tactics, formatter, decision procedures
+- Extensibility: parser, elaborator, compiler, tactics, formatter, decision procedures
 - Hygenic macro system
 - Support for Language Server Protocol
 - Compiler generates C code
