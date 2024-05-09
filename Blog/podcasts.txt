@@ -94,3 +94,8 @@ https://podcasts.apple.com/gb/podcast/ai-applied-covering-ai-news-interviews-and
 https://podcasts.apple.com/gb/podcast/adventures-in-net/id1478997569
 https://podcasts.apple.com/gb/podcast/add-dot/id1590967489
 https://podcasts.apple.com/gb/podcast/net-rocks/id130068596
+
+After seeing how much space the Apple podcast application takes, I've now moved to spotify
+
+https://open.spotify.com/show/2gXhwz0AQRv2cvw61kobE5 (Developer Voices)
+https://open.spotify.com/show/02e6PZeIOdpmBGT9THuzwR (Machine Learning Street Talk)
