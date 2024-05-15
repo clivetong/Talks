@@ -72,3 +72,18 @@ The main focus is on how WASM is being used in Golem cloud to make your cloud ap
 - Requires token for Idempotency
 
 ---
+
+### What is WASM?
+
+---
+
+### Fabric of the future
+
+- Delete Event Sourcing
+- Delete Databases
+- Delete Kubernetes
+- Delete Http/Json/GRpc
+
+---
+
+
