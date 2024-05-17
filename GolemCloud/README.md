@@ -12,7 +12,7 @@ title: "WASM will disrupt your cloud"
 
 ### What will we be talking about?
 
-The main focus is on how WASM is being used in Golem cloud to make your cloud applications easier to write
+We'll focus is on how WASM is being used in Golem cloud to make your cloud applications easier to write
 
 ---
 
@@ -24,16 +24,20 @@ The main focus is on how WASM is being used in Golem cloud to make your cloud ap
 
 ---
 
-### [Durable computing in 5 phrases](https://www.golem.cloud/post/what-is-durable-computing)
+### [Durable computing in 4 phrases](https://www.golem.cloud/post/what-is-durable-computing)
 
 - Invincible
 - Failure and Recovery
 - At Least Once
-- Durable State
+- Recovery latency
+
+=> Durable State
 
 ---
 
 ### Azure Durable Functions
+
+- though alternatives like [Temporal.io](https://temporal.io/) 
 
 ---
 
@@ -68,12 +72,36 @@ The main focus is on how WASM is being used in Golem cloud to make your cloud ap
 ### Any observations
 
 - That looks like really strange code
-- Durable state in the database
+- Durable state in the database (so at least once)
 - Requires token for Idempotency
 
 ---
 
+### How do we implement this?
+
+![images](images/secret-sauce.png)
+
+---
+
 ### What is WASM?
+
+![image](images/wasm.png)
+
+---
+
+### Tell me more
+
+- many languages compile down to it and interoperate using the component model
+
+- [dotnet](https://devblogs.microsoft.com/dotnet/extending-web-assembly-to-the-cloud/)
+
+---
+
+![image](images/mural.png)
+
+---
+
+![image](images/how.png)
 
 ---
 
@@ -85,5 +113,3 @@ The main focus is on how WASM is being used in Golem cloud to make your cloud ap
 - Delete Http/Json/GRpc
 
 ---
-
-
