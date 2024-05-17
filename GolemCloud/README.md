@@ -113,3 +113,12 @@ We'll focus is on how WASM is being used in Golem cloud to make your cloud appli
 - Delete Http/Json/GRpc
 
 ---
+
+### More links 
+
+- [Main repository](https://github.com/golemcloud/golem)
+- [Examples](https://github.com/golemcloud/golem-examples)
+- [Technical Details](https://learn.golem.cloud/docs/technical-details)
+- [The WasmTime fork](https://github.com/golemcloud/wasmtime/tree/golem-wasmtime-17)
+- [The WasmTime fork changes](https://github.com/bytecodealliance/wasmtime/compare/main...golemcloud:wasmtime:golem-wasmtime-17)
+- [Watlings to understand more about the bytecode](https://github.com/EmNudge/watlings)
