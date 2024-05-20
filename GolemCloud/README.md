@@ -12,7 +12,7 @@ title: "WASM will disrupt your cloud via Golem"
 
 ### What will we be talking about?
 
-We'll focus is on how WASM is being used in Golem cloud to make your cloud applications easier to write
+We'll focus on how WASM is being used in Golem cloud to make your cloud applications easier to write
 
 ---
 
@@ -29,7 +29,9 @@ We'll focus is on how WASM is being used in Golem cloud to make your cloud appli
 - Reliable, scalable, stateful, distributed systems need to account for (infrastructure) failure (for example, hardware failures/machine restarts/config changes/application code updates, network issues)
 - This leads to complexity of application which use patterns like event sourcing and use shared databases to store state
 
-- Instead we'd rather have a program that is guaranteed to run to completion
+---
+
+Instead we'd rather have a program that is guaranteed to run to completion
 
 ---
 
@@ -83,8 +85,8 @@ We'll focus is on how WASM is being used in Golem cloud to make your cloud appli
 ### Some Observations
 
 - That looks like really strange code
-- Durable state in Table Storage 
-- Interactions with external systems means many possibilities for failure, so we require at least once, which leads to idempotency tokens
+- Durable state in Table Storage
+- Interactions with external systems means many possibilities for failure, so we require At Least Once, which leads to idempotency tokens
 
 ---
 
@@ -102,7 +104,8 @@ We'll focus is on how WASM is being used in Golem cloud to make your cloud appli
 
 ### Tell me more
 
-- many languages compile down to it and interoperate using the component model
+- Many languages compile down to it
+- There's a component model
 
 - [dotnet](https://devblogs.microsoft.com/dotnet/extending-web-assembly-to-the-cloud/)
 
@@ -122,6 +125,12 @@ We'll focus is on how WASM is being used in Golem cloud to make your cloud appli
 - Delete Databases
 - Delete Kubernetes
 - Delete Http/Json/GRpc
+
+---
+
+### The Shopping Cart Example
+
+- [An example that just looks like a normal program](https://github.com/golemcloud/golem-examples/blob/main/examples/scala2/scala2-shopping-cart/src/main/scala/example/main.scala)
 
 ---
 
