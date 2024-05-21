@@ -26,8 +26,8 @@ We'll focus on how WASM is being used in Golem cloud to make your cloud applicat
 
 ### [Big Idea: much complexity stems from the fact that programs can fail half way through](https://www.youtube.com/watch?v=sDIXdVjJFN8&t=170s)
 
-- Reliable, scalable, stateful, distributed systems need to account for (infrastructure) failure (for example, hardware failures/machine restarts/config changes/application code updates, network issues)
-- This leads to complexity of application which use patterns like event sourcing and use shared databases to store state
+- Reliable, scalable, stateful, distributed systems need to account for (infrastructure) failure (for example, hardware failures/machine restarts/config changes/application code updates/network issues)
+- This leads to complexity in applications which use patterns like event sourcing and use shared databases to store state
 
 ---
 
