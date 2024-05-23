@@ -96,13 +96,13 @@ Instead we'd rather have a program that is guaranteed to run to completion
 
 ---
 
-### What is WASM?
+### With interception
 
 ![image](images/wasm.png)
 
 ---
 
-### Tell me more
+### Tell me more about WASM
 
 - Many languages compile down to it
 - There's a component model
