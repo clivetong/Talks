@@ -28,10 +28,11 @@ We'll focus on how WASM is being used in Golem cloud to make your cloud applicat
 
 - Reliable, scalable, stateful, distributed systems need to account for (infrastructure) failure (for example, hardware failures/machine restarts/config changes/application code updates/network issues)
 - This leads to complexity in applications which use patterns like event sourcing and use shared databases to store state
+- Idempotency tokens and retries
 
 ---
 
-Instead we'd rather have a program that is guaranteed to run to completion
+Instead we'd rather have a program that is guaranteed to run to completion, leaving the business logic looking like you'd write it if failure never happened.
 
 ---
 
@@ -45,6 +46,8 @@ Instead we'd rather have a program that is guaranteed to run to completion
 ---
 
 ### Pushing the idea of Durable Workflows further
+
+- there are things already that try to take the state machines away 
 
 ---
 
@@ -84,9 +87,12 @@ Instead we'd rather have a program that is guaranteed to run to completion
 
 ### Some Observations
 
-- That looks like really strange code
+- We're not back to clean business logic
 - Durable state in Table Storage
-- Interactions with external systems means many possibilities for failure, so we require At Least Once, which leads to idempotency tokens
+
+---
+
+Golem can do better!
 
 ---
 
@@ -106,11 +112,16 @@ Instead we'd rather have a program that is guaranteed to run to completion
 
 - Many languages compile down to it
 - There's a component model
+- There's an interface specification language
 
 - [dotnet](https://devblogs.microsoft.com/dotnet/extending-web-assembly-to-the-cloud/)
 
 ---
 
+### Already used client side to variable success
+
+- Blazor
+- Mural
 ![image](images/mural.png)
 
 ---
