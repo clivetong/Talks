@@ -21,6 +21,7 @@ title: "How AWS say you should write a SaaS application"
 - Architecture Fundamentals
 - Deployment Models
 - Some implementation ideas
+- Guiding Principles
 
 ---
 
@@ -218,6 +219,35 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 ### Pod deployment
 
 - Stamps
+
+---
+
+### Some Implementation Bits and Pieces
+
+It's hard to put all that high level talk into practice, so let's have a look at some of the details in various places.
+
+---
+
+### Guiding Principles
+
+- Build a Vision and a Strategy
+- Focus on Efficiency
+- Avoid the Tech-First Trap
+- Think Beyond Cost Savings
+- Be All-in with SaaS
+- Adopt a Service Centric Mindset
+- Think beyond existing Tenant Personas
+
+---
+
+### Core Technical COnsiderations
+
+- No One-Size-Fits-All model
+- Protect the Multi-Tenant Principles
+- Build your Multi_tenant Foundation on Day one
+- Avoid One-off customization
+- Measure your Multi-Tenant Architecture
+- Streamline the Developer Experience
 
 ---
 
