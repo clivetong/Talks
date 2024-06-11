@@ -150,10 +150,6 @@ SaaS identity == Identity + Tenant ID
 
 - Resources like compute and storage can be independently pooled and siloed
 
-- Full stack silo can be a good first step
-
-Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and application code
-
 ---
 
 ![Siloed and pooled](images/siloed-and-pooled.png)
@@ -163,6 +159,12 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 ---
 
 ### Full Stack Silo
+
+- Full stack silo can be a good first step
+
+Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and application code
+
+---
 
 ![Full stack silo](images/full-stack-silo.png)
 
@@ -182,6 +184,10 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 ---
 
 ### Full stack pool
+
+Share everything!
+
+---
 
 ![Full stack pool](images/full-stack-pool.png)
 
@@ -210,9 +216,13 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 
 ### Mixed Mode
 
+Best of both worlds!
+
+---
+
 ![Mixed mode](images/mixed-mode.png)
 
-[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#fig_11_a_mixed_mode_deployment_model)
+[Mixed Mode](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#fig_11_a_mixed_mode_deployment_model)
 
 ---
 
