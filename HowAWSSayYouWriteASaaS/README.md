@@ -146,9 +146,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The main words
-
-- Resources like compute and storage can be independently pooled and siloed
+Resources like compute and storage can be independently pooled and siloed
 
 ---
 
@@ -238,6 +236,61 @@ It's hard to put all that high level talk into practice, so let's have a look at
 
 ---
 
+### [SaaS Identity](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_9_creating_a_logical_saas_identity)
+
+There's YOU and the context in which you are working
+
+---
+
+![Saas Identity](images/saas-identity.png)
+
+---
+
+![Custom Claims](images/custom-claims.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_11_adding_tenant_custom_claims_to_a_jwt)
+
+---
+
+![Pass token](images/pass-token.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_13_passing_tokens_to_downstream_microservices)
+
+---
+
+- Use custom claims judiciously
+- You can avoid adding to the token and just call a service to resolve
+
+---
+
+![Federation](images/federation.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_15_supporting_externally_hosted_identity_providers)
+
+---
+
+### [Tenant Management](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_15_supporting_externally_hosted_identity_providers)
+
+---
+
+![Tenant Management](images/tenant-management.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch05.html#fig_1_tenant_management_s_influence)
+
+---
+
+![Authentication Flow](images/auth-flow.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch06.html#fig_7_a_sample_multi_tenant_authentication_flow)
+
+---
+
+![Tenant Routing](images/tenant-routing.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch06.html#fig_8_tenant_routing_basics)
+
+---
+
 ### Guiding Principles
 
 - Build a Vision and a Strategy
@@ -250,7 +303,7 @@ It's hard to put all that high level talk into practice, so let's have a look at
 
 ---
 
-### Core Technical COnsiderations
+### Core Technical Considerations
 
 - No One-Size-Fits-All model
 - Protect the Multi-Tenant Principles
