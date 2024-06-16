@@ -9,6 +9,10 @@ title: "How AWS say you should write a SaaS application"
   
 ---
 
+You watch lots of videos and read the SaaS learning sections on the AWS and Microsoft web sites (see Resources)
+
+---
+
 ![book](images/book.jpg)
 
 [Here on O'Reilly learning](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/)
@@ -18,9 +22,9 @@ title: "How AWS say you should write a SaaS application"
 ### What we'll cover
 
 - The Theory Behind SaaS
-- Architecture Fundamentals
+- SaaS Architecture Fundamentals
 - Deployment Models
-- Some implementation ideas
+- Some implementation Ideas (the tech stuff)
 - Guiding Principles
 
 ---
@@ -31,7 +35,7 @@ title: "How AWS say you should write a SaaS application"
 
 ---
 
-### What's wrong with current deployments?
+### What's wrong with these deployments?
 
 - Customers with different versions
 - Support always being "upgrade to latest"
@@ -47,16 +51,15 @@ title: "How AWS say you should write a SaaS application"
 
 ---
 
-### The wrapper (control plane)
+### The Control Plane
 
+- The wrapper that lets your application code be application code
 - Embed the application inside something that is generic and provides the other services
 - Behind this barrier everything is taken care of for the customer
 
-- (But the application isn't isolated)
+- (But the application isn't isolated and likely calls back to the control plane)
 
 ---
-
-### The control plane
 
 ![Control plane](images/controlplane.png)
 
@@ -78,21 +81,21 @@ title: "How AWS say you should write a SaaS application"
 
 ---
 
-[It should be clear that SaaS is very much about creating a technology, business and operational culture that is focused squarely on driving a distinct et of business outcomes. So, while it is tempting to think about SaaS though the lens of technologypatterns and strategies, you should really be viewing SaaS more as a business model.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=By%20now%20you%20should,as%20a%20business%20model.)
+[It should be clear that SaaS is very much about creating a technology, business and operational culture that is focused squarely on driving a distinct set of business outcomes. So, while it is tempting to think about SaaS though the lens of technology patterns and strategies, you should really be viewing SaaS more as a business model.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=By%20now%20you%20should,as%20a%20business%20model.)
 
 ---
 
 ### The SaaS Model offers
 
 - Agility
-- Operational efficiency
+- Operational Efficiency
 - Innovation
-- Frictonless onboarding
+- Frictonless Onboarding
 - Growth
 
 ---
 
-### In summary...
+### In Summary
 
 You are building a service and not a product.
 
@@ -104,7 +107,9 @@ Enough of the theory, back to the technology...
 
 ### What's a tenant?
 
-- Something that owns resources
+- A logical entity that owns resources
+- It will have many uses in the control plane
+
 - Typically carried as part of the token on the request
 
 SaaS identity == Identity + Tenant ID
@@ -115,17 +120,17 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The Control plane does...
+### The Control plane does (at least)
 
-- Onboarding
+- Onboarding / Offboarding
 - Identity
 - Metrics
 - Billing
-- Tenant management
+- Tenant Management
 
 ---
 
-### The Application plane does...
+### The Application plane does (at least)
 
 - Tenant context
 - Tenant isolation
@@ -134,7 +139,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The Grey area...
+### The Grey area
 
 - Tiering
 - Tenant/Tenant Admin/System Admin Users
@@ -177,7 +182,7 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 - Routing
 - Availability and blast radius
 - Simpler cost attribution
-- But isolation is easy via accounts or VPCs
+- Isolation is easy via accounts or VPCs
 
 ---
 
