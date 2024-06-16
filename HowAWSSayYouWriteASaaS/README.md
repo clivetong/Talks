@@ -296,6 +296,160 @@ There's YOU and the context in which you are working
 
 ---
 
+### Implementing Multi-tenant Services
+
+Typically using containers or serverless
+
+---
+
+![Containers or serverless](images/containers-or-serverless.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch07.html#fig_8_compute_and_service_design)
+
+---
+
+### The Importance of Tenant Aware Metrics
+
+---
+
+![Tenant Aware Metrics](images/tenant-aware-metrics.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch07.html#fig_9_surfacing_tenant_aware_service_metrics)
+
+---
+
+``` python
+def query_orders(self, status):
+  # get tenant context
+  auth_header = request.headers.get('Authorization')
+  token = auth_header.split(" ")
+  if (token[0] != "Bearer")
+    raise Exception('No bearer token in request')
+  bearer_token = token[1]
+  decoded_jwt = jwt.decode(bearer_token, "secret",
+                   algorithms=["HS256"])
+  tenant_id = decoded_jwt['tenantId']
+  tenant_tier = decoded_jwt['tenantTier']
+ 
+  # query for orders with a specific status
+  logger.info("Finding orders with the status of %s", status)
+```
+
+---
+
+Multi-tenant isolation happens via application code and via platform security mechanisms
+
+- potentially using [sidecars](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch07.html#fig_12_using_sidecars_for_horizontal_concepts) or aspects
+
+---
+
+``` Python
+def query_orders(self, status):
+  # get database client (DynamoDB) with tenant scoped credentials
+  sts = boto3.client('sts')
+  
+  # get credentials based on tenant scope policy
+  tenant_credentials = sts.assume_role(
+    RoleArn = os.environ.get('IDENTITY_ROLE'),
+    RoleSessionName = tenant_id,
+    Policy = scoped_policy,
+    DurationSeconds = 1000
+  )
+  ...
+```
+
+---
+
+### Data Partitioning
+
+---
+
+![Data partitioning](images/data-partitioning.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#fig_1_siloed_and_pooled_data_partitioning_models)
+
+---
+
+- Blast Radius
+- Isolation
+- Operations
+- Rightsizing
+- Throughput and Throttling
+- Serverless Storage
+
+---
+
+### More on Data Isolation
+
+---
+
+![Resource Isolation](images/resource-isolation.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch09.html#fig_4_categorizing_isolation_models)
+
+---
+
+- Application enforced isolation
+- Infrastructure isolation
+- Deployment time and runtime isolation
+- Isolation through interception
+- Scaling
+
+---
+
+### Implement how?
+
+- Containers, possibly leading to Kubernetes
+- Serverless
+
+---
+
+### Have Enough Metrics to Attribute Costs
+
+---
+
+![Attrubute Costs](images/attribute-costs.png)
+
+[IMage](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch12.html#fig_3_attributing_consumption_of_pooled_resources)
+
+---
+
+### Migration Strategies
+
+---
+
+![Balancing act](images/balancing-act.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#fig_1_the_migration_balancing_act)
+
+---
+
+![Migrate or modernize](images/migrate-modernize.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#fig_2_migration_timing_trade_offs)
+
+---
+
+![Fish model](images/fish-model.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#fig_3_the_migration_fish_model)
+
+---
+
+### Migration styles
+
+- Silo lift and shift
+- Layered migration
+- Service-by-service migration
+
+---
+
+![Silo lift and shift](images/silo-lift-and-shift.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#fig_5_silo_lift_and_shift_migration)
+
+---
+
 ### Guiding Principles
 
 - Build a Vision and a Strategy
@@ -319,9 +473,18 @@ There's YOU and the context in which you are working
 
 ---
 
-### And Microsoft's model
+### Resources
+
+- [AWS SaaS Factory](https://aws.amazon.com/blogs/apn/introducing-aws-saas-factory-to-help-isvs-accelerate-saas-adoption/)
+- [SaaS Factory Live](https://www.youtube.com/@saas-on-aws/streams)
+- #sig-cloud from 11th Match onwards
 
 ---
 
-### Resources
+### And Microsoft's model
 
+- [Microsoft Learn: SaaS and multitenant solution architecture](https://learn.microsoft.com/en-us/azure/architecture/guide/saas-multitenant-solution-architecture/) 
+- [Azure SaaS Development Kit](https://github.com/Azure/azure-saas)
+- [Microsoft SaaS academy](https://www.microsoft.com/en-us/saas-academy/main)
+
+---
