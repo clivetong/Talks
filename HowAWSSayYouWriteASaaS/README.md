@@ -317,7 +317,7 @@ There's YOU and the context in which you are working
 
 ### Implement how?
 
-- Containers, possibly leading to Kubernetes
+- Containers, possibly leading to Kubernetes ([AWS reference model](https://github.com/aws-samples/aws-saas-factory-eks-reference-architecture?tab=readme-ov-file))
 - Serverless
 
 ---
