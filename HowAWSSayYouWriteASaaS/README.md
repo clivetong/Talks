@@ -116,7 +116,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### Architecture fundamentals
+### SaaS Architecture fundamentals
 
 ---
 
@@ -153,7 +153,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### Deployment Models
+### SaaS Deployment Models
 
 ---
 
@@ -240,9 +240,15 @@ Best of both worlds!
 
 ---
 
-### Pod deployment
+### [Pod deployment](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Pod%20Deployment%20Model)
 
 - Stamps
+
+---
+
+![Pod deployment](images/pod-deployments.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#fig_12_a_pod_deployment_model)
 
 ---
 
@@ -450,11 +456,17 @@ def query_orders(self, status):
 
 ---
 
+### Migration styles (foundation)
+
+[Every migration starts with a control plane](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=The%20Foundation)
+
+---
+
 ### Migration styles
 
-- Silo lift and shift
-- Layered migration
-- Service-by-service migration
+- [Silo lift and shift](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=Silo%20Lift-and-Shift)
+- [Layered migration](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=Layered%20Migration)
+- [Service-by-service migration](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=Service-by-Service%20Migration)
 
 ---
 
