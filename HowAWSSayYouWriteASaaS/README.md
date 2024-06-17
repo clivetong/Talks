@@ -45,21 +45,9 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### The meaningless of "multi-tenant"
-
-- We need a different language to talk about the sharedness and isolation of resources
-
----
-
 ![Control plane](images/controlplane.png)
 
 [Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#fig_3_building_cross_cutting_saas_capabilities)
-
----
-
-![Application and control planes](images/control-and-application-planes.png)
-
-[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#fig_4_saas_application_and_control_planes)
 
 ---
 
@@ -73,6 +61,12 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
+### [The meaningless of "multi-tenant"](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Redefining%20Multi-Tenancy)
+
+- We need a different language to talk about the sharedness and isolation of resources
+
+---
+
 ### Multi-tenancy
 
 ![Multi-tenancy](images/multi-tenancy.png)
@@ -81,23 +75,25 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
+### At Its Core, SaaS Is a Business Model
+
 [It should be clear that SaaS is very much about creating a technology, business and operational culture that is focused squarely on driving a distinct set of business outcomes. So, while it is tempting to think about SaaS though the lens of technology patterns and strategies, you should really be viewing SaaS more as a business model.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=By%20now%20you%20should,as%20a%20business%20model.)
 
 ---
 
 ### The SaaS Model offers
 
-- Agility
-- Operational Efficiency
-- Innovation
-- Frictonless Onboarding
-- Growth
+- [Agility](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Agility)
+- [Operational Efficiency](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Operational%20efficien)
+- [Innovation](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Innovation)
+- [Frictonless Onboarding](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Frictionless%20onboarding)
+- [Growth](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Growth)
 
 ---
 
 ### In Summary
 
-You are building a service and not a product.
+[You are building a service and not a product.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Building%20a%20Service%E2%80%94Not%20a%20Product)
 
 ---
 
@@ -105,7 +101,7 @@ Enough of the theory, back to the technology...
 
 ---
 
-### What's a tenant?
+### [What's a tenant?](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Adding%20Tenancy%20to%20Your%20Architecture)
 
 - A logical entity that owns resources
 - It will have many uses in the control plane
@@ -120,30 +116,40 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
+![Application and control planes](images/control-and-application-planes.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#fig_4_saas_application_and_control_planes)
+
+---
+
 ### The Control plane does (at least)
 
-- Onboarding / Offboarding
-- Identity
-- Metrics
-- Billing
-- Tenant Management
+- [Onboarding / Offboarding](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Onboarding)
+- [Identity](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Identity)
+- [Metrics](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Metrics)
+- [Billing](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Billing)
+- [Tenant Management](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Management)
 
 ---
 
 ### The Application plane does (at least)
 
-- Tenant context
-- Tenant isolation
-- Data partitioning
-- Tenant routing
+- [Tenant context](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Context)
+- [Tenant isolation](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Isolation)
+- [Data partitioning](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Data%20Partitioning)
+- [Tenant routing](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Routing)
 
 ---
 
 ### The Grey area
 
-- Tiering
-- Tenant/Tenant Admin/System Admin Users
-- Tenant Provisioning
+- [Tiering](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tiering)
+- [Tenant/Tenant Admin/System Admin Users](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%2C%20Tenant%20Admin%2C%20and%20System%20Admin%20Users)
+- [Tenant Provisioning](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Provisioning)
+
+---
+
+### Deployment Models
 
 ---
 
@@ -175,8 +181,9 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 
 ---
 
-### Comments on Full Stack Silo
+### [Full Stack Silo COnsiderations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Silo%20Considerations)
 
+- Control Plane Complexity
 - Scaling impacts
 - Cost considerations
 - Routing
@@ -206,7 +213,7 @@ Share everything!
 
 ---
 
-### Comments on Full Stack Pool
+### [Full Stack Pool Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Pool%20Considerations)
 
 - Scale
 - Isolation
