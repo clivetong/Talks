@@ -228,7 +228,7 @@ Share everything!
 
 ---
 
-### Mixed Mode
+### [Mixed Mode](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Mixed%20Mode%20Deployment%20Model)
 
 Best of both worlds!
 
