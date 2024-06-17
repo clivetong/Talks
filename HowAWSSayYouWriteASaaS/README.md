@@ -51,16 +51,6 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### The Control Plane
-
-- The wrapper that lets your application code be application code
-- Embed the application inside something that is generic and provides the other services
-- Behind this barrier everything is taken care of for the customer
-
-- (But the application isn't isolated and likely calls back to the control plane)
-
----
-
 ![Control plane](images/controlplane.png)
 
 [Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#fig_3_building_cross_cutting_saas_capabilities)
@@ -70,6 +60,16 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 ![Application and control planes](images/control-and-application-planes.png)
 
 [Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#fig_4_saas_application_and_control_planes)
+
+---
+
+### The Control Plane
+
+- The wrapper that lets your application code be application code
+- Embed the application inside something that is generic and provides the other services
+- Behind this barrier everything is taken care of for the customer
+
+- (But the application isn't isolated and likely calls back to the control plane)
 
 ---
 
@@ -147,7 +147,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-[The first hurdle I faced in this space was the absense of any precise terminology that accurately categorized the different patterns of multi-tenant deployments.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20first%20hurdle,multi-tenant%20deployments.)
+[The first hurdle I faced in this space was the absence of any precise terminology that accurately categorized the different patterns of multi-tenant deployments.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20first%20hurdle,multi-tenant%20deployments.)
 
 ---
 
@@ -263,6 +263,8 @@ There's YOU and the context in which you are working
 
 ---
 
+### Beware
+
 - Use custom claims judiciously
 - You can avoid adding to the token and just call a service to resolve
 
@@ -296,9 +298,10 @@ There's YOU and the context in which you are working
 
 ---
 
-### Implementing Multi-tenant Services
+### Implement how?
 
-Typically using containers or serverless
+- Containers, possibly leading to Kubernetes
+- Serverless
 
 ---
 
@@ -315,6 +318,10 @@ Typically using containers or serverless
 ![Tenant Aware Metrics](images/tenant-aware-metrics.png)
 
 [Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch07.html#fig_9_surfacing_tenant_aware_service_metrics)
+
+---
+
+### Getting Tenant information inside the application code
 
 ---
 
@@ -397,13 +404,6 @@ def query_orders(self, status):
 
 ---
 
-### Implement how?
-
-- Containers, possibly leading to Kubernetes
-- Serverless
-
----
-
 ### Have Enough Metrics to Attribute Costs
 
 ---
@@ -466,7 +466,7 @@ def query_orders(self, status):
 
 - No One-Size-Fits-All model
 - Protect the Multi-Tenant Principles
-- Build your Multi_tenant Foundation on Day one
+- Build your Multi-tenant Foundation on Day one
 - Avoid One-off customization
 - Measure your Multi-Tenant Architecture
 - Streamline the Developer Experience
@@ -477,7 +477,7 @@ def query_orders(self, status):
 
 - [AWS SaaS Factory](https://aws.amazon.com/blogs/apn/introducing-aws-saas-factory-to-help-isvs-accelerate-saas-adoption/)
 - [SaaS Factory Live](https://www.youtube.com/@saas-on-aws/streams)
-- #sig-cloud from 11th Match onwards
+- #sig-cloud from 11th March onwards
 
 ---
 
