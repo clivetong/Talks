@@ -112,6 +112,10 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
+[Microsoft have a good page on this.](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/tenancy-models#define-a-tenant)
+
+---
+
 ### Architecture fundamentals
 
 ---
@@ -351,7 +355,9 @@ def query_orders(self, status):
 
 ---
 
-Multi-tenant isolation happens via application code and via platform security mechanisms
+### Multi-tenant isolation
+
+- Multi-tenant isolation happens via application code and via platform security mechanisms
 
 - potentially using [sidecars](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch07.html#fig_12_using_sidecars_for_horizontal_concepts) or aspects
 
@@ -384,12 +390,13 @@ def query_orders(self, status):
 
 ---
 
-- Blast Radius
-- Isolation
-- Operations
-- Rightsizing
-- Throughput and Throttling
-- Serverless Storage
+- [Workloads, SLAs and User Experience](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=Workloads%2C%20SLAs%2C%20and%20Experience)
+- [Blast Radius](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=Blast%20Radius)
+- [Isolation](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=The%20Influence%20of%20Isolation)
+- [Operations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=Management%20and%20Operations)
+- [Rightsizing](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=The%20Rightsizing%20Challenge)
+- [Throughput and Throttling](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=Throughput%20and%20Throttling)
+- [Serverless Storage](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch08.html#:-:text=Serverless%20Storage)
 
 ---
 
@@ -415,7 +422,7 @@ def query_orders(self, status):
 
 ---
 
-![Attrubute Costs](images/attribute-costs.png)
+![Attribute Costs](images/attribute-costs.png)
 
 [IMage](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch12.html#fig_3_attributing_consumption_of_pooled_resources)
 
@@ -457,26 +464,26 @@ def query_orders(self, status):
 
 ---
 
-### Guiding Principles
+### [Guiding Principles](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Chapter%2017.%20Guiding%20Principles)
 
-- Build a Vision and a Strategy
-- Focus on Efficiency
-- Avoid the Tech-First Trap
-- Think Beyond Cost Savings
-- Be All-in with SaaS
-- Adopt a Service Centric Mindset
-- Think beyond existing Tenant Personas
+- [Build a Vision and a Strategy](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Build%20a%20Business%20Model%20and%20Strategy)
+- [Focus on Efficiency](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=A%20Clear%20Focus%20on%20Efficiency)
+- [Avoid the Tech-First Trap](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Avoiding%20the%20Tech-First%20Trap)
+- [Think Beyond Cost Savings](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Thinking%20Beyond%20Cost%20Savings)
+- [Be All-in with SaaS](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Be%20All-In%20with%20SaaS)
+- [Adopt a Service Centric Mindset](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Adopt%20a%20Service-Centric%20Mindset)
+- [Think beyond existing Tenant Personas](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Think%20Beyond%20Existing%20Tenant%20Personas)
 
 ---
 
-### Core Technical Considerations
+### [Core Technical Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Core%20Technical%20Considerations)
 
-- No One-Size-Fits-All model
-- Protect the Multi-Tenant Principles
-- Build your Multi-tenant Foundation on Day one
-- Avoid One-off customization
-- Measure your Multi-Tenant Architecture
-- Streamline the Developer Experience
+- [No One-Size-Fits-All model](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=No%20One-Size-Fits-All%20Model)
+- [Protect the Multi-Tenant Principles](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Protect%20the%20Multi-Tenant%20Principles)
+- [Build your Multi-tenant Foundation on Day one](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Build%20Your%20Multi-Tenant%20Foundation%20on%20Day%20One)
+- [Avoid One-off customization](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Avoid%20One-Off%20Customization)
+- [Measure your Multi-Tenant Architecture](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Measure%20Your%20Multi-Tenant%20Architecture)
+- [Streamline the Developer Experience](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Streamline%20the%20Developer%20Experience)
 
 ---
 
