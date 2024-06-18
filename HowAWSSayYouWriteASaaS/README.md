@@ -15,7 +15,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ![book](images/book.jpg)
 
-[Here on O'Reilly learning](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/)
+[O'Reilly learning](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/)
 
 ---
 
@@ -83,7 +83,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### At Its Core, SaaS Is a Business Model
+### [At Its Core, SaaS Is a Business Model](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#at_its_core_saas_is_a_business_model)
 
 [It should be clear that SaaS is very much about creating a technology, business and operational culture that is focused squarely on driving a distinct set of business outcomes. So, while it is tempting to think about SaaS though the lens of technology patterns and strategies, you should really be viewing SaaS more as a business model.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=By%20now%20you%20should,as%20a%20business%20model.)
 
