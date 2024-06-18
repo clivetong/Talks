@@ -41,6 +41,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 - Support always being "upgrade to latest"
 - Bespoke versions of software
 - Backdoor access to data repositories
+- Environment issues
 - Snowflaking via tweaks
 
 ---
