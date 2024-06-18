@@ -46,6 +46,12 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
+![To The SaaS](images/to-the-saas.png)
+
+[Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#fig_2_a_shared_infrastructure_saas_model)
+
+---
+
 ![Control plane](images/controlplane.png)
 
 [Image](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#fig_3_building_cross_cutting_saas_capabilities)
