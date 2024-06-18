@@ -71,6 +71,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 ### [The meaningless of "multi-tenant"](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Redefining%20Multi-Tenancy)
 
 - We need a different language to talk about the sharedness and isolation of resources
+- And there's no meaning of single-tenant
 
 ---
 
