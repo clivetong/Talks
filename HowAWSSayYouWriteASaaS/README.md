@@ -9,6 +9,12 @@ title: "How AWS say you should write a SaaS application"
   
 ---
 
+### TL;DR:
+
+SaaS is not the same as a cloud native multi-tenant web application
+
+---
+
 You watch lots of videos and read the SaaS learning sections on the AWS and Microsoft web sites (see Resources)
 
 ---
@@ -193,7 +199,7 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 
 ---
 
-### [Full Stack Silo COnsiderations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Silo%20Considerations)
+### [Full Stack Silo Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Silo%20Considerations)
 
 - Control Plane Complexity
 - Scaling impacts
