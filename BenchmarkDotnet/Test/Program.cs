@@ -9,15 +9,20 @@ public class Tests
     [Benchmark]
     public void CallWithParams()
     {
-        Called(1, 2, 3, 4, 5, 6);
+        var result = Called(1, 2, 3, 4, 5, 6);
+        if (result != 3)
+        {
+            throw new Exception("Something is wrong.");
+        }
     }
 
-    public void Called(params int[] args)
+    public int Called(params int[] args)
     {
-
+        return args[2];
     }
-    //public void Called(params ReadOnlySpan<int> args)
-    //{
 
-    //}
+    // public int Called(params ReadOnlySpan<int> args)
+    // {
+    //   return args[2];
+    // }
 }

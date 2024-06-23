@@ -21,9 +21,16 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 ---
 
 ```powershell
+PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test\bin\Release\net9.0> pushd ../../..
+PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test> dotnet build -c Release
+PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test> popd
 PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 ```
 
 ---
 
 ![old way](images/old-way.png)
+
+---
+
+![old way](images/new-way.png)
