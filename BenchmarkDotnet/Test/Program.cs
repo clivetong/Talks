@@ -16,13 +16,7 @@ public class Tests
         }
     }
 
-    public int Called(params int[] args)
-    {
-        return args[2];
-    }
+    int Called(params int[] args) => args[2];
 
-    // public int Called(params ReadOnlySpan<int> args)
-    // {
-    //   return args[2];
-    // }
+    // int Called(params ReadOnlySpan<int> args) => args[2];
 }
