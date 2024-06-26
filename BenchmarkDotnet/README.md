@@ -94,8 +94,22 @@ PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 
 ---
 
-![old way](images/new-way.png)
+![new way](images/new-way.png)
 
 ---
 
-How does it work?
+### But a level down?
+
+![ETW in the code](images/etw.png)
+
+---
+
+![ETW architecture](images/etw-diagram.png)
+
+---
+
+### Conclusion
+
+- Find where it doesn't match your mental model, or just where loads of time is spent.
+
+- Isolate and fix.
