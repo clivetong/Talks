@@ -108,6 +108,14 @@ PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 
 ---
 
+![Hardware counters](images/hardware-counters.png)
+
+---
+
+![Samples](images/samples.png)
+
+---
+
 ### Conclusion
 
 - Find where it doesn't match your mental model, or just where loads of time is spent.
