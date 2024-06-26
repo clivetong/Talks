@@ -12,7 +12,7 @@ title: "Benchmark.Net"
 
 ### What's the talk about?
 
-How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet) in [his Microsoft Build session](https://youtube.com/watch?v=TRFfTdzpk-M&si=f_qi44B92f6hxnrt) to micro-optimize some code
+How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet) in [his Microsoft Build session](https://youtube.com/watch?v=TRFfTdzpk-M&si=f_qi44B92f6hxnrt) to micro-optimize some code, and why you should use the methods he did.
 
 ---
 
@@ -36,12 +36,28 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 
 ---
 
+![External frames hidden](images/externalcode.png)
+
+---
+
+![Always see what is there](images/withjustmycode.png)
+
+---
+
+![Much better](images/lookintoexternalcode.png)
+
+---
+
+![How they sell Benchmark.NET](images/advert.png)
+
+---
+
 ```csharp
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
+BenchmarkSwitcher.FromAssembly(typeof(Tests).Assembly)
+  .Run(args);
+```
 
-BenchmarkSwitcher.FromAssembly(typeof(Tests).Assembly).Run(args);
-
+```csharp
 [MemoryDiagnoser]
 public class Tests
 {
@@ -56,10 +72,11 @@ public class Tests
     }
 
     int Called(params int[] args) => args[2];
-
-    // int Called(params ReadOnlySpan<int> args) => args[2];
 }
+```
 
+```csharp
+    int Called(params ReadOnlySpan<int> args) => args[2];
 ```
 
 ---
@@ -81,3 +98,4 @@ PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 
 ---
 
+How does it work?
