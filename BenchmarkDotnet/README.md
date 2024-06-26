@@ -16,15 +16,32 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 
 ---
 
+### Interstitial
+
+[Toub and Hanselman talk about performance and implementation on the dotnet YouTube channel](https://www.youtube.com/results?search_query=toub)
+
+---
+
 ![Test the scenario](images/truncator.png)
 
 ---
 
+### An ages old way to understand your application
+
+- Occasionally break into the application and look at the call stack (but beware that it tells you where the application is going and not where it has been)
+
+- Run a profiler to understand the higher level flow and where the time goes (sampling or instrumenting)
+
+- Isolate down to the level of methods (but its hard to isolate enough)
+
+
+---
+
 ```powershell
-PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test\bin\Release\net9.0> pushd ../../..
-PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test> dotnet build -c Release
-PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test> popd
-PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
+PS Test\bin\Release\net9.0> pushd ../../..
+PS Test> dotnet build -c Release
+PS Test> popd
+PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 ```
 
 ---
@@ -34,3 +51,6 @@ PS C:\Users\clive.tong\Documents\git\Talks\BenchmarkDotnet\Test\bin\Release\net9
 ---
 
 ![old way](images/new-way.png)
+
+---
+
