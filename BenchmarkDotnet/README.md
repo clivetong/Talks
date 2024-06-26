@@ -70,9 +70,12 @@ public class Tests
             throw new Exception("Something is wrong.");
         }
     }
+```
 
+---
+
+```csharp
     int Called(params int[] args) => args[2];
-}
 ```
 
 ```csharp
