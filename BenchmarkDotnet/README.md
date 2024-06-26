@@ -48,6 +48,10 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 
 ---
 
+![Profiler options](images/profile-options.png)
+
+---
+
 ![How they sell Benchmark.NET](images/advert.png)
 
 ---
