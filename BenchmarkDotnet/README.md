@@ -30,10 +30,37 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 
 - Occasionally break into the application and look at the call stack (but beware that it tells you where the application is going and not where it has been)
 
-- Run a profiler to understand the higher level flow and where the time goes (sampling or instrumenting)
+- Run a profiler to understand the higher level flow and where the time goes (CPU or memory, sampling or instrumenting, allocation stacks)
 
 - Isolate down to the level of methods (but its hard to isolate enough)
 
+---
+
+```csharp
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+
+BenchmarkSwitcher.FromAssembly(typeof(Tests).Assembly).Run(args);
+
+[MemoryDiagnoser]
+public class Tests
+{
+    [Benchmark]
+    public void CallWithParams()
+    {
+        var result = Called(1, 2, 3, 4, 5, 6);
+        if (result != 3)
+        {
+            throw new Exception("Something is wrong.");
+        }
+    }
+
+    int Called(params int[] args) => args[2];
+
+    // int Called(params ReadOnlySpan<int> args) => args[2];
+}
+
+```
 
 ---
 
