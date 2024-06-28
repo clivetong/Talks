@@ -111,6 +111,10 @@ PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 
 ---
 
+[Event Tracing for Windows (ETW) is a powerful trace collection system built-in to the Windows operating system. Windows has deep integration with ETW, including data on system behavior all the way down to the kernel for events like context switches, memory allocation, process create and exit, and many more. The system-wide data available from ETW makes it a good fit for end-to-end performance analysis or other questions that require looking at the interaction between by many components throughout the system.](https://learn.microsoft.com/en-us/windows/apps/trace-processing/overview)
+
+---
+
 ![ETW architecture](images/etw-diagram.png)
 
 ---
