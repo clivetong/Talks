@@ -5,7 +5,7 @@ title: "Benchmark.Net"
 ---
 
 ::: block
-*Benchmark.Net* {style=background:red;width:500px}
+*Benchmark DotNet* {style=background:red;width:500px}
 :::
 
 ---
