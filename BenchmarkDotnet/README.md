@@ -30,7 +30,7 @@ How Stephen Toub used [Benchmark.net](https://github.com/dotnet/BenchmarkDotNet)
 
 - Occasionally break into the application and look at the call stack (but beware that it tells you where the application is going and not where it has been)
 
-- Run a profiler to understand the higher level flow and where the time goes (CPU or memory, sampling or instrumenting, allocation stacks)
+- Run a profiler to understand the higher level flow and where the time goes (CPU or memory, sampling or instrumenting, allocation stacks or disposal)
 
 - Isolate down to the level of methods (but its hard to isolate enough)
 
@@ -127,4 +127,4 @@ PS Test\bin\Release\net9.0> .\ConsoleApp1.exe --filter *Test*
 
 - Find where it doesn't match your mental model, or just where loads of time is spent.
 
-- Isolate and fix.
+- Isolate and "fix".
