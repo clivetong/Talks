@@ -36,3 +36,8 @@ Virtual threads and carrier threads
 [Is Reactive Programming Dead?](https://www.youtube.com/watch?v=eAjy7E_FQN0)
 
 ---
+
+### Async - too complicated and invasive
+
+[Async wrappers for synchronous](https://devblogs.microsoft.com/pfxteam/should-i-expose-asynchronous-wrappers-for-synchronous-methods/)
+[Synchronous wrappers for async](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/)
