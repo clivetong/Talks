@@ -24,4 +24,15 @@ Virtual threads and carrier threads
 
 ### .NET
 
-[The green threads experiment](https://github.com/dotnet/runtimelab/issues/2398)
+[The green threads experiment](https://github.com/dotnet/runtimelab/issues/2057)
+[The green threads experiment ends](https://github.com/dotnet/runtimelab/issues/2398)
+[The green threads write up](https://github.com/dotnet/runtimelab/blob/feature/green-threads/docs/design/features/greenthreads.md)
+
+---
+
+### Java
+
+[Java's Virtual Threads - Next Steps](https://www.youtube.com/watch?v=KBW4LbCoo6c)
+[Is Reactive Programming Dead?](https://www.youtube.com/watch?v=eAjy7E_FQN0)
+
+---
