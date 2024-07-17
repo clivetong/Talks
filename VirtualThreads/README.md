@@ -12,7 +12,7 @@ title: "Little's Law and Virtual Threads"
 
 ### What's the talk about?
 
-Virtual threads (aka green threads), the attempts at implementing them in the two big managed platforms, and how they make your programs look.
+Virtual threads (aka green threads, fibers (though Windows has [a fiber which is different](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-convertthreadtofiber)), spaghetti stacks), the attempts at implementing them in the two big managed platforms, and how they change the look of your programs.
 
 ---
 
@@ -28,15 +28,16 @@ The relationship is not influenced by the arrival process distribution, the serv
 
 ---
 
-[At massive scale, in a request-per-thread, model we need to serve as many requests as possible (and operating system threads only go so far)](https://openjdk.org/jeps/425)
+[At massive scale, in a request-per-thread model we need to serve as many requests as possible (and operating system threads only go so far)](https://openjdk.org/jeps/425)
 
 ---
 
-### Clarification
-
-Process- an isolated virtual address space (Pico process)
-
-Thread - something that exists in the context of a process, and brings computation
+| Term | Meaning |
+| ---- | ------ |
+|Process | an isolated virtual address space (Pico process), likely a security boundary |
+| Thread | something that exists in the context of a process, and brings computation |
+| Scheduler | Part of the OS that uses premption to share a CPU | 
+| User-mode scheduling | schedule the computations ourselves because we understand this program better than the OS |
 
 ---
 
@@ -48,11 +49,21 @@ The goal of this Project is to explore and incubate Java VM features and APIs bu
 
 ---
 
+But around for so long...
+
+Sql Server has done user mode scheduling for a long time (SQL OS)
+
+---
+
 ### Java
 
 Generally available in Java 21 but with a few issues remaining
 
 [Java's virtual threads - Next steps](https://www.youtube.com/watch?v=KBW4LbCoo6c)
+
+---
+
+![FOSDEM](images/fosdem.png)
 
 ---
 
@@ -75,7 +86,11 @@ Generally available in Java 21 but with a few issues remaining
 
 ### VM mechanics
 
-When parking hapens, the continuation is moved off the thread, and another continuation is executed there.
+When parking happens, the continuation is moved off the thread, and another continuation is executed there.
+
+---
+
+![Parking/Unparking](images/parking.png)
 
 ---
 
@@ -147,6 +162,7 @@ async Task<int> GetSomeDataAsync(FileStream theStream)
 ### Things to read
 
 - [Delimited Continuations, Demystified](https://www.youtube.com/watch?v=TE48LsgVlIU)
+- [call/cc - mondblowing](https://en.wikipedia.org/wiki/Call-with-current-continuation)
 - [Is Reactive Programming Dead?](https://www.youtube.com/watch?v=eAjy7E_FQN0)
 - [Async wrappers for synchronous](https://devblogs.microsoft.com/pfxteam/should-i-expose-asynchronous-wrappers-for-synchronous-methods/)
 - [Synchronous wrappers for async](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/)
