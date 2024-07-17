@@ -89,6 +89,42 @@ Compared to the .NET way of async where you end up with normal code and Task bas
 
 ---
 
+### Before
+
+```csharp
+int GetSomeData(FileStream theStream)
+{
+	var bytes = new byte[100];
+	var nBytes = theStream.Read(bytes, offset: 0, count: 100);
+	if (nBytes > 0)
+	{
+		DoProcessing(bytes);
+	}
+
+	return nBytes;
+}
+```
+
+---
+
+### After or instead of or as well as
+
+```csharp
+async Task<int> GetSomeDataAsync(FileStream theStream)
+{
+	var bytes = new byte[100];
+	var nBytes = await theStream.ReadAsync(bytes, offset: 0, count: 100);
+	if (nBytes > 0)
+	{
+		DoProcessing(bytes);
+	}
+
+	return nBytes;
+}
+```
+
+---
+
 ### .NET
 
 [The green threads experiment](https://github.com/dotnet/runtimelab/issues/2057)
@@ -101,13 +137,16 @@ Compared to the .NET way of async where you end up with normal code and Task bas
 
 ### Why so hard?
 
-- VMs in the 1990s did Green Threads
+- VMs in the 1990s did Green Threads,
+- Smalltalk in the 1970s with spaghetti stacks
 - hard to retrofit into the implementation?
+- not built the runtime in the language the runtime targets?
 
 ---
 
 ### Things to read
 
+- [Delimited Continuations, Demystified](https://www.youtube.com/watch?v=TE48LsgVlIU)
 - [Is Reactive Programming Dead?](https://www.youtube.com/watch?v=eAjy7E_FQN0)
 - [Async wrappers for synchronous](https://devblogs.microsoft.com/pfxteam/should-i-expose-asynchronous-wrappers-for-synchronous-methods/)
 - [Synchronous wrappers for async](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/)
