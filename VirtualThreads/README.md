@@ -172,7 +172,28 @@ var nBytes = await theStream
 
 ---
 
-### [In particular](https://www.infoq.com/articles/java-virtual-threads-a-case-study/)
+### Constraints
+
+- Support for byref parameters
+- Support for conversion of byrefs to pointers
+- Support for function pointers
+- P/Invoke
+- OS Security features
+- OS injection of code to the thread
+- The existing Async/Await pattern
+- Support for thread static variables
+
+---
+
+### Challenges
+
+- Windows is not designed to allow green threads.
+- Various diagnostic tools fail to work reliably. 
+- SEH exception handling does not safely handle cross stack segments.
+- Diagnosing implementation issues has been very slow and difficult
+- Every OS/Architecture pair needs quite a bit of custom hand-written assembly.
+- Thread local storage access on Unix platforms may utilize an unbounded amount of stack as it requires a call to a libc provided function in some cases.
+- Integration of Linux Perf with split stack is not supported as far as research has shown.
 
 ---
 
