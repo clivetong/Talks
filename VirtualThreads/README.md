@@ -12,7 +12,7 @@ title: "Little's Law and Virtual Threads"
 
 ### What's the talk about?
 
-Virtual threads (aka green threads, fibers (though Windows has [a fiber which is different](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-convertthreadtofiber)), spaghetti stacks), the attempts at implementing them in the two big managed platforms, and how they change the look of your programs.
+Virtual threads (aka green threads, fibers (though Windows has [a fiber which is different](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-convertthreadtofiber)), spaghetti stacks, stack groups), the attempts at implementing them in the two big managed platforms, and how they change the look of your programs.
 
 ---
 
@@ -140,6 +140,28 @@ async Task<int> GetSomeDataAsync(FileStream theStream)
 
 ---
 
+### And the mass of options to ConfigureAwait()
+
+```csharp
+var nBytes = await theStream
+    .ReadAsync(bytes, offset: 0, count: 100)
+    .ConfigureWait(ConfigureAwaitOptions.ForceYield);
+```
+
+---
+
+### Still some edge cases where parking doesn't work
+
+![No parking](images/fail-on-monitors.png)
+
+---
+
+### And speed complaints
+
+[Java Virtual Threads - a case study](https://www.infoq.com/articles/java-virtual-threads-a-case-study/)
+
+---
+
 ### .NET
 
 [The green threads experiment](https://github.com/dotnet/runtimelab/issues/2057)
@@ -150,19 +172,23 @@ async Task<int> GetSomeDataAsync(FileStream theStream)
 
 ---
 
+### [In particular](https://www.infoq.com/articles/java-virtual-threads-a-case-study/)
+
+---
+
 ### Why so hard?
 
-- VMs in the 1990s did Green Threads,
+- VMs in the 1990s did Green Threads
 - Smalltalk in the 1970s with spaghetti stacks
-- hard to retrofit into the implementation?
-- not built the runtime in the language the runtime targets?
+- Hard to retrofit into the implementation?
+- Have not built the runtime in the language the runtime targets?
 
 ---
 
 ### Things to read
 
 - [Delimited Continuations, Demystified](https://www.youtube.com/watch?v=TE48LsgVlIU)
-- [call/cc - mondblowing](https://en.wikipedia.org/wiki/Call-with-current-continuation)
+- [call/cc (mindblowing!)](https://en.wikipedia.org/wiki/Call-with-current-continuation) and [Griffin's paper](https://www.cl.cam.ac.uk/~tgg22/publications/popl90.pdf)
 - [Is Reactive Programming Dead?](https://www.youtube.com/watch?v=eAjy7E_FQN0)
 - [Async wrappers for synchronous](https://devblogs.microsoft.com/pfxteam/should-i-expose-asynchronous-wrappers-for-synchronous-methods/)
 - [Synchronous wrappers for async](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/)
