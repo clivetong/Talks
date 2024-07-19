@@ -145,7 +145,7 @@ async Task<int> GetSomeDataAsync(FileStream theStream)
 ```csharp
 var nBytes = await theStream
     .ReadAsync(bytes, offset: 0, count: 100)
-    .ConfigureWait(ConfigureAwaitOptions.ForceYield);
+    .ConfigureAwait(ConfigureAwaitOptions.ForceYield);
 ```
 
 ---
