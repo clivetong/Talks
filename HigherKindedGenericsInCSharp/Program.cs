@@ -1,4 +1,13 @@
 ﻿
+var res = MakeCollectionOfIntAndAdd(typeof(System.Collections.Generic.List<>));
+dynamic MakeCollectionOfIntAndAdd(Type collectionType)
+{
+    var theType = collectionType.MakeGenericType(typeof(int));
+    dynamic x = Activator.CreateInstance(theType);
+    x.Add(100);
+    return x;
+}
+
 var list = new List<int>([1, 2, 3]);
 
 var nlist = list.Select(x => x + 1)
