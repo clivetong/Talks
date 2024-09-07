@@ -30,8 +30,10 @@ There's a cool encoding of higher kinds into C# (with low overhead, and with a s
 
 ### Quick disclaimer
 
-Haskell is a great language, but I think they overplay the "implements mathematical theories". To me, Haskell has based it's libraries in some of the types of category theory, but more as suitable abstract datatypes.
+Haskell is a great language, but I think they overplay the "implements mathematical theories". To me, Haskell has based it's libraries in some of the types of category theory, but more as a pattern for its abstract datatypes.
 
 [The romance of Haskell and Category Theory](https://www.reddit.com/r/haskell/comments/qqs2ur/the_romance_of_haskell_and_category_theory/)
 
 [Is Hask even a category?](https://stackoverflow.com/questions/48485660/is-hask-even-a-category) and [Hask is not category](https://math.andrej.com/2016/08/06/hask-is-not-a-category/)
+
+[Fast and Loose Reasoning is Morally Correct](https://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/fast+loose.pdf)
