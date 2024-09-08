@@ -50,7 +50,7 @@ See section 2 of [these notes](https://pages.cs.wisc.edu/~jcyphert/categoryTheor
 - a ~ String
 - b ~ Int
 - f ~ x => x.Length
-- F ~ List, so F a ~ List<string> F b ~ List<int>
+- F ~ List, so F a ~ `List<string>`, F b ~ `List<int>`
 
 ---
 
