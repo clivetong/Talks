@@ -26,6 +26,8 @@ Based on [some posts by Paul Louth](https://paullouth.com/higher-kinds-in-c-with
 
 There's a cool encoding of higher kinds into C# (with low overhead, and with a syntax that isn't too bad).
 
+[There is some social media pushback against this though.](https://paullouth.com/are-higher-kinds-in-csharp-real/)
+
 ---
 
 ### Quick disclaimer
@@ -56,7 +58,7 @@ See section 2 of [these notes](https://pages.cs.wisc.edu/~jcyphert/categoryTheor
 
 ### Why the rewrite?
 
-There is currently no way to abstract over static members and write generalized code that applies across types that define those static members. This is particularly problematic for member kinds that only exist in a static form, notably operators.
+[There is currently no way to abstract over static members and write generalized code that applies across types that define those static members. This is particularly problematic for member kinds that only exist in a static form, notably operators.](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/static-abstracts-in-interfaces)
 
 ---
 
