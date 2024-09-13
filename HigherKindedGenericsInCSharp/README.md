@@ -32,7 +32,7 @@ There's a cool encoding of higher kinds into C# (with low overhead, and with a s
 
 ### Quick disclaimer
 
-Haskell is a great language, but I think they overplay the "implements mathematical theories". To me, Haskell has based it's libraries in some of the types of category theory, but more as a pattern for its abstract datatypes.
+Haskell is a great language, but I think they overplay the "implements mathematical theories". To me, Haskell has based its libraries on some of the types of category theory, but more as a pattern for its abstract datatypes.
 
 [The romance of Haskell and Category Theory](https://www.reddit.com/r/haskell/comments/qqs2ur/the_romance_of_haskell_and_category_theory/)
 
