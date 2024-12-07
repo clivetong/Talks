@@ -140,11 +140,125 @@ dotnet publish can now publish to insecure (http) registries
 
 ---
 
+**********************************************
+
+---
+
 ### Performance Improvements in .NET 9
 
 ---
 
+**********************************************
+
+---
+
 ### C#'s Best features you might not be using
+
+---
+
+High bar for backwards compatibility
+
+Some things for the last few releases
+
+- Pattern matching
+- File scoped namespaces
+- Init and required
+- String literals
+- Records
+- Collection Expressions
+
+---
+
+### Pattern Matching
+
+Express your intent
+
+Switch expressions give warning if all values not matched. Also if a pattern is redundant.
+
+![Patterns](images/patterns.png)
+
+Bug in the second method - subsumed warning soon
+
+---
+
+### File scoped namespaces
+
+Remove a complete layer of indent
+
+Turn off whitespace diff when comparing
+
+---
+
+### init and required
+
+Makes the intent clearer, and avoids the nullable warning
+
+![required and init](images/required-init.png)
+
+---
+
+### Strings
+
+- quoted
+- verbatim
+- interpolated
+- raw
+
+---
+
+![raw string](images/raw-string.png)
+
+3 or more quotes needed
+
+whitespace ignored on first line and up to indent of the closing
+
+---
+
+![interpolated](images/interpolated.png)
+
+---
+
+![interpolated json](images/interpolated-json.png)
+
+Note double brackets to avid clash with JSON bracket (and the double $)
+
+---
+
+### Records
+
+A single approach for data oriented types
+
+- Correct and fast equality
+- Withers - non-destructive mutation
+- Readable consistent ToString() output
+- Concise declaration
+- Both struct and class records
+- Synthesises several members for correctness and performance
+
+---
+
+[See a Sharplab decompilation](https://sharplab.io/#v2:D4Jwpgxg9iAmAEBhArgZwC5QLZhACgAEBGABngDsBDHASgG4g===)
+
+---
+
+### Primary contructors
+
+Parameters converted to public fields
+
+---
+
+### Collection Expressions
+
+![before collection](images/before-collection.png)
+
+---
+
+![after collection](images/after-collection.png)
+
+---
+
+
+**********************************************
 
 ---
 
