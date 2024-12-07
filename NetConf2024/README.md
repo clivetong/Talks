@@ -323,3 +323,7 @@ Inlining for shared generics
 ~1100 changes to the codegen between .NET 8 and .NET 9
 
 All of the improvements are yours automatically
+
+[Stack allocation enhancements](https://github.com/dotnet/runtime/issues/104936)
+
+[JIT Focus areas for .NET 10](https://github.com/dotnet/runtime/issues/108988)
