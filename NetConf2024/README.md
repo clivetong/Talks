@@ -12,7 +12,7 @@ title: "Some talks from .NET Conf 2024"
 
 ### What's the talk about?
 
-We're going to look at some of the runtime, libraries and languages talks from .NET Comnf 2024, and talk through some of the highlights.
+We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2024, and talk through some of the highlights.
 
 ---
 
@@ -140,15 +140,117 @@ dotnet publish can now publish to insecure (http) registries
 
 ---
 
-*****************
-
----
-
 ### Performance Improvements in .NET 9
 
 ---
 
-*****************
+[The yearly Toub post on the performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-9/)
+
+---
+
+Initial focus on GetAlternateLookup
+
+[Required changes to language, libraries and runtime]
+
+Parse the words of Pride and Prejudice and calculate the words and their counts.
+
+Use a generated RegExp parser to parse the words
+
+![regexp sg](images/regexp-sg.png)
+
+---
+
+![version 1](images/version1.png)
+
+---
+
+- .NET 7 - EnumerateMatches
+
+---
+
+"The" occurs 4000 times, but we need to only generate a string for it once
+
+---
+
+![get alternate](images/getalternate.png)
+
+---
+
+![and use](images/and-use.png)
+
+[Same speed but no allocation]
+
+---
+
+![ialternate](images/ialternate.png)
+
+- Equals
+- GetHashCode
+- Create
+
+---
+
+You've used String.Split but it is allocation heavy.
+
+![enumerate splits](images/enumerate-splits.png)
+
+![convert range to string](images/convert-range-using-indexer.png)
+
+![range-to-span](images/range-to-span.png)
+
+---
+
+![avoid double lookup](images/avoid-double-lookup.png)
+
+Memory safe but beware dictionary mutation
+
+---
+
+### Toub's two favourite .NET 8 features
+
+- Turning on DPGO
+
+- The SearchValues type - let the system precompute for the type you tell it. For bytes and char
+
+---
+
+In .NET 9, SearchValues<string>
+
+---
+
+![without searchvalues](images/without-searchvalues.png)
+
+---
+
+![with searchvalues](images/with-searchvalues.png)
+
+[A 200x speed improvement]
+
+---
+
+Regexps can use this functionality
+
+![in regexp](images/in-regexp.png)
+
+Note the use of partial property
+
+![regexp searchvalues](images/regexp-searchvalues.png)
+
+---
+
+TensorPrimitives.<T>
+
+- Full set of math operations
+
+- And as generic methods and not yet floating point
+
+[All works on top of Span and ReadOnlySpan]
+
+[Vectorized when possible]
+
+---
+
+Shows Hamming distance where hand rolled llop is 80ms and vector extensions using TensorPrimitve is 2ms (on 256 AV machine)
 
 ---
 
@@ -254,10 +356,6 @@ Parameters converted to public fields
 ---
 
 ![after collection](images/after-collection.png)
-
----
-
-*****************
 
 ---
 
