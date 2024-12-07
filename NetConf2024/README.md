@@ -80,6 +80,10 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 
 ---
 
+![Alternate demo](images/demoalternate.png)
+
+---
+
 Debug.Assert tells you what failed
 
 Using a combination of CallerArgumentExpression and OverloadResolutionPriority
