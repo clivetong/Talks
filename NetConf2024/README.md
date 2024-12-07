@@ -40,6 +40,14 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 ---
 
+![config](images/gc.png)
+
+---
+
+![Conserve memory](images/loh-compact.png)
+
+---
+
 ### RyuJIT and Profile Guided Optimization
 
 "The .NET re-compiler"
