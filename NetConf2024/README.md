@@ -140,7 +140,7 @@ dotnet publish can now publish to insecure (http) registries
 
 ---
 
-**********************************************
+*****************
 
 ---
 
@@ -148,7 +148,7 @@ dotnet publish can now publish to insecure (http) registries
 
 ---
 
-**********************************************
+*****************
 
 ---
 
@@ -257,11 +257,69 @@ Parameters converted to public fields
 
 ---
 
-
-**********************************************
+*****************
 
 ---
 
 ### New Features in the .NET 9 JIT
 
 ---
+
+![jit agenda](images/jit-agenda.png)
+
+---
+
+![command line](images/command-line.png)
+
+---
+
+### Object stack allocation
+
+If escape analysis proves that the lifetime is constrained by the lifetime of the stack frame, then allocate of the stack
+
+- possibly field promotion
+- aggressive optimization 
+
+(see example in talk of allocating a rectangle, and everyting is optimized away)
+
+---
+
+### Cobalt-100 on Azure
+
+See the [article](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/cobalt-overview)
+
+Check ARM based machine for your workloads
+
+Offers SVE extension and the JIT can use them in some loops for vector processing.
+
+![sve](images/sve.png)
+
+---
+
+### Jitted code
+
+Fewer instructions, and use of fewer registers
+
+---
+
+### DPGO
+
+- .NET 8 DPGO was about virtual calls and interface calls
+
+- .NET 9 extend to casting
+
+[Tier 0 watches for the common types in the cast, and then optimze for this case]
+
+---
+
+### Inlining
+
+Inlining for shared generics
+
+![inline shared generics](images/inline-shared-generics.png)
+
+---
+
+~1100 changes to the codegen between .NET 8 and .NET 9
+
+All of the improvements are yours automatically
