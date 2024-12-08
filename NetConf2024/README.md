@@ -1,7 +1,7 @@
 ---
 transition: "slide"
 slideNumber: false
-title: "Some talks from .NET Conf 2024"
+title: "Some talks from .NET Conf 2024 (November 12-14)"
 ---
 
 ::: block
@@ -12,7 +12,7 @@ title: "Some talks from .NET Conf 2024"
 
 ### What's the talk about?
 
-We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2024, and talk through some of the highlights.
+We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2024, and talk through some of my highlights.
 
 ---
 
@@ -25,7 +25,11 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
-### What's new in the .NET Runtime, Libraries, & SDK
+### TALK: What's new in the .NET Runtime, Libraries, & SDK
+
+---
+
+### Runtime
 
 ---
 
@@ -44,27 +48,27 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 ---
 
+![Datas](images/datas.png)
+
+---
+
 ![Conserve memory](images/loh-compact.png)
 
 ---
 
 ### RyuJIT and Profile Guided Optimization
 
-"The .NET re-compiler"
-
-- DPGO has fast path and common path
+- DPGO ("The .NET re-compiler") has fast path and common path
 - focus this time on casts and loops (strength reduction, induction variable widening)
 
 ---
 
-### The Host
-
-"myapp.exe"
+### The Host ("myapp.exe")
 
 Enabled control-flow enforcement technology by default on windows.
 
-- Hardware protection againt ROP (Return Oriented Programming)
-- small cost but recommended
+- Hardware protection againt ROP
+- Small cost but recommended
 
 ---
 
@@ -74,7 +78,11 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 
 ![Search](images/search.png)
 
-###
+---
+
+### Libraries
+
+---
 
 - Lots of "spanification" (with .AsSpan())
 - Avoids allocations of things like strings which can make a perf difference
@@ -92,39 +100,51 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 
 ---
 
-Debug.Assert tells you what failed
+### Debug.Assert tells you what failed
 
 Using a combination of CallerArgumentExpression and OverloadResolutionPriority
 
+![image](images/debug-with-message.png)
+
+![debug8](images/debug8.png)
+
 ---
 
-Linq Index expression for ForEach
+### Linq Index expression for ForEach
 
 ```CSharp
 foreach(var (index,persion) in people.Index())
 ```
+
 ---
+
+### Iterate through Tasks as they finish 
 
 ![WhenEach](images/wheneach.png)
 
 ---
 
-JSONSchemaExporter from C# to JSON Schema `JSONSchemaExporter`
+### `JSONSchemaExporter` from C# to JSON Schema
 
 TransformSchemaNode to adjust types.
+
 No runtime support to check the compliance yet
 
 ![schema](images/type-for-schema.png)
 
 ---
 
-BinaryFormatter is gone!
+### BinaryFormatter is gone!
 
-unsupported Compat package is bring back the functionaliy
+An Unsupported Compat package to bring back the functionaliy
 
 ---
 
-Package vulnerability auditing now does transitive dependencies
+### SDK
+
+---
+
+### Package vulnerability auditing now does transitive dependencies
 
 So expect more warnings when restoring
 
@@ -132,27 +152,31 @@ Some System.* packages have false positives
 
 ---
 
-Terminal Logger has pretty colours and pretty summaries
+### Terminal Logger has pretty colours and pretty summaries
+
+What can I say.
 
 ---
 
+### Roll forward tools to new versions of the framework
+
+Tools are a special kind of NuGet package and are currently bound to a .NET version
+
+```csharp
 dotnet tool install --allow-roll-forward ...
 
 dotnet tool run --allow-roll-forward ...
-
-Tools a special kind of NuGet package
-
-Currently bound to a .NET version
+```
 
 ---
 
-dotnet publish can now publish to insecure (http) registries
+### dotnet publish can now publish to insecure (http) registries
 
 ![Insecure](images/insecure.png)
 
 ---
 
-### Performance Improvements in .NET 9
+### Talk: Performance Improvements in .NET 9
 
 ---
 
@@ -160,7 +184,7 @@ dotnet publish can now publish to insecure (http) registries
 
 ---
 
-Initial focus on GetAlternateLookup
+### Initial focus on GetAlternateLookup
 
 [Required changes to language, libraries and runtime]
 
@@ -176,9 +200,7 @@ Use a generated RegExp parser to parse the words
 
 ---
 
-- .NET 7 - EnumerateMatches
-
----
+### But this is allocating, so use Spans
 
 "The" occurs 4000 times, but we need to only generate a string for it once
 
@@ -202,7 +224,7 @@ Use a generated RegExp parser to parse the words
 
 ---
 
-You've used String.Split but it is allocation heavy.
+### You've used String.Split but it is allocation heavy.
 
 ![enumerate splits](images/enumerate-splits.png)
 
@@ -211,6 +233,8 @@ You've used String.Split but it is allocation heavy.
 ![range-to-span](images/range-to-span.png)
 
 ---
+
+### And we can avoid the double lookup
 
 ![avoid double lookup](images/avoid-double-lookup.png)
 
@@ -222,11 +246,15 @@ Memory safe but beware dictionary mutation
 
 - Turning on DPGO
 
-- The SearchValues type - let the system precompute for the type you tell it. For bytes and char
+- The SearchValues type
 
 ---
 
-In .NET 9, SearchValues<string>
+### SearchValues
+
+- lets the system precompute for the type you ask for. 
+- for bytes and char in .NET 8 (used in HTTP header parsing). 
+- in .NET 9, `SearchValues<string>`
 
 ---
 
@@ -240,21 +268,21 @@ In .NET 9, SearchValues<string>
 
 ---
 
-Regexps can use this functionality
+### Regexps can use this functionality
+
+(and note the use of partial property)
 
 ![in regexp](images/in-regexp.png)
-
-Note the use of partial property
 
 ![regexp searchvalues](images/regexp-searchvalues.png)
 
 ---
 
-TensorPrimitives.<T>
+### `TensorPrimitives.<T>`
 
 - Full set of math operations
 
-- And as generic methods and not yet floating point
+- And as generic methods and not just floating point
 
 [All works on top of Span and ReadOnlySpan]
 
@@ -262,11 +290,11 @@ TensorPrimitives.<T>
 
 ---
 
-Shows Hamming distance where hand rolled llop is 80ms and vector extensions using TensorPrimitve is 2ms (on 256 AV machine)
+Shows Hamming distance where hand rolled loop is 80ms and vector extensions using TensorPrimitve is 2ms (on 256 AV machine)
 
 ---
 
-### C#'s Best features you might not be using
+### Talk: C#'s Best features you might not be using
 
 ---
 
@@ -322,9 +350,8 @@ Makes the intent clearer, and avoids the nullable warning
 
 ![raw string](images/raw-string.png)
 
-3 or more quotes needed
-
-whitespace ignored on first line and up to indent of the closing
+- 3 or more quotes needed
+- whitespace ignored on first line and up to indent of the closing
 
 ---
 
@@ -334,7 +361,7 @@ whitespace ignored on first line and up to indent of the closing
 
 ![interpolated json](images/interpolated-json.png)
 
-Note double brackets to avid clash with JSON bracket (and the double $)
+- Note double brackets to avid clash with JSON bracket (and the double $)
 
 ---
 
@@ -371,7 +398,7 @@ Parameters converted to public fields
 
 ---
 
-### New Features in the .NET 9 JIT
+### Talk: New Features in the .NET 9 JIT
 
 ---
 
@@ -385,10 +412,10 @@ Parameters converted to public fields
 
 ### Object stack allocation
 
-If escape analysis proves that the lifetime is constrained by the lifetime of the stack frame, then allocate of the stack
+If escape analysis proves that the lifetime is constrained by the lifetime of the stack frame, then allocate on the stack
 
-- possibly field promotion
-- aggressive optimization 
+- possible field promotion
+- aggressive optimization
 
 (see example in talk of allocating a rectangle, and everyting is optimized away)
 
@@ -398,7 +425,7 @@ If escape analysis proves that the lifetime is constrained by the lifetime of th
 
 See the [article](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/cobalt-overview)
 
-Check ARM based machine for your workloads
+ARM based machine for your workloads
 
 Offers SVE extension and the JIT can use them in some loops for vector processing.
 
