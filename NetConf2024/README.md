@@ -59,7 +59,7 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 ### RyuJIT and Profile Guided Optimization
 
 - DPGO ("The .NET re-compiler") has fast path and common path
-- focus this time on casts and loops (strength reduction, induction variable widening)
+- focus this time on casts and loops
 
 ---
 
@@ -186,7 +186,11 @@ dotnet tool run --allow-roll-forward ...
 
 ### Initial focus on GetAlternateLookup
 
-[Required changes to language, libraries and runtime]
+Required changes to language, libraries and runtime
+
+---
+
+### Demo
 
 Parse the words of Pride and Prejudice and calculate the words and their counts.
 
