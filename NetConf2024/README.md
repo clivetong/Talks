@@ -37,14 +37,12 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the opposite.
 
-![Picture](images/gc.png)
-
 - there is more bookkeeping
 - can configure Server GC to still use old algorithm
 
 ---
 
-![config](images/gc.png)
+![TechEmpower](images/gc.png)
 
 ---
 
@@ -52,13 +50,15 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 ---
 
-![Conserve memory](images/loh-compact.png)
+![GCConserveMemory](images/loh-compact.png)
 
 ---
 
 ### RyuJIT and Profile Guided Optimization
 
-- DPGO ("The .NET re-compiler") has fast path and common path
+- DPGO ("The .NET re-compiler") 
+- tiers to collect stats and then optimize
+- has fast path and common path
 - focus this time on casts and loops
 
 ---
@@ -76,6 +76,8 @@ Enabled control-flow enforcement technology by default on windows.
 
 Previously deploy self-contained apps, but not can have multiple apps sharing a framework install
 
+---
+
 ![Search](images/search.png)
 
 ---
@@ -92,11 +94,11 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 
 ### Alternate Lookup
 
-![Alternate lookup](images/alternate.png)
+![Get the AlternateLookup](images/alternate.png)
 
 ---
 
-![Alternate demo](images/demoalternate.png)
+![The underlying interface](images/demoalternate.png)
 
 ---
 
@@ -104,9 +106,13 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 
 Using a combination of CallerArgumentExpression and OverloadResolutionPriority
 
-![image](images/debug-with-message.png)
+---
 
 ![debug8](images/debug8.png)
+
+---
+
+![image](images/debug-with-message.png)
 
 ---
 
@@ -118,7 +124,7 @@ foreach(var (index,persion) in people.Index())
 
 ---
 
-### Iterate through Tasks as they finish 
+### Iterate through Tasks as they finish
 
 ![WhenEach](images/wheneach.png)
 
@@ -126,9 +132,10 @@ foreach(var (index,persion) in people.Index())
 
 ### `JSONSchemaExporter` from C# to JSON Schema
 
-TransformSchemaNode to adjust types.
+- TransformSchemaNode to adjust types.
+- No runtime support to check the compliance yet
 
-No runtime support to check the compliance yet
+---
 
 ![schema](images/type-for-schema.png)
 
@@ -146,9 +153,9 @@ An Unsupported Compat package to bring back the functionaliy
 
 ### Package vulnerability auditing now does transitive dependencies
 
-So expect more warnings when restoring
+- So expect more warnings when restoring
 
-Some System.* packages have false positives
+- Some System.* packages have false positives
 
 ---
 
@@ -164,7 +171,9 @@ Tools are a special kind of NuGet package and are currently bound to a .NET vers
 
 ```csharp
 dotnet tool install --allow-roll-forward ...
+```
 
+```csharp
 dotnet tool run --allow-roll-forward ...
 ```
 
@@ -172,7 +181,7 @@ dotnet tool run --allow-roll-forward ...
 
 ### dotnet publish can now publish to insecure (http) registries
 
-![Insecure](images/insecure.png)
+![Insecure registry use](images/insecure.png)
 
 ---
 
@@ -188,6 +197,8 @@ dotnet tool run --allow-roll-forward ...
 
 Required changes to language, libraries and runtime
 
+- generics taking a ref struct via an anti-constraint
+
 ---
 
 ### Demo
@@ -196,11 +207,13 @@ Parse the words of Pride and Prejudice and calculate the words and their counts.
 
 Use a generated RegExp parser to parse the words
 
-![regexp sg](images/regexp-sg.png)
+---
+
+![Source generate a RegExp](images/regexp-sg.png)
 
 ---
 
-![version 1](images/version1.png)
+![Version 1](images/version1.png)
 
 ---
 
@@ -210,17 +223,23 @@ Use a generated RegExp parser to parse the words
 
 ---
 
-![get alternate](images/getalternate.png)
+![Get the alternate lookup (via spans)](images/getalternate.png)
 
 ---
 
 ![and use](images/and-use.png)
 
-[Same speed but no allocation]
+---
+
+Same speed but no allocation
 
 ---
 
 ![ialternate](images/ialternate.png)
+
+---
+
+### The important methods
 
 - Equals
 - GetHashCode
@@ -228,11 +247,17 @@ Use a generated RegExp parser to parse the words
 
 ---
 
-### You've used String.Split but it is allocation heavy.
+### You've used String.Split but it is allocation heavy
+
+---
 
 ![enumerate splits](images/enumerate-splits.png)
 
+---
+
 ![convert range to string](images/convert-range-using-indexer.png)
+
+---
 
 ![range-to-span](images/range-to-span.png)
 
@@ -240,24 +265,27 @@ Use a generated RegExp parser to parse the words
 
 ### And we can avoid the double lookup
 
+---
+
 ![avoid double lookup](images/avoid-double-lookup.png)
 
-Memory safe but beware dictionary mutation
+---
+
+That was memory safe but beware dictionary mutation where the ref might end up pointing outside the dictionary
 
 ---
 
 ### Toub's two favourite .NET 8 features
 
 - Turning on DPGO
-
 - The SearchValues type
 
 ---
 
 ### SearchValues
 
-- lets the system precompute for the type you ask for. 
-- for bytes and char in .NET 8 (used in HTTP header parsing). 
+- this lets the system precompute for the type
+- in .NET 8 for bytes and char (HTTP header parsing)
 - in .NET 9, `SearchValues<string>`
 
 ---
@@ -266,17 +294,17 @@ Memory safe but beware dictionary mutation
 
 ---
 
-![with searchvalues](images/with-searchvalues.png)
-
-[A 200x speed improvement]
+![200x speed up](images/with-searchvalues.png)
 
 ---
 
 ### Regexps can use this functionality
 
-(and note the use of partial property)
+---
 
-![in regexp](images/in-regexp.png)
+![(and note the use of partial property)](images/in-regexp.png)
+
+---
 
 ![regexp searchvalues](images/regexp-searchvalues.png)
 
@@ -288,9 +316,10 @@ Memory safe but beware dictionary mutation
 
 - And as generic methods and not just floating point
 
-[All works on top of Span and ReadOnlySpan]
+---
 
-[Vectorized when possible]
+- all works on top of Span and ReadOnlySpan
+- vectorized when possible
 
 ---
 
@@ -317,27 +346,31 @@ Some things for the last few releases
 
 ### Pattern Matching
 
-Express your intent
+- express your intent
+- switch expressions give warning if all values not matched. Also if a pattern is redundant.
 
-Switch expressions give warning if all values not matched. Also if a pattern is redundant.
+---
 
 ![Patterns](images/patterns.png)
 
-Bug in the second method - subsumed warning soon
+---
+
+Did you notice the bug in the second method - subsumed warning soon
 
 ---
 
 ### File scoped namespaces
 
-Remove a complete layer of indent
-
-Turn off whitespace diff when comparing
+- remove a complete layer of indent
+- turn off whitespace diff when comparing
 
 ---
 
 ### init and required
 
 Makes the intent clearer, and avoids the nullable warning
+
+---
 
 ![required and init](images/required-init.png)
 
@@ -354,6 +387,8 @@ Makes the intent clearer, and avoids the nullable warning
 
 ![raw string](images/raw-string.png)
 
+---
+
 - 3 or more quotes needed
 - whitespace ignored on first line and up to indent of the closing
 
@@ -365,7 +400,9 @@ Makes the intent clearer, and avoids the nullable warning
 
 ![interpolated json](images/interpolated-json.png)
 
-- Note double brackets to avid clash with JSON bracket (and the double $)
+---
+
+- Note double brackets to avoid clash with JSON bracket (and the double $)
 
 ---
 
@@ -382,7 +419,9 @@ A single approach for data oriented types
 
 ---
 
-[See a Sharplab decompilation](https://sharplab.io/#v2:D4Jwpgxg9iAmAEBhArgZwC5QLZhACgAEBGABngDsBDHASgG4g===)
+### [See a Sharplab decompilation](https://sharplab.io/#v2:D4Jwpgxg9iAmAEBhArgZwC5QLZhACgAEBGABngDsBDHASgG4g===)
+
+And add a wither.
 
 ---
 
@@ -418,20 +457,26 @@ Parameters converted to public fields
 
 If escape analysis proves that the lifetime is constrained by the lifetime of the stack frame, then allocate on the stack
 
+---
+
+### Which leads to
+
 - possible field promotion
 - aggressive optimization
 
-(see example in talk of allocating a rectangle, and everyting is optimized away)
+- see example in talk of allocating a rectangle, and everyting is optimized away
 
 ---
 
 ### Cobalt-100 on Azure
 
-See the [article](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/cobalt-overview)
+- See the [article](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/cobalt-overview)
 
-ARM based machine for your workloads
+- ARM based machine for your workloads
 
-Offers SVE extension and the JIT can use them in some loops for vector processing.
+- Offers SVE extension and the JIT can use them in some loops for vector processing.
+
+---
 
 ![sve](images/sve.png)
 
@@ -448,7 +493,6 @@ Fewer instructions, and use of fewer registers
 - .NET 8 DPGO was about virtual calls and interface calls
 
 - .NET 9 extend to casting
-
 [Tier 0 watches for the common types in the cast, and then optimze for this case]
 
 ---
@@ -457,14 +501,18 @@ Fewer instructions, and use of fewer registers
 
 Inlining for shared generics
 
+---
+
 ![inline shared generics](images/inline-shared-generics.png)
 
 ---
 
-~1100 changes to the codegen between .NET 8 and .NET 9
+### Summary
 
-All of the improvements are yours automatically
+- ~1100 changes to the codegen between .NET 8 and .NET 9
 
-[Stack allocation enhancements](https://github.com/dotnet/runtime/issues/104936)
+- All of the improvements are yours automatically
 
-[JIT Focus areas for .NET 10](https://github.com/dotnet/runtime/issues/108988)
+- [Stack allocation enhancements](https://github.com/dotnet/runtime/issues/104936)
+
+- [JIT Focus areas for .NET 10](https://github.com/dotnet/runtime/issues/108988)
