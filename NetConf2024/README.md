@@ -10,7 +10,7 @@ title: "Some talks from .NET Conf 2024 (November 12-14)"
 
 ---
 
-### What's the talk about?
+### What's are we covering?
 
 We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2024, and talk through some of my highlights.
 
