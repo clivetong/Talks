@@ -76,14 +76,14 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 Enabled control-flow enforcement technology by default on windows.
 
-- Hardware protection againt ROP
+- Hardware protection against ROP
 - Small cost but recommended
 
 ---
 
 ### .NET Install Search Behaviour
 
-Previously deploy self-contained apps, but not can have multiple apps sharing a framework install
+Previously deploy self-contained apps, but now you can have multiple apps sharing a framework install
 
 ---
 
@@ -121,25 +121,26 @@ Using a combination of CallerArgumentExpression and OverloadResolutionPriority
 
 ---
 
-![debug8](images/debug8.png)
+![Failing assert now](images/debug-with-message.png)
 
 ---
 
-![image](images/debug-with-message.png)
+![Previously](images/debug8.png)
 
 ---
 
 ### Linq Index expression for ForEach
 
 ```CSharp
-foreach(var (index,persion) in people.Index())
+foreach(
+  var (index,person) in people.Index())
 ```
 
 ---
 
 ### Iterate through Tasks as they finish
 
-![WhenEach](images/wheneach.png)
+![async emuneration of tasks as they finish](images/wheneach.png)
 
 ---
 
@@ -248,7 +249,7 @@ Same speed but no allocation
 
 ---
 
-![ialternate](images/ialternate.png)
+![IAlternateEqualityComparer](images/ialternate.png)
 
 ---
 
