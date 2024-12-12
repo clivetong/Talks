@@ -25,6 +25,15 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
+### TL;DR: More emphasis on performance
+
+- DPGO gets better
+- JIT code quality better
+- more spans and `ref struct` to avoid allocation
+- more ARM support
+
+---
+
 ### TALK: What's new in the .NET Runtime, Libraries, & SDK
 
 ---
@@ -99,6 +108,10 @@ Previously deploy self-contained apps, but not can have multiple apps sharing a 
 ---
 
 ![The underlying interface](images/demoalternate.png)
+
+---
+
+[This PR gives a sense of the work involved](https://github.com/dotnet/runtime/pull/104202)
 
 ---
 
