@@ -1,10 +1,21 @@
-﻿
-// All superseded by dependency injection in modern times (you tell the container that it should always return the same instance)
-
-// Singletons often require multi-thread support
-
+﻿using Autofac;
 using System.Diagnostics;
 
+// All superseded by dependency injection in modern times (you tell the container that it should always return the same instance)
+
+var cb = new ContainerBuilder();
+
+cb.RegisterType<NormalClass>().SingleInstance();
+
+var container = cb.Build();
+
+var i1 = container.Resolve<NormalClass>();
+var i2 = container.Resolve<NormalClass>();
+
+Debug.Assert(i1 == i2);
+
+
+// Singletons often require multi-thread support
 var a = Singleton.Instance();
 var b = Singleton.Instance();
 
@@ -63,6 +74,10 @@ catch (Exception)
 
 var a5 = OnceChance.Instance;
 
+class NormalClass
+{
+
+}
 
 // Basic implementation
 // - use the new Lock in .NET 9
