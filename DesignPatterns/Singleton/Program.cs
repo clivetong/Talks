@@ -1,6 +1,9 @@
 ﻿using Autofac;
 using System.Diagnostics;
 
+// https://refactoring.guru/design-patterns/singleton
+
+
 // All superseded by dependency injection in modern times (you tell the container that it should always return the same instance)
 
 var cb = new ContainerBuilder();
