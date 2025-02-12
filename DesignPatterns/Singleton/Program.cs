@@ -68,14 +68,14 @@ Debug.Assert(a3 == b3);
 
 try
 {
-    var a4 = OnceChance.Instance;
+    var a4 = OneChance.Instance;
 }
 catch (Exception)
 {
 
 }
 
-var a5 = OnceChance.Instance;
+var a5 = OneChance.Instance;
 
 class NormalClass
 {
@@ -151,13 +151,13 @@ class InStaticConstructor
 }
 
 //   --- but if it errors the class is dead - you can't fail the static constructor
-class OnceChance
+class OneChance
 {
-    public static OnceChance Instance { get; } = new OnceChance();
+    public static OneChance Instance { get; } = new OneChance();
 
     private static int s_Count = 0;
 
-    private OnceChance()
+    private OneChance()
     {
         s_Count++;
         if (s_Count == 1)
