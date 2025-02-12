@@ -25,8 +25,8 @@ var b = Singleton.Instance();
 Debug.Assert(a == b);
 
 
-var a2 = Singleton.Instance();
-var b2 = Singleton.Instance();
+var a2 = DoubleCheck.Instance();
+var b2 = DoubleCheck.Instance();
 
 Debug.Assert(a2 == b2);
 
@@ -107,9 +107,9 @@ class Singleton
 class DoubleCheck
 {
     private static volatile DoubleCheck? s_Instance = null;
-    private readonly Lock _lock = new Lock();
+    private static readonly Lock _lock = new Lock();
 
-    public DoubleCheck Instance()
+    public static DoubleCheck Instance()
     {
         if (s_Instance == null)
         {
