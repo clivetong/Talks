@@ -1,6 +1,8 @@
 ﻿// There's old style Builder,
 // and a more fluent builder
 
+// https://refactoring.guru/design-patterns/builder
+
 // Easy to avoid constructing something with complex constructor
 
 var h1 = new MyHouse(1, 4, false);
