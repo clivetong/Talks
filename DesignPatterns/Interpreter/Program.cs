@@ -7,7 +7,7 @@
 var query = 
     new OrQuery(
     new AndQuery(new BaseTerm("Linkin Park"), new BaseTerm("Emily Armstrong")),
-    new BaseTerm("Scream Silent"));
+    new BaseTerm("Scream Silence"));
 
 interface DoSearch
 {
