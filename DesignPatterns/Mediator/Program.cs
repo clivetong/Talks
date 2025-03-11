@@ -5,4 +5,7 @@
 // https://refactoring.guru/design-patterns/mediator
 //  The control tower analogy
 
+// https://en.wikipedia.org/wiki/Mediator_pattern
+
+// Avoid the mediator becoming a God object
 
