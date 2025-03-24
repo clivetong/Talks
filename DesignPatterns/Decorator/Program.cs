@@ -5,6 +5,7 @@
 // Allows the addition of abilities dynamically at runtime 
 
 // See Elegant Objects: https://github.com/clivetong/Talks/tree/main/ElegantObjects
+//     specifically https://github.com/clivetong/Talks/tree/main/ElegantObjects#small-objects-with-a-clear-purpose
 
 // Good for doing things before or after
 //     Widget
