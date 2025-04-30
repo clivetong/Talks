@@ -35,6 +35,9 @@ foreach(var thing in things)
 //    thing.Accept(processor);
 //}
 
+// Note that visitors often have state, and some knowledge about the order things will be visited. Sometimes you need
+// different accept methods for different traversals
+
 // And just for the record, you can use dynamic in C# to do dynamic dispatch (ie method overload resolution on the runtime type)
 //foreach (dynamic thing in things)
 //{
