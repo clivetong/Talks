@@ -35,6 +35,13 @@ foreach(var thing in things)
 //    thing.Accept(processor);
 //}
 
+// And just for the record, you can use dynamic in C# to do dynamic dispatch (ie method overload resolution on the runtime type)
+//foreach (dynamic thing in things)
+//{
+//    processor.Process(thing);
+//}
+
+
 abstract class Thing
 {
     //public abstract void Accept(Processor processor);
