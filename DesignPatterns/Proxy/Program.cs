@@ -5,7 +5,7 @@
 // across the network)
 
 // Lazy initialization
-// Access control [Capability based protection mechanisms]
+// Access control [Capability based protection mechanisms - https://joeduffyblog.com/2015/11/10/objects-as-secure-capabilities/ ]
 // Remoting
 // Logging
 // Caching 
