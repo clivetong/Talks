@@ -132,6 +132,79 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
+### The implementations
+
+- [Old](https://github.com/microsoft/typescript)
+- [New](https://github.com/microsoft/typescript-go)
+
+---
+
+### The challenges
+
+- VS Code is 1.5 million lines of TS
+- Microsoft have some internal repos with 15 million lines of TS
+
+---
+
+![Challenges](images/Challenges.png)
+
+---
+
+![Requirements](images/Requirements.png)
+
+---
+
+![Condenders](images/Contenders.png)
+
+---
+
+- Rust
+  - no automatic memory management and cyclic data structures
+  - made it hard to port to it - could rewrite but wanted to port
+- C#
+  - their code is procedural and not OO
+  - No mature native code generation story
+- Go
+  - Good support for native code, 10 years of development and highly optimized
+  - Procedural with first class functions
+  - Great support for data layout of structs, and great concurrency
+
+---
+
+- August last year started with the scanner and parser and saw 10x
+
+![Improvements](images/improvements.png)
+
+---
+
+![How?](images/how.png)
+
+---
+
+See talk for lots of detail about the working
+
+![Go v TS](images/GoTS.png)
+
+---
+
+![Concurrency](images/concurrency.png)
+
+---
+
+![The preview](images/preview.png)
+
+---
+
+### Q&A
+
+Q: What happens to the old compiler?
+
+A: There will be releases before 7. Once 7 is out, there will be no changes to the old code base. 
+
+Note that they actually ported a snap of 5.7, so need to get  additions ported.
+
+---
+
 ### [Inside Azure innovations with Mark Russinovich](https://redgate.slack.com/archives/C08T9FBAM6D/p1747772640848339)
 
 ---
