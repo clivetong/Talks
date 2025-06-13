@@ -43,3 +43,25 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 - [Inside Azure innovations with Mark Russinovich](https://build.microsoft.com/en-US/sessions/BRK195?source=sessions)
 
 ---
+
+### The Highly Technical Talk
+
+- Hanselman and Toub are really good as a presenting pair
+- This time they implement (most of) Channels - like the Go feature that ripped off CSP
+
+---
+
+### Key Ideas
+
+- Version 1
+- Version 2
+  - Use locks to preserve your invariants
+  - TaskCompletionSources for someone to wait on
+  - ValueTasks when you control the consumers
+- Version 3 (WaitToReadAsync and TryRead)
+- Version 4
+  - Reentrant locks and invariants
+- Version 5
+  - `TaskCreationOptions.RunContinuationsAsynchronously`
+- Version 6
+  - lock free
