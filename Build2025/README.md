@@ -23,7 +23,7 @@ Not as in-depth tech as in previous years, this one covered the arrival of AI in
 - Agents, agents, agents
 - Orchestration of Agents
 - Agents talking to tools (MCP) or Agents (A2A)
-- Copilot taking on issues and working collaboratively to solve a problem
+- CoPilot taking on issues and working collaboratively to solve a problem
 
 ---
 
