@@ -151,6 +151,8 @@ while (true)
     }
 ```
 
+---
+
 ```CSharp
     public void Complete()
     {
@@ -165,6 +167,62 @@ while (true)
     }
 ```
 
+---
+
+- Add a `TryRead`
+- Add a `WaitToReadAsync`
+
+---
+
+```CSharp
+    private TaskCompletionSource<bool>? _waitingReaders;
+```
+
+```CSharp
+    public ValueTask<bool> WaitToReadAsync
+    {
+        get
+        {
+            lock (SyncObj)
+            {
+                if (_items.Count > 0 || _completed)
+                {
+                    return new ValueTask<bool>(_items.Count > 0);
+                }
+                _waitingReaders ??= new();
+                return new ValueTask<bool>(_waitingReaders.Task);
+            }
+        }
+    }
+```
+
+---
+
+- Add code to writers to signal
+
+```CSharp
+            {
+                _items.Enqueue(item);
+
+                if (_waitingReaders != null)
+                {
+                    _waitingReaders.SetResult(true);
+                    _waitingReaders = null; 
+                }
+            }
+```
+
+---
+
+```CSharp
+  public bool TryRead([MaybeNullWhen(false)]out T item) 
+    {
+        lock (SyncObj)
+        {
+            return _items.TryDequeue(out item);
+        }
+    }
+```
 
 ---
 
