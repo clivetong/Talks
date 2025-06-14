@@ -87,6 +87,87 @@ while (true)
 
 ---
 
+```CSharp
+    private readonly Queue<T> _items = [];
+    private object SyncObj => _items;
+    private readonly Queue<TaskCompletionSource<T>> _readers = [];
+    private bool _completed;
+```
+
+- Toub's explanation of the SyncObj
+- TaskCompletionSource to let things blocks without allocating Kernel objects if not needed
+
+---
+
+```CSharp
+    public ValueTask<T> ReadAsync()
+    {
+        lock (SyncObj)
+        {
+            if (_items.TryDequeue(out var item))
+            {
+                return new ValueTask<T>(item);
+            }
+
+            if (_completed)
+            {
+                return ValueTask.FromException<T>(new InvalidOperationException("Channel is completed"));
+            }
+
+            TaskCompletionSource<T> tcs = new();
+            _readers.Enqueue(tcs);
+            return new ValueTask<T>(tcs.Task);
+        }
+    }
+
+```
+
+- ValueTask cheaper
+- The tcs Task's value will be set when writing
+
+---
+
+```CSharp
+    public ValueTask WriteAsync(T item)
+    {
+        lock (SyncObj)
+        {
+            if (_completed)
+            {
+                return ValueTask.FromException(new InvalidOperationException("Channel is completed"));
+            }
+
+            if (_readers.TryDequeue(out var tcs))
+            {
+                tcs.SetResult(item);
+            }
+            else
+            {
+                _items.Enqueue(item);
+            }
+        }
+
+        return default;
+    }
+```
+
+```CSharp
+    public void Complete()
+    {
+        lock (SyncObj)
+        {
+            _completed = true;
+            while(_readers.TryDequeue(out var tcs))
+            {
+                tcs.SetException(new InvalidOperationException("Channel completed"));
+            }
+        }
+    }
+```
+
+
+---
+
 ### Key Ideas (continued)
 
 - Version 4 (demo parallel stacks)
