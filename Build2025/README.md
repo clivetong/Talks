@@ -53,19 +53,28 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ### Key Ideas
 
-- Version 1
-- Version 2
+- Version 1 (using the real library)
+- Version 2 (first implementation)
   - Use locks to preserve your invariants
   - TaskCompletionSources for someone to wait on
   - ValueTasks when you control the consumers
 - Version 3 (WaitToReadAsync and TryRead)
   - MaybeNullWhen
-- Version 4
+
+---
+
+### Key Ideas (continued)
+
+- Version 4 (demo parallel stacks)
   - Reentrant locks and invariants
-- Version 5
+- Version 5 (performance and the real fix)
   - `TaskCreationOptions.RunContinuationsAsynchronously`
-- Version 6
+- Version 6 (use the builtins)
   - lock free
+
+---
+
+![Versions](images/versions.png)
 
 ---
 
@@ -206,5 +215,108 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 ---
 
 ### [Inside Azure innovations with Mark Russinovich](https://redgate.slack.com/archives/C08T9FBAM6D/p1747772640848339)
+
+---
+
+### Offloading using Azure Boost
+
+![Azure Boost](images/azureboost.png)
+
+[IIRC 20% coverage]
+---
+
+![RDMA](images/rdma.png)
+
+---
+
+![Azure Boost](images/eleven.png)
+
+---
+
+### Maintain machines without downtime
+
+![Host Upgrade](images/hostupgrade.png)
+
+---
+
+### Scale storage (AI workloads)
+
+![Scale Storage](images/scalestorage.png)
+
+---
+
+### LinuxGuard in Azure Linux
+
+![LinuxGuard](images/AzureLinux.png)
+
+---
+
+![Linux code integrity](images/codeintegrity.png)
+
+---
+
+### Very lightweight containers
+
+![Hyperlight](images/hyperlight.png)
+
+USed in edge scenarios like FrontDoor
+
+---
+
+### Azure Container Instances
+
+As the runner for serverless compute - [ACI](https://www.kodez.com.au/post/deciphering-azure-container-services-a-guide-to-select-between-aca-aci-and-aks) and [NGroups](https://learn.microsoft.com/en-us/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups)
+
+![ACI](images/aci.png)
+
+---
+
+### Azure Incubations
+
+![Graduated](images/graduated.png)
+
+![Coming](images/underdevelopmen.png)
+
+---
+
+### Radius
+
+![Radius](images/radius.png)
+
+---
+
+![Radius How?](images/radiushow.png)
+
+---
+
+![Multiple deployments](images/multipleenvs.png)
+
+---
+
+### drasi
+
+![Change detection](images/changedetection.png)
+
+---
+
+![Continuous Query](images/drasi.png)
+
+The future of Reactive!
+
+---
+
+### Confidential Computing
+
+![History of confidential on Azure](images/confidential.png)
+
+Now a focus on confidential comouting on GPUs
+
+---
+
+![Analog Optical Computing](images/aoc.png)
+
+---
+
+![1792 virtual processors](images/taskmg1792.png)
 
 ---
