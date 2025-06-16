@@ -23,7 +23,7 @@ Not as in-depth tech as in previous years, this one covered the arrival of AI in
 - Agents, agents, agents
 - Orchestration of Agents
 - Agents talking to tools (MCP) or Agents (A2A)
-- CoPilot taking on issues and working collaboratively to solve a problem
+- CoPilot taking on issues, producing a PR in backgroudn and then working collaboratively to solve a problem
 
 ---
 
@@ -35,7 +35,15 @@ I just don't get it. You have scripting languages and programming languages, and
 
 ---
 
-These are the talks from the [playlist](https://www.youtube.com/playlist?list=PLFPUGjQjckXH1BDmT9hZw_fUi9NZRbVJt):
+### Funniest things
+
+[Scott and Mark Learn to...LIVE](https://build.microsoft.com/en-US/sessions/KEY040)
+
+![Robot](images/robots.png)
+
+---
+
+I'll rush through these talks from the [YouTube playlist](https://www.youtube.com/playlist?list=PLFPUGjQjckXH1BDmT9hZw_fUi9NZRbVJt):
 
 - [Yet Another "Highly Technical Talk" with Hanselman and Toub](https://www.youtube.com/watch?v=J3IQBI5HVOw)
 - [Python Meets .NET: Building AI Solutions with Combined Strengths](https://www.youtube.com/watch?v=fDbCqalegNU)
@@ -46,8 +54,9 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ### [Yet Another "Highly Technical Talk" with Hanselman and Toub](https://redgate.slack.com/archives/C08T9FBAM6D/p1747848365112169)
 
-- Hanselman and Toub are really good as a presenting pair
-- This time they implement (most of) Channels - like the Go feature that ripped off CSP
+- Hanselman and Toub have a good dynamic
+- This time they implement (most of) Channels
+  - like the Go feature that ripped off CSP
 
 ---
 
@@ -95,7 +104,7 @@ while (true)
 ```
 
 - Toub's explanation of the SyncObj
-- TaskCompletionSource to let things blocks without allocating Kernel objects if not needed
+- TaskCompletionSource to let things blocks allocating Kernel objects only if not needed
 
 ---
 
@@ -122,7 +131,7 @@ while (true)
 
 ```
 
-- ValueTask cheaper
+- [ValueTask cheaper](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/)
 - The tcs Task's value will be set when writing
 
 ---
