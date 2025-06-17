@@ -238,11 +238,64 @@ while (true)
 ### Key Ideas (continued)
 
 - Version 4 (demo parallel stacks)
-  - Reentrant locks and invariants
+  - Reentrant locks
+  - invariants and avoiding unknown code
 - Version 5 (performance and the real fix)
   - `TaskCreationOptions.RunContinuationsAsynchronously`
 - Version 6 (use the builtins)
   - lock free
+
+---
+
+```CSharp
+var lockable = new object();
+
+void ActionToDo()
+{
+    lock (lockable)
+    {
+        // Expect the invariants to hold here
+
+        // ...
+
+        // Expect the invariants to be restored here
+    }
+}
+
+lock (lockable)
+{
+    // Expect the invariants to hold here
+
+    //....
+    ActionToDo();
+
+    // Expect the invariants to be restored here
+}
+```
+
+---
+
+```CSharp
+TaskCompletionSource<int> tcs = new();  
+    // new(TaskCreationOptions.RunContinuationsAsynchronously);
+
+void Foo()
+{
+  tcs.SetResult(42);
+}
+Task.Run(() =>
+{
+  Thread.Sleep(TimeSpan.FromSeconds(1));
+  Foo();
+ });
+
+var res = await tcs.Task;
+Console.WriteLine(res);
+```
+
+---
+
+![Stacktrace](images/stacktrace.png)
 
 ---
 
@@ -275,6 +328,10 @@ while (true)
 
 ---
 
+Stephen Toub challenged the speaker to implement this.
+
+---
+
 ### Demo Project
 
 ![Demo Project](images/DemoProject.png)
@@ -299,7 +356,13 @@ while (true)
 
 ---
 
-### Many config TaskCreationOptions
+### And it uses a source generator
+
+![Source generator](images/sourcegenerator.png)
+
+---
+
+### Easy configuration
 
 ![Configurable](images/Options.png)
 
@@ -348,7 +411,7 @@ while (true)
 - Go
   - Good support for native code, 10 years of development and highly optimized
   - Procedural with first class functions
-  - Great support for data layout of structs, and great concurrency
+  - Great struct data layout, great concurrency
 
 ---
 
