@@ -403,10 +403,10 @@ Stephen Toub challenged the speaker to implement this.
 ---
 
 - Rust
-  - no automatic memory management and cyclic data structures
-  - made it hard to port to it - could rewrite but wanted to port
+  - No automatic memory management and cyclic data structures
+  - Made it hard to port to it - could rewrite but wanted to port
 - C#
-  - their code is procedural and not OO
+  - Their code is procedural and not OO
   - No mature native code generation story
 - Go
   - Good support for native code, 10 years of development and highly optimized
@@ -494,7 +494,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ![Hyperlight](images/hyperlight.png)
 
-USed in edge scenarios like FrontDoor
+Used in edge scenarios like FrontDoor
 
 ---
 
