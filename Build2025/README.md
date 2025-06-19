@@ -84,6 +84,10 @@ while (true)
 
 ---
 
+![Versions](images/versions.png)
+
+---
+
 ### Key Ideas
 
 - Version 1 (using the real library)
@@ -299,14 +303,11 @@ Console.WriteLine(res);
 
 ---
 
-![Versions](images/versions.png)
-
----
-
 ### [Python Meets .NET: Building AI Solutions with Combined Strengths](https://redgate.slack.com/archives/C08T9FBAM6D/p1747782297361979)
 
-- Run the Pyton interpreter in the same process as .NET
-  - Python is designed to do this so a question of packaging
+- Run the Pyton interpreter in .NET process
+  - Python has APIs to do this
+  - a question of packaging
 
 ---
 
@@ -344,9 +345,9 @@ Stephen Toub challenged the speaker to implement this.
 
 ---
 
-### CSharp side
+### C# side
 
-![CSharp](images/Program.png)
+![C#](images/Program.png)
 
 ---
 
@@ -386,7 +387,7 @@ Stephen Toub challenged the speaker to implement this.
 ### The challenges
 
 - VS Code is 1.5 million lines of TS
-- Microsoft have some internal repos with 15 million lines of TS
+- Microsoft have internal repos with 15 million
 
 ---
 
