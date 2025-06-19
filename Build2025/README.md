@@ -454,24 +454,41 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Offloading using Azure Boost
+![Plan](images/innovationtalk.png)
+
+---
+
+### Offloading using Azure Boost (2.0)
 
 ![Azure Boost](images/azureboost.png)
 
-[IIRC 20% coverage]
+[IIRC 20% coverage, Boost card had FPGA and ARM]
+
+---
+
+![Top of Rac](images/tor.png)
+
+---
+
+![Overheads](images/dma.png)
+
 ---
 
 ![RDMA](images/rdma.png)
 
 ---
 
+### AllReduce across GPUs (GB/s)
+
 ![Azure Boost](images/eleven.png)
 
 ---
 
-### Maintain machines without downtime
+### Minimal downtime
 
 ![Host Upgrade](images/hostupgrade.png)
+
+[18 - 5 - 2 - 4 - 3 preserving host update avoiding]
 
 ---
 
@@ -491,6 +508,14 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
+### Hostile multitenancy
+
+![Boundaries](images/hostilemultitenancy.png)
+
+[Hypervisor, but what about edge]
+
+---
+
 ### Very lightweight containers
 
 ![Hyperlight](images/hyperlight.png)
@@ -501,7 +526,8 @@ Used in edge scenarios like FrontDoor
 
 ### Azure Container Instances
 
-As the runner for serverless compute - [ACI](https://www.kodez.com.au/post/deciphering-azure-container-services-a-guide-to-select-between-aca-aci-and-aks) and [NGroups](https://learn.microsoft.com/en-us/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups)
+The runner for serverless compute (ACI was the first in the industry)
+ - [ACI](https://www.kodez.com.au/post/deciphering-azure-container-services-a-guide-to-select-between-aca-aci-and-aks) and [NGroups](https://learn.microsoft.com/en-us/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups)
 
 ![ACI](images/aci.png)
 
@@ -529,7 +555,7 @@ As the runner for serverless compute - [ACI](https://www.kodez.com.au/post/decip
 
 ---
 
-### drasi
+### [drasi](http://github.com/drasi-project)
 
 ![Change detection](images/changedetection.png)
 
