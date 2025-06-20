@@ -23,7 +23,7 @@ Not as in-depth tech as in previous years, this one covered the arrival of AI in
 - Agents, agents, agents
 - Orchestration of Agents
 - Agents talking to tools (MCP) or Agents (A2A)
-- CoPilot taking on issues, producing a PR in backgroudn and then working collaboratively to solve a problem
+- CoPilot taking on issues, producing a PR in background and then working collaboratively to solve a problem
 
 ---
 
@@ -108,7 +108,6 @@ while (true)
 ```
 
 - Toub's explanation of the SyncObj
-- TaskCompletionSource to let things blocks allocating Kernel objects only if not needed
 
 ---
 
@@ -404,7 +403,7 @@ Stephen Toub challenged the speaker to implement this.
 ---
 
 - Rust
-  - No automatic memory management and cyclic data structures
+  - No automatic memory management and no cyclic data structures
   - Made it hard to port to it - could rewrite but wanted to port
 - C#
   - Their code is procedural and not OO
@@ -488,7 +487,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ![Host Upgrade](images/hostupgrade.png)
 
-[18 - 5 - 2 - 4 - 3 preserving host update avoiding]
+[18 - 5 - 2 - 4 - 3 preserving host update]
 
 ---
 
