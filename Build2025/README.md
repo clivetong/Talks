@@ -305,7 +305,7 @@ Console.WriteLine(res);
 
 ### [Python Meets .NET: Building AI Solutions with Combined Strengths](https://redgate.slack.com/archives/C08T9FBAM6D/p1747782297361979)
 
-- Run the Pyton interpreter in .NET process
+- Run the Python interpreter in .NET process
   - Python has APIs to do this
   - a question of packaging
 
