@@ -52,7 +52,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ---
 
-### [Yet Another "Highly Technical Talk" with Hanselman and Toub](https://redgate.slack.com/archives/C08T9FBAM6D/p1747848365112169)
+### Yet Another "Highly Technical Talk" with Hanselman and Toub
 
 - Hanselman and Toub have a good dynamic
 - This time they implement (most of) Channels
@@ -302,7 +302,7 @@ Console.WriteLine(res);
 
 ---
 
-### [Python Meets .NET: Building AI Solutions with Combined Strengths](https://redgate.slack.com/archives/C08T9FBAM6D/p1747782297361979)
+### Python Meets .NET: Building AI Solutions with Combined Strengths
 
 - Run the Python interpreter in .NET process
   - Python has APIs to do this
@@ -372,7 +372,7 @@ Stephen Toub challenged the speaker to implement this.
 
 ---
 
-### [A 10x Faster TypeScript with Anders Hejlsberg](https://redgate.slack.com/archives/C08T9FBAM6D/p1747926871781549)
+### A 10x Faster TypeScript with Anders Hejlsberg
 
 ---
 
@@ -449,7 +449,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### [Inside Azure innovations with Mark Russinovich](https://redgate.slack.com/archives/C08T9FBAM6D/p1747772640848339)
+### Inside Azure innovations with Mark Russinovich
 
 ---
 
