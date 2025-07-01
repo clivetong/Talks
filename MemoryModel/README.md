@@ -65,13 +65,6 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-I find it fascinating that we write
-
-- message passing systems
-- on top of a procedural language
-- that runs on hardware that passes cache lines around
-
----
 
 ### [Why doesn't the hardware just get things right?](https://www.youtube.com/watch?v=luyj4biSAeM)
 
@@ -124,6 +117,14 @@ But slows things down to the speed of main memory!
 
 ---
 
+I find it fascinating that we write
+
+- message passing systems
+- on top of a procedural language
+- that runs on hardware that passes cache lines around
+
+---
+
 ![Protocol](images/protocol.png)
 
 ---
@@ -144,6 +145,16 @@ But slows things down to the speed of main memory!
   - but can't expect people to get the code right without help, so make [the memory model much stronger](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md)!
   - Don't make it too strong
     - so no sequential consistency (not necessary an interleaving of the code of the threads that run it)
+
+---
+
+### [ECMA 335 vs. .NET memory models](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#ecma-335-vs-net-memory-models)
+
+```Text
+ECMA 335 standard defines a very weak memory model. After two decades the desire to have a flexible model did not result in considerable benefits due to hardware being more strict. On the other hand programming against ECMA model requires extra complexity to handle scenarios that are hard to comprehend and not possible to test.
+
+In the course of multiple releases .NET runtime implementations settled around a memory model that is a practical compromise between what can be implemented efficiently on the current hardware, while staying reasonably approachable by the developers. This document rationalizes the invariants provided and expected by the .NET runtimes in their current implementation with expectation of that being carried to future releases.
+```
 
 ---
 
@@ -215,3 +226,16 @@ void ThreadFunc3()
 ```
 
 ---
+
+### Key remarks from the new memory model
+
+---
+
+### Do I need to care?
+
+- Probably not - you should be using higher level constructs rather than caring about the observability of field writes from other threads
+- `lock` is really important as it lets you assert an invariant at start and end, and stops others working when the invariant isn't holding
+  - recursive locks on windows are easy to get wrong 
+  - lock levelling to avoid deadlocks
+- use in-built concurrency primitives like `lazy` - those are reasoned about by experts and have massive soak tests to check them
+- [structured concurrency is the future](https://en.wikipedia.org/wiki/Structured_concurrency)
