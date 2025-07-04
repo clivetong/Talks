@@ -85,9 +85,9 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### Sequential consistency
+### Symmetric Multiprocessing
 
-[It is the property that "... the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program."](https://en.wikipedia.org/wiki/Sequential_consistency)
+![SMP](images/types-of-multiprocessors.png)
 
 ---
 
@@ -97,13 +97,15 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### Write-through caches
+### Sequential consistency
 
-![Write-through](images/write-through.png)
+[It is the property that "... the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program."](https://en.wikipedia.org/wiki/Sequential_consistency)
 
 ---
 
-But slows things down to the speed of main memory!
+### Write-through caches
+
+![Write-through](images/write-through.png)
 
 ---
 
@@ -129,8 +131,108 @@ I find it fascinating that we write
 
 ---
 
-### TSO and the moving instructions
+![The state transitions for the protocol](images/with-snooping.png)
 
+---
+
+And we need directory protocols to work between the subsystems
+
+---
+
+![Summary](images/summary.png)
+
+---
+
+We managed to keep sequential consistency, but gave up some performance.
+
+Notice this slows things down to the speed of main memory!
+
+And we'd like the processor running sequential code to go faster.
+
+---
+
+### All good - not quite!
+
+```csharp
+# We've taken the lock exclusively setting mutex to 1
+
+#increment counter
+load r1, counter
+add r1, r1, 1
+store r1, counter
+
+# release the lock
+store zero, mutex
+```
+
+We want other cpus to see the counter increment before the lock is released.
+
+---
+
+### Strong ordering
+
+Assume X = Y = 1
+
+```csharp
+cpu1
+
+store 1, X
+load r2, Y
+```
+
+and
+
+```csharp
+store 1, Y
+load r2, X
+```
+
+---
+
+![Interleave](images/interleave.png)
+
+---
+
+![write buffer](images/writebuffer.png)
+
+---
+
+### Total Store Order (x86)
+
+Guarantee to see the updates in FIFO order, so the lock example is fine.
+
+But the order example fails with X = Y = 0
+
+---
+
+![Fence](images/fence.png)
+
+---
+
+### Not always single instructions
+
+![LL/SC](images/llsc.png)
+
+---
+
+### Partial Store Order
+
+![PSO](images/pso.png)
+
+ie stores get overwritten or elided
+
+---
+
+![Take away](images/takeaway.png)
+
+---
+
+![Intel](images/intel.png)
+
+---
+
+Not just data, can be instructions and TLB too
+ 
 ---
 
 ### So this is all about ARM?
@@ -231,11 +333,59 @@ void ThreadFunc3()
 
 ---
 
+### [Atomic memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#atomic-memory-accesses)
+
+- aligned memory reads are atomic as are `System.Threading.Interlocked` methods and `System.Threading.Volatile` methods
+
+---
+
+### [Side-effects and optimizations of memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#side-effects-and-optimizations-of-memory-accesses)
+
+- Speculative writes are not allowed.
+- Reads cannot be introduced.
+- Unused reads can be elided. (note: if a read can cause a fault it is not "unused")
+- Adjacent non-volatile reads from the same location can be coalesced.
+- Adjacent non-volatile writes to the same location can be coalesced.
+
+---
+
+### [Cross-thread access to local variables](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#cross-thread-access-to-local-variables)
+
+- There is no type-safe mechanism for accessing locations on one thread’s stack from another thread.
+
+---
+
+### [Order of memory operations](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#order-of-memory-operations)
+
+- The effects of ordinary reads and writes can be reordered as long as that preserves single-thread consistency. Such reordering can happen both due to code generation strategy of the compiler or due to weak memory ordering in the hardware.
+
+- Volatile reads have "acquire semantics" - no read or write that is later in the program order may be speculatively executed ahead of a volatile read.
+
+- Volatile writes have "release semantics" - the effects of a volatile write will not be observable before effects of all previous, in program order, reads and writes become observable
+
+- Note that volatile semantics does not by itself imply that operation is atomic or has any effect on how soon the operation is committed to the coherent memory. It only specifies the order of effects when they eventually become observable.
+
+- Full-fence operations Full-fence operations have "full-fence semantics" - effects of reads and writes must be observable no later or no earlier than a full-fence operation according to their relative program order. 
+Operations with full-fence semantics: `System.Thread.MemoryBarrier` and `System.Threading.Interlocked` methods
+
+---
+
 ### Do I need to care?
 
 - Probably not - you should be using higher level constructs rather than caring about the observability of field writes from other threads
+- lock-free and synchronization free is probably not buying you anything in terms of perf
+  - an uncontended lock  is 10s of nanoseconds
 - `lock` is really important as it lets you assert an invariant at start and end, and stops others working when the invariant isn't holding
   - recursive locks on windows are easy to get wrong 
   - lock levelling to avoid deadlocks
 - use in-built concurrency primitives like `lazy` - those are reasoned about by experts and have massive soak tests to check them
 - [structured concurrency is the future](https://en.wikipedia.org/wiki/Structured_concurrency)
+
+---
+
+### Quick remarks
+
+- Back in the day, one expressed locks in shared memory concurrency using [Dekker's Algorithm](https://en.wikipedia.org/wiki/Dekker%27s_algorithm) and [Peterson's algorithm](https://en.wikipedia.org/wiki/Peterson%27s_algorithm)
+- sequential consistency meant that you could handle concurrency just in the language
+- We then moved to needing `volatile`
+- We've now moved more to needing to understand the memory model and library features to ensure correctness
