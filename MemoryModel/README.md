@@ -1,7 +1,7 @@
 ---
 transition: "slide"
 slideNumber: false
-title: "Some talks from Build 2025 (May 19-22)"
+title: "Some notes on memory models"
 ---
 
 ::: block
@@ -13,21 +13,28 @@ title: "Some talks from Build 2025 (May 19-22)"
 ### Assembled material
 
 - Some slides from [W08-a: SMP, Multicore, Memory Ordering and Locking](https://www.youtube.com/watch?v=luyj4biSAeM)
+- [Memory Barriers: a Hardware View for Software Hackers](http://www.rdrop.com/~paulmck/scalability/paper/whymb.2010.06.07c.pdf)
 - [The C# memory model](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#net-memory-model)
 - [The issue to define a better memory model](https://github.com/dotnet/runtime/issues/79764)
 - [Questions about whether the JIT obeys them](https://github.com/dotnet/runtime/pull/75790#issuecomment-1354408347) and [here](https://github.com/dotnet/runtime/issues/6280)
 - [MSDN article on the old ECMA model](https://learn.microsoft.com/en-us/archive/msdn-magazine/2012/december/csharp-the-csharp-memory-model-in-theory-and-practice) and [part two](https://learn.microsoft.com/en-us/archive/msdn-magazine/2013/january/csharp-the-csharp-memory-model-in-theory-and-practice-part-2)
 - [The best book on this topic, for Rust](https://marabos.nl/atomics/memory-ordering.html)
+
+---
+
+### Assembled material (cont)
+
 - [The OCaml memory model](https://ocaml.org/manual/5.3/memorymodel.html#sec92)
 - [A talk on the ARM model](https://www.youtube.com/watch?v=2I8OHacills)
+- [Is Parallel Programming Hard](https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html)
 
 ---
 
 ### What are we covering?
 
-How you can be sure that your multi-threaded code has no races
+How can you be sure of the observed behaviour of your multi-threaded code (by another thread)
 
-- race-free is really hard to demonstrate
+- where this observation is of the changes to memory as the other thread sees it
 
 ---
 
@@ -65,7 +72,6 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-
 ### [Why doesn't the hardware just get things right?](https://www.youtube.com/watch?v=luyj4biSAeM)
 
 - So Intel does go some way to doing this, but it costs space on the die and performance
@@ -77,6 +83,7 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 ### So what's the state of play?
 
 - Newer architectures instead optimize for single threaded code where the CPU guarantees that you observe things in program order
+
 - [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law)
 
 - when you need to guarantee the observations cross cores then you are likely to synchronize using program level locks
@@ -119,11 +126,11 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-I find it fascinating that we write
+### I find it fascinating that we write
 
 - message passing systems
 - on top of a procedural language
-- that runs on hardware that passes cache lines around
+- that runs on hardware that passes cache lines around like messages
 
 ---
 
@@ -243,20 +250,22 @@ Not just data, can be instructions and TLB too
   - ECMA-334 (and Duffy's book [Concurrent Programming on Windows](https://learning.oreilly.com/library/view/concurrent-programming-on/9780321434821/) 2008)
   - volatile had a meaning very similar to old C, with device memory ideas
 
+---
+
 - .NET Core designed for modern platforms (ARM)
   - but can't expect people to get the code right without help, so make [the memory model much stronger](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md)!
   - Don't make it too strong
-    - so no sequential consistency (not necessary an interleaving of the code of the threads that run it)
+    - so no sequential consistency
 
 ---
 
 ### [ECMA 335 vs. .NET memory models](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#ecma-335-vs-net-memory-models)
 
-```Text
 ECMA 335 standard defines a very weak memory model. After two decades the desire to have a flexible model did not result in considerable benefits due to hardware being more strict. On the other hand programming against ECMA model requires extra complexity to handle scenarios that are hard to comprehend and not possible to test.
 
+---
+
 In the course of multiple releases .NET runtime implementations settled around a memory model that is a practical compromise between what can be implemented efficiently on the current hardware, while staying reasonably approachable by the developers. This document rationalizes the invariants provided and expected by the .NET runtimes in their current implementation with expectation of that being carried to future releases.
-```
 
 ---
 
@@ -320,12 +329,11 @@ void ThreadFunc3()
 
 ---
 
-```csharp
-// accessing members of the local object is safe because
-// - reads cannot be introduced, thus localObj cannot be re-read and become null
-// - publishing assignment to obj will not become visible earlier than write operations in the MyClass constructor
-// - indirect accesses via an instance are data-dependent reads, thus we will see results of constructor's writes
-```
+### ... accessing members of the local object is safe because
+
+- reads cannot be introduced, thus localObj cannot be re-read and become null
+- publishing assignment to obj will not become visible earlier than write operations in the MyClass constructor
+- indirect accesses via an instance are data-dependent reads, thus we will see results of constructor's writes
 
 ---
 
@@ -361,11 +369,15 @@ void ThreadFunc3()
 
 - Volatile reads have "acquire semantics" - no read or write that is later in the program order may be speculatively executed ahead of a volatile read.
 
+---
+
 - Volatile writes have "release semantics" - the effects of a volatile write will not be observable before effects of all previous, in program order, reads and writes become observable
 
 - Note that volatile semantics does not by itself imply that operation is atomic or has any effect on how soon the operation is committed to the coherent memory. It only specifies the order of effects when they eventually become observable.
 
-- Full-fence operations Full-fence operations have "full-fence semantics" - effects of reads and writes must be observable no later or no earlier than a full-fence operation according to their relative program order. 
+---
+
+- Full-fence operations have "full-fence semantics" - effects of reads and writes must be observable no later or no earlier than a full-fence operation according to their relative program order. 
 Operations with full-fence semantics: `System.Thread.MemoryBarrier` and `System.Threading.Interlocked` methods
 
 ---
@@ -375,6 +387,9 @@ Operations with full-fence semantics: `System.Thread.MemoryBarrier` and `System.
 - Probably not - you should be using higher level constructs rather than caring about the observability of field writes from other threads
 - lock-free and synchronization free is probably not buying you anything in terms of perf
   - an uncontended lock  is 10s of nanoseconds
+
+---
+
 - `lock` is really important as it lets you assert an invariant at start and end, and stops others working when the invariant isn't holding
   - recursive locks on windows are easy to get wrong 
   - lock levelling to avoid deadlocks
