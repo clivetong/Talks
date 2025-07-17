@@ -18,12 +18,12 @@ title: "Some notes on memory models"
 - [The issue to define a better memory model](https://github.com/dotnet/runtime/issues/79764)
 - [Questions about whether the JIT obeys them](https://github.com/dotnet/runtime/pull/75790#issuecomment-1354408347) and [here](https://github.com/dotnet/runtime/issues/6280)
 - [MSDN article on the old ECMA model](https://learn.microsoft.com/en-us/archive/msdn-magazine/2012/december/csharp-the-csharp-memory-model-in-theory-and-practice) and [part two](https://learn.microsoft.com/en-us/archive/msdn-magazine/2013/january/csharp-the-csharp-memory-model-in-theory-and-practice-part-2)
-- [The best book on this topic, for Rust](https://marabos.nl/atomics/memory-ordering.html)
 
 ---
 
 ### Assembled material (cont)
 
+- [The best book on this topic, for Rust](https://marabos.nl/atomics/memory-ordering.html)
 - [The OCaml memory model](https://ocaml.org/manual/5.3/memorymodel.html#sec92)
 - [A talk on the ARM model](https://www.youtube.com/watch?v=2I8OHacills)
 - [Is Parallel Programming Hard](https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html)
@@ -158,7 +158,7 @@ And we'd like the processor running sequential code to go faster.
 
 ---
 
-### All good - not quite!
+### The first of the two classic examples
 
 ```csharp
 # We've taken the lock exclusively setting mutex to 1
@@ -178,7 +178,7 @@ We want other cpus to see the counter increment before the lock is released.
 
 ### Strong ordering
 
-Assume X = Y = 1
+Assume X = Y = 0
 
 ```csharp
 cpu1
