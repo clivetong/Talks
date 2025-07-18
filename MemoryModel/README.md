@@ -25,7 +25,7 @@ title: "Some notes on memory models"
 
 - [The best book on this topic, for Rust](https://marabos.nl/atomics/memory-ordering.html)
 - [The OCaml memory model](https://ocaml.org/manual/5.3/memorymodel.html#sec92)
-- [A talk on the ARM model](https://www.youtube.com/watch?v=2I8OHacills)
+- [A talk on the ARM's very weak memory model](https://www.youtube.com/watch?v=2I8OHacills)
 - [Is Parallel Programming Hard](https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html)
 
 ---
@@ -82,7 +82,7 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ### So what's the state of play?
 
-- Newer architectures instead optimize for single threaded code where the CPU guarantees that you observe things in program order
+- Newer architectures optimize for single threaded code where the CPU guarantees that you observe things in program order
 
 - [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law)
 
