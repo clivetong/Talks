@@ -1,0 +1,43 @@
+# Books
+
+## 2025
+
+- [These Strange New Minds: How AI Learned to Talk and What It Means](https://www.amazon.co.uk/dp/0241694655)
+- [Thinking Machine: Jensen Huang, Nvidia, and the World's Most Coveted Microchip: Jensen Huang, Nvidia, and the World's Most Coveted Microchip](https://www.amazon.co.uk/dp/0593834569)
+- [Mastering OpenTelemetry: Building Scalable Observability Systems for Cloud-Native Applications](https://www.amazon.co.uk/dp/B0DS8P2JMT)
+- [Cloud Application Architecture Patterns: Designing, Building, and Modernizing for the Cloud](https://www.amazon.co.uk/dp/1098116909)
+- [Mastering PostgreSQL 17: Elevate your database skills with advanced deployment, optimization, and security strategies](https://www.amazon.co.uk/dp/183620597X)
+- [Superagency: What Could Possibly Go Right with Our AI Future](https://www.amazon.co.uk/dp/B0D5WMKV9H)
+- [REID HOFFMAN: The Architect of Connection, Innovation, and Influence (BEST BIOGRAPHIES)](https://www.amazon.co.uk/dp/B0DXM99CWS)
+- [Patterns of Distributed Systems (Addison-Wesley Signature Series (Fowler))](https://www.amazon.co.uk/dp/0138221987)
+- [Functional Design and Architecture: Examples in Haskell](https://www.amazon.co.uk/dp/1617299618)
+- [Supremacy: WINNER OF THE 2024 FINANCIAL TIMES BUSINESS BOOK OF THE YEAR AWARD](https://www.amazon.co.uk/dp/1035038226)
+- [Vector: A Surprising Story of Space, Time, and Mathematical Transformation](https://www.amazon.co.uk/dp/0226821102)
+
+## 2024
+
+- [Understanding Software Dynamics (Addison-Wesley Professional Computing Series)](https://www.amazon.co.uk/dp/0137589735)
+- [The Alignment Problem: How Can Artificial Intelligence Learn Human Values?](https://www.amazon.co.uk/dp/1786494337)
+- [Pro .NET Memory Management: For Better Code, Performance, and Scalability](https://www.amazon.co.uk/dp/B0D3PNGKZR)
+- [Serverless Development on AWS: Building Enterprise-Scale Serverless Solutions](https://www.amazon.co.uk/dp/1098141938)
+- [Generative AI System Design Interview](https://www.amazon.co.uk/dp/1736049143)
+- [Why Machines Learn: The Elegant Maths Behind Modern AI](https://www.amazon.co.uk/dp/0241586488)
+- [Rebooting AI: Building Artificial Intelligence We Can Trust](https://www.amazon.co.uk/dp/052556604X)
+- [Taming Silicon Valley: How to Protect Our Jobs, Safety, and Society in the Age of AI](https://www.amazon.co.uk/dp/0262551063)
+- [Character Limit: How Elon Musk Destroyed Twitter](https://www.amazon.co.uk/dp/1529914698)
+- [Platform Strategy: Innovation Through Harmonization (Architect Elevator Book Series)](https://www.amazon.co.uk/dp/B0D1R6DX2M)
+- [JVM Performance Engineering: Inside OpenJDK and the HotSpot Java Virtual Machine (Developer's Library)](https://www.amazon.co.uk/gp/product/B08F5J6V4T)
+- [What Is ChatGPT Doing ... and Why Does It Work?](https://www.amazon.co.uk/dp/1579550819)
+- [Everything Is Predictable: How Bayes' Remarkable Theorem Explains the World](https://www.amazon.co.uk/dp/1399604031)
+- [Architecting ASP.NET Core Applications: An atypical design patterns guide for .NET 8, C# 12, and beyond](https://www.amazon.co.uk/dp/1805123386)
+- [Cloud Identity Patterns and Strategies: Design enterprise cloud identity models with OAuth 2.0 and Azure Active Directory](https://www.amazon.co.uk/dp/1801810842)
+- [AWS Certified Solutions Architect Professional Training Notes](https://www.amazon.co.uk/dp/B09TZBPZ6Z)
+- [Building Multi-Tenant Saas Architectures: Principles, Practices, and Patterns Using AWS](https://www.amazon.co.uk/dp/1098140648)
+- [Observability Engineering: Achieving Production Excellence](https://www.amazon.co.uk/dp/1492076449)
+- [AWS Certified Solutions Architect - Professional Exam Guide (SAP-C02): Gain the practical skills, knowledge, and confidence to ace the AWS (SAP-C02) exam on your first attempt](https://www.amazon.co.uk/dp/1801813132)
+- [Genius Makers: The Mavericks Who Brought A.I. to Google, Facebook, and the World](https://www.amazon.co.uk/dp/1847942156)
+- [Cloud Strategy: A Decision-based Approach to Successful Cloud Migration](https://www.amazon.co.uk/dp/B08F6TVVTF)
+- [Your Code as a Crime Scene, Second Edition: Use Forensic Techniques to Arrest Defects, Bottlenecks, and Bad Design in Your Programs](https://www.amazon.co.uk/dp/B0CSJR386C)
+- [Guide to Competitive Programming: Learning and Improving Algorithms Through Contests (Undergraduate Topics in Computer Science)](https://www.amazon.co.uk/dp/3030393569)
+- [Tidy First?: A Personal Exercise in Empirical Software Design](https://www.amazon.co.uk/dp/1098151240)
+- [Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs](https://www.amazon.co.uk/dp/1835083463)
