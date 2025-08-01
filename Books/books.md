@@ -2,6 +2,7 @@
 
 ## 2025
 
+- [Think Distributed Systems](https://www.manning.com/books/think-distributed-systems)
 - [These Strange New Minds: How AI Learned to Talk and What It Means](https://www.amazon.co.uk/dp/0241694655)
 - [Thinking Machine: Jensen Huang, Nvidia, and the World's Most Coveted Microchip: Jensen Huang, Nvidia, and the World's Most Coveted Microchip](https://www.amazon.co.uk/dp/0593834569)
 - [Mastering OpenTelemetry: Building Scalable Observability Systems for Cloud-Native Applications](https://www.amazon.co.uk/dp/B0DS8P2JMT)
@@ -41,3 +42,4 @@
 - [Guide to Competitive Programming: Learning and Improving Algorithms Through Contests (Undergraduate Topics in Computer Science)](https://www.amazon.co.uk/dp/3030393569)
 - [Tidy First?: A Personal Exercise in Empirical Software Design](https://www.amazon.co.uk/dp/1098151240)
 - [Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs](https://www.amazon.co.uk/dp/1835083463)
+- [Book Of Monads](https://leanpub.com/book-of-monads)
