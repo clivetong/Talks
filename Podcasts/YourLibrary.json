@@ -15,6 +15,11 @@
       "uri": "spotify:show:74qjf9YuUPwCEY4Klp3QFm"
     },
     {
+      "name": "AI + a16z",
+      "publisher": "a16z",
+      "uri": "spotify:show:3bz8jF49EasFo2YZVOQDUW"
+    },
+    {
       "name": "AWS Bites",
       "publisher": "AWS Bites",
       "uri": "spotify:show:3Lh7PzqBFV6yt5WsTAmO5q"
@@ -45,6 +50,11 @@
       "uri": "spotify:show:35trT95UkRVCkEb6tXndpF"
     },
     {
+      "name": "Best AI papers explained",
+      "publisher": "Enoch H. Kang",
+      "uri": "spotify:show:1EMFxEe22oncDah7zU5ABo"
+    },
+    {
       "name": "CoRecursive: Coding Stories",
       "publisher": "Adam Gordon Bell - Software Developer",
       "uri": "spotify:show:6XU1MRwzCfAXD07YHbpjNv"
@@ -58,6 +68,11 @@
       "name": "Developer Voices",
       "publisher": "Kris Jenkins",
       "uri": "spotify:show:2gXhwz0AQRv2cvw61kobE5"
+    },
+    {
+      "name": "Dwarkesh Podcast",
+      "publisher": "Dwarkesh Patel",
+      "uri": "spotify:show:4JH4tybY1zX6e5hjCwU6gF"
     },
     {
       "name": "GOTO - The Brightest Minds in Tech",
@@ -100,9 +115,19 @@
       "uri": "spotify:show:0AsnxlMtXRUEeZkIO0ScpJ"
     },
     {
+      "name": "Latent Space: The AI Engineer Podcast",
+      "publisher": "swyx + Alessio",
+      "uri": "spotify:show:2p7zZVwVF6Yk0Zsb4QmT7t"
+    },
+    {
       "name": "Let's Talk Azure!",
       "publisher": "Alan Armstrong & Sam Foot",
       "uri": "spotify:show:4Ws5HtQoBszV4qwtO3MPd1"
+    },
+    {
+      "name": "Limitless Podcast",
+      "publisher": "Limitless by Bankless",
+      "uri": "spotify:show:5oV29YUL8AzzwXkxEXlRMQ"
     },
     {
       "name": "Machine Learning Street Talk (MLST)",
@@ -120,7 +145,7 @@
       "uri": "spotify:show:3Q5iCLEgF9tlUIvFzoyy5P"
     },
     {
-      "name": "More or Less: Behind the Stats",
+      "name": "More or Less",
       "publisher": "BBC Radio 4",
       "uri": "spotify:show:3sVMOI29n5oyMgbUxFz0p3"
     },
@@ -130,13 +155,18 @@
       "uri": "spotify:show:2Dh3iUfPjmdOKZwAppsVNj"
     },
     {
+      "name": "Page 94: The Private Eye Podcast",
+      "publisher": "Page 94: The Private Eye Podcast",
+      "uri": "spotify:show:18WkQ0uqjsIvx4Ds2sHt9L"
+    },
+    {
       "name": "Philosophize This!",
       "publisher": "Stephen West",
       "uri": "spotify:show:2Shpxw7dPoxRJCdfFXTWLE"
     },
     {
-      "name": "PodRocket - A web development podcast from LogRocket",
-      "publisher": "LogRocket ",
+      "name": "PodRocket",
+      "publisher": "LogRocket",
       "uri": "spotify:show:6oFuKu89C9X1wQ7bT0QEM2"
     },
     {
@@ -148,6 +178,11 @@
       "name": "Postgres FM",
       "publisher": "Nikolay Samokhvalov and Michael Christofides",
       "uri": "spotify:show:6hF0omVFiMU22NQVGbA1eK"
+    },
+    {
+      "name": "PyTorch Developer Podcast",
+      "publisher": "Edward Yang, Team PyTorch",
+      "uri": "spotify:show:6UzHKeiy368jKfQMKKvJY5"
     },
     {
       "name": "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
@@ -165,8 +200,13 @@
       "uri": "spotify:show:7vAbYigR3zs8GYJP3EoVWw"
     },
     {
+      "name": "Signals and Threads",
+      "publisher": "Jane Street",
+      "uri": "spotify:show:3ig6FgIbASpqJbc9chD2CI"
+    },
+    {
       "name": "Software Engineering Radio - the podcast for professional software developers",
-      "publisher": "se-radio@computer.org",
+      "publisher": "team@se-radio.net (SE-Radio Team)",
       "uri": "spotify:show:6UO3XQclSuNnGxB39QdAnL"
     },
     {
@@ -185,7 +225,7 @@
       "uri": "spotify:show:6XtjTEc4KGMK9fIGvmPLn7"
     },
     {
-      "name": "The AI Daily Brief (Formerly The AI Breakdown): Artificial Intelligence News and Analysis",
+      "name": "The AI Daily Brief: Artificial Intelligence News and Analysis",
       "publisher": "Nathaniel Whittemore",
       "uri": "spotify:show:7gKwwMLFLc6RmjmRpbMtEO"
     },
@@ -260,6 +300,11 @@
       "uri": "spotify:show:2nj1mpDb9jxHxi9vjZvDdk"
     },
     {
+      "name": "The Peterman Pod",
+      "publisher": "Ryan Peterman",
+      "uri": "spotify:show:0MX9PyeCzDhdlyRv6slwIX"
+    },
+    {
       "name": "The Post-Quantum World",
       "publisher": "Protiviti",
       "uri": "spotify:show:749yXmahoJl0t09mMuLvKQ"
@@ -285,6 +330,11 @@
       "uri": "spotify:show:1Ysx8g1Iw42gESAtegrFaH"
     },
     {
+      "name": "The Rest Is Politics: US",
+      "publisher": "Goalhanger",
+      "uri": "spotify:show:1OY3nyGYqjIO4aWMW2feLy"
+    },
+    {
       "name": "The TED AI Show",
       "publisher": "TED",
       "uri": "spotify:show:6EBVhJvlnOLch2wg6eGtUa"
@@ -293,6 +343,11 @@
       "name": "The Unhandled Exception Podcast",
       "publisher": "Dan Clarke (@dracan)",
       "uri": "spotify:show:2DgUE1Iyl9cZxzzvUUIPBK"
+    },
+    {
+      "name": "The world, the universe and us",
+      "publisher": "New Scientist",
+      "uri": "spotify:show:7xN0obO7y5AR20v2KT7TBp"
     },
     {
       "name": "Training Data",
