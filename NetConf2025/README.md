@@ -24,4 +24,28 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
+### Performance Improvements
+
+---
+
 [Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
+
+---
+
+LINQ - what is the cost model?
+
+[Ad hoc improvements](https://github.com/dotnet/runtime/issues/100378)
+
+---
+
+Regular expressions engine
+
+---
+
+### Aspire Unplugged
+
+---
+
+### A year in .NET security
+
+---
