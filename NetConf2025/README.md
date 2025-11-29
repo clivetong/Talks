@@ -23,3 +23,5 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 - [A Year in .NET Security (2024–2025)](https://www.youtube.com/watch?v=8lFm4wI1bPo)
 
 ---
+
+[Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
