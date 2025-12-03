@@ -30,6 +30,8 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 [Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
 
+[Some design notes](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/jit/DeabstractionAndConditionalEscapeAnalysis.md)
+
 ---
 
 LINQ - what is the cost model?
@@ -43,6 +45,14 @@ Regular expressions engine
 ---
 
 ### Aspire Unplugged
+
+---
+
+- Xmas time project for five people. What is the hardest part of developing and deploying cloud apps
+- Human writes and maintains a lot of scripts - model in somethign with more structure to enable tooling
+
+[Project Tye announcement](https://devblogs.microsoft.com/dotnet/introducing-project-tye/)
+[Project Tye repository](https://github.com/dotnet/tye)
 
 ---
 
