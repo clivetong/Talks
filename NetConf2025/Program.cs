@@ -1,7 +1,15 @@
 ﻿using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-const int Iters = 100_000;
+/*
+  dotnet run -c Release -f net48
+  dotnet run -c Release -f net9.0
+  dotnet run -c Release -f net10.0
+*/
+const int Iters = 10_000;
+
+int[] valuesArray = Enumerable.Range(0, Iters).ToArray();
+IEnumerable<int> valuesList = Enumerable.Range(0, Iters).ToList();
 
 Stopwatch sw = Stopwatch.StartNew();
 
@@ -12,7 +20,9 @@ while (true)
 
     for(int i =0; i < Iters; i++)
     {
-        Test();
+        //Test(valuesArray);
+        //Test2(valuesArray);
+        Test3(valuesList);
     }
 
     sw.Stop();
@@ -21,7 +31,34 @@ while (true)
 }
 
 [MethodImpl(MethodImplOptions.NoInlining)]
-static void Test()
+static int Test(int[] values)
 {
-    
+    int sum = 0;
+    foreach(var x in values)
+    {
+        sum += x;
+    }
+    return sum;
+}
+
+[MethodImpl(MethodImplOptions.NoInlining)]
+static int Test2(int[] values)
+{
+    int sum = 0;
+    for(var i =0; i < values.Length; i++)
+    {
+        sum += values[i];
+    }
+    return sum;
+}
+
+[MethodImpl(MethodImplOptions.NoInlining)]
+static int Test3(IEnumerable<int> values)
+{
+    int sum = 0;
+    foreach(var x in values)
+    {
+        sum += x;
+    }
+    return sum;
 }
