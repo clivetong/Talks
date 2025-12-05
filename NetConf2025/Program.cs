@@ -5,6 +5,9 @@ using System.Runtime.CompilerServices;
   dotnet run -c Release -f net48
   dotnet run -c Release -f net9.0
   dotnet run -c Release -f net10.0
+
+  To see DPGO in progress
+  $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 */
 const int Iters = 10_000;
 
