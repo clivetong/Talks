@@ -32,6 +32,8 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 [Some design notes](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/jit/DeabstractionAndConditionalEscapeAnalysis.md)
 
+[Support for devirtualizing array interface methods](https://github.com/dotnet/runtime/pull/108153)
+
 ---
 
 ### De-abstraction
@@ -72,7 +74,7 @@ void Test()
 }
 ```
 
-- Mention Go and it's reverse
+- Mention Go and it's reverse use of escape analysis
 
 ---
 
@@ -155,7 +157,31 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 ---
 
-Regular expressions engine
+```CSharp
+Enumerable.Range(0,100).OrderBy(x => -x).First()
+```
+
+- We don;t really need to sort
+- From .NET Core 3 they've passed information between the query operators
+- ... not really implemented as a pipeline
+
+---
+
+### Extended these optimizations
+
+```CSharp
+Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
+```
+
+- and Reverse (so it doesn't take a full copy)
+
+---
+
+### Regular expressions engine
+
+- Toub uses the source code that the Regexp source generator outputs (added in .NET 7)
+- Greedy loops and backtracking - better recognising when backtracking won't help (atomic)
+- Remove unnecessary work
 
 ---
 
@@ -164,7 +190,7 @@ Regular expressions engine
 ---
 
 - Xmas time project for five people. What is the hardest part of developing and deploying cloud apps
-- Human writes and maintains a lot of scripts - model in somethign with more structure to enable tooling
+- Human writes and maintains a lot of scripts - model in something with more structure to enable tooling
 
 [Project Tye announcement](https://devblogs.microsoft.com/dotnet/introducing-project-tye/)
 [Project Tye repository](https://github.com/dotnet/tye)
