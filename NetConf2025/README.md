@@ -185,15 +185,116 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-### Aspire Unplugged
+### Aspire Unplugged with David and Maddy
 
 ---
 
-- Xmas time project for five people. What is the hardest part of developing and deploying cloud apps
-- Human writes and maintains a lot of scripts - model in something with more structure to enable tooling
+## How did it all start?
 
-[Project Tye announcement](https://devblogs.microsoft.com/dotnet/introducing-project-tye/)
-[Project Tye repository](https://github.com/dotnet/tye)
+- Xmas break project for five people.
+- What is the hardest part of developing and deploying cloud apps?
+- Decided "Human writes and maintains a lot of scripts" - model in something with more structure to enable tooling
+- The human orchestrates the yaml for cloud, and docker compose file for local dev and lots of other scripts
+
+---
+
+## Project Tye
+
+- [Project Tye announcement](https://devblogs.microsoft.com/dotnet/introducing-project-tye/)
+- [Project Tye repository](https://github.com/dotnet/tye)
+
+---
+
+## Aspire
+
+- Ideas from Tye, Kubernetes, Cloud Native, ...
+- Didn't know how good it would be for general things? 
+- How good it wuld be for mobile development didn't occur to them at the time
+- Brilliant for onboarding - no instructions, just F5 the code
+
+---
+
+### Window Forms and IIS. Why not a target for Aspire?
+
+---
+
+## IIS
+
+- Focus on bigger apps that not just database and frontend
+- Thinking eShop - multi-repo, multi-database
+- IIS not in that space
+- Not a never, but a not now.
+- Currently focus on container based applications
+- The model would allow someone in the community to build it.
+
+---
+
+- Build experiences or buid the tooling to build the experiences
+- Focus on one vertical with ACA
+- Polygot came around naturally because of JavaScript frontends
+- No longer ~.NET~ Aspire
+- Again picking one language, Python, helped flesh out what is needed for any language
+- Small team, hence need to prioritize and build verticals
+
+---
+
+- Python release in 13 took ages to figure out the problems
+- JavaScript could be done in the two weeks prior to release
+
+---
+
+## When is the dashboard getting persistence?
+
+- Coming soon!
+
+---
+
+## How do I get things to keep running when I shut the dashboard?
+
+- Containers can be made persistent.
+- Persistent execitables will come.
+- They'd like the dashboard to be persistent.
+
+---
+
+## What has been the most challenging thing?
+
+- the Resource model - AddDatabase, AddXXX
+- hit publish and convert to a manifest
+- then waitfors and dependencies complicated it all
+- They would like to get hot reload; currently a one pass apphost
+- will eventually get to reconciliation loops
+- how do they evolve in place?
+
+---
+
+- on the fourth version of deployment
+
+---
+
+## Why no apphost referencing another apphost?
+
+- That would handle multi-repo
+- And will happen eventually
+- They have changed to Aspire as tool more than an application framework (no longer service defaults as a central thing)
+- More often than not, you are retro fitting Aspire to an existing project
+- Aspire should be non-intrusive
+
+---
+
+## They adverised using the VS Code extension
+
+---
+
+## Dashboard initially advertised as development only. Now we see it in production. What for the future?
+
+- Year one the dashboard caught everyone's eye
+- People always have a "is it working dashboard"
+- ie did it deploy correctly.
+- For big appliaction telemetry need real APM tooling
+- But for quick feedback it is great - "JIT debugging"
+- It isn't Honeycomb
+- It will stay optimised for local development
 
 ---
 
