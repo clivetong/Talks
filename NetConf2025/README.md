@@ -34,7 +34,122 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
-LINQ - what is the cost model?
+### De-abstraction
+
+- Bring together previous work and extend it!
+- Show the array example and the front end work (sharplab.io)
+
+---
+
+### Here's an example
+
+- Show the test3 example
+
+```Csharp
+  dotnet run -c Release -f net48
+  dotnet run -c Release -f net9.0
+  dotnet run -c Release -f net10.0
+```
+
+---
+
+- Stack allocation via better escape analysis
+- GDV (guarded devirtualization)
+- PGO improvements
+- Inlining has improved
+
+---
+
+### Stack allocation
+
+```CSharp
+record class Number(int x);
+
+void Test()
+{
+    var inst = new Number(20);
+    return inst.x;
+}
+```
+
+- Mention Go and it's reverse
+
+---
+
+### GDV
+
+```CSharp
+interface IFoo { int Call(); }
+
+class A : IFoo { int Call() => 42; }
+
+int Test(IFoo target) => target.Call();
+
+int Test(IFoo target) =>
+  if (typeof(target) == typeof(A))
+  {
+    return 42;
+  }
+  else
+  {
+    target.Call();
+  }
+```
+
+---
+
+### And we used heuristics to decide to do it
+
+```CSharp
+int Test(IFoo target) 
+{
+  // Record count of the instance types
+  // When we have enough data, trigger a recompliation
+  target.Call();
+}
+```
+
+---
+
+### And see that in practice
+
+```CSharp
+$env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
+```
+
+---
+
+### Lots of the benefits were inlining
+
+- Function calls have an overhead
+- We can see through to what is actually happening
+
+---
+
+### What does it mean for me?
+
+- It is hard to correctly grasp the cost model
+- Decisions are heuristics and may change over time
+
+---
+
+### Work over lots of the collection types
+
+- Stack<>
+- Queue<>
+- ConcurrentDictionary<,>
+
+- Improved the enumerators but also lots more
+
+---
+
+### Call out to CollectionsMarshal
+
+- to get to the underlying data structure
+
+---
+
+### LINQ - what is the cost model?
 
 [Ad hoc improvements](https://github.com/dotnet/runtime/issues/100378)
 
