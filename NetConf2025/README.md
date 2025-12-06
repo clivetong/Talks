@@ -301,3 +301,42 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 ### A year in .NET security
 
 ---
+
+## Terms
+
+[CVE](https://www.cve.org/)
+[CVSS](http://nvd.nist.gov/vuln-metrics/cvss)
+[CWE](http://cwe.mitre.org/)  Common Weaknesses
+
+---
+
+## This year
+
+- 84 reports to MSRC
+- 12 CVEs
+
+---
+
+![Vulnerabilities By Type](images/ByType.png)
+
+---
+
+- Dorrans then goes through them all, linking out to the fix on GitHub
+
+---
+
+## One I suspect we have on our code
+
+- [An API that worked on Windows but not on Linux](https://github.com/dotnet/msbuild/pull/12688)
+
+![Bad permissions](images/dos.png)
+
+---
+
+- Must admit I've seen AI generated code that uses the wrong API.
+
+---
+
+## And a 9.9
+
+![Smuggling](images/smuggling.png)
