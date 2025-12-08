@@ -1,0 +1,97 @@
+; Assembly listing for method Program:<<Main>$>g__Test3|0_2(System.Collections.Generic.IEnumerable`1[int]):int (Tier1)
+; Emitting BLENDED_CODE for generic X64 + VEX + EVEX on Windows
+; Tier1 code
+; optimized code
+; optimized using Synthesized PGO
+; rbp based frame
+; fully interruptible
+; with Synthesized PGO: fgCalledCount is 100
+; 2 inlinees with PGO data; 4 single block inlinees; 1 inlinees without PGO data
+
+G_M000_IG01:                ;; offset=0x0000
+       push     rbp
+       push     rbx
+       sub      rsp, 40
+       lea      rbp, [rsp+0x30]
+
+G_M000_IG02:                ;; offset=0x000B
+       xor      ebx, ebx
+       mov      rax, 0x7FF901BA9558
+       cmp      qword ptr [rcx], rax
+       jne      SHORT G_M000_IG07
+       mov      eax, dword ptr [rcx+0x08]
+       xor      edx, edx
+       test     eax, eax
+       je       SHORT G_M000_IG04
+       align    [0 bytes for IG03]
+
+G_M000_IG03:                ;; offset=0x0025
+       cmp      edx, eax
+       jae      SHORT G_M000_IG06
+       mov      r8d, edx
+       add      ebx, dword ptr [rcx+4*r8+0x10]
+       inc      edx
+       cmp      edx, eax
+       jb       SHORT G_M000_IG03
+
+G_M000_IG04:                ;; offset=0x0037
+       mov      eax, ebx
+
+G_M000_IG05:                ;; offset=0x0039
+       add      rsp, 40
+       pop      rbx
+       pop      rbp
+       ret
+
+G_M000_IG06:                ;; offset=0x0040
+       mov      ecx, edx
+       call     [System.ThrowHelper:ThrowInvalidOperationException_EnumCurrent(int)]
+       int3
+
+G_M000_IG07:                ;; offset=0x0049
+       mov      r11, 0x7FF901A900F0
+       call     [r11]System.Collections.Generic.IEnumerable`1[int]:GetEnumerator():System.Collections.Generic.IEnumerator`1[int]:this
+       mov      rcx, rax
+       mov      bword ptr [rbp-0x10], rcx
+
+G_M000_IG08:                ;; offset=0x005D
+       mov      rcx, bword ptr [rbp-0x10]
+       mov      r11, qword ptr [rcx]
+       mov      r11, 0x7FF901A900F8
+       call     [r11]System.Collections.IEnumerator:MoveNext():bool:this
+       test     eax, eax
+       je       SHORT G_M000_IG09
+       mov      rcx, bword ptr [rbp-0x10]
+       mov      r11, 0x7FF901A90100
+       call     [r11]System.Collections.Generic.IEnumerator`1[int]:get_Current():int:this
+       add      eax, ebx
+       mov      ebx, eax
+       jmp      SHORT G_M000_IG08
+
+G_M000_IG09:                ;; offset=0x008C
+       mov      rcx, bword ptr [rbp-0x10]
+       mov      r11, 0x7FF901A90108
+       call     [r11]System.IDisposable:Dispose():this
+       jmp      SHORT G_M000_IG04
+
+G_M000_IG10:                ;; offset=0x009F
+       sub      rsp, 40
+
+G_M000_IG11:                ;; offset=0x00A3
+       cmp      bword ptr [rbp-0x10], 0
+       je       SHORT G_M000_IG13
+
+G_M000_IG12:                ;; offset=0x00AA
+       mov      rcx, bword ptr [rbp-0x10]
+       mov      r11, 0x7FF901A90108
+       call     [r11]System.IDisposable:Dispose():this
+
+G_M000_IG13:                ;; offset=0x00BB
+       nop
+
+G_M000_IG14:                ;; offset=0x00BC
+       add      rsp, 40
+       ret
+
+; Total bytes of code 193
+
