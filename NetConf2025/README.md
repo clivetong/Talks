@@ -10,9 +10,9 @@ title: "Some talks from .NET Conf 2025 (November 11-13)"
 
 ---
 
-### What's are we covering?
+### What are we covering?
 
-We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2025, and talk through some of my highlights.
+We're going to look at three sessions from the recent .NET Conf 2025 - one on performance, one on Aspire (not ~~.NET~~ Aspire) and one on security - and point out some of the things I thought were interesting.
 
 ---
 
@@ -24,15 +24,15 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
-### Performance Improvements
+## Performance Improvements
 
 ---
 
-[Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
+### Some relevant issues here
 
-[Some design notes](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/jit/DeabstractionAndConditionalEscapeAnalysis.md)
-
-[Support for devirtualizing array interface methods](https://github.com/dotnet/runtime/pull/108153)
+- [Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
+- [Some design notes](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/jit/DeabstractionAndConditionalEscapeAnalysis.md)
+- [Support for devirtualizing array interface methods](https://github.com/dotnet/runtime/pull/108153)
 
 ---
 
@@ -58,21 +58,23 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 - Stack allocation via better escape analysis
 - GDV (guarded devirtualization)
 - PGO improvements
-- Inlining has improved
+- Inlining improvements
 
 ---
 
 ### Stack allocation
 
 ```CSharp
-record class Number(int x);
-
-void Test()
+int Test()
 {
     var inst = new Number(20);
     return inst.x;
 }
+
+record class Number(int x);
 ```
+
+---
 
 - Mention Go and it's reverse use of escape analysis
 
@@ -81,26 +83,24 @@ void Test()
 ### GDV
 
 ```CSharp
-interface IFoo { int Call(); }
-
-class A : IFoo { int Call() => 42; }
-
 int Test(IFoo target) => target.Call();
 
+interface IFoo { int Call(); }
+class A : IFoo { public int Call() => 42; }
+```
+
+compiles as
+
+```CSharp
 int Test(IFoo target) =>
-  if (typeof(target) == typeof(A))
-  {
-    return 42;
-  }
-  else
-  {
-    target.Call();
-  }
+  target.GetType() == typeof(A)
+  ? 42
+  : target.Call();
 ```
 
 ---
 
-### And we used heuristics to decide to do it
+### We used heuristics to decide to do it
 
 ```CSharp
 int Test(IFoo target) 
@@ -130,17 +130,16 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 ### What does it mean for me?
 
-- It is hard to correctly grasp the cost model
-- Decisions are heuristics and may change over time
+- I think it is hard to correctly grasp the cost model
+- Particularly, as decisions are heuristics and may change over time
 
 ---
 
-### Work over lots of the collection types
+### Improved many collection types
 
 - Stack<>
 - Queue<>
 - ConcurrentDictionary<,>
-
 - Improved the enumerators but also lots more
 
 ---
@@ -149,11 +148,20 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 - to get to the underlying data structure
 
+```CSharp
+List<int> x = [ 1, 2, 3, 4, 5 ];
+var data = CollectionsMarshal.AsSpan(x);
+```
+
 ---
 
-### LINQ - what is the cost model?
+### LINQ
 
-[Ad hoc improvements](https://github.com/dotnet/runtime/issues/100378)
+---
+
+### Some relevant LINQ issues here
+
+- [Ad hoc improvements](https://github.com/dotnet/runtime/issues/100378)
 
 ---
 
@@ -161,9 +169,11 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 Enumerable.Range(0,100).OrderBy(x => -x).First()
 ```
 
-- We don;t really need to sort
-- From .NET Core 3 they've passed information between the query operators
-- ... not really implemented as a pipeline
+---
+
+- We don't really need to sort
+- ... and SqlMonitor and MaxBy
+- From .NET Core 3, they've passed information between the query operators ie not really implemented as a pipeline steps
 
 ---
 
@@ -173,23 +183,31 @@ Enumerable.Range(0,100).OrderBy(x => -x).First()
 Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 ```
 
-- and Reverse (so it doesn't take a full copy)
+---
+
+```CSharp
+Enumerable.Range(0,100).Reverse().Contains(42)
+```
+
+---
+
+### Again, it leaves the cost model hazy IMHO
 
 ---
 
 ### Regular expressions engine
 
-- Toub uses the source code that the Regexp source generator outputs (added in .NET 7)
+- Toub uses the source code that the RegExp source generator outputs (added in .NET 7)
 - Greedy loops and backtracking - better recognising when backtracking won't help (atomic)
 - Remove unnecessary work
 
 ---
 
-### Aspire Unplugged with David and Maddy
+## Aspire Unplugged with David and Maddy
 
 ---
 
-## How did it all start?
+### How did it all start?
 
 - Xmas break project for five people.
 - What is the hardest part of developing and deploying cloud apps?
@@ -198,18 +216,18 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## Project Tye
+### Project Tye
 
 - [Project Tye announcement](https://devblogs.microsoft.com/dotnet/introducing-project-tye/)
 - [Project Tye repository](https://github.com/dotnet/tye)
 
 ---
 
-## Aspire
+### Aspire
 
 - Ideas from Tye, Kubernetes, Cloud Native, ...
 - Didn't know how good it would be for general things? 
-- How good it wuld be for mobile development didn't occur to them at the time
+- How good it would be for mobile development didn't occur to them at the time
 - Brilliant for onboarding - no instructions, just F5 the code
 
 ---
@@ -218,21 +236,21 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## IIS
+### IIS
 
 - Focus on bigger apps that not just database and frontend
 - Thinking eShop - multi-repo, multi-database
 - IIS not in that space
 - Not a never, but a not now.
 - Currently focus on container based applications
-- The model would allow someone in the community to build it.
+- The resource model would allow someone in the community to build it.
 
 ---
 
 - Build experiences or buid the tooling to build the experiences
 - Focus on one vertical with ACA
 - Polygot came around naturally because of JavaScript frontends
-- No longer ~.NET~ Aspire
+- No longer ~~.NET~~ Aspire
 - Again picking one language, Python, helped flesh out what is needed for any language
 - Small team, hence need to prioritize and build verticals
 
@@ -243,13 +261,13 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## When is the dashboard getting persistence?
+### When is the dashboard getting persistence?
 
 - Coming soon!
 
 ---
 
-## How do I get things to keep running when I shut the dashboard?
+### How do I get things to keep running when I shut the dashboard?
 
 - Containers can be made persistent.
 - Persistent execitables will come.
@@ -257,22 +275,22 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## What has been the most challenging thing?
+### What has been the most challenging thing?
 
-- the Resource model - AddDatabase, AddXXX
-- hit publish and convert to a manifest
-- then waitfors and dependencies complicated it all
+- The Resource model - AddDatabase, AddXXX
+- Hit publish and convert to a manifest
+- Then waitfors and dependencies complicated it all
 - They would like to get hot reload; currently a one pass apphost
-- will eventually get to reconciliation loops
-- how do they evolve in place?
+- Will eventually get to reconciliation loops
+- How do they evolve in place?
 
 ---
 
-- on the fourth version of deployment
+- On the fourth version of deployment
 
 ---
 
-## Why no apphost referencing another apphost?
+### Why can't the apphost reference another apphost?
 
 - That would handle multi-repo
 - And will happen eventually
@@ -282,11 +300,11 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## They adverised using the VS Code extension
+### They adverised using the VS Code extension
 
 ---
 
-## Dashboard initially advertised as development only. Now we see it in production. What for the future?
+### Dashboard initially advertised as development only. Now we see it in production. What for the future?
 
 - Year one the dashboard caught everyone's eye
 - People always have a "is it working dashboard"
@@ -298,19 +316,19 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-### A year in .NET security
+## A year in .NET security
 
 ---
 
-## Terms
+### Terms
 
-[CVE](https://www.cve.org/)
-[CVSS](http://nvd.nist.gov/vuln-metrics/cvss)
-[CWE](http://cwe.mitre.org/)  Common Weaknesses
+- [CVE](https://www.cve.org/) Common Vulnerabilities and Exposures (records)
+- [CVSS](http://nvd.nist.gov/vuln-metrics/cvss) Common Vulnerability Scoring System
+- [CWE](http://cwe.mitre.org/)  Common Weaknesses
 
 ---
 
-## This year
+### This year
 
 - 84 reports to MSRC
 - 12 CVEs
@@ -325,7 +343,7 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## One I suspect we have on our code
+### One I suspect we have in our code
 
 - [An API that worked on Windows but not on Linux](https://github.com/dotnet/msbuild/pull/12688)
 
@@ -337,6 +355,6 @@ Enumerable.Range(0,100).OrderBy(x => -x).Contains(42)
 
 ---
 
-## And a 9.9
+### And a 9.9
 
 ![Smuggling](images/smuggling.png)

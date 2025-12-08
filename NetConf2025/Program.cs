@@ -17,7 +17,7 @@ while (true)
     {
         //Test(valuesArray);
         //Test2(valuesArray);
-        Test3(valuesList);
+        Test3(valuesArray);
     }
 
     sw.Stop();
