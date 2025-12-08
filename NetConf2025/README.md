@@ -129,6 +129,63 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 ---
 
+- [stage 1](jit-stages/stage1.txt)
+- [stage 2](jit-stages/stage2.txt)
+- [stage 3](jit-stages/stage3.txt)
+- [stage 4](jit-stages/stage4.txt)
+- [stage 5](jit-stages/stage5.txt)
+
+---
+
+```
+; Assembly listing for method Program:<<Main>$>g__Test3|0_2(System.Collections.Generic.IEnumerable`1[int]):int (Tier1)
+; Emitting BLENDED_CODE for generic X64 + VEX + EVEX on Windows
+; Tier1 code
+; optimized code
+; optimized using Synthesized PGO
+; rbp based frame
+; fully interruptible
+; with Synthesized PGO: fgCalledCount is 100
+; 2 inlinees with PGO data; 4 single block inlinees; 1 inlinees without PGO data
+
+G_M000_IG01:                ;; offset=0x0000
+       push     rbp
+       push     rbx
+       sub      rsp, 40
+       lea      rbp, [rsp+0x30]
+
+G_M000_IG02:                ;; offset=0x000B
+       xor      ebx, ebx
+       mov      rax, 0x7FF901BA9558
+       cmp      qword ptr [rcx], rax
+       jne      SHORT G_M000_IG07
+       mov      eax, dword ptr [rcx+0x08]
+       xor      edx, edx
+       test     eax, eax
+       je       SHORT G_M000_IG04
+       align    [0 bytes for IG03]
+
+G_M000_IG03:                ;; offset=0x0025
+       cmp      edx, eax
+       jae      SHORT G_M000_IG06
+       mov      r8d, edx
+       add      ebx, dword ptr [rcx+4*r8+0x10]
+       inc      edx
+       cmp      edx, eax
+       jb       SHORT G_M000_IG03
+
+G_M000_IG04:                ;; offset=0x0037
+       mov      eax, ebx
+
+G_M000_IG05:                ;; offset=0x0039
+       add      rsp, 40
+       pop      rbx
+       pop      rbp
+       ret
+```
+
+---
+
 ### What does it mean for me?
 
 - I think it is hard to correctly grasp the cost model
@@ -147,7 +204,7 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 ### Call out to CollectionsMarshal
 
-- to get to the underlying data structure
+- to get to the underlying data structure that the collection class wraps
 
 ```CSharp
 List<int> x = [ 1, 2, 3, 4, 5 ];
@@ -174,7 +231,7 @@ Enumerable.Range(0,100).OrderBy(x => -x).First()
 
 - We don't really need to sort
 - ... and SqlMonitor and MaxBy
-- From .NET Core 3, they've passed information between the query operators ie not really implemented as a pipeline steps
+- From .NET Core 3, they've passed information between the query operators, so not really implemented as pipeline steps
 
 ---
 
@@ -257,7 +314,7 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ---
 
-- Python release in 13 took ages to figure out the problems
+- Python, released in v13, took ages to figure out the problems
 - JavaScript could be done in the two weeks prior to release
 
 ---
@@ -271,7 +328,7 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 ### How do I get things to keep running when I shut the dashboard?
 
 - Containers can be made persistent.
-- Persistent execitables will come.
+- Persistent executables will come.
 - They'd like the dashboard to be persistent.
 
 ---
