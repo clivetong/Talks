@@ -40,6 +40,7 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 - Bring together previous work and extend it!
 - Show the array example and the front end work (sharplab.io)
+- Show the cost of using IEnumerable<>
 
 ---
 
