@@ -28,6 +28,9 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
+There were 300 PRs with performance improvements, so won't cover them all
+
+---
 ### Some relevant issues here
 
 - [Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
@@ -268,9 +271,12 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 ### How did it all start?
 
 - Xmas break project for five people.
+- Look at Kubernetes and understand the DevEx
 - What is the hardest part of developing and deploying cloud apps?
-- Decided "Human writes and maintains a lot of scripts" - model in something with more structure to enable tooling
-- The human orchestrates the yaml for cloud, and docker compose file for local dev and lots of other scripts
+- Configuration is hard to model
+- Decided "Human writes and maintains a lot of scripts"
+- The human orchestrates the yaml for Kubernetes, and docker compose file for local dev and lots of other scripts
+- Model in something with more structure to enable tooling, which led to the appHost
 
 ---
 
@@ -283,8 +289,9 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ### Aspire
 
-- Ideas from Tye, Kubernetes, Cloud Native, ...
-- Didn't know how good it would be for general things? 
+- Ideas from Tye, inside Microsoft, docker compose, Kubernetes, ...
+- Didn't know how good it would be for general purpose things?
+- What apps need a Cloud Native orchestrator?
 - How good it would be for mobile development didn't occur to them at the time
 - Brilliant for onboarding - no instructions, just F5 the code
 
@@ -305,16 +312,13 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ---
 
-- Build experiences or buid the tooling to build the experiences
+- Build experiences or build the tooling to build the experiences
 - Focus on one vertical with ACA
 - Polygot came around naturally because of JavaScript frontends
 - No longer ~~.NET~~ Aspire
 - Again picking one language, Python, helped flesh out what is needed for any language
 - Small team, hence need to prioritize and build verticals
-
----
-
-- Python, released in v13, took ages to figure out the problems
+- Python took ages to figure out problems
 - JavaScript could be done in the two weeks prior to release
 
 ---
@@ -335,7 +339,7 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ### What has been the most challenging thing?
 
-- The Resource model - AddDatabase, AddXXX
+- The Resource model - AddProject, AddDatabase, AddXXX
 - Hit publish and convert to a manifest
 - Then waitfors and dependencies complicated it all
 - They would like to get hot reload; currently a one pass apphost
@@ -364,7 +368,7 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ### Dashboard initially advertised as development only. Now we see it in production. What for the future?
 
-- Year one the dashboard caught everyone's eye
+- Year One, the dashboard caught everyone's eye
 - People always have a "is it working dashboard"
 - ie did it deploy correctly.
 - For big appliaction telemetry need real APM tooling
