@@ -420,4 +420,6 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ### And a 9.9
 
+- [Fix chunked request parsing](https://github.com/dotnet/aspnetcore/pull/64037)
+
 ![Smuggling](images/smuggling.png)
