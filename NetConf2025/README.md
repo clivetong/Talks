@@ -31,9 +31,10 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 There were 300 PRs with performance improvements, so won't cover them all
 
 ---
+
 ### Some relevant issues here
 
-- [Deabstraction issue](https://github.com/dotnet/runtime/issues/108913)
+- [De-abstraction issue](https://github.com/dotnet/runtime/issues/108913)
 - [Some design notes](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/jit/DeabstractionAndConditionalEscapeAnalysis.md)
 - [Support for devirtualizing array interface methods](https://github.com/dotnet/runtime/pull/108153)
 
@@ -59,7 +60,7 @@ There were 300 PRs with performance improvements, so won't cover them all
 
 ---
 
-- Stack allocation via better escape analysis
+- Stack allocation and better escape analysis
 - GDV (guarded devirtualization)
 - PGO improvements
 - Inlining improvements
@@ -205,14 +206,14 @@ G_M000_IG05:                ;; offset=0x0039
 
 ---
 
-### Call out to CollectionsMarshal
-
-- to get to the underlying data structure that the collection class wraps
+### Shout out to CollectionsMarshal
 
 ```CSharp
 List<int> x = [ 1, 2, 3, 4, 5 ];
 var data = CollectionsMarshal.AsSpan(x);
 ```
+
+- access to the underlying data structure that the collection class wraps
 
 ---
 
