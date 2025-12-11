@@ -29,9 +29,9 @@ while (true)
 static int Test(int[] values)
 {
     int sum = 0;
-    foreach(var x in values)
+    for(var i =0; i < values.Length; i++)
     {
-        sum += x;
+        sum += values[i];
     }
     return sum;
 }
@@ -40,9 +40,9 @@ static int Test(int[] values)
 static int Test2(int[] values)
 {
     int sum = 0;
-    for(var i =0; i < values.Length; i++)
+    foreach(var x in values)
     {
-        sum += values[i];
+        sum += x;
     }
     return sum;
 }
