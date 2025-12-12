@@ -118,18 +118,18 @@ int Test(IFoo target)
 
 ---
 
+### Lots of the benefits are inlining
+
+- Function calls have an overhead
+- We can see through to what is actually happening
+
+---
+
 ### And see that in practice
 
 ```CSharp
 $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 ```
-
----
-
-### Lots of the benefits were inlining
-
-- Function calls have an overhead
-- We can see through to what is actually happening
 
 ---
 
