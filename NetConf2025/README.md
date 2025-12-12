@@ -192,8 +192,10 @@ G_M000_IG05:                ;; offset=0x0039
 
 ### What does it mean for me?
 
-- I think it is hard to correctly grasp the cost model
+- It is hard to correctly grasp the cost model
 - Particularly, as decisions are heuristics and may change over time
+- Aggressive inlining needed sometimes
+- No easy way to see why decisions are made
 
 ---
 
@@ -253,7 +255,9 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ---
 
-### Again, it leaves the cost model hazy IMHO
+### IMHO it leaves the cost model hazy
+
+- you can see a different iterator from the call stack
 
 ---
 
@@ -363,16 +367,16 @@ Enumerable.Range(0,100).Reverse().Contains(42)
 
 ---
 
-### They adverised using the VS Code extension
+### They advertised using the VS Code extension
 
 ---
 
-### Dashboard initially advertised as development only. Now we see it in production. What for the future?
+### Dashboard started as development only. Now we see it in production. What for the future?
 
 - Year One, the dashboard caught everyone's eye
 - People always have a "is it working dashboard"
 - ie did it deploy correctly.
-- For big appliaction telemetry need real APM tooling
+- For big application telemetry need real APM tooling
 - But for quick feedback it is great - "JIT debugging"
 - It isn't Honeycomb
 - It will stay optimised for local development
