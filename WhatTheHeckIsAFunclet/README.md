@@ -26,16 +26,16 @@ void Example()
     var checkedForArgumentExceptionBefore = false;
 
     try { ThrowException(); }
-    catch (ArgumentException ex) when (IsArgumentException(ex)) {}
-    catch (Exception ex) when (IsArgumentException(ex)) {}
-    catch (Exception ex) when (IsArgumentException(ex)) {   /* 5 */ }
+    catch (ArgumentException ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
+    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
+    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {   /* 5 */ }
     finally { /* 6 */ }
 
-    bool IsArgumentException(Exception ex)
+    bool IsArgumentException(Exception ex, ref bool v)
     {
         /* 2 */ /* 3 */
-        var lastValue = checkedForArgumentExceptionBefore;
-        checkedForArgumentExceptionBefore = true;
+        var lastValue = v;
+        v = true;
         return lastValue;
     }
 }
@@ -55,6 +55,10 @@ try { /* 1 */ throw new Exception(); } finally { /* 4 */ }
 ```
 
 ![stack 1](images/at1.png)
+
+---
+
+First pass - find where we need to unwind to
 
 ---
 
