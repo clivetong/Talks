@@ -2,6 +2,12 @@
 
 ---
 
+## Why interested in this?
+
+[A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564)
+
+---
+
 ## What does exception handling need to do?
 
 ---
