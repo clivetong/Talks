@@ -12,11 +12,44 @@ Used to be used in MoveNext implementation to Dispose the enumerator if the Move
 
 ---
 
-### Why that example?
+```CSharp
+IEnumerable<int> GetAll()
+{
+    using var x = new Foo();
+    yield return 1;
+    yield return 2;
+}
 
-- It shows that we have to walk the stack to find out where the catch happens
-- It shows the filter needs access to the stack frame where the Example code is running
-- It shows that we have two phases - first pass and second pass
+
+class Foo : IDisposable { public void Dispose() { } }
+```
+
+---
+
+```IL
+    .method private hidebysig newslot virtual final 
+            instance bool  MoveNext() cil managed
+    {
+      .override [System.Runtime]System.Collections.IEnumerator::MoveNext
+      // Code size       139 (0x8b)
+      .maxstack  2
+      .locals init (bool V_0,
+               int32 V_1)
+      .try
+      {
+        .... stack machine
+      }  // end .try
+      fault
+      {
+        IL_0081:  ldarg.0
+        IL_0082:  call       instance void Program/'<<<Main>$>g__GetAll|0_0>d'::System.IDisposable.Dispose()
+        IL_0087:  nop
+        IL_0088:  endfinally
+      }  // end handler
+      IL_0089:  ldloc.0
+      IL_008a:  ret
+    } // end of method '<<<Main>$>g__GetAll|0_0>d'::MoveNext
+```
 
 ---
 
@@ -45,6 +78,14 @@ void ThrowException()
     try { /* 1 */ throw new Exception(); } finally { /* 4 */ }
 }
 ```
+
+---
+
+### Why that example?
+
+- It shows that we have to walk the stack to find out where the catch happens
+- It shows the filter needs access to the stack frame where the Example code is running
+- It shows that we have two phases - first pass and second pass
 
 ---
 
