@@ -12,6 +12,42 @@
 
 ---
 
+```CSharp
+void Example()
+{
+    var checkedForArgumentExceptionBefore = false;
+
+    try { ThrowException(); }
+    catch (ArgumentException ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
+    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
+    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {   /* 5 */ }
+    finally { /* 6 */ }
+
+    bool IsArgumentException(Exception ex, ref bool v)
+    {
+        /* 2 */ /* 3 */
+        var lastValue = v;
+        v = true;
+        return lastValue;
+    }
+}
+
+void ThrowException()
+{
+    try { /* 1 */ throw new Exception(); } finally { /* 4 */ }
+}
+```
+
+---
+
+### Why that example?
+
+- It shows that we have to walk the stack to find out where the catch happens
+- It shows the filter needs access to the stack frame where the Example code is running
+- It shows that we have two phases - first pass and second pass
+
+---
+
 - Note that we've seen filters and finally, and catch but we haven't seen fault
 
 Used to be used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
@@ -56,42 +92,6 @@ class Foo : IDisposable { public void Dispose() { } }
       IL_008a:  ret
     } // end of method '<<<Main>$>g__GetAll|0_0>d'::MoveNext
 ```
-
----
-
-```CSharp
-void Example()
-{
-    var checkedForArgumentExceptionBefore = false;
-
-    try { ThrowException(); }
-    catch (ArgumentException ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
-    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {}
-    catch (Exception ex) when (IsArgumentException(ex, ref checkedForArgumentExceptionBefore)) {   /* 5 */ }
-    finally { /* 6 */ }
-
-    bool IsArgumentException(Exception ex, ref bool v)
-    {
-        /* 2 */ /* 3 */
-        var lastValue = v;
-        v = true;
-        return lastValue;
-    }
-}
-
-void ThrowException()
-{
-    try { /* 1 */ throw new Exception(); } finally { /* 4 */ }
-}
-```
-
----
-
-### Why that example?
-
-- It shows that we have to walk the stack to find out where the catch happens
-- It shows the filter needs access to the stack frame where the Example code is running
-- It shows that we have two phases - first pass and second pass
 
 ---
 
@@ -146,6 +146,8 @@ catch (Exception ex) when (IsArgumentException(ex)) {   /* 5 */ }
 ```
 
 ![stack 5](images/at5.png)
+
+---
 
 ### 6
 
