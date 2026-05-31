@@ -1,15 +1,12 @@
----
-transition: "slide"
-slideNumber: false
-title: "How AWS say you should write a SaaS application"
+# "How AWS say you should write a SaaS application
 
 ---
 
-### How do you go about writing a SaaS Application?
+## How do you go about writing a SaaS Application?
   
 ---
 
-### TL;DR:
+## TL;DR:
 
 SaaS is not the same as a cloud native multi-tenant web application
 
@@ -25,7 +22,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### What we'll cover
+## What we'll cover
 
 - The Theory Behind SaaS
 - SaaS Architecture Fundamentals
@@ -41,7 +38,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### What's wrong with these deployments?
+## What's wrong with these deployments?
 
 - Customers with different versions
 - Support always being "upgrade to latest"
@@ -64,7 +61,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### The Control Plane
+## The Control Plane
 
 - The wrapper that lets your application code be application code
 - Embed the application inside something that is generic and provides the other services
@@ -74,14 +71,14 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### [The meaningless of "multi-tenant"](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Redefining%20Multi-Tenancy)
+## [The meaningless of "multi-tenant"](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Redefining%20Multi-Tenancy)
 
 - We need a different language to talk about the sharedness and isolation of resources
 - And there's no meaning of single-tenant
 
 ---
 
-### Multi-tenancy
+## Multi-tenancy
 
 ![Multi-tenancy](images/multi-tenancy.png)
 
@@ -89,13 +86,13 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### [At Its Core, SaaS Is a Business Model](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#at_its_core_saas_is_a_business_model)
+## [At Its Core, SaaS Is a Business Model](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#at_its_core_saas_is_a_business_model)
 
 [It should be clear that SaaS is very much about creating a technology, business and operational culture that is focused squarely on driving a distinct set of business outcomes. So, while it is tempting to think about SaaS though the lens of technology patterns and strategies, you should really be viewing SaaS more as a business model.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=By%20now%20you%20should,as%20a%20business%20model.)
 
 ---
 
-### The SaaS Model offers
+## The SaaS Model offers
 
 - [Agility](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Agility)
 - [Operational Efficiency](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Operational%20efficien)
@@ -105,7 +102,7 @@ You watch lots of videos and read the SaaS learning sections on the AWS and Micr
 
 ---
 
-### In Summary
+## In Summary
 
 [You are building a service and not a product.](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch01.html#:-:text=Building%20a%20Service%E2%80%94Not%20a%20Product)
 
@@ -115,7 +112,7 @@ Enough of the theory, back to the technology...
 
 ---
 
-### [What's a tenant?](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Adding%20Tenancy%20to%20Your%20Architecture)
+## [What's a tenant?](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Adding%20Tenancy%20to%20Your%20Architecture)
 
 - A logical entity that owns resources
 - It will have many uses in the control plane
@@ -130,7 +127,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### SaaS Architecture fundamentals
+## SaaS Architecture fundamentals
 
 ---
 
@@ -140,7 +137,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The Control plane does (at least)
+## The Control plane does (at least)
 
 - [Onboarding / Offboarding](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Onboarding)
 - [Identity](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Identity)
@@ -150,7 +147,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The Application plane does (at least)
+## The Application plane does (at least)
 
 - [Tenant context](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Context)
 - [Tenant isolation](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%20Isolation)
@@ -159,7 +156,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### The Grey area
+## The Grey area
 
 - [Tiering](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tiering)
 - [Tenant/Tenant Admin/System Admin Users](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch02.html#:-:text=Tenant%2C%20Tenant%20Admin%2C%20and%20System%20Admin%20Users)
@@ -167,7 +164,7 @@ SaaS identity == Identity + Tenant ID
 
 ---
 
-### SaaS Deployment Models
+## SaaS Deployment Models
 
 ---
 
@@ -185,7 +182,7 @@ Resources like compute and storage can be independently pooled and siloed
 
 ---
 
-### Full Stack Silo
+## Full Stack Silo
 
 - Full stack silo can be a good first step
 
@@ -199,7 +196,7 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 
 ---
 
-### [Full Stack Silo Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Silo%20Considerations)
+## [Full Stack Silo Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Silo%20Considerations)
 
 - Control Plane Complexity
 - Scaling impacts
@@ -211,7 +208,7 @@ Siloed == for the use of the tenant, likely isolated via cloud provider, IAM and
 
 ---
 
-### Full stack pool
+## Full stack pool
 
 Share everything!
 
@@ -223,7 +220,7 @@ Share everything!
 
 ---
 
-### And the flow of tenant context
+## And the flow of tenant context
 
 ![Tenant context](images/tenant-context.png)
 
@@ -231,7 +228,7 @@ Share everything!
 
 ---
 
-### [Full Stack Pool Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Pool%20Considerations)
+## [Full Stack Pool Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=Full%20Stack%20Pool%20Considerations)
 
 - Scale
 - Isolation
@@ -242,7 +239,7 @@ Share everything!
 
 ---
 
-### [Mixed Mode](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Mixed%20Mode%20Deployment%20Model)
+## [Mixed Mode](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Mixed%20Mode%20Deployment%20Model)
 
 Best of both worlds!
 
@@ -254,7 +251,7 @@ Best of both worlds!
 
 ---
 
-### [Pod deployment](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Pod%20Deployment%20Model)
+## [Pod deployment](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch03.html#:-:text=The%20Pod%20Deployment%20Model)
 
 - Stamps
 
@@ -266,13 +263,13 @@ Best of both worlds!
 
 ---
 
-### Some Implementation Bits and Pieces
+## Some Implementation Bits and Pieces
 
 It's hard to put all that high level talk into practice, so let's have a look at some of the details in various places.
 
 ---
 
-### [SaaS Identity](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_9_creating_a_logical_saas_identity)
+## [SaaS Identity](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_9_creating_a_logical_saas_identity)
 
 There's YOU and the context in which you are working
 
@@ -294,7 +291,7 @@ There's YOU and the context in which you are working
 
 ---
 
-### Beware
+## Beware
 
 - Use custom claims judiciously
 - You can avoid adding to the token and just call a service to resolve
@@ -307,7 +304,7 @@ There's YOU and the context in which you are working
 
 ---
 
-### [Tenant Management](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_15_supporting_externally_hosted_identity_providers)
+## [Tenant Management](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch04.html#fig_15_supporting_externally_hosted_identity_providers)
 
 ---
 
@@ -329,7 +326,7 @@ There's YOU and the context in which you are working
 
 ---
 
-### Implement how?
+## Implement how?
 
 - Containers, possibly leading to Kubernetes ([AWS reference model](https://github.com/aws-samples/aws-saas-factory-eks-reference-architecture?tab=readme-ov-file))
 - Serverless
@@ -342,7 +339,7 @@ There's YOU and the context in which you are working
 
 ---
 
-### The Importance of Tenant Aware Metrics
+## The Importance of Tenant Aware Metrics
 
 ---
 
@@ -352,7 +349,7 @@ There's YOU and the context in which you are working
 
 ---
 
-### Getting Tenant information inside the application code
+## Getting Tenant information inside the application code
 
 ---
 
@@ -375,7 +372,7 @@ def query_orders(self, status):
 
 ---
 
-### Multi-tenant isolation
+## Multi-tenant isolation
 
 - Multi-tenant isolation happens via application code and via platform security mechanisms
 
@@ -400,7 +397,7 @@ def query_orders(self, status):
 
 ---
 
-### Data Partitioning
+## Data Partitioning
 
 ---
 
@@ -420,7 +417,7 @@ def query_orders(self, status):
 
 ---
 
-### More on Data Isolation
+## More on Data Isolation
 
 ---
 
@@ -438,7 +435,7 @@ def query_orders(self, status):
 
 ---
 
-### Have Enough Metrics to Attribute Costs
+## Have Enough Metrics to Attribute Costs
 
 ---
 
@@ -448,7 +445,7 @@ def query_orders(self, status):
 
 ---
 
-### Migration Strategies
+## Migration Strategies
 
 ---
 
@@ -470,13 +467,13 @@ def query_orders(self, status):
 
 ---
 
-### Migration styles (foundation)
+## Migration styles (foundation)
 
 [Every migration starts with a control plane](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=The%20Foundation)
 
 ---
 
-### Migration styles
+## Migration styles
 
 - [Silo lift and shift](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=Silo%20Lift-and-Shift)
 - [Layered migration](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch13.html#:-:text=Layered%20Migration)
@@ -490,7 +487,7 @@ def query_orders(self, status):
 
 ---
 
-### [Guiding Principles](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Chapter%2017.%20Guiding%20Principles)
+## [Guiding Principles](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Chapter%2017.%20Guiding%20Principles)
 
 - [Build a Vision and a Strategy](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Build%20a%20Business%20Model%20and%20Strategy)
 - [Focus on Efficiency](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=A%20Clear%20Focus%20on%20Efficiency)
@@ -502,7 +499,7 @@ def query_orders(self, status):
 
 ---
 
-### [Core Technical Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Core%20Technical%20Considerations)
+## [Core Technical Considerations](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Core%20Technical%20Considerations)
 
 - [No One-Size-Fits-All model](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=No%20One-Size-Fits-All%20Model)
 - [Protect the Multi-Tenant Principles](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/ch17.html#:-:text=Protect%20the%20Multi-Tenant%20Principles)
@@ -513,7 +510,7 @@ def query_orders(self, status):
 
 ---
 
-### Resources
+## Resources
 
 - [AWS SaaS Factory](https://aws.amazon.com/blogs/apn/introducing-aws-saas-factory-to-help-isvs-accelerate-saas-adoption/)
 - [SaaS Factory Live](https://www.youtube.com/@saas-on-aws/streams)
@@ -521,7 +518,7 @@ def query_orders(self, status):
 
 ---
 
-### And Microsoft's model
+## And Microsoft's model
 
 - [Microsoft Learn: SaaS and multitenant solution architecture](https://learn.microsoft.com/en-us/azure/architecture/guide/saas-multitenant-solution-architecture/) 
 - [Azure SaaS Development Kit](https://github.com/Azure/azure-saas)

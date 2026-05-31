@@ -1,18 +1,10 @@
----
-transition: "slide"
-slideNumber: false
-title: "Dynamic Profile Guided Optimization"
----
-
-::: block
-*Dynamic PGO - why's it taken so long to get here?* {style=background:red;width:500px}
-::: 
+# Dynamic Profile Guided Optimization
 
 ---
 
-### Why do I care about the order of code?
+## Why do I care about the order of code?
 
-```
+```CSharp
     public int FacA(int a)
     {
         if (a == 0)
@@ -30,20 +22,13 @@ title: "Dynamic Profile Guided Optimization"
 
 ---
 
-
-### Let's try them
+## Let's try them
 
 - https://github.com/clivetong/Talks/blob/main/dynamicpgo/testfac/Program.cs
 
-
-
 ---
 
-
-
-### Because the data matters
-
-
+## Because the data matters
 
 | Method |  a |       Mean |     Error |    StdDev |
 |------- |--- |-----------:|----------:|----------:|
@@ -52,11 +37,9 @@ title: "Dynamic Profile Guided Optimization"
 |   FacA | 10 | 14.4784 ns | 0.3166 ns | 0.2807 ns |
 |   FacB | 10 | 11.0480 ns | 0.2441 ns | 0.3500 ns |
 
-
 ---
 
-### Use profile Guided Optimization
-
+## Use profile Guided Optimization
 
 - checkout CPython and build that
 - use the testsuite to generate a profile
@@ -64,8 +47,7 @@ title: "Dynamic Profile Guided Optimization"
 
 ---
 
-
-### Strategy: Use profile information to guide us
+## Strategy: Use profile information to guide us
 
 In .NET for a while now (PGO)
 
@@ -75,17 +57,16 @@ In .NET for a while now (PGO)
 
 ---
 
-### But we can go further
+## But we can go further
 
 1. Make the decisions for my run of the program (DPGO)
 
 2. Inline lots and learn what you should not have done
     - and have a way to backout
 
-
 ---
 
-### Why does inlining matter?
+## Why does inlining matter?
 
 1. Calling conventions
     - multiple entry points in static code (not yet)
@@ -95,13 +76,11 @@ In .NET for a while now (PGO)
 
 3. The more inlining, the more further opportunities are exposed
 
-
 ---
 
+## What do you need from the base platform?
 
-### What do you need from the base platform?
-
-1.  The ability to re-JIT code.
+1. The ability to re-JIT code.
     - don't run the code, don't JIT it.
     - tiered compilation (tier0, tier1)
 
@@ -111,26 +90,22 @@ In .NET for a while now (PGO)
 3. On stack replacement (OSR - everywhere)
     - switch to new implementation
 
-
 ---
 
-
-
-### Speculative optimization using DPGO
+## Speculative optimization using DPGO
 
 1. Add counters into the code
 
 2. Re-JIT when we've seen it enough
 
 3. Guarded compilation
-   -  Trap when we didn't think we'd see it, but have  
+   - Trap when we didn't think we'd see it, but have  
         - most programs call the same type of instance at the same points 
         - old tech - PICs
 
-
 ---
 
-### Use for
+## Use for
 
 1. Devirtualization
 2. Hot/cold block reordering
@@ -138,15 +113,11 @@ In .NET for a while now (PGO)
 
 ---
 
-
-### And the test
+## And the test
 
 - https://github.com/clivetong/Talks/blob/main/dynamicpgo/dynamicpgo/Program.cs
 
-
 ---
-
-
 
 |                  Method |          Job |          Mean |      Error |      StdDev |
 |------------------------ |------------- |--------------:|-----------:|------------:|
@@ -157,37 +128,34 @@ In .NET for a while now (PGO)
 | GuardedDevirtualization | Default|     6.2500 |  0.1522 |   0.2277 |
 | GuardedDevirtualization | DPGO |     5.1451 |  0.1268 |   0.1303 |
 
-
 ---
 
-### Env Vars
+## Env Vars
 
 - DOTNET_TieredPGO
 - DOTNET_TC_QuickJitForLoops
 - DOTNET_ReadyToRun
 
-
 ---
 
-### Obligatory mention
+## Obligatory mention
 
-1. SELF 
+1. SELF
     - prototype based language (old JS)
     - go extreme
     - dynamically de-optimise when debugging or too aggressive
 
 ---
 
-### Which is better?
+## Which is better?
 
-- PGO 
+- PGO
 - DPGO
 - attributed methods
 
 ---
 
-
-### Read these
+## Read these
 
 - https://gist.github.com/EgorBo/dc181796683da3d905a5295bfd3dd95b
 - https://github.com/dotnet/runtime/issues/43618
@@ -196,6 +164,6 @@ In .NET for a while now (PGO)
 
 ---
 
-### Reproduce the results 
+## Reproduce the results
 
 - https://github.com/clivetong/Talks/tree/main/dynamicpgo

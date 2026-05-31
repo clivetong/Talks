@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "Elegant Objects"
----
-
-::: block
-*Elegant Objects?* {style=background:red;width:500px}
-:::
+# Elegant Objects
 
 ---
 
-### [What's the talk about?](https://www.amazon.co.uk/Elegant-Objects-1-Yegor-Bugayenko/dp/1519166915/ref=sr_1_2?crid=3LS5PNBVLBTD5&keywords=elegant+objects&qid=1694173708&sprefix=elegant+objects%2Caps%2C68&sr=8-2)
+## [What's the talk about?](https://www.amazon.co.uk/Elegant-Objects-1-Yegor-Bugayenko/dp/1519166915/ref=sr_1_2?crid=3LS5PNBVLBTD5&keywords=elegant+objects&qid=1694173708&sprefix=elegant+objects%2Caps%2C68&sr=8-2)
 
 ![This book](images/book.png)
 
@@ -20,13 +12,13 @@ TL;DR There are 23 practical recommendations for object-oriented programmers. Mo
 
 ---
 
-### [Elegant Objects](https://www.elegantobjects.org/)
+## [Elegant Objects](https://www.elegantobjects.org/)
 
 Elegant Objects (EO) is an object-oriented programming paradigm that renounces traditional techniques like null, getters-and-setters, code in constructors, mutable objects, static methods, annotations, type casting, implementation inheritance, data objects, etc.
 
 ---
 
-### So that all sounds quite extreme
+## So that all sounds quite extreme
 
 And it's fair to say that the book is fairly critical of things we do in C# and Java every day.
 
@@ -34,7 +26,7 @@ It's a call to emphasise the object oriented part of the procedural/functional/O
 
 ---
 
-### But this is more than observations
+## But this is more than observations
 
 [There's a paper on the phi calculus](https://arxiv.org/pdf/2111.13384.pdf) which is a unified formalism for different OO languages.
 
@@ -46,7 +38,7 @@ And [papers](https://news.eolang.org/papers.html) are being produced and present
 
 ---
 
-### What kind of OO?
+## What kind of OO?
 
 - pure kind, with an emphasis on immutability
 - no reference equality
@@ -61,7 +53,7 @@ And [papers](https://news.eolang.org/papers.html) are being produced and present
 
 ---
 
-### What kind of OO? (cont)
+## What kind of OO? (cont)
 
 - no mocks
   - provide stubs instead to your consumers
@@ -77,9 +69,9 @@ And [papers](https://news.eolang.org/papers.html) are being produced and present
 
 ---
 
-### Primary and secondary constructors
+## Primary and secondary constructors
 
-<pre>
+```
 class Cash {
     private final int dollars;
     private final Exchange exchange;
@@ -101,13 +93,13 @@ class Cash {
         return this.exchange.rate("USD", "EUR") * this.dollars;
     }
 }
-</pre>
+```
 
 ---
 
 ### Small objects with a clear purpose
 
-<pre>
+```
 names = new Sorted(
   new Unique(
     new Capitalized(
@@ -123,13 +115,13 @@ names = new Sorted(
         )
     )
 );
-</pre>
+```
 
 ---
 
 ### Don't mock; use Fakes (stubs)
 
-<pre>
+```
 Exchange exchange = Mockito.mock(Exchange.class);
 Mockito.doReturn(1.15)
   .when(exchange)
@@ -137,20 +129,20 @@ Mockito.doReturn(1.15)
 Cash dollar = new Cash(exchange, 500);
 Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
-</pre>
+```
 
 ---------------
 
-<pre>
+```
 Exchange exchange = new Exchange.Fake();
 Cash dollar = new Cash(exchange, 500);
 Cash euro = dollar.in("EUR");
 assert "5.75".equals(euro.toString());
-</pre>
+```
 
 ---
 
-### Decorate for performance
+## Decorate for performance
 
 - write the implementation object
 - if the method result is cacheable, then write a decorator that does this

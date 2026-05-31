@@ -1,22 +1,14 @@
----
-transition: "slide"
-slideNumber: false
-title: "WASM will disrupt your cloud via Golem"
----
-
-::: block
-*WASM will disrupt your cloud via Golem* {style=background:red;width:500px}
-:::
+# WASM will disrupt your cloud via Golem
 
 ---
 
-### What will we be talking about?
+## What will we be talking about?
 
 We'll focus on how WASM is being used in Golem cloud to make your cloud applications easier to write
 
 ---
 
-### Some references
+## Some references
 
 - Some of the material comes from [this talk at WASM I/O 2024](https://www.youtube.com/watch?v=fHPYetd3q2g) by John De Goes
 - There's material on the Golem cloud blog about [Durable Computing](https://www.golem.cloud/post/what-is-durable-computing) and the [landscape](https://www.golem.cloud/post/the-emerging-landscape-of-durable-computing)
@@ -24,7 +16,7 @@ We'll focus on how WASM is being used in Golem cloud to make your cloud applicat
 
 ---
 
-### [Big Idea: much complexity stems from the fact that programs can fail half way through](https://www.youtube.com/watch?v=sDIXdVjJFN8&t=170s)
+## [Big Idea: much complexity stems from the fact that programs can fail half way through](https://www.youtube.com/watch?v=sDIXdVjJFN8&t=170s)
 
 - Reliable, scalable, stateful, distributed systems need to account for (infrastructure) failure (for example, hardware failures/machine restarts/config changes/application code updates/network issues)
 - This leads to complexity in applications which use patterns like event sourcing and use shared databases to store state
@@ -36,7 +28,7 @@ Instead we'd rather have a program that is guaranteed to run to completion, leav
 
 ---
 
-### [Durable computing in 4 phrases](https://www.golem.cloud/post/what-is-durable-computing)
+## [Durable computing in 4 phrases](https://www.golem.cloud/post/what-is-durable-computing)
 
 - Invincible
 - Failure and Recovery
@@ -45,13 +37,13 @@ Instead we'd rather have a program that is guaranteed to run to completion, leav
 
 ---
 
-### Pushing the idea of Durable Workflows further
+## Pushing the idea of Durable Workflows further
 
 - there are things already that try to take the state machines away 
 
 ---
 
-### Azure Durable Functions
+## Azure Durable Functions
 
 - though alternatives like [Temporal.io](https://temporal.io/)
 
@@ -85,7 +77,7 @@ Instead we'd rather have a program that is guaranteed to run to completion, leav
 
 ---
 
-### Some Observations
+## Some Observations
 
 - We're not back to clean business logic
 - Durable state in Table Storage
@@ -96,19 +88,19 @@ Golem can do better!
 
 ---
 
-### How do we implement this?
+## How do we implement this?
 
 ![images](images/secret-sauce.png)
 
 ---
 
-### With interception
+## With interception
 
 ![image](images/wasm.png)
 
 ---
 
-### Tell me more about WASM
+## Tell me more about WASM
 
 - Many languages compile down to it
 - There's a component model
@@ -118,7 +110,7 @@ Golem can do better!
 
 ---
 
-### Already used client side to variable success
+## Already used client side to variable success
 
 - Blazor
 - Mural
@@ -130,7 +122,7 @@ Golem can do better!
 
 ---
 
-### Fabric of the Future
+## Fabric of the Future
 
 - Delete Event Sourcing
 - Delete Databases
@@ -139,13 +131,13 @@ Golem can do better!
 
 ---
 
-### The Shopping Cart Example
+## The Shopping Cart Example
 
 - [An example that just looks like a normal program](https://github.com/golemcloud/golem-examples/blob/main/examples/scala2/scala2-shopping-cart/src/main/scala/example/main.scala)
 
 ---
 
-### More Links
+## More Links
 
 - [Main repository](https://github.com/golemcloud/golem)
 - [Examples](https://github.com/golemcloud/golem-examples)

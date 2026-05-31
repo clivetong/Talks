@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "A quick dive into NoSQL"
----
-
-::: block
-*A Quick Dive into NoSQL* {style=background:red;width:500px}
-:::
+# A quick dive into NoSQL
 
 ---
 
-#### What are we going to cover?
+## What are we going to cover?
 
 - What does NoSQL mean?
 
@@ -20,15 +12,11 @@ title: "A quick dive into NoSQL"
 
 - And the others
 
-- And one database to rule them all 
-
-<aside class="notes">
-<i>I was surprised by NoSQL and wondered why we couldn't use standard relational engines for everything.</i>
-</aside>
+- And one database to rule them all
 
 ---
 
-#### Where are we going?
+## Where are we going?
 
 - Some theory
 
@@ -38,7 +26,7 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### What does NoSQL mean?
+## What does NoSQL mean?
 
 - SQL referring to the implementation model
 
@@ -46,15 +34,15 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### Really, what does NoSQL mean?
+## Really, what does NoSQL mean?
 
--	[The usage of “NoSQL” that we recognize today traces back to a meetup on June 11, 2009 in San Francisco organized by Johan Oskarsson, a software developer based in London.](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch01.html#ch01lev1sec5) 
+- [The usage of “NoSQL” that we recognize today traces back to a meetup on June 11, 2009 in San Francisco organized by Johan Oskarsson, a software developer based in London.](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch01.html#ch01lev1sec5)
 
--	Asked on Cassandra IRC – Eric Evans (not that one)
+- Asked on Cassandra IRC – Eric Evans (not that one)
 
 ---
 
-#### What makes up a SQL database?
+## What makes up a SQL database?
 
 - Base this on Sql Server
 
@@ -69,42 +57,42 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### [See this book](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/)
+## [See this book](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/)
 
 ![](images/prosqlserverinternals.jpg)
 
 ---
 
-#### [8KB pages](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig6)
+## [8KB pages](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig6)
 
 ![](images/page.png)
 
 ---
 
-#### [Row encoding](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig10)
+## [Row encoding](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig10)
 
 ![](images/pagedata.png)
 
 ---
-#### [one special index that controls how the data is laid out](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_2_Chapter.html#Fig12)
+## [one special index that controls how the data is laid out](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_2_Chapter.html#Fig12)
 
 ![](images/indexseek.png)
 
 ---
 
-#### [Using the buffer pool](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig17) 
+## [Using the buffer pool](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig17) 
 
 ![](images/bufferpool1.png)
 
 ---
 
-#### [Using the buffer pool for a modification](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig18) 
+## [Using the buffer pool for a modification](https://learning.oreilly.com/library/view/pro-sql-server/9781484219645/A313962_2_En_1_Chapter.html#Fig18) 
 
 ![](images/bufferpool2.png)
 
 ---
 
-#### Extended over time
+## Extended over time
 
 - Column stores (emphasis on read)
 
@@ -118,7 +106,7 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### Relational leads to impedance mismatch
+## Relational leads to impedance mismatch
 
 - For data warehouses like [Azure Synapse Analytics](https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)
   - star schemas so no foreign keys
@@ -132,7 +120,7 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### Amplification
+## Amplification
 
 - When we do a read, do we just get the data we want
 
@@ -142,13 +130,13 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### [The RUM conjecture](https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf)
+## [The RUM conjecture](https://stratos.seas.harvard.edu/files/stratos/files/rum.pdf)
 
 ![](images/rum.png)
 
 ---
 
-#### Clustering for scalability
+## Clustering for scalability
 
 - Read replicas, but typically one leader node 
   - ie leader-followers
@@ -164,7 +152,7 @@ title: "A quick dive into NoSQL"
 
 ---
 
-#### Sharding Issues
+## Sharding Issues
 
 -	Application complexity.
 
@@ -183,7 +171,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### Sharding has it's own theory
+## Sharding has it's own theory
 
 - Facebook TAO
 
@@ -195,7 +183,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### [The CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem)
+## [The CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 
 ![](images/cap.png)
 
@@ -203,13 +191,13 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### [CAP classification](https://bikas-katwal.medium.com/mongodb-vs-cassandra-vs-rdbms-where-do-they-stand-in-the-cap-theorem-1bae779a7a15)
+## [CAP classification](https://bikas-katwal.medium.com/mongodb-vs-cassandra-vs-rdbms-where-do-they-stand-in-the-cap-theorem-1bae779a7a15)
 
 ![](images/capclassification.png)
 
 ---
 
-#### Beware
+## Beware
 
 - [The CAP theorem 12 years later](https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/)
 
@@ -224,7 +212,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### And ignore the ACID BASE 
+## And ignore the ACID BASE 
 
 - [ACID](https://en.wikipedia.org/wiki/ACID)
 - [BASE](https://en.wikipedia.org/wiki/Eventual_consistency)
@@ -232,31 +220,31 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### [Variable consistency levels](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec5)
+## [Variable consistency levels](https://learning.oreilly.com/library/view/next-generation-databases/9781484213292/9781484213308_Ch09.xhtml#Sec5)
 
 ![](images/consistency.png)
 
 ---
 
-#### People have extended relational clustering
+## People have extended relational clustering
 
 - [Oracle’s Real Application Clusters (RAC)](https://www.oracle.com/uk/database/real-application-clusters/) is the most significant example of a transparently scalable, ACID compliant, relational cluster.
 
 ---
 
-#### And note that different NoSQL offer different things
+## And note that different NoSQL offer different things
 
 - [MongoDB -> Cassandra -> ScyllaDB](https://twitter.com/alexxubyte/status/1670475891061948416?s=20)
 
 ---
 
-#### Before the NoSQL 
+## Before the NoSQL 
 
 - File system (Map-Reduce)
 
 ---
 
-#### The NoSQL Alternatives
+## The NoSQL Alternatives
 
 - Key-Value - Redis/Memcached/etcd (etc distributed)
 
@@ -268,7 +256,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### And also
+## And also
 
 - NewSQL - Spanner
 
@@ -278,7 +266,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### File system
+## File system
 
 - The original system for processing lots of big data. 
 
@@ -292,7 +280,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### Example of map-reduce
+## Example of map-reduce
 
 ![](images/map-reduce1.png)
 
@@ -306,13 +294,13 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### [Map Reduce Design Patterns](https://www.amazon.co.uk/MapReduce-Design-Patterns-Effective-Algorithms/dp/1449327176)
+## [Map Reduce Design Patterns](https://www.amazon.co.uk/MapReduce-Design-Patterns-Effective-Algorithms/dp/1449327176)
 
 ![](images/mapreducedesignpatterns.jpg)
 
 ---
 
-#### [KV and Document DBs are aggregate-oriented](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02lev1sec2)
+## [KV and Document DBs are aggregate-oriented](https://learning.oreilly.com/library/view/nosql-distilled-a/9780133036138/ch02.html#ch02lev1sec2)
 
 - In a KV store, the aggregates are opaque
 
@@ -392,7 +380,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### Key Value stores
+## Key Value stores
 
 - Good for write heavy workloads
 
@@ -404,7 +392,7 @@ Load balancing across shards becomes extremely problematic.
 
 ---
 
-#### Redis
+## Redis
 
 <pre>
 docker run --name my-redis -p 6379:6379 -d redis
@@ -426,7 +414,7 @@ redis-cli
 
 ---
 
-#### Redis example
+## Redis example
 
 <pre>
 127.0.0.1:6379> set name Monica
@@ -450,7 +438,7 @@ OK
 
 ---
 
-#### Some quick points
+## Some quick points
 
 - Single-threaded
 - Emphasise in-memory for speed
@@ -458,7 +446,7 @@ OK
 
 ---
 
-#### [MongoDB](https://learning.oreilly.com/library/view/mongodb-the-definitive/9781491954454/ch01.html)
+## [MongoDB](https://learning.oreilly.com/library/view/mongodb-the-definitive/9781491954454/ch01.html)
 
 MongoDB is a document-oriented database, not a relational one. The primary reason for moving away from the relational model is to make scaling out easier, but there are some other advantages as well.
 
@@ -466,7 +454,7 @@ A document-oriented database replaces the concept of a “row” with a more fle
 
 ---
 
-#### MongoDB
+## MongoDB
 
 <pre>
 docker run -d --name test-mongo mongo:latest
@@ -476,7 +464,7 @@ mongosh
 
 ---
 
-#### MongoDB example
+## MongoDB example
 
 <pre>
 test> show databases
@@ -505,14 +493,14 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### Note we are talking full documents here
+## Note we are talking full documents here
 
 - arbitarily nested JSON stored in binary form, BSON
 
 
 ---
 
-#### Indexing and sharding
+## Indexing and sharding
 
 - You can define indexes
 
@@ -536,13 +524,13 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### The 50 words
+## The 50 words
 
 [Apache Cassandra is an open source, distributed, decentralized, elastically scalable, highly available, fault-tolerant, tuneably consistent, row-oriented database. Cassandra bases its distribution design on Amazon’s Dynamo and its data model on Google’s Bigtable, with a query language similar to SQL. Created at Facebook, it now powers cloud-scale applications across many industries.](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch02.html#cassandra_in_50_words_or_less)
 
 ---
 
-#### Cassandra
+## Cassandra
 
 - Written by Facebook to handle write heavy
 
@@ -553,7 +541,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### [Some key points](https://cassandra.apache.org/doc/latest/cassandra/data_modeling/data_modeling_rdbms.html)
+## [Some key points](https://cassandra.apache.org/doc/latest/cassandra/data_modeling/data_modeling_rdbms.html)
 
 - No joins
 
@@ -569,7 +557,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### [That sounds a lot like MongoDB](https://www.mongodb.com/compare/cassandra-vs-mongodb)
+## [That sounds a lot like MongoDB](https://www.mongodb.com/compare/cassandra-vs-mongodb)
 
 | Cassandra      | MongoDB |
 | ----------- | ----------- |
@@ -582,7 +570,7 @@ test> db.user.find({ age: { "$gt": 200 }})
 
 ---
 
-#### Cassandra docker
+## Cassandra docker
 
 <pre>
 docker pull cassandra
@@ -593,7 +581,7 @@ cqlsh
 
 ---
 
-#### Cassandra example
+## Cassandra example
 
 <pre>
 root@94efcf73333f:/# cqlsh
@@ -623,7 +611,7 @@ cqlsh>
 
 ---
 
-#### Quorum overlap 
+## Quorum overlap 
 
 ![](images/quorum.png)
 
@@ -631,7 +619,7 @@ cqlsh>
 
 ---
 
-#### Choice of response set size
+## Choice of response set size
 
 - ONE
 
@@ -647,7 +635,7 @@ cqlsh>
 
 ---
 
-#### Read repair and hinted handoff
+## Read repair and hinted handoff
 
 - [Hinted handoff](https://learning.oreilly.com/library/view/cassandra-the-definitive/9781098115159/ch06.html#hinted_handoff) 
   - store message for other nodes
@@ -660,7 +648,7 @@ cqlsh>
 
 ---
 
-#### Graph databases
+## Graph databases
 
 - Lots of things are better represented as a graph
 
@@ -723,7 +711,7 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 ---
 
-#### Time series Databases
+## Time series Databases
 
 - [TimescaleDB](https://docs.timescale.com/getting-started/latest/)
 
@@ -735,13 +723,13 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 ---
 
-#### But you don't have to use a different storage engine
+## But you don't have to use a different storage engine
 
 - Azure Cosmos DB supports multiple models by converting to Document DB format
 
 ---
 
-#### Azure Cosmos DB
+## Azure Cosmos DB
 
 - [Multi-model](https://stackoverflow.com/questions/44304947/what-does-it-mean-that-azure-cosmos-db-is-multi-model)
   - native Document DB
@@ -755,7 +743,7 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 ---
 
-#### And there are more controls
+## And there are more controls
 
 - [under the hood](https://rajneeshprakash.medium.com/cosmos-db-under-the-hood-2d4ce920bb7e)
 - [automatic indexing](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
@@ -763,7 +751,7 @@ ready to start consuming query after 144 ms, results consumed after another 4 ms
 
 ---
 
-#### Summary
+## Summary
 
 - There are many types of data storage that may more cleanly map your data model (avoiding ORM hell)
 

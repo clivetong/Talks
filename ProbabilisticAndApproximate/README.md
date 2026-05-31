@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "That might be the right answer"
----
-
-::: block
-*That might be the right answer* {style=background:red;width:500px}
-::: 
+# That might be the right answer
 
 ---
 
-### What are we going to talk about?
+## What are we going to talk about?
 
 - Two kinds of probabilistic data structures
    - Using randomness to make choices in algorithms
@@ -18,7 +10,7 @@ title: "That might be the right answer"
 
 ---
 
-### Why would you do that?
+## Why would you do that?
 
 - Save resources for order of magnitude estimates (Morris)
 - Some algorithms are too complicated to implement, and it's easier to get it right most of the time (Skip Lists)
@@ -28,14 +20,14 @@ title: "That might be the right answer"
 
 ---
 
-### Big data processing
+## Big data processing
 
 - Lambda architectures
 - See [Highly Scalable blog post](https://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
 
 ---
 
-### Randomization for the good
+## Randomization for the good
 
 - Deterministic hashing can lead to a DOS
   - Add a random number, chosen per run, into the hash algorithm
@@ -43,7 +35,7 @@ title: "That might be the right answer"
 
 ---
 
-### Order of Magnitude Estimators
+## Order of Magnitude Estimators
 
 - [Morris](https://en.wikipedia.org/wiki/Approximate_counting_algorithm)
 - Don't increment count every time, but instead count to the nearest power of two
@@ -52,11 +44,11 @@ title: "That might be the right answer"
 
 ---
 
-### See C# implementation
+## See C# implementation
 
 ---
 
-### [Skip Lists](https://en.wikipedia.org/wiki/Skip_list)
+## [Skip Lists](https://en.wikipedia.org/wiki/Skip_list)
 
 - Remember those 2-3 trees or red-black or AVL trees from University
 - Really hard/fiddly to implement the rotate operation
@@ -75,7 +67,7 @@ title: "That might be the right answer"
 
 ---
 
-### And now for something different
+## And now for something different
 
 - Two algorithms with uncertainty
 
@@ -87,7 +79,7 @@ title: "That might be the right answer"
 
 ---
 
-### [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter)
+## [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter)
 
 ![](images/bloom.png)
 
@@ -96,7 +88,7 @@ title: "That might be the right answer"
 
 ---
 
-### [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch)
+## [Count-min sketch](https://en.wikipedia.org/wiki/Count%E2%80%93min_sketch)
 
 - Use integer values
 - Count by incrementing all the locations
@@ -104,7 +96,7 @@ title: "That might be the right answer"
 
 ---
 
-### [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
+## [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog)
 
 - Based on the original [Flajolet-Martin algorithm](https://en.wikipedia.org/wiki/Flajolet%E2%80%93Martin_algorithm)
 - Estimate distinct elements in a multi-set
@@ -112,11 +104,11 @@ title: "That might be the right answer"
 
 ---
 
-### See C# implementation
+## See C# implementation
 
 ---
 
-### And I think it's more than
+## And I think it's more than
 
 The key advantage of probabilistic data structures is their ability to handle large amounts of data in real-time, by providing approximate answers to queries with limited space and computation
 
@@ -130,7 +122,7 @@ The key advantage of probabilistic data structures is their ability to handle la
 
 ---
 
-### And that's it
+## And that's it
 
 - Sometimes the right answer isn't 100% necessary
 - Sometimes that means something is easier to implement or is more parallel friendly

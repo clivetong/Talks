@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "Some talks from .NET Conf 2024 (November 12-14)"
----
-
-::: block
-*.NET Conf 2024 Recap* {style=background:red;width:500px}
-:::
+# Some talks from .NET Conf 2024 (November 12-14)
 
 ---
 
-### What's are we covering?
+## What's are we covering?
 
 We're going to look at some of the runtime, libraries and languages talks from .NET Conf 2024, and talk through some of my highlights.
 
@@ -25,7 +17,7 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
-### TL;DR: More emphasis on performance
+## TL;DR: More emphasis on performance
 
 - DPGO gets better
 - JIT code quality better
@@ -34,15 +26,15 @@ These are the talks from the [playlist](https://www.youtube.com/playlist?list=PL
 
 ---
 
-### TALK: What's new in the .NET Runtime, Libraries, & SDK
+## TALK: What's new in the .NET Runtime, Libraries, & SDK
 
 ---
 
-### Runtime
+## Runtime
 
 ---
 
-### Server GC less aggressive in taking memory
+## Server GC less aggressive in taking memory
 
 In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the opposite.
 
@@ -63,7 +55,7 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 ---
 
-### RyuJIT and Profile Guided Optimization
+## RyuJIT and Profile Guided Optimization
 
 - DPGO ("The .NET re-compiler") 
 - tiers to collect stats and then optimize
@@ -72,7 +64,7 @@ In practical terms, .NET 8 has a bias to starting off big and .NET 9 is the oppo
 
 ---
 
-### The Host ("myapp.exe")
+## The Host ("myapp.exe")
 
 Enabled control-flow enforcement technology by default on windows.
 
@@ -81,7 +73,7 @@ Enabled control-flow enforcement technology by default on windows.
 
 ---
 
-### .NET Install Search Behaviour
+## .NET Install Search Behaviour
 
 Previously deploy self-contained apps, but now you can have multiple apps sharing a framework install
 
@@ -91,7 +83,7 @@ Previously deploy self-contained apps, but now you can have multiple apps sharin
 
 ---
 
-### Libraries
+## Libraries
 
 ---
 
@@ -101,7 +93,7 @@ Previously deploy self-contained apps, but now you can have multiple apps sharin
 
 ---
 
-### Alternate Lookup
+## Alternate Lookup
 
 ![Get the AlternateLookup](images/alternate.png)
 
@@ -115,7 +107,7 @@ Previously deploy self-contained apps, but now you can have multiple apps sharin
 
 ---
 
-### Debug.Assert tells you what failed
+## Debug.Assert tells you what failed
 
 Using a combination of CallerArgumentExpression and OverloadResolutionPriority
 
@@ -129,7 +121,7 @@ Using a combination of CallerArgumentExpression and OverloadResolutionPriority
 
 ---
 
-### Linq Index expression for ForEach
+## Linq Index expression for ForEach
 
 ```CSharp
 foreach(
@@ -138,13 +130,13 @@ foreach(
 
 ---
 
-### Iterate through Tasks as they finish
+## Iterate through Tasks as they finish
 
 ![async emuneration of tasks as they finish](images/wheneach.png)
 
 ---
 
-### `JSONSchemaExporter` from C# to JSON Schema
+## `JSONSchemaExporter` from C# to JSON Schema
 
 - TransformSchemaNode to adjust types.
 - No runtime support to check the compliance yet
@@ -155,17 +147,17 @@ foreach(
 
 ---
 
-### BinaryFormatter is gone!
+## BinaryFormatter is gone!
 
 An Unsupported Compat package to bring back the functionaliy
 
 ---
 
-### SDK
+## SDK
 
 ---
 
-### Package vulnerability auditing now does transitive dependencies
+## Package vulnerability auditing now does transitive dependencies
 
 - So expect more warnings when restoring
 
@@ -173,13 +165,13 @@ An Unsupported Compat package to bring back the functionaliy
 
 ---
 
-### Terminal Logger has pretty colours and pretty summaries
+## Terminal Logger has pretty colours and pretty summaries
 
 What can I say.
 
 ---
 
-### Roll forward tools to new versions of the framework
+## Roll forward tools to new versions of the framework
 
 Tools are a special kind of NuGet package and are currently bound to a .NET version
 
@@ -193,13 +185,13 @@ dotnet tool run --allow-roll-forward ...
 
 ---
 
-### dotnet publish can now publish to insecure (http) registries
+## dotnet publish can now publish to insecure (http) registries
 
 ![Insecure registry use](images/insecure.png)
 
 ---
 
-### Talk: Performance Improvements in .NET 9
+## Talk: Performance Improvements in .NET 9
 
 ---
 
@@ -207,7 +199,7 @@ dotnet tool run --allow-roll-forward ...
 
 ---
 
-### Initial focus on GetAlternateLookup
+## Initial focus on GetAlternateLookup
 
 Required changes to language, libraries and runtime
 
@@ -215,7 +207,7 @@ Required changes to language, libraries and runtime
 
 ---
 
-### Demo
+## Demo
 
 Parse the words of Pride and Prejudice and calculate the words and their counts.
 
@@ -231,7 +223,7 @@ Use a generated RegExp parser to parse the words
 
 ---
 
-### But this is allocating, so use Spans
+## But this is allocating, so use Spans
 
 "The" occurs 4000 times, but we need to only generate a string for it once
 
@@ -253,7 +245,7 @@ Same speed but no allocation
 
 ---
 
-### The important methods
+## The important methods
 
 - Equals
 - GetHashCode
@@ -261,7 +253,7 @@ Same speed but no allocation
 
 ---
 
-### You've used String.Split but it is allocation heavy
+## You've used String.Split but it is allocation heavy
 
 ---
 
@@ -289,14 +281,14 @@ That was memory safe but beware dictionary mutation where the ref might end up p
 
 ---
 
-### Toub's two favourite .NET 8 features
+## Toub's two favourite .NET 8 features
 
 - Turning on DPGO
 - The SearchValues type
 
 ---
 
-### SearchValues
+## SearchValues
 
 - this lets the system precompute for the type
 - in .NET 8 for bytes and char (HTTP header parsing)
@@ -312,7 +304,7 @@ That was memory safe but beware dictionary mutation where the ref might end up p
 
 ---
 
-### Regexps can use this functionality
+## Regexps can use this functionality
 
 ---
 
@@ -324,7 +316,7 @@ That was memory safe but beware dictionary mutation where the ref might end up p
 
 ---
 
-### `TensorPrimitives.<T>`
+## `TensorPrimitives.<T>`
 
 - Full set of math operations
 
@@ -341,7 +333,7 @@ Shows Hamming distance where hand rolled loop is 80ms and vector extensions usin
 
 ---
 
-### Talk: C#'s Best features you might not be using
+## Talk: C#'s Best features you might not be using
 
 ---
 
@@ -358,7 +350,7 @@ Some things for the last few releases
 
 ---
 
-### Pattern Matching
+## Pattern Matching
 
 - express your intent
 - switch expressions give warning if all values not matched. Also if a pattern is redundant.
@@ -373,14 +365,14 @@ Did you notice the bug in the second method - subsumed warning soon
 
 ---
 
-### File scoped namespaces
+## File scoped namespaces
 
 - remove a complete layer of indent
 - turn off whitespace diff when comparing
 
 ---
 
-### init and required
+## init and required
 
 Makes the intent clearer, and avoids the nullable warning
 
@@ -390,7 +382,7 @@ Makes the intent clearer, and avoids the nullable warning
 
 ---
 
-### Strings
+## Strings
 
 - quoted
 - verbatim
@@ -420,7 +412,7 @@ Makes the intent clearer, and avoids the nullable warning
 
 ---
 
-### Records
+## Records
 
 A single approach for data oriented types
 
@@ -433,19 +425,19 @@ A single approach for data oriented types
 
 ---
 
-### [See a Sharplab decompilation](https://sharplab.io/#v2:D4Jwpgxg9iAmAEBhArgZwC5QLZhACgAEBGABngDsBDHASgG4g===)
+## [See a Sharplab decompilation](https://sharplab.io/#v2:D4Jwpgxg9iAmAEBhArgZwC5QLZhACgAEBGABngDsBDHASgG4g===)
 
 And add a wither.
 
 ---
 
-### Primary contructors
+## Primary contructors
 
 Parameters converted to public fields
 
 ---
 
-### Collection Expressions
+## Collection Expressions
 
 ![before collection](images/before-collection.png)
 
@@ -455,7 +447,7 @@ Parameters converted to public fields
 
 ---
 
-### Talk: New Features in the .NET 9 JIT
+## Talk: New Features in the .NET 9 JIT
 
 ---
 
@@ -467,13 +459,13 @@ Parameters converted to public fields
 
 ---
 
-### Object stack allocation
+## Object stack allocation
 
 If escape analysis proves that the lifetime is constrained by the lifetime of the stack frame, then allocate on the stack
 
 ---
 
-### Which leads to
+## Which leads to
 
 - possible field promotion
 - aggressive optimization
@@ -482,7 +474,7 @@ If escape analysis proves that the lifetime is constrained by the lifetime of th
 
 ---
 
-### Cobalt-100 on Azure
+## Cobalt-100 on Azure
 
 - See the [article](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/cobalt-overview)
 
@@ -496,13 +488,13 @@ If escape analysis proves that the lifetime is constrained by the lifetime of th
 
 ---
 
-### Jitted code
+## Jitted code
 
 Fewer instructions, and use of fewer registers
 
 ---
 
-### DPGO
+## DPGO
 
 - .NET 8 DPGO was about virtual calls and interface calls
 
@@ -511,7 +503,7 @@ Fewer instructions, and use of fewer registers
 
 ---
 
-### Inlining
+## Inlining
 
 Inlining for shared generics
 
@@ -521,7 +513,7 @@ Inlining for shared generics
 
 ---
 
-### Summary
+## Summary
 
 - ~1100 changes to the codegen between .NET 8 and .NET 9
 

@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "Some talks from .NET Conf 2025 (November 11-13)"
----
-
-::: block
-*.NET Conf 2025 Recap* {style=background:red;width:500px}
-:::
+# Some talks from .NET Conf 2025 (November 11-13)
 
 ---
 
-### What are we covering?
+## What are we covering?
 
 We're going to look at three sessions from the recent .NET Conf 2025 - one on performance, one on Aspire (not ~~.NET~~ Aspire) and one on security - and point out some of the things I thought were interesting.
 
@@ -141,7 +133,7 @@ $env:DOTNET_JitDisasm="<<Main>$>g__Test3|0_2"
 
 ---
 
-```
+```Assembly
 ; Assembly listing for method Program:<<Main>$>g__Test3|0_2(System.Collections.Generic.IEnumerable`1[int]):int (Tier1)
 ; Emitting BLENDED_CODE for generic X64 + VEX + EVEX on Windows
 ; Tier1 code

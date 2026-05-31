@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "Some notes on memory models"
----
-
-::: block
-*The C# Memory Model* {style=background:red;width:500px}
-:::
+# Some notes on memory models
 
 ---
 
-### Assembled material
+## Assembled material
 
 - Some slides from [W08-a: SMP, Multicore, Memory Ordering and Locking](https://www.youtube.com/watch?v=luyj4biSAeM)
 - [Memory Barriers: a Hardware View for Software Hackers](http://www.rdrop.com/~paulmck/scalability/paper/whymb.2010.06.07c.pdf)
@@ -21,7 +13,7 @@ title: "Some notes on memory models"
 
 ---
 
-### Assembled material (cont)
+## Assembled material (cont)
 
 - [The best book on this topic, for Rust](https://marabos.nl/atomics/memory-ordering.html)
 - [The OCaml memory model](https://ocaml.org/manual/5.3/memorymodel.html#sec92)
@@ -30,7 +22,7 @@ title: "Some notes on memory models"
 
 ---
 
-### What are we covering?
+## What are we covering?
 
 How can you be sure of the observed behaviour of your multi-threaded code (by another thread)
 
@@ -38,13 +30,13 @@ How can you be sure of the observed behaviour of your multi-threaded code (by an
 
 ---
 
-### What is a memory model?
+## What is a memory model?
 
 A contract between the language platform and the writer of code that tells them what guarantees they have
 
 ---
 
-### Why is it interesting (to me)?
+## Why is it interesting (to me)?
 
 It lies at the intersection of hardware and software, requiring guarantees from:
 
@@ -72,7 +64,7 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### [Why doesn't the hardware just get things right?](https://www.youtube.com/watch?v=luyj4biSAeM)
+## [Why doesn't the hardware just get things right?](https://www.youtube.com/watch?v=luyj4biSAeM)
 
 - So Intel does go some way to doing this, but it costs space on the die and performance
 
@@ -80,7 +72,7 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### So what's the state of play?
+## So what's the state of play?
 
 - Newer architectures optimize for single threaded code where the CPU guarantees that you observe things in program order
 
@@ -92,25 +84,25 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### Symmetric Multiprocessing
+## Symmetric Multiprocessing
 
 ![SMP](images/types-of-multiprocessors.png)
 
 ---
 
-### Cache coherency
+## Cache coherency
 
 ![Coherence](images/coherency.png)
 
 ---
 
-### Sequential consistency
+## Sequential consistency
 
 [It is the property that "... the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program."](https://en.wikipedia.org/wiki/Sequential_consistency)
 
 ---
 
-### Write-through caches
+## Write-through caches
 
 ![Write-through](images/write-through.png)
 
@@ -120,13 +112,13 @@ It lies at the intersection of hardware and software, requiring guarantees from:
 
 ---
 
-### MESI
+## MESI
 
 ![MESI](images/mesi.png)
 
 ---
 
-### I find it fascinating that we write
+## I find it fascinating that we write
 
 - message passing systems
 - on top of a procedural language
@@ -158,7 +150,7 @@ And we'd like the processor running sequential code to go faster.
 
 ---
 
-### The first of the two classic examples
+## The first of the two classic examples
 
 ```csharp
 # We've taken the lock exclusively setting mutex to 1
@@ -176,7 +168,7 @@ We want other cpus to see the counter increment before the lock is released.
 
 ---
 
-### Strong ordering
+## Strong ordering
 
 Assume X = Y = 0
 
@@ -204,7 +196,7 @@ load r2, X
 
 ---
 
-### Total Store Order (x86)
+## Total Store Order (x86)
 
 Guarantee to see the updates in FIFO order, so the lock example is fine.
 
@@ -216,13 +208,13 @@ But the order example fails with X = Y = 0
 
 ---
 
-### Not always single instructions
+## Not always single instructions
 
 ![LL/SC](images/llsc.png)
 
 ---
 
-### Partial Store Order
+## Partial Store Order
 
 ![PSO](images/pso.png)
 
@@ -239,10 +231,10 @@ ie stores get overwritten or elided
 ---
 
 Not just data, can be instructions and TLB too
- 
+
 ---
 
-### So this is all about ARM?
+## So this is all about ARM?
 
 - Maybe.
 
@@ -259,7 +251,7 @@ Not just data, can be instructions and TLB too
 
 ---
 
-### [ECMA 335 vs. .NET memory models](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#ecma-335-vs-net-memory-models)
+## [ECMA 335 vs. .NET memory models](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#ecma-335-vs-net-memory-models)
 
 ECMA 335 standard defines a very weak memory model. After two decades the desire to have a flexible model did not result in considerable benefits due to hardware being more strict. On the other hand programming against ECMA model requires extra complexity to handle scenarios that are hard to comprehend and not possible to test.
 
@@ -269,7 +261,7 @@ In the course of multiple releases .NET runtime implementations settled around a
 
 ---
 
-### What do the following programs do?
+## What do the following programs do?
 
 ---
 
@@ -329,7 +321,7 @@ void ThreadFunc3()
 
 ---
 
-### ... accessing members of the local object is safe because
+## ... accessing members of the local object is safe because
 
 - reads cannot be introduced, thus localObj cannot be re-read and become null
 - publishing assignment to obj will not become visible earlier than write operations in the MyClass constructor
@@ -337,17 +329,17 @@ void ThreadFunc3()
 
 ---
 
-### Key remarks from the new memory model
+## Key remarks from the new memory model
 
 ---
 
-### [Atomic memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#atomic-memory-accesses)
+## [Atomic memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#atomic-memory-accesses)
 
 - aligned memory reads are atomic as are `System.Threading.Interlocked` methods and `System.Threading.Volatile` methods
 
 ---
 
-### [Side-effects and optimizations of memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#side-effects-and-optimizations-of-memory-accesses)
+## [Side-effects and optimizations of memory accesses](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#side-effects-and-optimizations-of-memory-accesses)
 
 - Speculative writes are not allowed.
 - Reads cannot be introduced.
@@ -357,13 +349,13 @@ void ThreadFunc3()
 
 ---
 
-### [Cross-thread access to local variables](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#cross-thread-access-to-local-variables)
+## [Cross-thread access to local variables](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#cross-thread-access-to-local-variables)
 
 - There is no type-safe mechanism for accessing locations on one thread’s stack from another thread.
 
 ---
 
-### [Order of memory operations](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#order-of-memory-operations)
+## [Order of memory operations](https://github.com/dotnet/runtime/blob/main/docs/design/specs/Memory-model.md#order-of-memory-operations)
 
 - The effects of ordinary reads and writes can be reordered as long as that preserves single-thread consistency. Such reordering can happen both due to code generation strategy of the compiler or due to weak memory ordering in the hardware.
 
@@ -382,7 +374,7 @@ Operations with full-fence semantics: `System.Thread.MemoryBarrier` and `System.
 
 ---
 
-### Do I need to care?
+## Do I need to care?
 
 - Probably not - you should be using higher level constructs rather than caring about the observability of field writes from other threads
 - lock-free and synchronization free is probably not buying you anything in terms of perf
@@ -398,7 +390,7 @@ Operations with full-fence semantics: `System.Thread.MemoryBarrier` and `System.
 
 ---
 
-### Quick remarks
+## Quick remarks
 
 - Back in the day, one expressed locks in shared memory concurrency using [Dekker's Algorithm](https://en.wikipedia.org/wiki/Dekker%27s_algorithm) and [Peterson's algorithm](https://en.wikipedia.org/wiki/Peterson%27s_algorithm)
 - sequential consistency meant that you could handle concurrency just in the language

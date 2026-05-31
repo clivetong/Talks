@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "Higher Kinded C#"
----
-
-::: block
-*Higher Kinds* {style=background:red;width:500px}
-:::
+# Higher Kinded C#
 
 ---
 
-### What's the talk about?
+## What's the talk about?
 
 Category theory is a beautiful set of abstractions and associated theory that cover lots of areas of mathematics and computer science.
 Haskell's types were heavily influenced by these ideas.
@@ -22,7 +14,7 @@ Based on [some posts by Paul Louth](https://paullouth.com/higher-kinds-in-c-with
 
 ---
 
-### But really
+## But really
 
 There's a cool encoding of higher kinds into C# (with low overhead, and with a syntax that isn't too bad).
 
@@ -30,7 +22,7 @@ There's a cool encoding of higher kinds into C# (with low overhead, and with a s
 
 ---
 
-### Quick disclaimer
+## Quick disclaimer
 
 Haskell is a great language, but I think they overplay the "implements mathematical theories". To me, Haskell has based its libraries on some of the types of category theory, but more as a pattern for its abstract datatypes.
 
@@ -42,7 +34,7 @@ Haskell is a great language, but I think they overplay the "implements mathemati
 
 ---
 
-### We'll look at Functors (disguised as Mappables)
+## We'll look at Functors (disguised as Mappables)
 
 See section 2 of [these notes](https://pages.cs.wisc.edu/~jcyphert/categoryTheoryNotes/basics/2_Functors.pdf)
 
@@ -56,13 +48,13 @@ See section 2 of [these notes](https://pages.cs.wisc.edu/~jcyphert/categoryTheor
 
 ---
 
-### Why the rewrite?
+## Why the rewrite?
 
 [There is currently no way to abstract over static members and write generalized code that applies across types that define those static members. This is particularly problematic for member kinds that only exist in a static form, notably operators.](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/static-abstracts-in-interfaces)
 
 ---
 
-### And the higher kinds?
+## And the higher kinds?
 
 In the C# `Type` everything is at a single level.
 
@@ -78,7 +70,7 @@ But we can't track them in the type system
 
 ---
 
-### So we'll need to use an encoding
+## So we'll need to use an encoding
 
 - need the encoding to be low overhead at runtime
 - need to compilation errors to be fairly easy to explain
@@ -86,7 +78,7 @@ But we can't track them in the type system
 
 ---
 
-### In more detail (but we'll look at the code)
+## In more detail (but we'll look at the code)
 
 ---
 
@@ -129,7 +121,7 @@ public class List : Mappable<List>
 
 ---
 
-### The *Singleton* means we can jump between C# types
+## The *Singleton* means we can jump between C# types
 
 ```csharp
 public static class ListExtensions
@@ -143,6 +135,6 @@ public static class ListExtensions
 
 ---
 
-### But we already have collections and LINQ
+## But we already have collections and LINQ
 
 Sort of - that's really because everything works in terms of `IEnumerable<T>`

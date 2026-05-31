@@ -1,7 +1,5 @@
----
-transition: "slide"
-slideNumber: false
-title: ".NET 8 and Kiota"
+# .NET 8 and Kiota
+
 ---
 
 ::: block
@@ -10,14 +8,14 @@ title: ".NET 8 and Kiota"
 
 ---
 
-### [What are the changes in .NET 8?](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8)
+## [What are the changes in .NET 8?](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8)
 
 
 ![This book](images/net8.png)
 
 ---
 
-### My takeaways
+## My takeaways
 
 - Some nice C# 12 features 
   - collection expressions, primary constructors
@@ -33,7 +31,7 @@ title: ".NET 8 and Kiota"
 
 ---
 
-### My takeaways (2)
+## My takeaways (2)
 
 - Aspire
   - Production ready observable distributed .NET applications
@@ -43,7 +41,7 @@ title: ".NET 8 and Kiota"
 
 ---
 
-### [Kiota](https://github.com/microsoft/kiota)
+## [Kiota](https://github.com/microsoft/kiota)
 
 - [See this quickstart](https://learn.microsoft.com/en-us/openapi/kiota/quickstarts/dotnet)
 
@@ -76,7 +74,7 @@ title: ".NET 8 and Kiota"
 
 ---
 
-### Summarise!
+## Summarise!
 
 - VS Code extension for discovery
 - Partial generation from OpenAPI definition
@@ -84,7 +82,7 @@ title: ".NET 8 and Kiota"
 
 ---
 
-### Let's see it
+## Let's see it
 
 ```
 dotnet tool install --global Microsoft.OpenApi.Kiota
@@ -102,5 +100,4 @@ dotnet run
 
 ---
 
-### And show the VSCode extension
-
+## And show the VSCode extension

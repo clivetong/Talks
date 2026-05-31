@@ -1,37 +1,24 @@
----
-transition: "slide"
-slideNumber: false
-title: "What! Quantum Computers Can't Do That?"
----
-
-::: block
-*What! Quantum Computers Can't Do That?* {style=background:red;width:500px}
-::: 
+# What! Quantum Computers Can't Do That?
 
 ---
 
-### Good books
+## Good books
 
 ![The book](images/quantum-computing.jpg)
 
-
 ---
 
-
-### Before we get going, what's a Qubit?
-
+## Before we get going, what's a Qubit?
 
 [The basic unit of quantum information](https://en.wikipedia.org/wiki/Qubit#:~:text=In%20quantum%20computing%2C%20a%20qubit,with%20a%20two%2Dstate%20device.)
 
 ![A qubit](images/qubit.png)
 
-
 [I prefer the state representation, but this is how they are related](https://qiskit.org/textbook/ch-states/representing-qubit-states.html#bloch-sphere)
-
 
 ---
 
-### Have a standard fixed design
+## Have a standard fixed design
 
 ![Qubit counts](images/qubits.jpg)
 
@@ -39,9 +26,7 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
-
-### Anything big
-
+## Anything big
 
 ![Qubit counts](images/errors.jpg)
 
@@ -49,33 +34,30 @@ title: "What! Quantum Computers Can't Do That?"
 
 ---
 
-
-### Don't just use the Qubit count
+## Don't just use the Qubit count
 
 - Estimate a million Qubits to do useful factorization
-   - physical v logical qubits
+  - physical v logical qubits
 - IBM have a notion of Quantum Volume that measures many features
   - including qubits, error correction
 
 ---
 
-
-### And some people believe you'll never be able to error correct enough
+## And some people believe you'll never be able to error correct enough
 
 - [Error correction schemes](https://en.wikipedia.org/wiki/Quantum_error_correction)
   - [And proofs they can't work](https://www.quantamagazine.org/gil-kalais-argument-against-quantum-computers-20180207/)
 
 ---
 
-### Sit on my desktop
+## Sit on my desktop
 
 - will be somewhere else in a special environment
   - but will need a standard computer to help with the computation
 
-
 ---
 
-### Allow you to write imperative programs
+## Allow you to write imperative programs
 
 - reversible computations until measurement time
   - so it helps if you've studied linear algebra
@@ -87,13 +69,11 @@ title: "What! Quantum Computers Can't Do That?"
 - use entanglement
 - phase kickback
 
-
 ---
 
+## Example program (Real Randomness)
 
-### Example program (Real Randomness)
-
-```
+```CSharp
 namespace Qrng {
     open Microsoft.Quantum.Convert;
     open Microsoft.Quantum.Math;
@@ -113,11 +93,9 @@ namespace Qrng {
 }
 ```
 
-
 ---
 
-
-### Allow you to definitely get the right answer 
+## Allow you to definitely get the right answer 
 
 - many algorithms are probabilistic
   - amplitude amplification ([Grover's algorithm](https://docs.microsoft.com/en-us/azure/quantum/tutorial-qdk-grovers-search?tabs=tabid-visualstudio))
@@ -125,18 +103,15 @@ namespace Qrng {
 
 ---
 
-
-
-### Out-perform a classical computer on small problems
+## Out-perform a classical computer on small problems
 
 - likely that quantum computers scale better in the size of the data
   - [Shor's algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm) O(log n)
   - [classical](https://en.wikipedia.org/wiki/Integer_factorization#Current_state_of_the_art)
 
-
 ---
 
-### Represent more data than a classical computer with that number of bits
+## Represent more data than a classical computer with that number of bits
 
 - it takes 2^n bits to simulate a Quantum computer with n Qubits 
    (because of superposition)
@@ -144,11 +119,10 @@ namespace Qrng {
 
 ---
 
-### Places to learn more
+## Places to learn more
 
- - [Qiskit](https://www.qiskit.org/)
-   - [The textbook](https://qiskit.org/textbook/ch-states/atoms-computation.html)
+- [Qiskit](https://www.qiskit.org/)
+  - [The textbook](https://qiskit.org/textbook/ch-states/atoms-computation.html)
 - [Microsoft Quantum](https://github.com/microsoft/Quantum/)
-
 
 And #eng-quantum

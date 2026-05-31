@@ -1,11 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "A quick introduction to Lean"
+# A quick introduction to Lean
 
 ---
 
-### [What's the talk about?](https://github.com/leanprover/lean4)
+## [What's the talk about?](https://github.com/leanprover/lean4)
 
 - Lean 4
   - a language and its runtime
@@ -13,7 +10,7 @@ title: "A quick introduction to Lean"
   
 ---
 
-### Augmented Mathematical Intelligence (AMI) at Microsoft
+## Augmented Mathematical Intelligence (AMI) at Microsoft
 
 - Mission
   - Empower mathematicians working on cutting edge mathematics
@@ -22,13 +19,13 @@ title: "A quick introduction to Lean"
 
 ---
 
-### [And it is working](https://mathstodon.xyz/@tao/111287749336059662)
+## [And it is working](https://mathstodon.xyz/@tao/111287749336059662)
 
 ![Terence Tao](images/tao.png)
 
 ---
 
-### [And the Liquid Tensor experiment](https://leanprover-community.github.io/blog/posts/lte-final/)
+## [And the Liquid Tensor experiment](https://leanprover-community.github.io/blog/posts/lte-final/)
 
 - Not a [prog rock band](https://en.wikipedia.org/wiki/Progressive_rock)
 - But some new advanced mathematics that the author wanted to check
@@ -36,7 +33,7 @@ title: "A quick introduction to Lean"
 
 ---
 
-### And utilizing undergraduates
+## And utilizing undergraduates
 
 - Professor Kevin Buzzard at Imperial
 - And his students
@@ -48,7 +45,7 @@ title: "A quick introduction to Lean"
 
 ---
 
-### What's new in Lean 4
+## What's new in Lean 4
 
 - Extensibility: parser, elaborator, compiler, tactics, formatter, decision procedures
 - Hygenic macro system
@@ -61,7 +58,7 @@ title: "A quick introduction to Lean"
 
 ---
 
-### Easy to use
+## Easy to use
 
 - Trivial to use via a VS Code extension
 - Installs everyting on first use
@@ -69,7 +66,7 @@ title: "A quick introduction to Lean"
 
 ---
 
-### Where can I see these examples?
+## Where can I see these examples?
 
 - https://github.com/leanprover/lean4/blob/master/doc/examples/Certora2022
 
@@ -167,7 +164,7 @@ theorem Weekday.next_previous' (d : Weekday) : d.next.previous = d := by
 
 ---
 
-### Dependent Types
+## Dependent Types
 
 ```lean
 def f (α β : Sort u) (a : α) (b : β) : α := a
@@ -190,7 +187,7 @@ def h (a : α) (b : β) : α := a
 
 ---
 
-### Proof irrelevance
+## Proof irrelevance
 
 A proof is just a `Prop` for which you have constructed a member.
 
@@ -247,7 +244,7 @@ example : fib (n+2) = fib (n+1) + fib n := rfl
 
 ---
 
-### And a library of mathematical facts and definitions
+## And a library of mathematical facts and definitions
 
 [Mathlib](https://github.com/leanprover-community/mathlib4)
 
@@ -257,7 +254,7 @@ example : fib (n+2) = fib (n+1) + fib n := rfl
 
 ---
 
-### With all kinds of proofs often using tactics
+## With all kinds of proofs often using tactics
 
 ```lean
 def at_least_two_elems (A : Set ℕ) : Prop :=
@@ -275,7 +272,7 @@ theorem example2 : at_least_two_elems {p : ℕ | Nat.Prime p} := by
 
 ---
 
-### Summary
+## Summary
 
 - It's a great idea to encode the proof system inside the language
   - you write tactics using the language

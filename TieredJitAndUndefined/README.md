@@ -1,28 +1,20 @@
----
-transition: "slide"
-slideNumber: false
-title: "Undefined behaviour becomes even more undefined"
----
-
-::: block
-*Lessons from a few lines of code* {style=background:red;width:500px}
-:::
+# Undefined behaviour becomes even more undefined
 
 ---
 
-### What is undefined behaviour?
+## What is undefined behaviour?
 
 It's something that the language specification either doesn't specify or something that it explicitly says it isn't going to define
 
 ---
 
-### And by a coincidence
+## And by a coincidence
 
 [This post by Laurence Tratt](https://tratt.net/laurie/blog/2023/why_arent_programming_language_specifications_comprehensive.html?utm_source=programmingdigest&utm_medium&utm_campaign=1525)
 
 ---
 
-### Where he mentions the categories
+## Where he mentions the categories
 
 - deliberate flexibility
 - semi-inevitable flexibility
@@ -31,14 +23,14 @@ It's something that the language specification either doesn't specify or somethi
 
 ---
 
-### And the one that interests me is the memory model
+## And the one that interests me is the memory model
 
 This was left undefined in a number of languages when the multi-core revolution happened. Java was the first language to seriously consider it, but it is complicated.
 The way caches work means you end up with a happens-before relationship.
 
 ---
 
-### I write 1,2,3,4,5 to a memory location
+## I write 1,2,3,4,5 to a memory location
 
 Another thread reading might see
 - 1..,2....,3..,4.,5..
@@ -51,9 +43,9 @@ But will definitely  not see
 
 ---
 
-### [This code](https://github.com/clivetong/Talks/blob/master/TieredJitAndUndefined/Program.cs)
+## [This code](https://github.com/clivetong/Talks/blob/master/TieredJitAndUndefined/Program.cs)
 
-```  
+```CSharp
 class Program
 {
     private static bool _cancelLoop = false;
@@ -72,8 +64,7 @@ class Program
 
 ---
 
-
-```
+```CSharp
     static void Main()
     {
         var loopThread = Task.Run(LoopThreadStart);
@@ -88,9 +79,9 @@ class Program
 
 ---
 
-### dotnet run -c Debug
+## dotnet run -c Debug
 
-```
+```bash
 C:\...\TieredJitAndUndefined > dotnet run -c Debug
 C:\...\TieredJitAndUndefined >
 ```
@@ -99,17 +90,16 @@ C:\...\TieredJitAndUndefined >
 
 ### dotnet run -c Release
 
-```
+```bash
 C:\...\TieredJitAndUndefined > dotnet run -c Release
 .....
 ```
-
 
 ---
 
 ### dotnet run -c Release -p DEFINECONSTANTS="NOCOUNTER"
 
-```
+```bash
 C:\...\TieredJitAndUndefined > dotnet run -c Release -p DEFINECONSTANTS="NOCOUNTER"
 ... compilation warning ...
 C:\...\TieredJitAndUndefined >
@@ -117,7 +107,7 @@ C:\...\TieredJitAndUndefined >
 
 ---
 
-### So where did the undefined behaviour get used?
+## So where did the undefined behaviour get used?
 
 - hoped that it was in the hardware
 - it's not even in the compiler
@@ -126,15 +116,15 @@ C:\...\TieredJitAndUndefined >
 
 ---
 
-### Let's have a look
+## Let's have a look
 
-```
+```powershell
 $env:DOTNET_JitDisasm="Program:LoopThreadStart"
 ```
 
 ---
 
-### And the results
+## And the results
 
 - the first checks the location
 - the second starts checking, then recompiles to not check it
@@ -142,9 +132,9 @@ $env:DOTNET_JitDisasm="Program:LoopThreadStart"
 
 ---
 
-### So the behaviour of code depends when we call it
+## So the behaviour of code depends when we call it
 
-```
+```bash
 dotnet build -c Release
 windbg 
   sxe ld clrjit
@@ -153,15 +143,15 @@ windbg
 
 ---
 
-### And what is the fix
+## And what is the fix
 
-```
+```CSharp
 private volatile static bool _cancelLoop = false;
 ```
 
 ---
 
-### Summary
+## Summary
 
 - undefined behaviour means your code isn't portable
 - it's hard to tell when you have strayed

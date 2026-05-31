@@ -1,7 +1,5 @@
----
-transition: "slide"
-slideNumber: false
-title: "Passwordless is here!"
+# Passwordless is here!"
+
 ---
 
 ::: block
@@ -10,33 +8,32 @@ title: "Passwordless is here!"
 
 ---
 
-### [FIDO](https://fidoalliance.org/)
+## [FIDO](https://fidoalliance.org/)
 
 - Fast ID Online
 
 ---
 
-### What's the problem?
+## What's the problem?
 
 ![And the problem is](images/headline.png)
 
 
 ---
 
-### But passwords aren't the future
+## But passwords aren't the future
 
 - Passwords are dead
 
 - SMS based MFA is breakable
 
-- And we need a better form of MFA 
+- And we need a better form of MFA
   - you and your YubiKey
   - you and your device
 
 ---
 
-
-### What is WebAuthN?
+## What is WebAuthN?
 
 - Browser API for Passwordless Authentication
 
@@ -46,9 +43,9 @@ title: "Passwordless is here!"
 
 ---
 
-### [Three properties](https://webauthn.guide/)
+## [Three properties](https://webauthn.guide/)
 
-- private key stored in hardware protected module 
+- private key stored in hardware protected module
 
 - a different private key per site
 
@@ -70,7 +67,7 @@ Since 2016, your PC or device has had a [TPM](https://en.wikipedia.org/wiki/Trus
 
 ---
 
-### Try it at [webauthn.io](https://webauthn.io/)
+## Try it at [webauthn.io](https://webauthn.io/)
 
 - Register
 - Authenticate
@@ -95,7 +92,7 @@ Since 2016, your PC or device has had a [TPM](https://en.wikipedia.org/wiki/Trus
 
 ---
 
-### What was that QR code?
+## What was that QR code?
 
 - URL with FIDO protocol handler and base64 data
 
@@ -103,22 +100,22 @@ Since 2016, your PC or device has had a [TPM](https://en.wikipedia.org/wiki/Trus
 
 ---
 
-### Later logins
+## Later logins
 
 ![Signin](images/signin.png)
 
 ---
 
-### Want to sign the challenge?
+## Want to sign the challenge?
 
 - A biometric check
 
 ---
 
-### And some advertising
+## And some advertising
 
 ![Signin](images/signin2.png)
 
 ---
 
-### Problem solved!
+## Problem solved!

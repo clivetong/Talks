@@ -1,22 +1,14 @@
----
-transition: "slide"
-slideNumber: false
-title: "Some talks from Build 2025 (May 19-22)"
----
-
-::: block
-*Build Recap of some sessions* {style=background:red;width:500px}
-:::
+# Some talks from Build 2025 (May 19-22)
 
 ---
 
-### What are we covering?
+## What are we covering?
 
 We'll cover parts of a few of the talks from Build.
 
 ---
 
-### Quick Impression of Build
+## Quick Impression of Build
 
 Not as in-depth tech as in previous years, this one covered the arrival of AI into the business and developer experience.
 
@@ -27,7 +19,7 @@ Not as in-depth tech as in previous years, this one covered the arrival of AI in
 
 ---
 
-### Weirdest things
+## Weirdest things
 
 [Running .NET source files `dotnet run app.cs`](https://www.youtube.com/watch?v=98MizuB7i-w)
 
@@ -35,7 +27,7 @@ I just don't get it. You have scripting languages and programming languages, and
 
 ---
 
-### Funniest things
+## Funniest things
 
 [Scott and Mark Learn to...LIVE](https://build.microsoft.com/en-US/sessions/KEY040)
 
@@ -52,7 +44,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ---
 
-### Yet Another "Highly Technical Talk" with Hanselman and Toub
+## Yet Another "Highly Technical Talk" with Hanselman and Toub
 
 - Hanselman and Toub have a good dynamic
 - This time they implement (most of) Channels
@@ -88,7 +80,7 @@ while (true)
 
 ---
 
-### Key Ideas
+## Key Ideas
 
 - Version 1 (using the real library)
 - Version 2 (first implementation)
@@ -238,7 +230,7 @@ while (true)
 
 ---
 
-### Key Ideas (continued)
+## Key Ideas (continued)
 
 - Version 4 (demo parallel stacks)
   - Reentrant locks
@@ -302,7 +294,7 @@ Console.WriteLine(res);
 
 ---
 
-### Python Meets .NET: Building AI Solutions with Combined Strengths
+## Python Meets .NET: Building AI Solutions with Combined Strengths
 
 - Run the Python interpreter in .NET process
   - Python has APIs to do this
@@ -310,19 +302,19 @@ Console.WriteLine(res);
 
 ---
 
-### Why Python?
+## Why Python?
 
 ![C# v Python](images/CSharpvPython.png)
 
 ---
 
-### Just use Rest
+## Just use Rest
 
 ![Via Rest](images/ViaRest.png)
 
 ---
 
-### Do it in process instead
+## Do it in process instead
 
 ![CSnakes](images/CSnakes.png)
 
@@ -332,37 +324,37 @@ Stephen Toub challenged the speaker to implement this.
 
 ---
 
-### Demo Project
+## Demo Project
 
 ![Demo Project](images/DemoProject.png)
 
 ---
 
-### Python side
+## Python side
 
 ![Python](images/Python.png)
 
 ---
 
-### C# side
+## C# side
 
 ![C#](images/Program.png)
 
 ---
 
-### Marshalling
+## Marshalling
 
 ![Marshalling](images/Marshalling.png)
 
 ---
 
-### And it uses a source generator
+## And it uses a source generator
 
 ![Source generator](images/sourcegenerator.png)
 
 ---
 
-### Easy configuration
+## Easy configuration
 
 ![Configurable](images/Options.png)
 
@@ -372,18 +364,18 @@ Stephen Toub challenged the speaker to implement this.
 
 ---
 
-### A 10x Faster TypeScript with Anders Hejlsberg
+## A 10x Faster TypeScript with Anders Hejlsberg
 
 ---
 
-### The implementations
+## The implementations
 
 - [Old](https://github.com/microsoft/typescript)
 - [New](https://github.com/microsoft/typescript-go)
 
 ---
 
-### The challenges
+## The challenges
 
 - VS Code is 1.5 million lines of TS
 - Microsoft have internal repos with 15 million
@@ -439,7 +431,7 @@ See talk for lots of detail about the working
 
 ---
 
-### Q&A
+## Q&A
 
 Q: What happens to the old compiler?
 
@@ -449,7 +441,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Inside Azure innovations with Mark Russinovich
+## Inside Azure innovations with Mark Russinovich
 
 ---
 
@@ -457,7 +449,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Offloading using Azure Boost (2.0)
+## Offloading using Azure Boost (2.0)
 
 ![Azure Boost](images/azureboost.png)
 
@@ -477,13 +469,13 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### AllReduce across GPUs (GB/s)
+## AllReduce across GPUs (GB/s)
 
 ![Azure Boost](images/eleven.png)
 
 ---
 
-### Minimal downtime
+## Minimal downtime
 
 ![Host Upgrade](images/hostupgrade.png)
 
@@ -491,13 +483,13 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Scale storage (AI workloads)
+## Scale storage (AI workloads)
 
 ![Scale Storage](images/scalestorage.png)
 
 ---
 
-### LinuxGuard in Azure Linux
+## LinuxGuard in Azure Linux
 
 ![LinuxGuard](images/AzureLinux.png)
 
@@ -507,7 +499,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Hostile multitenancy
+## Hostile multitenancy
 
 ![Boundaries](images/hostilemultitenancy.png)
 
@@ -515,7 +507,7 @@ Note that they actually ported a snap of 5.7, so need to get  additions ported.
 
 ---
 
-### Very lightweight containers
+## Very lightweight containers
 
 ![Hyperlight](images/hyperlight.png)
 
@@ -523,7 +515,7 @@ Used in edge scenarios like FrontDoor
 
 ---
 
-### Azure Container Instances
+## Azure Container Instances
 
 The runner for serverless compute (ACI was the first in the industry)
  - [ACI](https://www.kodez.com.au/post/deciphering-azure-container-services-a-guide-to-select-between-aca-aci-and-aks) and [NGroups](https://learn.microsoft.com/en-us/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups)
@@ -532,7 +524,7 @@ The runner for serverless compute (ACI was the first in the industry)
 
 ---
 
-### Azure Incubations
+## Azure Incubations
 
 ![Graduated](images/graduated.png)
 
@@ -540,7 +532,7 @@ The runner for serverless compute (ACI was the first in the industry)
 
 ---
 
-### Radius
+## Radius
 
 ![Radius](images/radius.png)
 
@@ -554,7 +546,7 @@ The runner for serverless compute (ACI was the first in the industry)
 
 ---
 
-### [drasi](http://github.com/drasi-project)
+## [drasi](http://github.com/drasi-project)
 
 ![Change detection](images/changedetection.png)
 
@@ -566,7 +558,7 @@ The future of Reactive!
 
 ---
 
-### Confidential Computing
+## Confidential Computing
 
 ![History of confidential on Azure](images/confidential.png)
 

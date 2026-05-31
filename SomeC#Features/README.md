@@ -1,16 +1,8 @@
----
-transition: "slide"
-slideNumber: false
-title: "This is the list of features we will cover"
----
-
-::: block
-*Some modern C# features* {style=background:red;width:500px}
-::: 
+# This is the list of features we will cover
 
 ---
 
-### What we have planned
+## What we have planned
 
 - Today: features from the newer versions of C#
   -  (12...11...10...)
@@ -18,7 +10,7 @@ title: "This is the list of features we will cover"
 
 ---
 
-### What we are doing today
+## What we are doing today
 
 - C# changes in reverse chronological order
   - Talk about the feature
@@ -27,7 +19,7 @@ title: "This is the list of features we will cover"
 
 ---
 
-### [C# 12](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-12.0)
+## [C# 12](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-12.0)
 
 - [Collection Expressions](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/collection-expressions.md) 
 - [Experimental Attribute](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/experimental-attribute.md)
@@ -39,7 +31,7 @@ title: "This is the list of features we will cover"
 
 ---
 
-### [C# 11](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-11.0)
+## [C# 11](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-11.0)
 
 - [Auto default structs](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/auto-default-structs.md)
 - [Checked User Defined Operators](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/checked-user-defined-operators.md)
@@ -63,7 +55,7 @@ title: "This is the list of features we will cover"
  
 ---
 
-### [C# 10](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-10.0)
+## [C# 10](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-10.0)
 
 - [Global and Implicit using](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/GlobalUsingDirective.md)
 - [Async method builders](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/async-method-builders.md)
@@ -83,7 +75,7 @@ title: "This is the list of features we will cover"
 
 ---
 
-### [Inline Arrays](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/inline-arrays.md)
+## [Inline Arrays](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-12.0/inline-arrays.md)
 
 - Typically for stack allocation (a common theme)
   - Don't make them too big (runtime exits)
@@ -113,7 +105,7 @@ title: "This is the list of features we will cover"
 
 ---
 
-### [Auto Default Structs](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/auto-default-structs.md)
+## [Auto Default Structs](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/auto-default-structs.md)
 
 Beginning with C# 11, if you don't initialize all fields in a struct, the compiler adds code to the constructor that initializes those fields to the default value.
 
@@ -124,7 +116,7 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 
 ---
 
-### But really...
+## But really...
 
 - This feature makes it so that in struct constructors, we identify fields which were not explicitly assigned by the user before returning or before use, and initialize them implicitly to default instead of giving definite assignment errors.
 
@@ -135,11 +127,11 @@ Beginning with C# 11, if you don't initialize all fields in a struct, the compil
 ---
 
 - The best solution to the need to go through setters without setting the field twice
-- See example 
+- See example
 
 ---
 
-### [Low Level Struct Improvements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/low-level-struct-improvements.md)
+## [Low Level Struct Improvements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/low-level-struct-improvements.md)
 
 ---
 
@@ -149,7 +141,7 @@ As these features have gained traction in the .NET ecosystem developers, both in
 
 ---
 
-<pre>
+```CSharp
 readonly ref struct Span<T>
 {
     readonly ref T _field;
@@ -165,7 +157,7 @@ readonly ref struct Span<T>
         _length = 1;
     }
 }
-</pre>
+```
 
 ---
 
@@ -177,26 +169,26 @@ See example of how `ref struct` is about stack allocation
 
 ---
 
-### [Numeric IntPtr](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/numeric-intptr.md)
+## [Numeric IntPtr](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/numeric-intptr.md)
 
 - TL;DR: nint, nuint simply alias System.IntPtr and System.UIntPtr (conditionalized by the System.Runtime.CompilerServices.RuntimeFeature.NumericIntPtr feature)
 
 ---
 
-### [Relaxing Shift Operator Requirements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/relaxing_shift_operator_requirements.md)
+## [Relaxing Shift Operator Requirements](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/relaxing_shift_operator_requirements.md)
 
 - the amount to shift by doesn't have to be an int
   - as some things might not convert to an int
 
 ---
 
-### Drawbacks
+## Drawbacks
 
 - Users will be able to define operators that do not follow the recommended guidelines, such as implementing `cout << "string"` in C#.
 
 ---
 
-### [Unsigned Right Shift Operator](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/unsigned-right-shift-operator.md)
+## [Unsigned Right Shift Operator](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/unsigned-right-shift-operator.md)
 
 - `>>>` is an unsigned right shift operator
 
@@ -206,7 +198,7 @@ See example of how `ref struct` is about stack allocation
 
 ---
 
-### [Utf8 String Literals](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/utf8-string-literals.md)
+## [Utf8 String Literals](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/utf8-string-literals.md)
 
 ---
 
@@ -214,7 +206,7 @@ See example of how `ref struct` is about stack allocation
 
 ---
 
-### [Enhanced Line Directives](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/enhanced-line-directives.md)
+## [Enhanced Line Directives](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/enhanced-line-directives.md)
 
 - The PDB contains a mapping from code to source
 - This extends the mapping to help tools like Razor
@@ -225,18 +217,16 @@ See example of how `ref struct` is about stack allocation
 
 ---
 
-### [Extended Property Patterns](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/extended-property-patterns.md)
+## [Extended Property Patterns](https://github.com/dotnet/csharplang/blob/main/proposals/csharp-10.0/extended-property-patterns.md)
 
 - Allow property patterns to be nested
 
-```
+```CSharp
 if (e is MethodCallExpression { Method.Name: "MethodName" })
 ```
 
 instead of
 
-```
+```CSharp
 if (e is MethodCallExpression { Method: { Name: "MethodName" } })
 ```
-
-

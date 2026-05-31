@@ -1,22 +1,14 @@
----
-transition: "slide"
-slideNumber: false
-title: "Little's Law and Virtual Threads"
----
-
-::: block
-*Virtual Threads* {style=background:red;width:500px}
-:::
+# Little's Law and Virtual Threads
 
 ---
 
-### What's the talk about?
+## What's the talk about?
 
 Virtual threads (aka green threads, fibers (though Windows has [a fiber which is different](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-convertthreadtofiber)), spaghetti stacks, stack groups), the attempts at implementing them in the two big managed platforms, and how they change the look of your programs.
 
 ---
 
-### Why?
+## Why?
 
 [Little's law](https://en.wikipedia.org/wiki/Little%27s_law)
 
@@ -41,7 +33,7 @@ The relationship is not influenced by the arrival process distribution, the serv
 
 ---
 
-### Why now?
+## Why now?
 
 [Project Loom](https://openjdk.org/projects/loom/) - Fibers, Continuations and Tail-Calls for the JVM
 
@@ -55,7 +47,7 @@ Sql Server has done user mode scheduling for a long time (SQL OS)
 
 ---
 
-### Java
+## Java
 
 Generally available in Java 21 but with a few issues remaining
 
@@ -67,7 +59,7 @@ Generally available in Java 21 but with a few issues remaining
 
 ---
 
-### More details
+## More details
 
 [Continuations - Under the Covers #JVMLS](https://www.youtube.com/watch?v=6nRS6UiN7X0)
 
@@ -84,7 +76,7 @@ Generally available in Java 21 but with a few issues remaining
 
 ---
 
-### VM mechanics
+## VM mechanics
 
 When parking happens, the continuation is moved off the thread, and another continuation is executed there.
 
@@ -94,7 +86,7 @@ When parking happens, the continuation is moved off the thread, and another cont
 
 ---
 
-### So what?
+## So what?
 
 You write Java code that looks like normal Java code, and the VM can virtualize the thread for you (most of the time).
 
@@ -104,7 +96,7 @@ Compared to the .NET way of async where you end up with normal code and Task bas
 
 ---
 
-### Before
+## Before
 
 ```csharp
 int GetSomeData(FileStream theStream)
@@ -140,7 +132,7 @@ async Task<int> GetSomeDataAsync(FileStream theStream)
 
 ---
 
-### And the mass of options to ConfigureAwait()
+## And the mass of options to ConfigureAwait()
 
 ```csharp
 var nBytes = await theStream
@@ -150,19 +142,19 @@ var nBytes = await theStream
 
 ---
 
-### Still some edge cases where parking doesn't work
+## Still some edge cases where parking doesn't work
 
 ![No parking](images/fail-on-monitors.png)
 
 ---
 
-### And speed complaints
+## And speed complaints
 
 [Java Virtual Threads - a case study](https://www.infoq.com/articles/java-virtual-threads-a-case-study/)
 
 ---
 
-### .NET
+## .NET
 
 [The green threads experiment](https://github.com/dotnet/runtimelab/issues/2057)
 
@@ -172,7 +164,7 @@ var nBytes = await theStream
 
 ---
 
-### Constraints
+## Constraints
 
 - Support for byref parameters
 - Support for conversion of byrefs to pointers
@@ -185,7 +177,7 @@ var nBytes = await theStream
 
 ---
 
-### Challenges
+## Challenges
 
 - Windows is not designed to allow green threads.
 - Various diagnostic tools fail to work reliably. 
@@ -197,7 +189,7 @@ var nBytes = await theStream
 
 ---
 
-### Why so hard?
+## Why so hard?
 
 - VMs in the 1990s did Green Threads
 - Smalltalk in the 1970s with spaghetti stacks
@@ -206,7 +198,7 @@ var nBytes = await theStream
 
 ---
 
-### Things to read
+## Things to read
 
 - [Delimited Continuations, Demystified](https://www.youtube.com/watch?v=TE48LsgVlIU)
 - [call/cc (mindblowing!)](https://en.wikipedia.org/wiki/Call-with-current-continuation) and [Griffin's paper](https://www.cl.cam.ac.uk/~tgg22/publications/popl90.pdf)
