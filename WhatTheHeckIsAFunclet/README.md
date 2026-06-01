@@ -6,7 +6,7 @@
 
 [A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564) by duplicating an event causing the simulated stack to underflow.
 
-See exceptionprofiler.cpp int hat PR where they implement a test by handling some of the profiler events.
+See exceptionprofiler.cpp in that PR where they implement a test by handling some of the profiler events.
 
 ---
 
@@ -52,7 +52,7 @@ void ThrowException()
 
 - Note that we've seen filters and finally, and catch but we haven't seen fault
 
-Used to be used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
+Used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
 
 ---
 
@@ -107,11 +107,9 @@ try { /* 1 */ throw new Exception(); } finally { /* 4 */ }
 
 ---
 
-First pass - find where we need to unwind to
-
----
-
 ### 2
+
+First pass - find where we need to unwind to
 
 Inside Argument Exception
 
@@ -119,11 +117,13 @@ Inside Argument Exception
 
 We haven't unwound yet, but need to access the local in the stack frame two back (or generate a closure)
 
+btw note that we are in a different context, which means we might see the world differently
+
 ---
 
 ### 3
 
-Inside Argument Exception
+First pass continues
 
 ![stack 3](images/at3.png)
 
@@ -171,8 +171,7 @@ finally { /* 6 */ }
 
 - the debugger says we are in the same .NET function twice
 - and we need access to the local variable
-- and we need it without slowing the fast path 
-- which would just store the local in the stack frame
+- and we need it without slowing the fast path which would just store the local in the stack frame
 
 ---
 
@@ -181,8 +180,7 @@ finally { /* 6 */ }
 - The code for the exception path is appended to the end of the normal .NET code
 - (exception blocks are encoded as a table in the CLR)
 - this keeps it out of the cache for the hot path
-- but it isn't entered like a normal method
-- which has a standard prolog and epilog
+- it isn't entered like a normal method which has a standard prolog and epilog
 - it instead has a slightly different calling convention
 
 ---
