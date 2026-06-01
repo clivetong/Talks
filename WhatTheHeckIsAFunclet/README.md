@@ -4,7 +4,9 @@
 
 ## Why interested in this?
 
-[A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564)
+[A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564) by duplicating an event causing the simulated stack to underflow.
+
+See exceptionprofiler.cpp int hat PR where they implement a test by handling some of the profiler events.
 
 ---
 
@@ -169,7 +171,7 @@ finally { /* 6 */ }
 
 - the debugger says we are in the same .NET function twice
 - and we need access to the local variable
-- and we need it without slowing the fast path
+- and we need it without slowing the fast path 
 - which would just store the local in the stack frame
 
 ---
@@ -182,3 +184,11 @@ finally { /* 6 */ }
 - but it isn't entered like a normal method
 - which has a standard prolog and epilog
 - it instead has a slightly different calling convention
+
+---
+
+### See the details here
+
+- [Different caller and callee saved registers](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
+- [Access to locals because the frame pointer is set to that of the parent](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#registers-on-entry-to-a-funclet)
+- [GC Info and hot/cold splitting](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
