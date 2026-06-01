@@ -121,6 +121,28 @@ btw note that we are in a different context, which means we might see the world 
 
 ---
 
+### Aside
+
+In .NET 9, more of the exception handling was converted to managed code
+
+```stacktrace
+0:000> !clrstack
+OS Thread Id: 0x1f8c (0)
+        Child SP               IP Call Site
+000000517017C4C0 00007ffc33b14aef Program.<$>g__IsArgumentException|0_2(System.Exception, Boolean ByRef) [C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 35]
+000000517017C500 00007ffc33b1496b Program.<$>g__Example|0_0() [C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 22]
+000000517017C7A8 00007ffc9376865c [InlinedCallFrame: 000000517017c7a8] 
+000000517017C7A8 00007ffc7b71a99f [InlinedCallFrame: 000000517017c7a8] 
+000000517017C770 00007ffc7b71a99f System.Runtime.EH.FindFirstPassHandler(System.Object, UInt32, System.Runtime.StackFrameIterator ByRef, UInt32 ByRef, Byte* ByRef) [/_/src/runtime/src/coreclr/nativeaot/Runtime.Base/src/System/Runtime/ExceptionHandling.cs @ 1078]
+000000517017C8C0 00007ffc7b71a5b3 System.Runtime.EH.DispatchEx(System.Runtime.StackFrameIterator ByRef, ExInfo ByRef) [/_/src/runtime/src/coreclr/nativeaot/Runtime.Base/src/System/Runtime/ExceptionHandling.cs @ 793]
+000000517017DFF0 00007ffc93768743 [SoftwareExceptionFrame: 000000517017dff0] 
+000000517017E600 00007ffc33b14a7d Program.<$>g__ThrowException|0_1() [C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 47]
+000000517017E640 00007ffc33b147ca Program.<$>g__Example|0_0() [C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 12]
+000000517017E720 00007ffc33b14753 Program.$(System.String[]) [C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 4]
+```
+
+---
+
 ### 3
 
 First pass continues
