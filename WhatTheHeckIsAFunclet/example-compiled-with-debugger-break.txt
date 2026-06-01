@@ -1,0 +1,242 @@
+0:000> !U /d 00007ffc33b1496b
+Normal JIT generated code
+Program.<<Main>$>g__Example|0_0()
+ilAddr is 000001B5469A2064 pImport is 0000029774AFF130
+Begin 00007FFC33B14780, size 23d
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b14780 55              push    rbp
+00007ffc`33b14781 4881ecd0000000  sub     rsp,0D0h
+00007ffc`33b14788 488dac24d0000000 lea     rbp,[rsp+0D0h]
+00007ffc`33b14790 c5d857e4        vxorps  xmm4,xmm4,xmm4
+00007ffc`33b14794 62f17e487fa550ffffff vmovdqu32 zmmword ptr [rbp-0B0h],zmm4
+00007ffc`33b1479e 62f17e487fa590ffffff vmovdqu32 zmmword ptr [rbp-70h],zmm4
+00007ffc`33b147a8 62f17e487f65ff  vmovdqu32 zmmword ptr [rbp-40h],zmm4
+00007ffc`33b147af 833d828a1c0000  cmp     dword ptr [00007ffc`33cdd238],0
+00007ffc`33b147b6 7405            je      ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x3d (00007ffc`33b147bd)
+00007ffc`33b147b8 e8035cdb5f      call    coreclr!JIT_DbgIsJustMyCode (00007ffc`938ca3c0)
+00007ffc`33b147bd 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 8:
+00007ffc`33b147be 33c0            xor     eax,eax
+00007ffc`33b147c0 8945f8          mov     dword ptr [rbp-8],eax
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 11:
+00007ffc`33b147c3 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 12:
+00007ffc`33b147c4 ff153e051d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D08 (00007ffc`33ce4d08)] (Program.<<Main>$>g__ThrowException|0_1(), mdToken: 0000000006000005)
+00007ffc`33b147ca 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 13:
+00007ffc`33b147cb 90              nop
+00007ffc`33b147cc 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 26:
+00007ffc`33b147cd 90              nop
+00007ffc`33b147ce e8d7010000      call    ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x22a (00007ffc`33b149aa) (Program.<<Main>$>g__Example|0_0(), mdToken: 0000000006000003)
+00007ffc`33b147d3 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 31:
+00007ffc`33b147d4 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b147d5 90              nop
+00007ffc`33b147d6 4881c4d0000000  add     rsp,0D0h
+00007ffc`33b147dd 5d              pop     rbp
+00007ffc`33b147de c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b147df 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 13:
+00007ffc`33b147e3 48898d70ffffff  mov     qword ptr [rbp-90h],rcx
+00007ffc`33b147ea 488b9570ffffff  mov     rdx,qword ptr [rbp-90h]
+00007ffc`33b147f1 48b920d2b033fc7f0000 mov rcx,7FFC33B0D220h (MT: System.ArgumentException)
+00007ffc`33b147fb ff154f20fbff    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33AC6850 (00007ffc`33ac6850)] (System.Runtime.CompilerServices.CastHelpers.IsInstanceOfClass(Void*, System.Object), mdToken: 0000000006008093)
+00007ffc`33b14801 48898568ffffff  mov     qword ptr [rbp-98h],rax
+00007ffc`33b14808 488b8568ffffff  mov     rax,qword ptr [rbp-98h]
+00007ffc`33b1480f 48898560ffffff  mov     qword ptr [rbp-0A0h],rax
+00007ffc`33b14816 4883bd68ffffff00 cmp     qword ptr [rbp-98h],0
+00007ffc`33b1481e 750a            jne     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0xaa (00007ffc`33b1482a)
+00007ffc`33b14820 33c0            xor     eax,eax
+00007ffc`33b14822 898558ffffff    mov     dword ptr [rbp-0A8h],eax
+00007ffc`33b14828 eb3b            jmp     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0xe5 (00007ffc`33b14865)
+00007ffc`33b1482a 488b8560ffffff  mov     rax,qword ptr [rbp-0A0h]
+00007ffc`33b14831 488945f0        mov     qword ptr [rbp-10h],rax
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 14:
+00007ffc`33b14835 488d55f8        lea     rdx,[rbp-8]
+00007ffc`33b14839 488b4df0        mov     rcx,qword ptr [rbp-10h]
+00007ffc`33b1483d ff15dd041d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D20 (00007ffc`33ce4d20)] (Program.<<Main>$>g__IsArgumentException|0_2(System.Exception, Boolean ByRef), mdToken: 0000000006000004)
+00007ffc`33b14843 89855cffffff    mov     dword ptr [rbp-0A4h],eax
+00007ffc`33b14849 8b855cffffff    mov     eax,dword ptr [rbp-0A4h]
+00007ffc`33b1484f 0fb6c0          movzx   eax,al
+00007ffc`33b14852 8945ec          mov     dword ptr [rbp-14h],eax
+00007ffc`33b14855 837dec00        cmp     dword ptr [rbp-14h],0
+00007ffc`33b14859 0f95c0          setne   al
+00007ffc`33b1485c 0fb6c0          movzx   eax,al
+00007ffc`33b1485f 898558ffffff    mov     dword ptr [rbp-0A8h],eax
+00007ffc`33b14865 8b8558ffffff    mov     eax,dword ptr [rbp-0A8h]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b1486b 4883c428        add     rsp,28h
+00007ffc`33b1486f c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b14870 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 14:
+00007ffc`33b14874 48898d50ffffff  mov     qword ptr [rbp-0B0h],rcx
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 15:
+00007ffc`33b1487b 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 16:
+00007ffc`33b1487c ff15b6041d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D38 (00007ffc`33ce4d38)] (System.Diagnostics.Debugger.Break(), mdToken: 0000000006009900)
+00007ffc`33b14882 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 17:
+00007ffc`33b14883 90              nop
+00007ffc`33b14884 90              nop
+00007ffc`33b14885 488d0541ffffff  lea     rax,[ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x4d (00007ffc`33b147cd)]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b1488c 4883c428        add     rsp,28h
+00007ffc`33b14890 c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b14891 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 17:
+00007ffc`33b14895 48894d98        mov     qword ptr [rbp-68h],rcx
+00007ffc`33b14899 488b5598        mov     rdx,qword ptr [rbp-68h]
+00007ffc`33b1489d 48b9d805b033fc7f0000 mov rcx,7FFC33B005D8h (MT: System.Exception)
+00007ffc`33b148a7 ff15a31ffbff    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33AC6850 (00007ffc`33ac6850)] (System.Runtime.CompilerServices.CastHelpers.IsInstanceOfClass(Void*, System.Object), mdToken: 0000000006008093)
+00007ffc`33b148ad 48894590        mov     qword ptr [rbp-70h],rax
+00007ffc`33b148b1 488b4590        mov     rax,qword ptr [rbp-70h]
+00007ffc`33b148b5 48894588        mov     qword ptr [rbp-78h],rax
+00007ffc`33b148b9 48837d9000      cmp     qword ptr [rbp-70h],0
+00007ffc`33b148be 7507            jne     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x147 (00007ffc`33b148c7)
+00007ffc`33b148c0 33c0            xor     eax,eax
+00007ffc`33b148c2 894580          mov     dword ptr [rbp-80h],eax
+00007ffc`33b148c5 eb2f            jmp     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x176 (00007ffc`33b148f6)
+00007ffc`33b148c7 488b4588        mov     rax,qword ptr [rbp-78h]
+00007ffc`33b148cb 488945e0        mov     qword ptr [rbp-20h],rax
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 18:
+00007ffc`33b148cf 488d55f8        lea     rdx,[rbp-8]
+00007ffc`33b148d3 488b4de0        mov     rcx,qword ptr [rbp-20h]
+00007ffc`33b148d7 ff1543041d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D20 (00007ffc`33ce4d20)] (Program.<<Main>$>g__IsArgumentException|0_2(System.Exception, Boolean ByRef), mdToken: 0000000006000004)
+00007ffc`33b148dd 894584          mov     dword ptr [rbp-7Ch],eax
+00007ffc`33b148e0 8b4584          mov     eax,dword ptr [rbp-7Ch]
+00007ffc`33b148e3 0fb6c0          movzx   eax,al
+00007ffc`33b148e6 8945dc          mov     dword ptr [rbp-24h],eax
+00007ffc`33b148e9 837ddc00        cmp     dword ptr [rbp-24h],0
+00007ffc`33b148ed 0f95c0          setne   al
+00007ffc`33b148f0 0fb6c0          movzx   eax,al
+00007ffc`33b148f3 894580          mov     dword ptr [rbp-80h],eax
+00007ffc`33b148f6 8b4580          mov     eax,dword ptr [rbp-80h]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b148f9 4883c428        add     rsp,28h
+00007ffc`33b148fd c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b148fe 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 18:
+00007ffc`33b14902 48898d78ffffff  mov     qword ptr [rbp-88h],rcx
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 19:
+00007ffc`33b14909 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 20:
+00007ffc`33b1490a ff1528041d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D38 (00007ffc`33ce4d38)] (System.Diagnostics.Debugger.Break(), mdToken: 0000000006009900)
+00007ffc`33b14910 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 21:
+00007ffc`33b14911 90              nop
+00007ffc`33b14912 90              nop
+00007ffc`33b14913 488d05b3feffff  lea     rax,[ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x4d (00007ffc`33b147cd)]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b1491a 4883c428        add     rsp,28h
+00007ffc`33b1491e c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b1491f 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 21:
+00007ffc`33b14923 48894dc0        mov     qword ptr [rbp-40h],rcx
+00007ffc`33b14927 488b55c0        mov     rdx,qword ptr [rbp-40h]
+00007ffc`33b1492b 48b9d805b033fc7f0000 mov rcx,7FFC33B005D8h (MT: System.Exception)
+00007ffc`33b14935 ff15151ffbff    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33AC6850 (00007ffc`33ac6850)] (System.Runtime.CompilerServices.CastHelpers.IsInstanceOfClass(Void*, System.Object), mdToken: 0000000006008093)
+00007ffc`33b1493b 488945b8        mov     qword ptr [rbp-48h],rax
+00007ffc`33b1493f 488b45b8        mov     rax,qword ptr [rbp-48h]
+00007ffc`33b14943 488945b0        mov     qword ptr [rbp-50h],rax
+00007ffc`33b14947 48837db800      cmp     qword ptr [rbp-48h],0
+00007ffc`33b1494c 7507            jne     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x1d5 (00007ffc`33b14955)
+00007ffc`33b1494e 33c0            xor     eax,eax
+00007ffc`33b14950 8945a8          mov     dword ptr [rbp-58h],eax
+00007ffc`33b14953 eb2f            jmp     ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x204 (00007ffc`33b14984)
+00007ffc`33b14955 488b45b0        mov     rax,qword ptr [rbp-50h]
+00007ffc`33b14959 488945d0        mov     qword ptr [rbp-30h],rax
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 22:
+00007ffc`33b1495d 488d55f8        lea     rdx,[rbp-8]
+00007ffc`33b14961 488b4dd0        mov     rcx,qword ptr [rbp-30h]
+00007ffc`33b14965 ff15b5031d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D20 (00007ffc`33ce4d20)] (Program.<<Main>$>g__IsArgumentException|0_2(System.Exception, Boolean ByRef), mdToken: 0000000006000004)
+00007ffc`33b1496b 8945ac          mov     dword ptr [rbp-54h],eax
+00007ffc`33b1496e 8b45ac          mov     eax,dword ptr [rbp-54h]
+00007ffc`33b14971 0fb6c0          movzx   eax,al
+00007ffc`33b14974 8945cc          mov     dword ptr [rbp-34h],eax
+00007ffc`33b14977 837dcc00        cmp     dword ptr [rbp-34h],0
+00007ffc`33b1497b 0f95c0          setne   al
+00007ffc`33b1497e 0fb6c0          movzx   eax,al
+00007ffc`33b14981 8945a8          mov     dword ptr [rbp-58h],eax
+00007ffc`33b14984 8b45a8          mov     eax,dword ptr [rbp-58h]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b14987 4883c428        add     rsp,28h
+00007ffc`33b1498b c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b1498c 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 22:
+00007ffc`33b14990 48894da0        mov     qword ptr [rbp-60h],rcx
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 23:
+00007ffc`33b14994 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 25:
+00007ffc`33b14995 ff159d031d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D38 (00007ffc`33ce4d38)] (System.Diagnostics.Debugger.Break(), mdToken: 0000000006009900)
+00007ffc`33b1499b 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 26:
+00007ffc`33b1499c 90              nop
+00007ffc`33b1499d 90              nop
+00007ffc`33b1499e 488d0528feffff  lea     rax,[ConsoleApp3!Program.<<Main>$>g__Example|0_0+0x4d (00007ffc`33b147cd)]
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b149a5 4883c428        add     rsp,28h
+00007ffc`33b149a9 c3              ret
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 7:
+00007ffc`33b149aa 4883ec28        sub     rsp,28h
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 28:
+00007ffc`33b149ae 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 30:
+00007ffc`33b149af ff1583031d00    call    qword ptr [CLRStub[MethodDescPrestub]@00007FFC33CE4D38 (00007ffc`33ce4d38)] (System.Diagnostics.Debugger.Break(), mdToken: 0000000006009900)
+00007ffc`33b149b5 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 31:
+00007ffc`33b149b6 90              nop
+00007ffc`33b149b7 90              nop
+
+C:\Users\clive.tong\Desktop\play\ConsoleApp3\Program.cs @ 40:
+00007ffc`33b149b8 4883c428        add     rsp,28h
+00007ffc`33b149bc c3              ret
