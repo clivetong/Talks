@@ -50,7 +50,7 @@ void ThrowException()
 
 ---
 
-- Note that we've seen filters and finally, and catch but we haven't seen fault
+### Note that we've seen filters and finally, and catch but we haven't seen fault
 
 Used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
 
