@@ -76,7 +76,7 @@ Think of parts of the stack as branches which are based off each other
 
 - command line, [extension to the gh utility](https://github.github.com/gh-stack/getting-started/quick-start/#install-the-cli-extension)
 - [navigator support](https://github.github.com/gh-stack/introduction/overview/#stack-map-in-the-pr-ui) if turned on for your repo
-- [and a skill](https://github.github.com/gh-stack/getting-started/quick-start/#set-up-ai-agent-integration)
+- [and a skill](https://github.github.com/gh-stack/getting-started/quick-start/#set-up-ai-agent-integration) with [this definition](https://github.com/github/gh-stack/blob/main/skills/gh-stack/SKILL.md)
 
 
 
