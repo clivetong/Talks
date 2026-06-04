@@ -41,6 +41,8 @@ Quick diagram from [www.stacking.dev](https://www.stacking.dev/)
 
 ![non-stacking](images/non-stacking.png)
 
+---
+
 ![stacking](images/stacked.png)
 
 ---
@@ -216,6 +218,8 @@ echo 3 > 3.txt; git add .; git commit -m "3";
 
 ![gh stack view](images/view.png)
 
+---
+
 ```bash
 C:\Users\clive.tong\Documents\git\stack-play [branch-3]> gh stack bottom
 ✓ Switched to branch-1
@@ -232,6 +236,8 @@ echo 1a > 1a.txt; git add .; git commit -m "1a"; git push
 |/
 * 5abecf9 1
 ```
+
+---
 
 ```bash
 > gh stack rebase
