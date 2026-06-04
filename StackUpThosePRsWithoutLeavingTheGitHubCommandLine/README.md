@@ -67,15 +67,16 @@ Think of parts of the stack as branches which are based off each other
 
 ## GitHub have now added some support
 
+[This is their documentation](https://github.github.com/gh-stack/guides/workflows/)
 - uses branches and PRs
 - maintains metadata to record how these branches form a stack
-- adds a command line to allow you to work with the stack (and not at the branch level)
+- adds a command line to allow you to work with the stack (and the branch level)
 
 - command line, [extension to the gh utility](https://github.github.com/gh-stack/getting-started/quick-start/#install-the-cli-extension)
 - [navigator support](https://github.github.com/gh-stack/introduction/overview/#stack-map-in-the-pr-ui) if turned on for your repo
 - [and a skill](https://github.github.com/gh-stack/getting-started/quick-start/#set-up-ai-agent-integration)
 
-[This is their documentation](https://github.github.com/gh-stack/guides/workflows/)
+
 
 ---
 
@@ -309,19 +310,15 @@ To push up your changes, run `gh stack push`
       ]
     }
   ]
-}```
-
-
-
-
-
-
-
-
+}
+```
 
 ---
 
 ### Some material
 
 - Tornhill's [Why Merge Conflicts became the new Agentic Bottleneck](https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new)
-
+- [See here in the documentation for how the stack appears in the GitHub UI](https://github.github.com/gh-stack/guides/ui/) 
+- [Quick start](https://github.github.com/gh-stack/getting-started/quick-start/)
+- [Working with stacked PRs](https://github.github.com/gh-stack/guides/stacked-prs/)
+- [Typical workflows](https://github.github.com/gh-stack/guides/workflows/)
