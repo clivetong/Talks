@@ -48,11 +48,11 @@ void ThrowException()
 - It shows the filter needs access to the stack frame where the Example code is running
 - It shows that we have two phases - first pass and second pass
 
-- normally stacks show you where to go next (thing TCO), but need to change that when exceptions in the picture
+- normally stacks show you where to go next (think Tail Call Optimization), but need to change that when exceptions in the picture
 
 ---
 
-### Note that we've seen filters/finally/catch but not fault
+### Note that we've seen filter/finally/catch but not fault
 
 Used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
 

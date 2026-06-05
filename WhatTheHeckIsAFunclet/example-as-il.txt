@@ -1,0 +1,131 @@
+  .method assembly hidebysig static void 
+          '<<Main>$>g__Example|0_0'() cil managed
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
+    // Code size       149 (0x95)
+    .maxstack  2
+    .locals init (bool V_0,
+             class [System.Runtime]System.ArgumentException V_1,
+             bool V_2,
+             class [System.Runtime]System.Exception V_3,
+             bool V_4,
+             class [System.Runtime]System.Exception V_5,
+             bool V_6)
+    IL_0000:  nop
+    IL_0001:  ldc.i4.0
+    IL_0002:  stloc.0
+    .try
+    {
+      .try
+      {
+        IL_0003:  nop
+        IL_0004:  call       void Program::'<<Main>$>g__ThrowException|0_1'()
+        IL_0009:  nop
+        IL_000a:  nop
+        IL_000b:  leave.s    IL_0088
+
+      }  // end .try
+      filter
+      {
+        IL_000d:  isinst     [System.Runtime]System.ArgumentException
+        IL_0012:  dup
+        IL_0013:  brtrue.s   IL_0019
+
+        IL_0015:  pop
+        IL_0016:  ldc.i4.0
+        IL_0017:  br.s       IL_0027
+
+        IL_0019:  stloc.1
+        IL_001a:  ldloc.1
+        IL_001b:  ldloca.s   V_0
+        IL_001d:  call       bool Program::'<<Main>$>g__IsArgumentException|0_2'(class [System.Runtime]System.Exception,
+                                                                                 bool&)
+        IL_0022:  stloc.2
+        IL_0023:  ldloc.2
+        IL_0024:  ldc.i4.0
+        IL_0025:  cgt.un
+        IL_0027:  endfilter
+      }  // end filter
+      {  // handler
+        IL_0029:  pop
+        IL_002a:  nop
+        IL_002b:  call       void [System.Runtime]System.Diagnostics.Debugger::Break()
+        IL_0030:  nop
+        IL_0031:  nop
+        IL_0032:  leave.s    IL_0088
+
+      }  // end handler
+      filter
+      {
+        IL_0034:  isinst     [System.Runtime]System.Exception
+        IL_0039:  dup
+        IL_003a:  brtrue.s   IL_0040
+
+        IL_003c:  pop
+        IL_003d:  ldc.i4.0
+        IL_003e:  br.s       IL_0050
+
+        IL_0040:  stloc.3
+        IL_0041:  ldloc.3
+        IL_0042:  ldloca.s   V_0
+        IL_0044:  call       bool Program::'<<Main>$>g__IsArgumentException|0_2'(class [System.Runtime]System.Exception,
+                                                                                 bool&)
+        IL_0049:  stloc.s    V_4
+        IL_004b:  ldloc.s    V_4
+        IL_004d:  ldc.i4.0
+        IL_004e:  cgt.un
+        IL_0050:  endfilter
+      }  // end filter
+      {  // handler
+        IL_0052:  pop
+        IL_0053:  nop
+        IL_0054:  call       void [System.Runtime]System.Diagnostics.Debugger::Break()
+        IL_0059:  nop
+        IL_005a:  nop
+        IL_005b:  leave.s    IL_0088
+
+      }  // end handler
+      filter
+      {
+        IL_005d:  isinst     [System.Runtime]System.Exception
+        IL_0062:  dup
+        IL_0063:  brtrue.s   IL_0069
+
+        IL_0065:  pop
+        IL_0066:  ldc.i4.0
+        IL_0067:  br.s       IL_007b
+
+        IL_0069:  stloc.s    V_5
+        IL_006b:  ldloc.s    V_5
+        IL_006d:  ldloca.s   V_0
+        IL_006f:  call       bool Program::'<<Main>$>g__IsArgumentException|0_2'(class [System.Runtime]System.Exception,
+                                                                                 bool&)
+        IL_0074:  stloc.s    V_6
+        IL_0076:  ldloc.s    V_6
+        IL_0078:  ldc.i4.0
+        IL_0079:  cgt.un
+        IL_007b:  endfilter
+      }  // end filter
+      {  // handler
+        IL_007d:  pop
+        IL_007e:  nop
+        IL_007f:  call       void [System.Runtime]System.Diagnostics.Debugger::Break()
+        IL_0084:  nop
+        IL_0085:  nop
+        IL_0086:  leave.s    IL_0088
+
+      }  // end handler
+      IL_0088:  leave.s    IL_0093
+
+    }  // end .try
+    finally
+    {
+      IL_008a:  nop
+      IL_008b:  call       void [System.Runtime]System.Diagnostics.Debugger::Break()
+      IL_0090:  nop
+      IL_0091:  nop
+      IL_0092:  endfinally
+    }  // end handler
+    IL_0093:  nop
+    IL_0094:  ret
+  } // end of method Program::'<<Main>$>g__Example|0_0'
