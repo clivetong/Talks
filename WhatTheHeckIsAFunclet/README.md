@@ -48,9 +48,11 @@ void ThrowException()
 - It shows the filter needs access to the stack frame where the Example code is running
 - It shows that we have two phases - first pass and second pass
 
+- normally stacks show you where to go next (thing TCO), but need to change that when exceptions in the picture
+
 ---
 
-### Note that we've seen filters and finally, and catch but we haven't seen fault
+### Note that we've seen filters/finally/catch but not fault
 
 Used in MoveNext implementation to Dispose the enumerator if the MoveNext threw an exception
 
@@ -81,7 +83,7 @@ class Foo : IDisposable { public void Dispose() { } }
                int32 V_1)
       .try
       {
-        .... stack machine
+        .... state machine
       }  // end .try
       fault
       {
@@ -198,6 +200,8 @@ finally { /* 6 */ }
 ---
 
 ### So that's the funclet
+
+[See the assembly code for the example here](example-compiled-with-debugger-break.txt) and point out the funclets!
 
 - The code for the exception path is appended to the end of the normal .NET code
 - (exception blocks are encoded as a table in the CLR)
