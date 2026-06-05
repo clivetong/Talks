@@ -69,7 +69,8 @@ Think of parts of the stack as branches which are based off each other
 
 ## GitHub have now added some support
 
-[This is their documentation](https://github.github.com/gh-stack/guides/workflows/)
+[This is their documentation](https://github.github.com/gh-stack/)
+
 - uses branches and PRs
 - maintains metadata to record how these branches form a stack
 - adds a command line to allow you to work with the stack (and the branch level)
@@ -195,7 +196,7 @@ echo 1 > 1.txt; git add .; git commit -m "1";
 ```
 
 ```bash
-> stack stack add branch-2
+> gh stack add branch-2
 ✓ Created and checked out branch "branch-2"
 echo 2 > 2.txt; git add .; git commit -m "2";
 ```
