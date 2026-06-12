@@ -1,383 +1,395 @@
 {
-  "tracks": [
-  ],
-  "albums": [
-  ],
-  "shows": [
-    {
-      "name": ".NET Rocks!",
-      "publisher": "Carl Franklin",
-      "uri": "spotify:show:5tz9eGgXtNHmq3WVD3EwYx"
-    },
-    {
-      "name": ".NET on AWS",
-      "publisher": "Brandon Minnick",
-      "uri": "spotify:show:74qjf9YuUPwCEY4Klp3QFm"
-    },
-    {
-      "name": "AI + a16z",
-      "publisher": "a16z",
-      "uri": "spotify:show:3bz8jF49EasFo2YZVOQDUW"
-    },
-    {
-      "name": "AWS Bites",
-      "publisher": "AWS Bites",
-      "uri": "spotify:show:3Lh7PzqBFV6yt5WsTAmO5q"
-    },
-    {
-      "name": "AWS Podcast",
-      "publisher": "Amazon Web Services",
-      "uri": "spotify:show:363iMcjThX5KNpfSHPRAjj"
-    },
-    {
-      "name": "Adventures in .NET",
-      "publisher": "Charles M Wood",
-      "uri": "spotify:show:0Zbp6m8y06n2zlPPs59DEX"
-    },
-    {
-      "name": "Azure & DevOps Podcast",
-      "publisher": "Jeffrey Palermo",
-      "uri": "spotify:show:4TDNfvJ6uuWiYxT8nvpddG"
-    },
-    {
-      "name": "BG2Pod with Brad Gerstner and Bill Gurley ",
-      "publisher": "BG2Pod",
-      "uri": "spotify:show:3dVqgYXN29DwwnqdY3YsCk"
-    },
-    {
-      "name": "Backend Banter",
-      "publisher": "Boot.dev",
-      "uri": "spotify:show:35trT95UkRVCkEb6tXndpF"
-    },
-    {
-      "name": "Best AI papers explained",
-      "publisher": "Enoch H. Kang",
-      "uri": "spotify:show:1EMFxEe22oncDah7zU5ABo"
-    },
-    {
-      "name": "CoRecursive: Coding Stories",
-      "publisher": "Adam Gordon Bell - Software Developer",
-      "uri": "spotify:show:6XU1MRwzCfAXD07YHbpjNv"
-    },
-    {
-      "name": "Ctrl+Alt+Azure",
-      "publisher": "Tobias Zimmergren, Jussi Roine",
-      "uri": "spotify:show:2uy4lHDQ50qPmTZyioeNe6"
-    },
-    {
-      "name": "Developer Voices",
-      "publisher": "Kris Jenkins",
-      "uri": "spotify:show:2gXhwz0AQRv2cvw61kobE5"
-    },
-    {
-      "name": "Dwarkesh Podcast",
-      "publisher": "Dwarkesh Patel",
-      "uri": "spotify:show:4JH4tybY1zX6e5hjCwU6gF"
-    },
-    {
-      "name": "GOTO - The Brightest Minds in Tech",
-      "publisher": "GOTO",
-      "uri": "spotify:show:1X1lCb4auIZoQKyYiC2PYM"
-    },
-    {
-      "name": "Google DeepMind: The Podcast",
-      "publisher": "Hannah Fry",
-      "uri": "spotify:show:39fjU5Q5L5UecTCRMeqjwb"
-    },
-    {
-      "name": "Google SRE Prodcast",
-      "publisher": "Salim Virji",
-      "uri": "spotify:show:3YHfBp9FPYJ2kydkKWUoxX"
-    },
-    {
-      "name": "Hacking the Org",
-      "publisher": "Container Solutions",
-      "uri": "spotify:show:12eOZXwUOJnPaogCqW92GZ"
-    },
-    {
-      "name": "Hanselminutes with Scott Hanselman",
-      "publisher": "Scott Hanselman",
-      "uri": "spotify:show:4SrTUZr1s5C4SJmUxDIUDc"
-    },
-    {
-      "name": "Happy Path Programming",
-      "publisher": "Bruce Eckel &amp; James Ward",
-      "uri": "spotify:show:25XAbgCB7VeHgREPSUzBYY"
-    },
-    {
-      "name": "Inside Java",
-      "publisher": "Chad Arimura, David Delabassee",
-      "uri": "spotify:show:434ZpirtxvKZmW3yWICCsR"
-    },
-    {
-      "name": "Kubernetes Podcast from Google",
-      "publisher": "Abdel Sghiouar, Kaslin Fields",
-      "uri": "spotify:show:0AsnxlMtXRUEeZkIO0ScpJ"
-    },
-    {
-      "name": "Latent Space: The AI Engineer Podcast",
-      "publisher": "swyx + Alessio",
-      "uri": "spotify:show:2p7zZVwVF6Yk0Zsb4QmT7t"
-    },
-    {
-      "name": "Let's Talk Azure!",
-      "publisher": "Alan Armstrong & Sam Foot",
-      "uri": "spotify:show:4Ws5HtQoBszV4qwtO3MPd1"
-    },
-    {
-      "name": "Limitless Podcast",
-      "publisher": "Limitless by Bankless",
-      "uri": "spotify:show:5oV29YUL8AzzwXkxEXlRMQ"
-    },
-    {
-      "name": "Machine Learning Street Talk (MLST)",
-      "publisher": "Machine Learning Street Talk (MLST)",
-      "uri": "spotify:show:02e6PZeIOdpmBGT9THuzwR"
-    },
-    {
-      "name": "Merge Conflict",
-      "publisher": "soundbite.fm",
-      "uri": "spotify:show:2ncjfc4QtiagQmSzLR81Zz"
-    },
-    {
-      "name": "Microarch Club",
-      "publisher": "Dan Mangum",
-      "uri": "spotify:show:3Q5iCLEgF9tlUIvFzoyy5P"
-    },
-    {
-      "name": "More or Less",
-      "publisher": "BBC Radio 4",
-      "uri": "spotify:show:3sVMOI29n5oyMgbUxFz0p3"
-    },
-    {
-      "name": "OpenObservability Talks",
-      "publisher": "Dotan Horovits",
-      "uri": "spotify:show:2Dh3iUfPjmdOKZwAppsVNj"
-    },
-    {
-      "name": "Page 94: The Private Eye Podcast",
-      "publisher": "Page 94: The Private Eye Podcast",
-      "uri": "spotify:show:18WkQ0uqjsIvx4Ds2sHt9L"
-    },
-    {
-      "name": "Philosophize This!",
-      "publisher": "Stephen West",
-      "uri": "spotify:show:2Shpxw7dPoxRJCdfFXTWLE"
-    },
-    {
-      "name": "PodRocket",
-      "publisher": "LogRocket",
-      "uri": "spotify:show:6oFuKu89C9X1wQ7bT0QEM2"
-    },
-    {
-      "name": "Possible",
-      "publisher": "Reid Hoffman",
-      "uri": "spotify:show:730YpdUSNlMyPQwNnyjp4k"
-    },
-    {
-      "name": "Postgres FM",
-      "publisher": "Nikolay Samokhvalov and Michael Christofides",
-      "uri": "spotify:show:6hF0omVFiMU22NQVGbA1eK"
-    },
-    {
-      "name": "PyTorch Developer Podcast",
-      "publisher": "Edward Yang, Team PyTorch",
-      "uri": "spotify:show:6UzHKeiy368jKfQMKKvJY5"
-    },
-    {
-      "name": "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
-      "publisher": "Sean Carroll | Wondery",
-      "uri": "spotify:show:622lvLwp8CVu6dvCsYAJhN"
-    },
-    {
-      "name": "SecurePod: Chats on Security Culture",
-      "publisher": "SecurePod",
-      "uri": "spotify:show:3A3MOS4rWA6bloto3xVcop"
-    },
-    {
-      "name": "Security Now (Audio)",
-      "publisher": "TWiT",
-      "uri": "spotify:show:7vAbYigR3zs8GYJP3EoVWw"
-    },
-    {
-      "name": "Signals and Threads",
-      "publisher": "Jane Street",
-      "uri": "spotify:show:3ig6FgIbASpqJbc9chD2CI"
-    },
-    {
-      "name": "Software Engineering Radio - the podcast for professional software developers",
-      "publisher": "team@se-radio.net (SE-Radio Team)",
-      "uri": "spotify:show:6UO3XQclSuNnGxB39QdAnL"
-    },
-    {
-      "name": "System Design Deep Dive",
-      "publisher": "System Design Deep Dive",
-      "uri": "spotify:show:3KAkF0bZXEYkYVHhVQdvia"
-    },
-    {
-      "name": "Talk Python To Me",
-      "publisher": "Michael Kennedy",
-      "uri": "spotify:show:6Ol9sx1lONDxBSffLW9qcZ"
-    },
-    {
-      "name": "Talking Postgres with Claire Giordano",
-      "publisher": "Microsoft",
-      "uri": "spotify:show:6XtjTEc4KGMK9fIGvmPLn7"
-    },
-    {
-      "name": "The AI Daily Brief: Artificial Intelligence News and Analysis",
-      "publisher": "Nathaniel Whittemore",
-      "uri": "spotify:show:7gKwwMLFLc6RmjmRpbMtEO"
-    },
-    {
-      "name": "The AWS Developers Podcast",
-      "publisher": "Amazon Web Services",
-      "uri": "spotify:show:7rQjgnBvuyr18K03tnEHBI"
-    },
-    {
-      "name": "The Azure Podcast",
-      "publisher": "Cynthia Kreng, Kendall Roden, Cale Teeter, Evan Basalik, Russell Young and Sujit D'Mello",
-      "uri": "spotify:show:3EScErvEcLV7IEk7nDsG8L"
-    },
-    {
-      "name": "The Breakpoint Show",
-      "publisher": "Khalid Abuhakmeh, Maarten Balliauw, Chris Woodruff",
-      "uri": "spotify:show:4NvQD8pZrD9PkHHcdvnlfA"
-    },
-    {
-      "name": "The Cartesian Cafe",
-      "publisher": "Timothy Nguyen",
-      "uri": "spotify:show:1X5asAByNhNr996ZsGGICG"
-    },
-    {
-      "name": "The Church of Logic",
-      "publisher": "Cody Roux",
-      "uri": "spotify:show:6vEh6ZpQr1Eoeoz8TbsMKx"
-    },
-    {
-      "name": "The Cloudcast",
-      "publisher": "Massive Studios",
-      "uri": "spotify:show:2lMNZTPmS57TUZAMdJGuiM"
-    },
-    {
-      "name": "The GeekNarrator",
-      "publisher": "Kaivalya Apte",
-      "uri": "spotify:show:2peu9OpezlFKIqjUIUZKVq"
-    },
-    {
-      "name": "The Haskell Interlude",
-      "publisher": "Haskell Podcast",
-      "uri": "spotify:show:0HKq9QmJDXdfo5N3TW7TNF"
-    },
-    {
-      "name": "The InfoQ Podcast",
-      "publisher": "InfoQ",
-      "uri": "spotify:show:4NhWaYYpPWgWRDAOqeRQbj"
-    },
-    {
-      "name": "The Joy of Why",
-      "publisher": "Steven Strogatz, Janna Levin and Quanta Magazine",
-      "uri": "spotify:show:2FoxHraQSKwxV2HgUfwLMp"
-    },
-    {
-      "name": "The Modern .NET Show",
-      "publisher": "Jamie Taylor",
-      "uri": "spotify:show:6FIM18ZIqQvuX7d1TA9rbZ"
-    },
-    {
-      "name": "The MonkCast",
-      "publisher": "RedMonk",
-      "uri": "spotify:show:1lzmSLf4O2trpJApYOBeVC"
-    },
-    {
-      "name": "The New Quantum Era - innovation in quantum computing, science and technology",
-      "publisher": "Sebastian Hassinger",
-      "uri": "spotify:show:2J0IwXAB4BQyWFUFtFi04k"
-    },
-    {
-      "name": "The New Stack Podcast",
-      "publisher": "The New Stack",
-      "uri": "spotify:show:2nj1mpDb9jxHxi9vjZvDdk"
-    },
-    {
-      "name": "The Peterman Pod",
-      "publisher": "Ryan Peterman",
-      "uri": "spotify:show:0MX9PyeCzDhdlyRv6slwIX"
-    },
-    {
-      "name": "The Post-Quantum World",
-      "publisher": "Protiviti",
-      "uri": "spotify:show:749yXmahoJl0t09mMuLvKQ"
-    },
-    {
-      "name": "The Pragmatic Engineer",
-      "publisher": "Gergely Orosz",
-      "uri": "spotify:show:2Bho9xCbOQMWMJ7UKmqCzD"
-    },
-    {
-      "name": "The Quanta Podcast",
-      "publisher": "Quanta Magazine",
-      "uri": "spotify:show:7oKXOpbHzbICFUcJNbZ5wF"
-    },
-    {
-      "name": "The Rest Is Money",
-      "publisher": "Goalhanger Podcasts",
-      "uri": "spotify:show:69DL3DIVIJZHpbSEzXs0Kc"
-    },
-    {
-      "name": "The Rest Is Politics",
-      "publisher": "Goalhanger",
-      "uri": "spotify:show:1Ysx8g1Iw42gESAtegrFaH"
-    },
-    {
-      "name": "The Rest Is Politics: US",
-      "publisher": "Goalhanger",
-      "uri": "spotify:show:1OY3nyGYqjIO4aWMW2feLy"
-    },
-    {
-      "name": "The TED AI Show",
-      "publisher": "TED",
-      "uri": "spotify:show:6EBVhJvlnOLch2wg6eGtUa"
-    },
-    {
-      "name": "The Unhandled Exception Podcast",
-      "publisher": "Dan Clarke (@dracan)",
-      "uri": "spotify:show:2DgUE1Iyl9cZxzzvUUIPBK"
-    },
-    {
-      "name": "The world, the universe and us",
-      "publisher": "New Scientist",
-      "uri": "spotify:show:7xN0obO7y5AR20v2KT7TBp"
-    },
-    {
-      "name": "Training Data",
-      "publisher": "Sequoia Capital",
-      "uri": "spotify:show:3UrDMnInpYog0hc2QCHAXk"
-    },
-    {
-      "name": "Two's Complement",
-      "publisher": "Ben Rady and Matt Godbolt",
-      "uri": "spotify:show:52irDllU36Y3mOBbBIxyNd"
-    },
-    {
-      "name": "Type Theory Forall",
-      "publisher": "Pedro Abreu",
-      "uri": "spotify:show:1gE06aXNjm4BEcwbsow0Zu"
-    },
-    {
-      "name": "no dogma podcast",
-      "publisher": "Bryan Hogan",
-      "uri": "spotify:show:6griBeHq63dVJ1xHv52tQe"
-    }
-  ],
-  "episodes": [
-  ],
-  "bannedTracks": [
-  ],
-  "artists": [
-  ],
-  "bannedArtists": [
-  ],
-  "other": [
-  ]
+  "tracks" : [ ],
+  "albums" : [ ],
+  "shows" : [ {
+    "name" : ".NET Rocks!",
+    "publisher" : "Carl Franklin",
+    "uri" : "spotify:show:5tz9eGgXtNHmq3WVD3EwYx"
+  }, {
+    "name" : ".NET on AWS",
+    "publisher" : "Brandon Minnick",
+    "uri" : "spotify:show:74qjf9YuUPwCEY4Klp3QFm"
+  }, {
+    "name" : "ACM ByteCast",
+    "publisher" : "Association for Computing Machinery (ACM)",
+    "uri" : "spotify:show:1idXEsUDqKEldl2EkhpWy6"
+  }, {
+    "name" : "AI + a16z",
+    "publisher" : "a16z",
+    "uri" : "spotify:show:3bz8jF49EasFo2YZVOQDUW"
+  }, {
+    "name" : "AI DevOps Podcast",
+    "publisher" : "Jeffrey Palermo",
+    "uri" : "spotify:show:4TDNfvJ6uuWiYxT8nvpddG"
+  }, {
+    "name" : "AWS Bites",
+    "publisher" : "AWS Bites",
+    "uri" : "spotify:show:3Lh7PzqBFV6yt5WsTAmO5q"
+  }, {
+    "name" : "AWS Podcast",
+    "publisher" : "Amazon Web Services",
+    "uri" : "spotify:show:363iMcjThX5KNpfSHPRAjj"
+  }, {
+    "name" : "Adventures in .NET",
+    "publisher" : "Charles M Wood",
+    "uri" : "spotify:show:0Zbp6m8y06n2zlPPs59DEX"
+  }, {
+    "name" : "BG2Pod with Brad Gerstner and Bill Gurley ",
+    "publisher" : "BG2Pod",
+    "uri" : "spotify:show:3dVqgYXN29DwwnqdY3YsCk"
+  }, {
+    "name" : "Backend Banter",
+    "publisher" : "Boot.dev",
+    "uri" : "spotify:show:35trT95UkRVCkEb6tXndpF"
+  }, {
+    "name" : "Best AI papers explained",
+    "publisher" : "Enoch H. Kang",
+    "uri" : "spotify:show:1EMFxEe22oncDah7zU5ABo"
+  }, {
+    "name" : "CoRecursive: Coding Stories",
+    "publisher" : "Adam Gordon Bell - Software Developer",
+    "uri" : "spotify:show:6XU1MRwzCfAXD07YHbpjNv"
+  }, {
+    "name" : "Ctrl+Alt+Azure",
+    "publisher" : "Tobias Zimmergren, Jussi Roine",
+    "uri" : "spotify:show:2uy4lHDQ50qPmTZyioeNe6"
+  }, {
+    "name" : "Developer Voices",
+    "publisher" : "Kris Jenkins",
+    "uri" : "spotify:show:2gXhwz0AQRv2cvw61kobE5"
+  }, {
+    "name" : "Dwarkesh Podcast",
+    "publisher" : "Dwarkesh Patel",
+    "uri" : "spotify:show:4JH4tybY1zX6e5hjCwU6gF"
+  }, {
+    "name" : "GOTO - The Brightest Minds in Tech",
+    "publisher" : "GOTO",
+    "uri" : "spotify:show:1X1lCb4auIZoQKyYiC2PYM"
+  }, {
+    "name" : "Google DeepMind: The Podcast",
+    "publisher" : "Hannah Fry",
+    "uri" : "spotify:show:39fjU5Q5L5UecTCRMeqjwb"
+  }, {
+    "name" : "Google SRE Prodcast",
+    "publisher" : "Salim Virji",
+    "uri" : "spotify:show:3YHfBp9FPYJ2kydkKWUoxX"
+  }, {
+    "name" : "Hacking the Org",
+    "publisher" : "Container Solutions",
+    "uri" : "spotify:show:12eOZXwUOJnPaogCqW92GZ"
+  }, {
+    "name" : "Hanselminutes with Scott Hanselman",
+    "publisher" : "Scott Hanselman",
+    "uri" : "spotify:show:4SrTUZr1s5C4SJmUxDIUDc"
+  }, {
+    "name" : "Happy Path Programming",
+    "publisher" : "Bruce Eckel &amp; James Ward",
+    "uri" : "spotify:show:25XAbgCB7VeHgREPSUzBYY"
+  }, {
+    "name" : "High Leverage",
+    "publisher" : "Heavybit",
+    "uri" : "spotify:show:7lhPtjCMMYEDHFP1HRGCG7"
+  }, {
+    "name" : "Inside Java",
+    "publisher" : "David Delabassee",
+    "uri" : "spotify:show:434ZpirtxvKZmW3yWICCsR"
+  }, {
+    "name" : "Iowa Type Theory Commute",
+    "publisher" : "Aaron Stump",
+    "uri" : "spotify:show:6AXAW30XbQPIKh5RjEXWe7"
+  }, {
+    "name" : "Kubernetes Podcast from Google",
+    "publisher" : "Abdel Sghiouar, Kaslin Fields",
+    "uri" : "spotify:show:0AsnxlMtXRUEeZkIO0ScpJ"
+  }, {
+    "name" : "Latent Space: The AI Engineer Podcast",
+    "publisher" : "Latent.Space",
+    "uri" : "spotify:show:2p7zZVwVF6Yk0Zsb4QmT7t"
+  }, {
+    "name" : "Let's Talk Azure!",
+    "publisher" : "Alan Armstrong & Sam Foot",
+    "uri" : "spotify:show:4Ws5HtQoBszV4qwtO3MPd1"
+  }, {
+    "name" : "Limitless: An AI Podcast",
+    "publisher" : "Limitless",
+    "uri" : "spotify:show:5oV29YUL8AzzwXkxEXlRMQ"
+  }, {
+    "name" : "Machine Learning Street Talk (MLST)",
+    "publisher" : "Machine Learning Street Talk (MLST)",
+    "uri" : "spotify:show:02e6PZeIOdpmBGT9THuzwR"
+  }, {
+    "name" : "Machine Learning: How Did We Get Here?",
+    "publisher" : "Tom Mitchell | Stanford Digital Economy Lab | Carnegie Mellon University",
+    "uri" : "spotify:show:1RWUoAHdMmav3qEeguBivY"
+  }, {
+    "name" : "Merge Conflict",
+    "publisher" : "soundbite.fm",
+    "uri" : "spotify:show:2ncjfc4QtiagQmSzLR81Zz"
+  }, {
+    "name" : "Microarch Club",
+    "publisher" : "Dan Mangum",
+    "uri" : "spotify:show:3Q5iCLEgF9tlUIvFzoyy5P"
+  }, {
+    "name" : "Microsoft Research Podcast",
+    "publisher" : "Researchers across the Microsoft research community",
+    "uri" : "spotify:show:6XNI6rGsLFYlWJxLItw4S0"
+  }, {
+    "name" : "More or Less",
+    "publisher" : "BBC Radio 4",
+    "uri" : "spotify:show:3sVMOI29n5oyMgbUxFz0p3"
+  }, {
+    "name" : "OpenAI Podcast",
+    "publisher" : "OpenAI",
+    "uri" : "spotify:show:0zojMEDizKMh3aTxnGLENP"
+  }, {
+    "name" : "OpenObservability Talks",
+    "publisher" : "Dotan Horovits",
+    "uri" : "spotify:show:2Dh3iUfPjmdOKZwAppsVNj"
+  }, {
+    "name" : "Page 94: The Private Eye Podcast",
+    "publisher" : "Page 94: The Private Eye Podcast",
+    "uri" : "spotify:show:18WkQ0uqjsIvx4Ds2sHt9L"
+  }, {
+    "name" : "Philosophize This!",
+    "publisher" : "Stephen West",
+    "uri" : "spotify:show:2Shpxw7dPoxRJCdfFXTWLE"
+  }, {
+    "name" : "PodRocket",
+    "publisher" : "LogRocket",
+    "uri" : "spotify:show:6oFuKu89C9X1wQ7bT0QEM2"
+  }, {
+    "name" : "Possible",
+    "publisher" : "Reid Hoffman",
+    "uri" : "spotify:show:730YpdUSNlMyPQwNnyjp4k"
+  }, {
+    "name" : "Postgres FM",
+    "publisher" : "Nikolay Samokhvalov and Michael Christofides",
+    "uri" : "spotify:show:6hF0omVFiMU22NQVGbA1eK"
+  }, {
+    "name" : "PyTorch Developer Podcast",
+    "publisher" : "Edward Yang, Team PyTorch",
+    "uri" : "spotify:show:6UzHKeiy368jKfQMKKvJY5"
+  }, {
+    "name" : "Sean Carroll's Mindscape: Science, Society, Philosophy, Culture, Arts, and Ideas",
+    "publisher" : "Sean Carroll",
+    "uri" : "spotify:show:622lvLwp8CVu6dvCsYAJhN"
+  }, {
+    "name" : "SecurePod: Chats on Security Culture",
+    "publisher" : "SecurePod",
+    "uri" : "spotify:show:3A3MOS4rWA6bloto3xVcop"
+  }, {
+    "name" : "Security Now (Audio)",
+    "publisher" : "TWiT",
+    "uri" : "spotify:show:7vAbYigR3zs8GYJP3EoVWw"
+  }, {
+    "name" : "Signals and Threads",
+    "publisher" : "Jane Street",
+    "uri" : "spotify:show:3ig6FgIbASpqJbc9chD2CI"
+  }, {
+    "name" : "Software Engineering Radio - the podcast for professional software developers",
+    "publisher" : "team@se-radio.net (SE-Radio Team)",
+    "uri" : "spotify:show:6UO3XQclSuNnGxB39QdAnL"
+  }, {
+    "name" : "System Design Deep Dive",
+    "publisher" : "System Design Deep Dive",
+    "uri" : "spotify:show:3KAkF0bZXEYkYVHhVQdvia"
+  }, {
+    "name" : "Talk Python To Me",
+    "publisher" : "Michael Kennedy",
+    "uri" : "spotify:show:6Ol9sx1lONDxBSffLW9qcZ"
+  }, {
+    "name" : "Talking Postgres with Claire Giordano",
+    "publisher" : "Microsoft",
+    "uri" : "spotify:show:6XtjTEc4KGMK9fIGvmPLn7"
+  }, {
+    "name" : "The AI Daily Brief: Artificial Intelligence News and Analysis",
+    "publisher" : "Nathaniel Whittemore",
+    "uri" : "spotify:show:7gKwwMLFLc6RmjmRpbMtEO"
+  }, {
+    "name" : "The AWS Developers Podcast",
+    "publisher" : "Amazon Web Services",
+    "uri" : "spotify:show:7rQjgnBvuyr18K03tnEHBI"
+  }, {
+    "name" : "The Azure Podcast",
+    "publisher" : "Cynthia Kreng, Kendall Roden, Cale Teeter, Evan Basalik, Russell Young and Sujit D'Mello",
+    "uri" : "spotify:show:3EScErvEcLV7IEk7nDsG8L"
+  }, {
+    "name" : "The Breakpoint Show",
+    "publisher" : "Khalid Abuhakmeh, Maarten Balliauw, Chris Woodruff",
+    "uri" : "spotify:show:4NvQD8pZrD9PkHHcdvnlfA"
+  }, {
+    "name" : "The BugBash Podcast",
+    "publisher" : "Antithesis",
+    "uri" : "spotify:show:5GtS7mZjcCS2H7cZAW4pva"
+  }, {
+    "name" : "The Cartesian Cafe",
+    "publisher" : "Timothy Nguyen",
+    "uri" : "spotify:show:1X5asAByNhNr996ZsGGICG"
+  }, {
+    "name" : "The Church of Logic",
+    "publisher" : "Cody Roux",
+    "uri" : "spotify:show:6vEh6ZpQr1Eoeoz8TbsMKx"
+  }, {
+    "name" : "The Enterprise AI Show",
+    "publisher" : "Massive Studios",
+    "uri" : "spotify:show:2lMNZTPmS57TUZAMdJGuiM"
+  }, {
+    "name" : "The GeekNarrator",
+    "publisher" : "Kaivalya Apte",
+    "uri" : "spotify:show:2peu9OpezlFKIqjUIUZKVq"
+  }, {
+    "name" : "The Haskell Interlude",
+    "publisher" : "Haskell Podcast",
+    "uri" : "spotify:show:0HKq9QmJDXdfo5N3TW7TNF"
+  }, {
+    "name" : "The InfoQ Podcast",
+    "publisher" : "InfoQ",
+    "uri" : "spotify:show:4NhWaYYpPWgWRDAOqeRQbj"
+  }, {
+    "name" : "The Joy of Why",
+    "publisher" : "Steven Strogatz, Janna Levin and Quanta Magazine",
+    "uri" : "spotify:show:2FoxHraQSKwxV2HgUfwLMp"
+  }, {
+    "name" : "The MAD Podcast with Matt Turck",
+    "publisher" : "Matt Turck",
+    "uri" : "spotify:show:7yLATDSaFvgJG80ACcRJtq"
+  }, {
+    "name" : "The Modern .NET Show",
+    "publisher" : "Jamie Taylor",
+    "uri" : "spotify:show:6FIM18ZIqQvuX7d1TA9rbZ"
+  }, {
+    "name" : "The MonkCast",
+    "publisher" : "RedMonk",
+    "uri" : "spotify:show:1lzmSLf4O2trpJApYOBeVC"
+  }, {
+    "name" : "The New Quantum Era - innovation in quantum computing, science and technology",
+    "publisher" : "Sebastian Hassinger",
+    "uri" : "spotify:show:2J0IwXAB4BQyWFUFtFi04k"
+  }, {
+    "name" : "The New Stack Podcast",
+    "publisher" : "The New Stack",
+    "uri" : "spotify:show:2nj1mpDb9jxHxi9vjZvDdk"
+  }, {
+    "name" : "The Peterman Pod",
+    "publisher" : "Ryan Peterman",
+    "uri" : "spotify:show:0MX9PyeCzDhdlyRv6slwIX"
+  }, {
+    "name" : "The Post-Quantum World",
+    "publisher" : "Protiviti",
+    "uri" : "spotify:show:749yXmahoJl0t09mMuLvKQ"
+  }, {
+    "name" : "The Pragmatic Engineer",
+    "publisher" : "Gergely Orosz",
+    "uri" : "spotify:show:2Bho9xCbOQMWMJ7UKmqCzD"
+  }, {
+    "name" : "The Quanta Podcast",
+    "publisher" : "Quanta Magazine",
+    "uri" : "spotify:show:7oKXOpbHzbICFUcJNbZ5wF"
+  }, {
+    "name" : "The Rest Is Money",
+    "publisher" : "Goalhanger",
+    "uri" : "spotify:show:69DL3DIVIJZHpbSEzXs0Kc"
+  }, {
+    "name" : "The Rest Is Politics",
+    "publisher" : "Goalhanger",
+    "uri" : "spotify:show:1Ysx8g1Iw42gESAtegrFaH"
+  }, {
+    "name" : "The Rest Is Politics: US",
+    "publisher" : "Goalhanger",
+    "uri" : "spotify:show:1OY3nyGYqjIO4aWMW2feLy"
+  }, {
+    "name" : "The Rest Is Science",
+    "publisher" : "Goalhanger",
+    "uri" : "spotify:show:5oLIbjbUqQmSMVSm0qNLge"
+  }, {
+    "name" : "The TED AI Show",
+    "publisher" : "TED",
+    "uri" : "spotify:show:6EBVhJvlnOLch2wg6eGtUa"
+  }, {
+    "name" : "The Unhandled Exception Podcast",
+    "publisher" : "Dan Clarke (@dracan)",
+    "uri" : "spotify:show:2DgUE1Iyl9cZxzzvUUIPBK"
+  }, {
+    "name" : "The World, the Universe and Us",
+    "publisher" : "New Scientist",
+    "uri" : "spotify:show:7xN0obO7y5AR20v2KT7TBp"
+  }, {
+    "name" : "Thoughtworks Technology Podcast",
+    "publisher" : "Thoughtworks",
+    "uri" : "spotify:show:6RBb4pGRgOFTmtCDSfTWvu"
+  }, {
+    "name" : "Training Data",
+    "publisher" : "Sequoia Capital",
+    "uri" : "spotify:show:3UrDMnInpYog0hc2QCHAXk"
+  }, {
+    "name" : "Two's Complement",
+    "publisher" : "Ben Rady and Matt Godbolt",
+    "uri" : "spotify:show:52irDllU36Y3mOBbBIxyNd"
+  }, {
+    "name" : "Type Theory Forall",
+    "publisher" : "Pedro Abreu",
+    "uri" : "spotify:show:1gE06aXNjm4BEcwbsow0Zu"
+  }, {
+    "name" : "Windows Weekly (Audio)",
+    "publisher" : "TWiT",
+    "uri" : "spotify:show:3DIW6KLSynjwt56NEnbNZA"
+  }, {
+    "name" : "Y Combinator Startup Podcast",
+    "publisher" : "Y Combinator",
+    "uri" : "spotify:show:1tgqafxZAB0Bjd8nkwVtE4"
+  }, {
+    "name" : "no dogma podcast",
+    "publisher" : "Bryan Hogan",
+    "uri" : "spotify:show:6griBeHq63dVJ1xHv52tQe"
+  } ],
+  "episodes" : [ {
+    "name" : "Avalonia 12 with Mike James & Matt Lacey",
+    "show" : ".NET Rocks!",
+    "uri" : "spotify:episode:2YTVeehXxuEwsHundr1DYW"
+  }, {
+    "name" : "Education, Education, Education (and immigration)",
+    "show" : "More or Less",
+    "uri" : "spotify:episode:5EP9i5sq7su14qphsGBOTO"
+  }, {
+    "name" : "Claude Fable 5: The Most Impressive AI Model Ever",
+    "show" : "Limitless: An AI Podcast",
+    "uri" : "spotify:episode:4kOQXw9mUBDjvcqg7Lsd57"
+  }, {
+    "name" : "540. The Untold Iran Crisis, Henry Nowak, and Farage’s Politics of Rage",
+    "show" : "The Rest Is Politics",
+    "uri" : "spotify:episode:0rG6DsPhClLPXQ3s3Vf4jO"
+  }, {
+    "name" : "Why You Should Stop Using Face ID",
+    "show" : "The Rest Is Science",
+    "uri" : "spotify:episode:3RRE81a5fuyua52BnKQqSd"
+  }, {
+    "name" : "346 - Microsoft Tech Updates",
+    "show" : "Ctrl+Alt+Azure",
+    "uri" : "spotify:episode:5OOTXc3Z3wbA4ljvQmB1kR"
+  }, {
+    "name" : "Kubernetes and retiring at the top with Kelsey Hightower",
+    "show" : "The Pragmatic Engineer",
+    "uri" : "spotify:episode:25qDLvBsunU9WJ3YpiftCG"
+  }, {
+    "name" : "Is Trump’s Corruption Machine Reaching New Extremes?",
+    "show" : "The Rest Is Politics Plus",
+    "uri" : "spotify:episode:1vC378yr58aLWuQZ0iqHS5"
+  }, {
+    "name" : "Modern Concurrency in Java • Bazlur Rahman & Michael Redlich",
+    "show" : "GOTO - The Brightest Minds in Tech",
+    "uri" : "spotify:episode:1ge5xIdDk6GsxAnkxkSXGd"
+  }, {
+    "name" : "518: Windows is Back! New Microsoft AI Coding Models",
+    "show" : "Merge Conflict",
+    "uri" : "spotify:episode:00J3leZn41gyLjAkvtnL2P"
+  } ],
+  "bannedTracks" : [ ],
+  "artists" : [ ],
+  "bannedArtists" : [ ],
+  "pageMatch" : [ ],
+  "kallaxes" : [ ],
+  "other" : [ ],
+  "parentAllowedTracks" : [ ],
+  "parentAllowedArtists" : [ ],
+  "podcastChapters" : [ ]
 }
