@@ -342,47 +342,7 @@
     "publisher" : "Bryan Hogan",
     "uri" : "spotify:show:6griBeHq63dVJ1xHv52tQe"
   } ],
-  "episodes" : [ {
-    "name" : "Avalonia 12 with Mike James & Matt Lacey",
-    "show" : ".NET Rocks!",
-    "uri" : "spotify:episode:2YTVeehXxuEwsHundr1DYW"
-  }, {
-    "name" : "Education, Education, Education (and immigration)",
-    "show" : "More or Less",
-    "uri" : "spotify:episode:5EP9i5sq7su14qphsGBOTO"
-  }, {
-    "name" : "Claude Fable 5: The Most Impressive AI Model Ever",
-    "show" : "Limitless: An AI Podcast",
-    "uri" : "spotify:episode:4kOQXw9mUBDjvcqg7Lsd57"
-  }, {
-    "name" : "540. The Untold Iran Crisis, Henry Nowak, and Farage’s Politics of Rage",
-    "show" : "The Rest Is Politics",
-    "uri" : "spotify:episode:0rG6DsPhClLPXQ3s3Vf4jO"
-  }, {
-    "name" : "Why You Should Stop Using Face ID",
-    "show" : "The Rest Is Science",
-    "uri" : "spotify:episode:3RRE81a5fuyua52BnKQqSd"
-  }, {
-    "name" : "346 - Microsoft Tech Updates",
-    "show" : "Ctrl+Alt+Azure",
-    "uri" : "spotify:episode:5OOTXc3Z3wbA4ljvQmB1kR"
-  }, {
-    "name" : "Kubernetes and retiring at the top with Kelsey Hightower",
-    "show" : "The Pragmatic Engineer",
-    "uri" : "spotify:episode:25qDLvBsunU9WJ3YpiftCG"
-  }, {
-    "name" : "Is Trump’s Corruption Machine Reaching New Extremes?",
-    "show" : "The Rest Is Politics Plus",
-    "uri" : "spotify:episode:1vC378yr58aLWuQZ0iqHS5"
-  }, {
-    "name" : "Modern Concurrency in Java • Bazlur Rahman & Michael Redlich",
-    "show" : "GOTO - The Brightest Minds in Tech",
-    "uri" : "spotify:episode:1ge5xIdDk6GsxAnkxkSXGd"
-  }, {
-    "name" : "518: Windows is Back! New Microsoft AI Coding Models",
-    "show" : "Merge Conflict",
-    "uri" : "spotify:episode:00J3leZn41gyLjAkvtnL2P"
-  } ],
+  "episodes" : [ ],
   "bannedTracks" : [ ],
   "artists" : [ ],
   "bannedArtists" : [ ],
