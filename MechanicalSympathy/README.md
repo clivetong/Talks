@@ -98,4 +98,4 @@ Cloud/managed runtimes, JIT compilers, and abstraction layers arguably reduce ho
 
 ### In summary
 
-Not "know assembly" — more like: profile before you assume (and check in the large too), understand your data layout, know what your language runtime is doing behind the scenes, and know when this level of thinking is worth the cost vs. when it's premature optimization.
+Not "know assembly" — more profile realistically before you assume (and check in the large too), understand your data layout, know what your language runtime is doing behind the scenes, and know when this level of thinking is worth the cost vs. when it's premature optimization.
