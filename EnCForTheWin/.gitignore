@@ -1,12 +1,4 @@
-Builder/bin
-Builder/obj
-ClassLibrary2/bin
-ClassLibrary2/obj
-DiffLoader/bin
-DiffLoader/obj
 temp
 .vs
-TheInnerLoop/bin
-TheInnerLoop/obj
-NotOSR/bin
-NotOSR/obj
+bin
+obj
