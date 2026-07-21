@@ -176,4 +176,28 @@ Runs in its own WSL VM - he shows the C# code that does this and the options you
 
 ---
 
+## What we learned shipping VS Code weekly (without breaking everything)
+
+---
+
+How the team evolved as they ramped up the use of AI
+
+They adopted Agents, now what?
+
+---
+
+Need to move to smaller batches to take down the risks
+
+---
+
+AI changes how teams work, not just how they code
+
+---
+
+Inner loop
+AI-native engineering system
+Planning and collaboration
+
+---
+
 
