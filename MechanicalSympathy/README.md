@@ -4,7 +4,7 @@
 
 ## Some material
 
-- [The original blog post](https://mechanical-sympathy.blogspot.com/)
+- [The original blog post](https://mechanical-sympathy.blogspot.com/2011/07/why-mechanical-sympathy.html)
 - [The most amazing achievement of the computer software industry is its continuing cancellation of the steady and staggering gains made by the computer hardware industry.](https://news.ycombinator.com/item?id=37538556)
 - [Mechanical Sympathy in Cooperative Multitasking by Kenny Chamberlin](https://www.youtube.com/watch?v=1dLYhc2ho4Y)
 - [Programmers, Now More Than Ever, Need Mechanical Sympathy](https://www.youtube.com/watch?v=OMSTT4SLwus)
@@ -86,7 +86,7 @@ dotnet run -c Release
 
 ### Where it shows up in real systems
 
-LMAX Disruptor (Thompson's own project) is the canonical case study — lock-free ring buffer designed entirely around cache lines and mechanical sympathy.
+[LMAX Disruptor](https://martinfowler.com/articles/lmax.html) (Thompson's own project) is the canonical case study — lock-free ring buffer designed entirely around cache lines and mechanical sympathy.
 
 ---
 
@@ -99,3 +99,36 @@ Cloud/managed runtimes, JIT compilers, and abstraction layers arguably reduce ho
 ### In summary
 
 Not "know assembly" — more profile realistically before you assume (and check in the large too), understand your data layout, know what your language runtime is doing behind the scenes, and know when this level of thinking is worth the cost vs. when it's premature optimization.
+
+---
+
+### Addendum - understand one level lower
+
+---
+
+```CSharp
+ICollection<int> list = 
+  new List<int> { 1, 2, 3, 4, 5 };
+
+ICollection<KeyValuePair<int, int>> dict = 
+  list.ToDictionary(i => i, i => i);
+```
+
+---
+
+```CSharp
+foreach (var i in list)
+{
+    list.Remove(i);
+}
+
+foreach (var i in dict)
+{
+    dict.Remove(i);
+}
+```
+
+---
+
+- [See remarks](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.icollection-1.remove?view=net-10.0#remarks)
+- [How it is safe for dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.remove?view=net-10.0#remarks)
