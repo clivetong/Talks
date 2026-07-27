@@ -106,6 +106,12 @@ Not "know assembly" — more profile realistically before you assume (and check 
 
 ---
 
+-[The Fuller Stack](https://2023.nordevcon.com/) from Kevlin Henney at Nor(Dev):Con
+
+![The blurb](images/FullerSTack.png)
+
+---
+
 ```CSharp
 ICollection<int> list = 
   new List<int> { 1, 2, 3, 4, 5 };
