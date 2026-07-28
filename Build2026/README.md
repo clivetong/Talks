@@ -24,14 +24,15 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 UX
 
-- dotnet run for MAUI (via devices) and aware of context (LLM support)
+- dotnet run for MAUI (via devices)
+- aware of context (LLM support, output formats)
 - work well with worktrees
 
 Performance
 
-- NAOT performance (bundled tools)
+- Native AOT performance (bundled tools)
 - multi-threaded MSBuild
-- NAtive AOT-ified dotnet
+- Native AOT-ified dotnet
 
 Acquisition
 
@@ -40,12 +41,23 @@ Acquisition
 
 ---
 
+### Simplifying .NET install using dotnetup
+
+- [The design document](https://github.com/dotnet/designs/blob/main/accepted/2026/dotnetup/cli-acquisition-tool.md)
+- [Video discussing it](https://youtu.be/eExkCpyUrrs?si=k_K6RZX4nvwDemyZ)
+
+---
+
 ### Libraries
 
-- Process API
+- Process API (avoid deadlocks, and allow easy connection using anynymous pipes)
 - Unicode (Rune awareness, emojis)
 - System.Text.Json (JSONL)
 - Compression
+
+---
+
+![Anonymous pipes](images/anonymouspipes.png)
 
 ---
 
@@ -58,9 +70,15 @@ Acquisition
   <features>runtime-async=on</features>
 ```
 
+[Design document](https://github.com/dotnet/runtime/blob/main/docs/design/specs/runtime-async.md)
+
+---
+
 - cleaner stack traces
 - performance
-- augtomatically get async improvements
+- automatically get async improvements
+- the frontend marks the methods
+- the state machine is written by the JIT - shared with Native AOT
 
 ---
 
@@ -69,13 +87,17 @@ Acquisition
 - two release project
 - .net 11 reduce use of unsafe, and apply to CoreLib
 - .net 12 Update rest of the product
-- C# 16 redesings unsafe into a reviewable caller contract
+- C# 16 redesigns unsafe into a reviewable caller contract
 
 ---
 
-Some JIT improvements
+### Some JIT improvements
 
-- see the SIMD improved code
+- bounds check work
+
+---
+
+![SIMD gets faster](images/memorysafesimd.png)
 
 ---
 
@@ -83,7 +105,7 @@ Some JIT improvements
 
 ---
 
-Powertoys/terminal/winget/wsl
+### Powertoys/terminal/winget/wsl
 
 - Building on windows
 - Building for windows
@@ -94,85 +116,109 @@ Powertoys/terminal/winget/wsl
 
 ---
 
-A config for winget to get the PC into a standard configuration
-
-https://github.com/microsoft/windowsdeveloperconfig
+[A config for winget to get the PC into a standard configuration](https://github.com/microsoft/windowsdeveloperconfig)
 
 ---
 
-Insider program
+### Insider program
 
 - Taskbar personaliation
 - New run dialog
   - takes after the powertoys command palette
-- Intelliegent terminal ( https://github.com/microsoft/intelligent-terminal )
+- [Intelliegent terminal](https://github.com/microsoft/intelligent-terminal)
 
 ---
 
 ## WSL containers
 
-wslc command line
+```Powershell
+C:\Users\clive.tong\Documents\git\Talks [main ≡ +2 ~1 -0 !]> wslc
+Copyright (c) Microsoft Corporation. All rights reserved.
+For privacy information about this product please visit https://aka.ms/privacy.
 
-why build container CLI?
+WSLC is the Windows Subsystem for Linux Container CLI tool. It enables management and interaction with WSL containers from the command line.
 
-There's an API too
+Usage: wslc  [<command>] [<options>]
 
-[They want to make the API and the CLI work together]
-[Open source and will push upstream]
---
+The following commands are available:
+  container  Manage containers.
+  image      Manage images.
+  network    Manage networks.
+  registry   Manage registry credentials.
+  settings   Open the settings file in the default editor.
+```
+
+- They want to make the API and the CLI work together
+- Open source and will push upstream
+
+---
+
+[See this talk](WSL improvements and the new Containers CLI and APIs | DEM346)
+
+---
 
 ## coreutils
 
-https://github.com/microsoft/coreutils
-75 difefrent tools
+[75 different tools](https://github.com/microsoft/coreutils)
 
-- test/tail/env
+```Powershell
+C:\Users\clive.tong\Documents\git> test -f .\counter.csv
+C:\Users\clive.tong\Documents\git> $LASTEXITCODE
+0
+C:\Users\clive.tong\Documents\git> test -f .\counter2.csv
+C:\Users\clive.tong\Documents\git> $LASTEXITCODE
+1
+```
 
---
+- env
+
+---
+
+```Powershell
+C:\Users\clive.tong\Documents\git\Talks [main ≡ +2 ~1 -0 !]> find . -iname "README.*" -exec grep -i dotnet "{}" ";" | tail -5
+[The green threads write up](https://github.com/dotnet/runtimelab/blob/feature/green-threads/docs/design/features/greenthreads.md)
+[A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564) by duplicating an event causing the simulated stack to underflow.
+- [Different caller and callee saved registers](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
+- [Access to locals because the frame pointer is set to that of the parent](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#registers-on-entry-to-a-funclet)
+- [GC Info and hot/cold splitting](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
+```
+
+---
 
 ## Building on Windows
 
 ---
 
-winappcli
-
-https://github.com/microsoft/winappcli
+[winappcli](https://github.com/microsoft/winappcli)
 
 Jump start building windows app - like publishing
 
 ---
 
-Some skills too https://github.com/microsoft/win-dev-skills
+[Some skills too](https://github.com/microsoft/win-dev-skills)
 
 ---
 
-Sample profile guided optimization
-
----
+### Sample profile guided optimization
 
 - Discusses instrumented code for profile guided optimization and the branch in the pipeline, and the friction this causes
-
-- SPGO uses the hardware counters
-
+- SPGO uses the hardware counters (and ETL events)
 - They have used this for Adobe photoshop
 
 ---
 
-Will use a stack based VM to demo the improvement, calculating Fibonacci
+- Will use a stack based VM to demo the improvement, calculating Fibonacci
+- Uses xperf to capture ETL traces around a run of the application
+
+[See learn](https://learn.microsoft.com/en-us/cpp/build/sample-profile-guided-optimization?view=msvc-170)
 
 ---
 
-Uses xperf to capture ETL traces around a run of the application
+### WSL containers integared with build
 
----
-
-Now more on containers
-
-WSL.Containers NuGet package and some in the project file
-
-Will now build the containers as part of the publish
-
-Runs in its own WSL VM - he shows the C# code that does this and the options you can set
+- WSL.Containers NuGet package and some in the project file
+- Will now build the containers as part of the publish
+- Runs in its own WSL VM - he shows the C# code that does this and the options you can set
 
 ---
 
@@ -200,4 +246,15 @@ Planning and collaboration
 
 ---
 
+Don't need to build whole product to test each PR
+
+Github Mobile App to read PR and see the UI changes that an Agent has put into it
+
+AI means you can test on Apple without having a Mac
+
+They extracted lots of components to allow them to be tested independent of the product
+
+---
+
+Use the Agent to build prototypes
 
