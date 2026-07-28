@@ -236,17 +236,15 @@ C:\Users\clive.tong\Documents\git> $LASTEXITCODE
 1
 ```
 
-- env
-
 ---
 
 ```Powershell
-C:\Users\clive.tong\Documents\git\Talks [main ≡ +2 ~1 -0 !]> find . -iname "README.*" -exec grep -i dotnet "{}" ";" | tail -5
-[The green threads write up](https://github.com/dotnet/runtimelab/blob/feature/green-threads/docs/design/features/greenthreads.md)
-[A Microsoft bug that broke the profiler API](https://github.com/dotnet/runtime/pull/123564) by duplicating an event causing the simulated stack to underflow.
-- [Different caller and callee saved registers](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
-- [Access to locals because the frame pointer is set to that of the parent](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#registers-on-entry-to-a-funclet)
-- [GC Info and hot/cold splitting](https://github.com/dotnet/runtime/blob/main/docs/design/coreclr/botr/clr-abi.md#register-values-and-exception-handling)
+:\Users\clive.tong\Documents\git\Talks\Build2026 [main ↑1 +2 ~0 -0 !]> find . -iname "README.*" -exec grep -i dotnet "{}" ";" | grep -Eo "^.{30}" | tail -5
+[The green threads write up](h
+[A Microsoft bug that broke th
+- [Different caller and callee
+- [Access to locals because th
+- [GC Info and hot/cold splitt
 ```
 
 ---
@@ -259,13 +257,11 @@ C:\Users\clive.tong\Documents\git\Talks [main ≡ +2 ~1 -0 !]> find . -iname "RE
 
 ---
 
-[winappcli](https://github.com/microsoft/winappcli)
+### Jump start building windows app - like publishing
 
-Jump start building windows app - like publishing
+- [winappcli](https://github.com/microsoft/winappcli)
 
----
-
-[Some skills too](https://github.com/microsoft/win-dev-skills)
+- [Some skills too](https://github.com/microsoft/win-dev-skills)
 
 ---
 
@@ -285,9 +281,13 @@ Jump start building windows app - like publishing
 
 [See learn](https://learn.microsoft.com/en-us/cpp/build/sample-profile-guided-optimization?view=msvc-170)
 
-- Because SPGO profiles release bits instead of instrumented builds, it enables much more flexibility in where and how you collect data. You can gather runtime profiles from production servers, developer machines, performance labs, or any combination. The result is a binary that runs hot paths more efficiently, with a typical performance speedup of 5-15% depending on the quality of the profile data.
+---
 
-- Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inner loops. Gains scale with codebase size and branch complexity. The small sample in this tutorial shows around 7% improvement. Larger production codebases often see more improvement.
+Because SPGO profiles release bits instead of instrumented builds, it enables much more flexibility in where and how you collect data. You can gather runtime profiles from production servers, developer machines, performance labs, or any combination. The result is a binary that runs hot paths more efficiently, with a typical performance speedup of 5-15% depending on the quality of the profile data.
+
+---
+
+Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inner loops. Gains scale with codebase size and branch complexity. The small sample in this tutorial shows around 7% improvement. Larger production codebases often see more improvement.
 
 ---
 
@@ -359,7 +359,7 @@ Jump start building windows app - like publishing
 
 ---
 
-- Github events (issues and PRs etc)
+- GitHub events (issues and PRs etc)
 - scheduled jobs (find an fix error with Errors Agent, de-duplicate issues)
 - manual events (including chrome extension)
 
