@@ -151,11 +151,6 @@ The following commands are available:
 
 - [Public preview](https://devblogs.microsoft.com/commandline/wsl-container-is-now-available-for-public-preview/)
 
-
----
-
-[See this talk](WSL improvements and the new Containers CLI and APIs | DEM346)
-
 ---
 
 [Failed if you have a . in your username](https://github.com/microsoft/WSL/issues/40944)
@@ -200,6 +195,18 @@ root@73a51ef5eac1:/#
 ```Powershell
 wslc system session list
 ```
+
+---
+
+[See this talk](WSL improvements and the new Containers CLI and APIs | DEM346)
+
+---
+
+![Why?](images/whywslc2.png)
+
+---
+
+![Who for](images/whofor.png)
 
 ---
 
@@ -280,7 +287,8 @@ Jump start building windows app - like publishing
 
 - WSL.Containers NuGet package and some in the project file
 - Will now build the containers as part of the publish
-- Runs in its own WSL VM - he shows the C# code that does this and the options you can set
+- Write C# code to start a Session and run the Linux container
+- Runs in its own WSL VM
 
 ---
 
@@ -296,35 +304,56 @@ Jump start building windows app - like publishing
 
 ---
 
-How the team evolved as they ramped up the use of AI
+### How the team evolved as they ramped up the use of AI
 
-They adopted Agents, now what?
-
----
-
-Need to move to smaller batches to take down the risks
+- They adopted Agents, now what?
+- AI changes how teams work, not just how they code
 
 ---
 
-AI changes how teams work, not just how they code
+### Changes across
+
+- Inner loop
+- AI-native engineering system
+- Planning and collaboration
 
 ---
 
-Inner loop
-AI-native engineering system
-Planning and collaboration
+![Code survival](images/codesurvival.png)
 
 ---
 
-Don't need to build whole product to test each PR
+### After ten years, moved from monthly to weekly releases
 
-Github Mobile App to read PR and see the UI changes that an Agent has put into it
-
-AI means you can test on Apple without having a Mac
-
-They extracted lots of components to allow them to be tested independent of the product
+- 3x more issues and PRs
+- get smaller batches
 
 ---
 
-Use the Agent to build prototypes
+### Developer inner loop
+
+- Don't need to build whole product to test each PR
+- Github Mobile App to read PR and see the UI changes that an Agent has put into it
+- AI means you can test on Apple without having a Mac
+- They extracted lots of components to allow them to be tested independent of the product
+- Use the Agent to build prototypes
+
+---
+
+![Optimize models](images/optimize.png)
+
+---
+
+### AI-native teams need an AI-native engineering system
+
+- lots of AI tooling using Agentic workflows
+- model trained to infer owner of an issue
+
+---
+
+- Github events (issues and PRs etc)
+- scheduled jobs (find an fix error with Errors Agent, de-duplicate issues)
+- manual events (including chrome extension)
+
+---
 
