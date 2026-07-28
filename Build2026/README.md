@@ -1,9 +1,5 @@
 # Some talks from Build 2026 (June 2-3)
 
----
-
-## What are we covering?
-
 We'll cover parts of a few of the talks from Build.
 
 ---
@@ -20,21 +16,23 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ---
 
-### SDK
-
-UX
+### UX
 
 - dotnet run for MAUI (via devices)
 - aware of context (LLM support, output formats)
 - work well with worktrees
 
-Performance
+---
+
+### Performance
 
 - Native AOT performance (bundled tools)
 - multi-threaded MSBuild
 - Native AOT-ified dotnet
 
-Acquisition
+---
+
+### Acquisition
 
 - CLI based SDK/Runtime installation and maintenance (dotnetup)
 - reducing the size of SDK install
@@ -50,10 +48,16 @@ Acquisition
 
 ### Libraries
 
-- Process API (avoid deadlocks, and allow easy connection using anynymous pipes)
+- Process API
+  - avoid deadlocks
+  - allow easy connection using anonymous pipes
 - Unicode (Rune awareness, emojis)
 - System.Text.Json (JSONL)
 - Compression
+
+---
+
+[Process Api blog post](https://devblogs.microsoft.com/dotnet/process-api-improvements-in-dotnet-11/)
 
 ---
 
@@ -64,13 +68,16 @@ Acquisition
 ### Runtime Async
 
 - opt-in for 11; likely default for 12
-- no source code changes, completely compatible with compiler async
+- no source code changes
+- completely compatible with compiler async
+
+- [Design document](https://github.com/dotnet/runtime/blob/main/docs/design/specs/runtime-async.md)
+
+---
 
 ```xml
   <features>runtime-async=on</features>
 ```
-
-[Design document](https://github.com/dotnet/runtime/blob/main/docs/design/specs/runtime-async.md)
 
 ---
 
@@ -78,15 +85,16 @@ Acquisition
 - performance
 - automatically get async improvements
 - the frontend marks the methods
-- the state machine is written by the JIT - shared with Native AOT
+- the state machine is written by the JIT 
+  - shared with Native AOT
 
 ---
 
 ### Memory safety
 
 - two release project
-- .net 11 reduce use of unsafe, and apply to CoreLib
-- .net 12 Update rest of the product
+  - .net 11 reduce use of unsafe, and apply to CoreLib
+  - .net 12 Update rest of the product
 - C# 16 redesigns unsafe into a reviewable caller contract
 
 ---
@@ -122,9 +130,9 @@ Acquisition
 
 ### Insider program
 
-- Taskbar personaliation (left/right/top/bottom)
+- Taskbar personalization (left/right/top/bottom)
 - New run dialog - takes after the powertoys command palette
-- [Intelligent terminal](https://github.com/microsoft/intelligent-terminal) has AI assistant in sub-pane
+- [Intelligent terminal](https://github.com/microsoft/intelligent-terminal) has AI assistant in a sub-pane
 
 ---
 
