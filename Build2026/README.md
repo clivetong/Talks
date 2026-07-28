@@ -122,10 +122,9 @@ Acquisition
 
 ### Insider program
 
-- Taskbar personaliation
-- New run dialog
-  - takes after the powertoys command palette
-- [Intelliegent terminal](https://github.com/microsoft/intelligent-terminal)
+- Taskbar personaliation (left/right/top/bottom)
+- New run dialog - takes after the powertoys command palette
+- [Intelligent terminal](https://github.com/microsoft/intelligent-terminal) has AI assistant in sub-pane
 
 ---
 
@@ -148,8 +147,10 @@ The following commands are available:
   settings   Open the settings file in the default editor.
 ```
 
-- They want to make the API and the CLI work together
-- Open source and will push upstream
+---
+
+- [Public preview](https://devblogs.microsoft.com/commandline/wsl-container-is-now-available-for-public-preview/)
+
 
 ---
 
@@ -157,9 +158,59 @@ The following commands are available:
 
 ---
 
+[Failed if you have a . in your username](https://github.com/microsoft/WSL/issues/40944)
+
+---
+
+```Powershell
+C:\Users\clive.tong\Documents\git> wslc run --rm hello-world
+Image 'hello-world' not found, pulling
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete
+Digest: sha256:c3cbe1cc1aa588a64951ac6286e0df7b27fe2e6324b1001c619bb358770c0178
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+```
+
+---
+
+```Powershell
+C:\Users\clive.tong\Documents\git\Talks\Build2026 [main ≡ +1 ~1 -0 !]> wslc container run --rm -it ubuntu:latest bash
+Image 'ubuntu:latest' not found, pulling
+latest: Pulling from library/ubuntu
+ed819469700f: Pull complete
+a3679419df18: Pull complete
+Digest: sha256:3131b4cc82a783df6c9df078f86e01819a13594b865c2cad47bd1bca2b7063bb
+Status: Downloaded newer image for ubuntu:latest
+root@73a51ef5eac1:/#
+```
+
+---
+
+![Why?](images/whywslc.png)
+
+---
+
+- They want to make the API and the CLI work together
+- Open source and will push upstream
+- Opinionated
+- Extended with new commands
+
+```Powershell
+wslc system session list
+```
+
+---
+
 ## coreutils
 
-[75 different tools](https://github.com/microsoft/coreutils)
+[70+ different tools](https://github.com/microsoft/coreutils)
+
+```Powershell
+C:\Users\clive.tong\Documents\git\Talks\Build2026 [main ≡ +1 ~1 -0 !]> ls 'C:\Program Files\coreutils\bin\' | wc -l
+78
+```
 
 ```Powershell
 C:\Users\clive.tong\Documents\git> test -f .\counter.csv
@@ -185,7 +236,11 @@ C:\Users\clive.tong\Documents\git\Talks [main ≡ +2 ~1 -0 !]> find . -iname "RE
 
 ---
 
-## Building on Windows
+## Building for Windows
+
+---
+
+![Building for windows](images/building-for-windows.png)
 
 ---
 
@@ -204,21 +259,36 @@ Jump start building windows app - like publishing
 - Discusses instrumented code for profile guided optimization and the branch in the pipeline, and the friction this causes
 - SPGO uses the hardware counters (and ETL events)
 - They have used this for Adobe photoshop
+- C/C++
 
 ---
 
 - Will use a stack based VM to demo the improvement, calculating Fibonacci
 - Uses xperf to capture ETL traces around a run of the application
 
+---
+
 [See learn](https://learn.microsoft.com/en-us/cpp/build/sample-profile-guided-optimization?view=msvc-170)
+
+- Because SPGO profiles release bits instead of instrumented builds, it enables much more flexibility in where and how you collect data. You can gather runtime profiles from production servers, developer machines, performance labs, or any combination. The result is a binary that runs hot paths more efficiently, with a typical performance speedup of 5-15% depending on the quality of the profile data.
+
+- Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inner loops. Gains scale with codebase size and branch complexity. The small sample in this tutorial shows around 7% improvement. Larger production codebases often see more improvement.
 
 ---
 
-### WSL containers integared with build
+### WSL containers integrated with build
 
 - WSL.Containers NuGet package and some in the project file
 - Will now build the containers as part of the publish
 - Runs in its own WSL VM - he shows the C# code that does this and the options you can set
+
+---
+
+![wslc during build](images/wslcinapp.png)
+
+---
+
+![isolated](images/ownvm.png)
 
 ---
 
