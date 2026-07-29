@@ -14,6 +14,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ## .NET 11 in depth: Runtime, libraries, and SDK for the AI era
 
+> Join Chet and Rich for a tour of how the .NET Runtime, libraries, and tooling are improving for .NET 11. You'll learn about investments in Native AOT, support for AI agents of all kinds, foundational runtime investments around memory safety and asyncronous operations, and a large number of new APIs that make working in .NET more enjoyable and productive.
 ---
 
 ### UX
@@ -115,6 +116,8 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 ---
 
 ## Build and ship faster with a developer-optimized experience on Windows
+
+> Learn how Windows delivers a streamlined, end-to-end experience through PCs and OS experiences optimized for developers. See our new experiences in action across WSL, PowerToys and your favorite developer tools so you can code with less toil and stay in your workflows. Walk away with repeatable scenarios that you can easily integrate in your daily development workflows, helping you scale your AI projects with confidence.
 
 ---
 
@@ -311,7 +314,15 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 ---
 
+[Running the container - the Herbert Stock example](https://github.com/microsoft/Build26-DEM346-whats-new-in-windows-subsystem-for-linux/blob/main/src/demos/herbert-stock-trader/Services/ContainerService.cs)
+
+- links to a session
+
+---
+
 ## What we learned shipping VS Code weekly (without breaking everything)
+
+> Shipping faster sounds great until test gaps, review bottlenecks, and triage backlog scale with it. The VS Code team hit all of that going from monthly to weekly releases, and agents made it work. This session breaks down the real patterns: agent sessions before meetings, conversations that become PRs instead of specs, automated triage across one of GitHub's largest repos, and harnesses that keep quality high when 100+ commits land daily. Concrete workflows you can take back to your team.
 
 ---
 
@@ -322,15 +333,11 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 ---
 
-### Changes across
-
-- Inner loop
-- AI-native engineering system
-- Planning and collaboration
+![Code survival](images/codesurvival.png)
 
 ---
 
-![Code survival](images/codesurvival.png)
+![AI increased the load](images/issues.png)
 
 ---
 
@@ -341,17 +348,37 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 ---
 
-### Developer inner loop
+### It forced changes across
 
-- Don't need to build whole product to test each PR
-- Github Mobile App to read PR and see the UI changes that an Agent has put into it
-- AI means you can test on Apple without having a Mac
-- They extracted lots of components to allow them to be tested independent of the product
-- Use the Agent to build prototypes
+- Inner loop
+- AI-native engineering system
+- Planning and collaboration
 
 ---
 
+### Developer inner loop
+
+- Restructure so you don't need to build whole product to test each PR
+- GitHub Mobile App to look at PR and see the UI changes that an Agent has put into it
+- AI means you can test on Apple without having a Mac
+- They extracted lots of components to allow them to be tested independent of the product
+- Use the Agent to build prototypes
+  - makes collaboration easier
+  - no longer write specification doc
+  - prototyping is now very cheap
+- Agent does checks for perf regressions
+  - a skill triggered on certain changes for example
+  - perf knowledge no longer centered on one person (common theme)
+
+---
+
+### Checking new models
+
 ![Optimize models](images/optimize.png)
+
+---
+
+- VSC-Bench to understand change of prompt on token consumption
 
 ---
 
@@ -368,3 +395,21 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 ---
 
+### Changes to collaboration model
+
+- No longer quarterly plan
+  - now even daily plan
+
+---
+
+![Pre-AI](images/preai.png)
+
+---
+
+![Now](images/now.png)
+
+---
+
+- When building becomes cheaper, judgment becomes scarce
+
+- Moved to faster alignment loops instead of heavier plans
