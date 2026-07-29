@@ -413,3 +413,7 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 - When building becomes cheaper, judgment becomes scarce
 
 - Moved to faster alignment loops instead of heavier plans
+
+---
+
+![Change how work works](images/changehowwork.png)
