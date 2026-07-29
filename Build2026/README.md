@@ -85,8 +85,13 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 - performance
 - automatically get async improvements
 - the frontend marks the methods
-- the state machine is written by the JIT 
+- the state machine is written by the JIT
   - shared with Native AOT
+
+---
+
+- [.NET 11 preview 4 - runtime libraries](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview4/runtime.md#runtime-libraries-are-now-compiled-with-runtime-async)
+- [.NET 11 preview 6 - runtime libraries](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview6/runtime.md#runtime-async-performance-improvements)
 
 ---
 
@@ -99,7 +104,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ---
 
-### Some JIT improvements
+### JIT improvements
 
 - bounds check work
 
@@ -159,9 +164,7 @@ The following commands are available:
 
 - [Public preview](https://devblogs.microsoft.com/commandline/wsl-container-is-now-available-for-public-preview/)
 
----
-
-[Failed if you have a . in your username](https://github.com/microsoft/WSL/issues/40944)
+- [Failed if you have a . in your username](https://github.com/microsoft/WSL/issues/40944)
 
 ---
 
@@ -206,7 +209,7 @@ wslc system session list
 
 ---
 
-[See this talk](WSL improvements and the new Containers CLI and APIs | DEM346)
+[See this talk: WSL improvements and the new Containers CLI and APIs | DEM346](https://www.youtube.com/watch?v=i0M13ZvL04M)
 
 ---
 
