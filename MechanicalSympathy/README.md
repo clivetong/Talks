@@ -61,6 +61,11 @@ Most developers reason about code in terms of "steps executed," not what the har
 
 ---
 
+![Thompson quote](images/better.png)
+
+---
+
+
 ## Some hardware features matter, sometimes
 
 - Branch prediction — predictable branches are nearly free, unpredictable ones stall the pipeline
@@ -108,7 +113,11 @@ Not "know assembly" — more profile realistically before you assume (and check 
 
 -[The Fuller Stack](https://2023.nordevcon.com/) from Kevlin Henney at Nor(Dev):Con
 
-![The blurb](images/FullerSTack.png)
+![Summary](images/FullerSTack.png)
+
+---
+
+[Quote from latest Pragmatic Engineer subscriber newsletter](https://newsletter.pragmaticengineer.com/p/inside-anthropic)
 
 ---
 
