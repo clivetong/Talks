@@ -15,6 +15,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 ## .NET 11 in depth: Runtime, libraries, and SDK for the AI era
 
 > Join Chet and Rich for a tour of how the .NET Runtime, libraries, and tooling are improving for .NET 11. You'll learn about investments in Native AOT, support for AI agents of all kinds, foundational runtime investments around memory safety and asyncronous operations, and a large number of new APIs that make working in .NET more enjoyable and productive.
+
 ---
 
 ### UX
@@ -35,7 +36,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ### Acquisition
 
-- CLI based SDK/Runtime installation and maintenance (dotnetup)
+- CLI based SDK/Runtime installation and maintenance
 - reducing the size of SDK install
 
 ---
@@ -51,8 +52,8 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 - Process API
   - avoid deadlocks
-  - allow easy connection using anonymous pipes
-- Unicode (Rune awareness, emojis)
+  - make common scenarios easy
+- Unicode ([Rune](https://github.com/dotnet/runtime/issues/23578) awareness, emojis)
 - System.Text.Json (JSONL)
 - Compression
 
@@ -82,12 +83,12 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
 
 ---
 
-- cleaner stack traces
-- performance
-- automatically get async improvements
 - the frontend marks the methods
 - the state machine is written by the JIT
   - shared with Native AOT
+- cleaner stack traces
+- performance
+- automatically get async improvements
 
 ---
 
@@ -102,6 +103,7 @@ I'll rush through these talks from the [YouTube playlist](https://www.youtube.co
   - .net 11 reduce use of unsafe, and apply to CoreLib
   - .net 12 Update rest of the product
 - C# 16 redesigns unsafe into a reviewable caller contract
+- [Explained here](https://devblogs.microsoft.com/dotnet/improving-csharp-memory-safety/)
 
 ---
 
@@ -316,8 +318,6 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 [Running the container - the Herbert Stock example](https://github.com/microsoft/Build26-DEM346-whats-new-in-windows-subsystem-for-linux/blob/main/src/demos/herbert-stock-trader/Services/ContainerService.cs)
 
-- links to a session
-
 ---
 
 ## What we learned shipping VS Code weekly (without breaking everything)
@@ -362,6 +362,9 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 - GitHub Mobile App to look at PR and see the UI changes that an Agent has put into it
 - AI means you can test on Apple without having a Mac
 - They extracted lots of components to allow them to be tested independent of the product
+
+---
+
 - Use the Agent to build prototypes
   - makes collaboration easier
   - no longer write specification doc
@@ -372,9 +375,7 @@ Best candidates for SPGO: Large, branch-filled C/C++ applications with tight inn
 
 ---
 
-### Checking new models
-
-![Optimize models](images/optimize.png)
+![Checking new models](images/optimize.png)
 
 ---
 
