@@ -145,5 +145,9 @@ foreach (var i in dict)
 
 ---
 
+![Copilot's explanation](images/copilot.png)
+
+---
+
 - [See remarks](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.icollection-1.remove?view=net-10.0#remarks)
 - [How it is safe for dictionary](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.remove?view=net-10.0#remarks)
